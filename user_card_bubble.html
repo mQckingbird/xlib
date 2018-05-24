@@ -1,0 +1,272 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/PixelatedOre/pen/rrdawA?depth=everything&order=popularity&page=5&q=user+profile&show_forks=false" />
+
+
+<style class="cp-pen-styles">	@import 'https://fonts.googleapis.com/css?family=Roboto';
+	@import 'https://fonts.googleapis.com/css?family=Lato';
+	body{
+	margin:0 0 0 0;	
+		}
+	.container{
+	position:absolute;
+	width:25vw;
+	height:20vw;
+	background:#00c1ff;
+	left:0;right:0;bottom:0; top:0;
+	margin:auto;
+	border-bottom-left-radius:0.8vw;
+	border-bottom-right-radius:0.8vw;
+	box-shadow:0px 4px 14px rgba(0,0,0,0.3);
+		}	
+	.container:before{
+	content:"";
+	left:0;
+	position:absolute;
+	top:-3vw;
+	width:25vw;	
+	height:3vw;
+	background:url(https://i.imgur.com/HSNhzvW.png);
+	background-size:99%;
+	background-position: 100% 100%;
+	background-repeat: repeat-x;
+	animation:wave 4s linear infinite ;
+	z-index:0;
+		}
+	.profileImg{
+	width:7vw;
+	height:7vw;
+	margin-left:-3.5vw;
+	margin-top:-2vw;
+	z-index:99;
+	background:url(https://s-media-cache-ak0.pinimg.com/236x/9f/e7/1a/9fe71aa51598347fec20431847ab86a7.jpg);
+	background-position:50% 20%;
+	background-size:90%;
+	border-radius:50%;	
+	position:Relative;
+	box-shadow:0px 0px 0px 0.2vw #33bdff;
+	float:left;
+	z-index:999;
+		}	
+	.bubbler{
+		position:absolute;
+	width:25vw;
+	height:20vw;
+	left:0;right:0;bottom:0; top:0;
+	margin:auto;
+	z-index:0;
+		}	
+	.nameContainer{
+	width:20vw;
+	height:5vw;
+	float:right;	
+	margin-top:0.5vw;
+		}		
+	.nameContainer .name{
+	font-family: 'Roboto', sans-serif;
+	color:#FFF;
+	text-transform:uppercase;
+	font-size:1.2vw;
+	margin:0.2vw 0 0 0;
+		}	
+	.nameContainer .work{
+	font-family: 'Roboto', sans-serif;
+	color:#FFF;
+	text-transform:uppercase;
+	font-size:0.6vw;
+	margin-top:0.2vw;
+		}
+	.info{
+	margin-left:2vw;
+	margin-top:7vw;
+	width:18vw;	
+	font-size:0.8vw;
+	font-family: 'Lato', sans-serif;
+	color:#FFF;
+		}	
+	.social{
+	height:2vw;
+	margin-left:-0.8vw;
+	width:15vw;
+		}
+		.social .icon{
+		width:1.2vw;
+		height:1.2vw;
+		margin-left:0.8vw;
+		margin-top:0.4vw;
+		fill:#FFF;	
+		cursor:pointer;	
+			}		
+		.social .youtube:hover {
+		fill:#d71e17;
+			}	
+		.social .facebook:hover{
+			fill:#3B5998;
+			}	
+		.social .twitter:hover{
+			fill:#4099FF;
+			}	
+		.social .earth:hover{
+			fill:#397628;
+			}	
+	@keyframes wave {
+		from {
+			background-position:0% 100%;
+		}
+		to {
+			background-position: -25vw 100%;
+		}
+	}
+		@keyframes bubble1 {
+		to {
+			transform:scale(0,0);
+			margin-top:-10vw;
+			background:#FFF;
+		}
+	}
+			@keyframes bubble2 {
+		to {
+			transform:scale(0,0);
+			margin-top:-12vw;
+			background:#FFF;
+		}
+	}
+			@keyframes bubble3 {
+		to {
+			transform:scale(0,0);
+			margin-top:-8vw;
+			background:#FFF;
+		}
+	}
+	.ss{
+	position:Absolute	
+		}
+	.bubble{
+		background:#33bdff;
+		position:absolute;
+		top:0;
+		z-index:0;
+		border-radius:50%;
+		}	
+		.projects{
+			width:25vw;
+			background:red;
+			position:Absolute;
+			bottom:0;
+			height:6vw;
+			border-bottom-left-radius:0.8vw;
+			border-bottom-right-radius:0.8vw;
+			overflow:hidden;
+			}
+		.arrow{
+		width:3.125vw;
+		height:6vw;
+		position:Absolute;
+		background:blue;	
+			}	
+		.arrowRight{
+		right:0;	
+		border-bottom-right-radius:0.8vw;
+					    background: -webkit-linear-gradient(right,#33bdff, transparent); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right,#33bdff, transparent); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right,#33bdff, transparent); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(right,#33bdff, transparent); /* Standard syntax */
+			}	
+		.arrowLeft{
+			border-bottom-left-radius:0.8vw;
+			    background: -webkit-linear-gradient(left,#33bdff, transparent); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left,#33bdff, transparent); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left,#33bdff, transparent); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(left,#33bdff, transparent); /* Standard syntax */
+			}	
+		.ProImage{
+			width:6.25vw;
+			height:6vw;
+			float:left;
+			}
+			div.ProImage:nth-of-type(3){
+			background:url(http://attackofthefanboy.com/wp-content/uploads/2016/01/uncharted-4-nathan-drake.jpg);	
+						background-size:cover;
+				}
+						div.ProImage:nth-of-type(4){
+			background:url(http://media1.gameinformer.com/filestorage/CommunityServer.Components.SiteFiles/imagefeed/featured/sony2016/naughtydog/uncharted4/review/unchartedreinerreivew.jpg);	
+						background-size:cover;
+				}	
+						div.ProImage:nth-of-type(5){
+			background:url(http://www.unchartedthegame.com/wp/wp-content/uploads/2016/04/U4-MAD-volcano.jpg);
+						background-size:cover;	
+				}	
+						div.ProImage:nth-of-type(6){
+			background:url(http://icdn2.digitaltrends.com/image/uncharted-4-0018-800x450-c.jpg);	
+						background-size:cover;
+				}		
+				</style></head><body>
+<svg id="ss">
+<defs>
+<symbol id="icon-youtube" viewBox="0 0 32 32">
+<title>youtube</title>
+<path class="path1" d="M31.681 9.6c0 0-0.313-2.206-1.275-3.175-1.219-1.275-2.581-1.281-3.206-1.356-4.475-0.325-11.194-0.325-11.194-0.325h-0.012c0 0-6.719 0-11.194 0.325-0.625 0.075-1.987 0.081-3.206 1.356-0.963 0.969-1.269 3.175-1.269 3.175s-0.319 2.588-0.319 5.181v2.425c0 2.587 0.319 5.181 0.319 5.181s0.313 2.206 1.269 3.175c1.219 1.275 2.819 1.231 3.531 1.369 2.563 0.244 10.881 0.319 10.881 0.319s6.725-0.012 11.2-0.331c0.625-0.075 1.988-0.081 3.206-1.356 0.962-0.969 1.275-3.175 1.275-3.175s0.319-2.587 0.319-5.181v-2.425c-0.006-2.588-0.325-5.181-0.325-5.181zM12.694 20.15v-8.994l8.644 4.513-8.644 4.481z"></path>
+</symbol>
+<symbol id="icon-facebook2" viewBox="0 0 32 32">
+<title>facebook2</title>
+<path class="path1" d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h13v-14h-4v-4h4v-2c0-3.306 2.694-6 6-6h4v4h-4c-1.1 0-2 0.9-2 2v2h6l-1 4h-5v14h9c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3z"></path>
+</symbol>
+<symbol id="icon-twitter" viewBox="0 0 32 32">
+<title>twitter</title>
+<path class="path1" d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z"></path>
+</symbol>
+<symbol id="icon-earth" viewBox="0 0 32 32">
+<title>earth</title>
+<path class="path1" d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 30c-1.967 0-3.84-0.407-5.538-1.139l7.286-8.197c0.163-0.183 0.253-0.419 0.253-0.664v-3c0-0.552-0.448-1-1-1-3.531 0-7.256-3.671-7.293-3.707-0.188-0.188-0.442-0.293-0.707-0.293h-4c-0.552 0-1 0.448-1 1v6c0 0.379 0.214 0.725 0.553 0.894l3.447 1.724v5.871c-3.627-2.53-6-6.732-6-11.489 0-2.147 0.484-4.181 1.348-6h3.652c0.265 0 0.52-0.105 0.707-0.293l4-4c0.188-0.188 0.293-0.442 0.293-0.707v-2.419c1.268-0.377 2.61-0.581 4-0.581 2.2 0 4.281 0.508 6.134 1.412-0.13 0.109-0.256 0.224-0.376 0.345-1.133 1.133-1.757 2.64-1.757 4.243s0.624 3.109 1.757 4.243c1.139 1.139 2.663 1.758 4.239 1.758 0.099 0 0.198-0.002 0.297-0.007 0.432 1.619 1.211 5.833-0.263 11.635-0.014 0.055-0.022 0.109-0.026 0.163-2.541 2.596-6.084 4.208-10.004 4.208z"></path>
+</symbol>
+</defs>
+</svg>
+<body>
+	<div class="bubbler"></div>
+	<div class="container">
+        <div class="profileImg"></div>
+            <div class="nameContainer">
+            <h2 class="name">Nathan Drake</h2>
+            <p class="work">Explorer</p>
+            <div class="social">
+				<svg class="icon youtube"><use xlink:href="#icon-youtube"></use></svg>
+                <svg class="icon facebook"><use xlink:href="#icon-facebook2"></use></svg>
+                <svg class="icon twitter"><use xlink:href="#icon-twitter"></use></svg>
+                <svg class="icon earth"><use xlink:href="#icon-earth"></use></svg>
+            </div>
+        </div>
+        <p class="info">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <div class="projects">
+        <div class="arrow arrowLeft"></div>
+        <div class="arrow arrowRight"></div>
+        <div class="ProImage"></div>
+        <div class="ProImage"></div>
+        <div class="ProImage"></div>
+        <div class="ProImage"></div>
+        </div>
+    </div>
+</body>
+
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >var profile = document.getElementsByClassName('container')[0];
+setInterval(function(){
+	var rand = Math.floor((Math.random() * 21) + 1);
+	var size = (Math.random() * 4) + 0;
+	var randAnim = Math.floor((Math.random() * 3) + 1);
+	var length = Math.floor((Math.random() * 5) + 3);
+	var bubble = document.createElement('div');
+	bubble.offsetLeft = profile.offsetLeft + rand;
+	bubble.className = "bubble";
+	bubble.id = "bubble";
+			bubble.style.width = size + "vw";
+	bubble.style.height = size + "vw";
+	bubble.style.marginLeft = rand + "vw";
+	bubble.style.animation="bubble" + randAnim + " " + length + "s ease forwards";
+	document.getElementsByClassName('bubbler')[0].appendChild(bubble);
+
+	},800);
+//# sourceURL=pen.js
+</script>
+</body></html>

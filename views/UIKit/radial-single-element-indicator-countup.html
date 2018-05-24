@@ -1,0 +1,192 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/keithclark/pen/aEbEoo" />
+
+
+<style class="cp-pen-styles">.pie {
+  position: relative;
+  display: inline-block;
+  background-image: conic-gradient(
+    rgba(0,0,0,0) calc(3.6deg * var(--percent)),
+    rgba(0,0,0,1) calc(3.6deg * var(--percent))
+  );
+  background-blend-mode: overlay;
+  background-position: 50% 50%;
+  background-size: 150%; /* oversize bg image to prevent "underdraw" */
+  width: 3.75em;
+  height: 3.75em;
+  border-radius: 50%;
+}
+
+/* show the percentage (thanks to Ana Tudor for the counter() trick) */
+.pie--value::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  counter-reset: percent var(--percent);
+  content: counter(percent) "%";
+  color: #fff;
+  text-shadow: 0 0 1px #000;
+}
+
+.pie--disc::before {
+  content: '';
+  position: absolute;
+  top: .5em;
+  left: .5em;
+  right: .5em;
+  bottom: .5em;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.pie--disc::after {
+  color: #000;
+  text-shadow: none;
+}
+
+
+/* demo styles
+----------------------------------------------------- */
+
+body::before {
+  color: red;
+  font-size: 150%;
+  content: "This browser doesn't support conical graidents yet";
+}
+
+@supports (background: conic-gradient(red, blue)) {
+  body::before {
+    content: '';
+  }
+}
+
+body {
+  font: 90%/1.5 Arial;
+  background: #fcf3f0;
+  text-align: center;
+}
+
+.pie {
+  border: .15em solid #fff;
+  box-shadow: 0 .075em .2em .05em rgba(0,0,0,.25);
+  margin: .75rem;
+}
+.pie:nth-child(1) {
+  background-color: #d44;
+}
+.pie:nth-child(2) {
+  background-color: #fc3;
+}
+.pie:nth-child(3) {
+  background-color: #ac0;
+}
+.pie:nth-child(4) {
+  background-color: #0ac;
+}
+.pie:nth-child(5) {
+  background-color: #d6b;
+}
+
+.big {
+  font-size: 200%;
+}
+.med {
+  font-size: 150%;
+}
+.sml {
+  font-size: 100%;
+}
+</style></head><body>
+<h1>Single element Radial Progress Indicator</h1>
+<h2>Normal</h2>
+<div class="big">
+  <div class="pie pie--value" style="--percent:35;"></div>
+  <div class="pie pie--value" style="--percent:15;"></div>
+  <div class="pie pie--value" style="--percent:65;"></div>
+  <div class="pie pie--value" style="--percent:85;"></div>
+  <div class="pie" style="--percent:40;"></div>
+</div>
+<div class="med">
+  <div class="pie pie--value" style="--percent:35;"></div>
+  <div class="pie pie--value" style="--percent:15;"></div>
+  <div class="pie pie--value" style="--percent:65;"></div>
+  <div class="pie pie--value" style="--percent:85;"></div>
+  <div class="pie" style="--percent:40;"></div>
+</div>
+<div class="sml">
+  <div class="pie pie--value" style="--percent:35;"></div>
+  <div class="pie pie--value" style="--percent:15;"></div>
+  <div class="pie pie--value" style="--percent:65;"></div>
+  <div class="pie pie--value" style="--percent:85;"></div>
+  <div class="pie" style="--percent:40;"></div>
+</div>
+
+<h2>Disc variant</h2>
+<div class="big">
+  <div class="pie pie--value pie--disc" style="--percent:35;"></div>
+  <div class="pie pie--value pie--disc" style="--percent:15;"></div>
+  <div class="pie pie--value pie--disc" style="--percent:65;"></div>
+  <div class="pie pie--value pie--disc" style="--percent:85;"></div>
+  <div class="pie pie--disc" style="--percent:40;"></div>
+</div>
+<div class="med">
+  <div class="pie pie--value pie--disc" style="--percent:35;"></div>
+  <div class="pie pie--value pie--disc" style="--percent:15;"></div>
+  <div class="pie pie--value pie--disc" style="--percent:65;"></div>
+  <div class="pie pie--value pie--disc" style="--percent:85;"></div>
+  <div class="pie pie--disc" style="--percent:40;"></div>
+</div>
+<div class="sml">
+  <div class="pie pie--value pie--disc" style="--percent:35;"></div>
+  <div class="pie pie--value pie--disc" style="--percent:15;"></div>
+  <div class="pie pie--value pie--disc" style="--percent:65;"></div>
+  <div class="pie pie--value pie--disc" style="--percent:85;"></div>
+  <div class="pie pie--disc" style="--percent:40;"></div>
+</div>
+
+<h2>Dynamically updated (CSS custom property)</h2>
+<div class="big">
+ <div class="js pie pie--value"></div>
+ <div class="js pie pie--value pie--disc"></div>
+ <div class="js pie"></div>
+ <div class="js pie pie--disc"></div>
+</div>
+<div class="med">
+ <div class="js pie pie--value"></div>
+ <div class="js pie pie--value pie--disc"></div>
+ <div class="js pie"></div>
+ <div class="js pie pie--disc"></div>
+</div>
+<div class="sml">
+ <div class="js pie pie--value"></div>
+ <div class="js pie pie--value pie--disc"></div>
+ <div class="js pie"></div>
+ <div class="js pie pie--disc"></div>
+</div>
+
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >/* Example code for updating a chart with JS */
+
+function loop(t) {
+  requestAnimationFrame(loop);
+  updateCharts(Math.floor(t / 16) % 100);
+}
+
+function updateCharts(value) {
+  charts.forEach(chart => setChartValue(chart, value));
+}
+
+function setChartValue(chart, value) {
+  chart.style.setProperty('--percent', value);
+}
+
+let charts = document.querySelectorAll('.js');
+
+loop();
+
+
+//# sourceURL=pen.js
+</script>
+</body></html>

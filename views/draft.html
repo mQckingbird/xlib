@@ -1,0 +1,4422 @@
+<div id="identcampaign" style="display:none;">
+</div>
+
+<style class="publish">
+a:hover, a:focus {
+  text-decoration: none;
+  color: #fff;
+}
+.fancy-checkboxlabel{
+  margin-top:5px;
+  font-weight: 300;
+  font-size:18px;
+  color:#0f609c;
+  float:left;
+  }
+
+   form {
+    
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+form h1 {
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  font-family: 'Ubuntu';
+  font-weight: 100;
+  text-align: center;
+  color: #0288D1;
+  border-bottom: 1px solid #ccc;
+}
+form .row {
+  margin-bottom: 25px;
+  position: relative;
+  overflow: hidden;
+}
+form input[type="text"], form input[type="password"], form .fancy-textarea {
+  width: 100%;
+  height: 40px;
+  padding: 10px 10px 10px 90px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+}
+form .fancy-textarea {
+  height: auto;
+  min-height: 200px;
+  padding: 50px 10px 10px 10px;
+  color: #fff !important;
+}
+form input[type="text"] + label, form input[type="password"] + label, form .fancy-textarea + label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+  font-weight: bold;
+  width: 80px;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: white;
+  background: #0288D1;
+  border-radius: 3px 0 0 3px;
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  -webkit-transform: translateZ(0) translateX(0);
+          transform: translateZ(0) translateX(0);
+}
+form .fancy-textarea + label {
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+}
+form input[type="text"]:focus, form input[type="password"]:focus {
+  padding-left: 10px;
+}
+form .fancy-textarea:focus {
+  padding-top: 10px;
+}
+form input[type="text"]:focus + label, form input[type="password"]:focus + label {
+  -webkit-transform: translateZ(0) translateX(-100%);
+          transform: translateZ(0) translateX(-100%);
+}
+form .fancy-textarea:focus + label {
+  -webkit-transform: translateZ(0) translateY(-100%);
+          transform: translateZ(0) translateY(-100%);
+
+}
+/*
+form input[type="checkbox"], form input[type="radio"]
+*/
+form input[type="checkbox"] {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+}
+/* form input[type="radio"] + label {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -9999px;
+  background: #ccc;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  cursor: pointer;
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+}
+form input[type="radio"] + label:before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 10px;
+  width: 10px;
+  top: 50%;
+  left: 50%;
+  background: white;
+  border-radius: 100%;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9) 0.1s;
+  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9) 0.1s;
+  -webkit-transform: translateZ(0) translate(-50%, -50%) scale(0);
+          transform: translateZ(0) translate(-50%, -50%) scale(0);
+}
+form input[type="radio"]:checked + label {
+  background: #0288D1;
+}
+form input[type="radio"]:checked + label:before {
+  -webkit-transform: translateZ(0) translate(-50%, -50%) scale(1);
+          transform: translateZ(0) translate(-50%, -50%) scale(1);
+} */
+form input[type="checkbox"] + label {
+  float: right;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -9999px;
+  background: #ccc;
+  width: 60px;
+  height: 30px;
+  border-radius: 100px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+}
+form input[type="checkbox"] + label:before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #0288D1;
+  border-radius: 100px;
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9) 0.1s;
+  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9) 0.1s;
+  -webkit-transform: translateZ(0) scale(0);
+          transform: translateZ(0) scale(0);
+}
+form input[type="checkbox"] + label:after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: block;
+  height: 26px;
+  width: 26px;
+  background: white;
+  border-radius: 100%;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  -webkit-transform: translateZ(0) translateX(0);
+          transform: translateZ(0) translateX(0);
+}
+form input[type="checkbox"]:checked + label {
+  background: #0288D1;
+}
+form input[type="checkbox"]:checked + label:after {
+  left: calc(100% - 28px);
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+form button {
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: white;
+  border: none;
+  background: #0288D1;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  -webkit-transform: translateZ(0) translateX(0);
+          transform: translateZ(0) translateX(0);
+  z-index: 2;
+}
+form button:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #01579B;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  -webkit-transform: translateZ(0) scale(0);
+          transform: translateZ(0) scale(0);
+  z-index: -1;
+}
+form button:hover:before, form button:focus:before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+}
+.range {
+  position: relative;
+  margin-top: 50px;
+}
+.range input[type=range] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0;
+  width: 100%;
+  height: 22px;
+  cursor: pointer;
+  display: block;
+}
+.range input[type=range]:focus {
+  outline: none;
+}
+.range input[type=range][disabled] {
+  opacity: .3;
+  cursor: default;
+}
+.range .rangeslider {
+  position: relative;
+  height: 22px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.range .rangeslider:before {
+  box-sizing: border-box;
+  width: 100%;
+  height: 4px;
+  background: #e6e6e6;
+  border-radius: 100px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.range input::-webkit-slider-runnable-track {
+  box-sizing: border-box;
+  width: 100%;
+  height: 4px;
+  background: #e6e6e6;
+  border-radius: 100px;
+  margin: 11px 0;
+}
+.range input::-moz-range-track {
+  box-sizing: border-box;
+  width: 100%;
+  height: 4px;
+  background: #e6e6e6;
+  border-radius: 100px;
+  margin: 11px 0;
+}
+.range input::-ms-track {
+  box-sizing: border-box;
+  width: 100%;
+  height: 4px;
+  background: #e6e6e6;
+  border-radius: 100px;
+  color: transparent;
+  padding: 11px 0;
+  background: transparent;
+  border-color: transparent;
+}
+.range input::-ms-fill-lower,
+.range input::-ms-fill-upper {
+  box-sizing: border-box;
+  width: 100%;
+  height: 4px;
+  background: #e6e6e6;
+  border-radius: 100px;
+}
+.range input::-ms-fill-lower {
+  background: #60cd18;
+}
+.range .rangeslider-fill-lower {
+  background-color: #60cd18;
+  border-radius: 100px;
+  position: absolute;
+  top: 50%;
+  width: 30% !important;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 4px;
+  will-change: width;
+}
+.range input::-webkit-slider-thumb {
+  box-sizing: border-box;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border: 6px solid #fff;
+  height: 24px;
+  width: 24px;
+  border-radius: 100px;
+  background: #333940;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-top: 2px;
+}
+.range input::-moz-range-thumb {
+  box-sizing: border-box;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border: 6px solid #fff;
+  height: 24px;
+  width: 24px;
+  border-radius: 100px;
+  background: #333940;
+  cursor: pointer;
+}
+.range input::-ms-thumb {
+  box-sizing: border-box;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border: 6px solid #fff;
+  height: 24px;
+  width: 24px;
+  border-radius: 100px;
+  background: #333940;
+  cursor: pointer;
+}
+.range .rangeslider-thumb {
+  box-sizing: border-box;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border: 6px solid #fff;
+  height: 24px;
+  width: 24px;
+  border-radius: 100px;
+  background: #333940;
+  cursor: pointer;
+  position: absolute;
+  -ms-touch-action: pan-x;
+      touch-action: pan-x;
+  top: 50%;
+  left: 30% !important;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  will-change: left;
+}
+.range .range-output {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.range .range-output .output {
+  display: block;
+  position: absolute;
+  height: 60px;
+  line-height: 60px;
+  min-width: 32px;
+  padding: 0 20px;
+  top: -26px;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+  background: #383c42;
+  color: #fff;
+  border-radius: 100px;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+}
+.range .range-output .output:before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  border: 10px solid #383c42;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #333;
+}
+
+form {
+  max-width: 100%;
+  min-width: 320px;
+}
+
+h2 {
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+label[for=precio] {
+position: absolute;
+top: unset;
+left: 50%;
+margin-left: -175px;
+margin-top: -29px;
+height: 49px;
+padding-top: 6px;
+width: 100%;
+padding-left: 13px;
+-webkit-transform: skew(-62deg);
+overflow: hidden;
+padding-bottom: 10px;
+}
+label[for=precio]:after {
+content: "";
+position: absolute;
+bottom: 11px;
+left: 69px;
+height: 9px;
+width: 278px;
+-webkit-transform: skew(62deg);
+}
+#precio {
+-webkit-appearance: none;
+background-color: transparent;
+width: 300px;
+height: 38px;
+  padding-top:10px;
+  overflow:hidden;
+margin: 0;
+margin-left: -20px;
+transform-style: preserve-3d;
+perspective: 300;
+transform-origin: 50% 50% 300px;
+perspective-origin: 50% -121%;
+transform: skew(62deg);
+}
+#precio:focus{
+  outline:none;
+}
+#precio::-webkit-slider-thumb {
+  position:relative;
+     -webkit-appearance: none;
+    cursor:pointer;
+    background-color: transparent;
+    width: 30px;
+    height: 18px;
+    box-shadow: 1px 5px 10px -1px rgba(0, 0, 0,0.2),
+    -25px 0 0 10px rgba(90, 184, 6, 0.5),
+    -75px 0 0 10px rgba(90, 184, 6, 0.5),
+    -125px 0 0 10px rgba(90, 184, 6, 0.5),
+    -175px 0 0 10px rgba(90, 184, 6, 0.5),
+    -225px 0 0 10px rgba(90, 184, 6, 0.5),
+    -275px 0 0 10px rgba(90, 184, 6, 0.5),
+    -325px 0 0 10px rgba(90, 184, 6, 0.5);
+  z-index:2;
+}
+#precio::-webkit-slider-thumb:after {
+content: "";
+position: absolute;
+z-index: 1;
+left: -285px;
+top: -28px;
+width: 300px;
+height: 140px;
+background: #9FE472;
+transform: rotateX(90deg);
+transform-origin: 0 0px 0;
+transform: rotateX(90deg) translateY(-140px) translateZ(-18px);
+}
+#precio::-webkit-slider-thumb:before {
+content: "< >";
+font-family: 'Concert One', cursive;
+position: absolute;
+background: #eaebe5;
+background: -moz-linear-gradient(top, #eaebe5 0%, #dcdedd 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eaebe5), color-stop(100%,#dcdedd));
+background: -webkit-linear-gradient(top, #eaebe5 0%,#dcdedd 100%);
+background: -o-linear-gradient(top, #eaebe5 0%,#dcdedd 100%);
+background: -ms-linear-gradient(top, #eaebe5 0%,#dcdedd 100%);
+background: linear-gradient(to bottom, #eaebe5 0%,#dcdedd 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaebe5', endColorstr='#dcdedd',GradientType=0 );
+top: -2px;
+left: 0px;
+border-radius: 2px;
+color: #5a5a5a;
+text-shadow: 0 1px 0 white;
+height: 22px;
+width: 32px;
+border-top: 1px solid white;
+border-left: 1px solid white;
+box-sizing: border-box;
+text-align: center;
+line-height: 19px;
+font-size: 17px;
+}
+#precio::-webkit-slider-runnable-track:before {
+content: "";
+position: absolute;
+height: 38px;
+width: 283px;
+background: #e8e8e8;
+background: -moz-linear-gradient(top, #dfdfdf 0%, #d8d8d8 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dfdfdf), color-stop(100%,#d8d8d8));
+background: -webkit-linear-gradient(top, #dfdfdf 0%,#d8d8d8 100%);
+background: -o-linear-gradient(top, #dfdfdf 0%,#d8d8d8 100%);
+background: -ms-linear-gradient(top, #dfdfdf 0%,#d8d8d8 100%);
+background: linear-gradient(to bottom, #dfdfdf 0%,#d8d8d8 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfdfdf', endColorstr='#d8d8d8',GradientType=0 );
+bottom: 0;
+left: 0;
+}
+#precio::-webkit-slider-runnable-track:after {
+content: "";
+position: absolute;
+height: 10px;
+width: 270px;
+background: rgb(247, 247, 247);
+top: 0;
+right: 26px;
+transform: skew(62deg);
+}
+#precio:before {
+content: "";
+position: absolute;
+background: rgb(190, 190, 190);
+box-shadow:0 1px 0 rgb(235, 235, 235);
+width: 283px;
+left: 0;
+height: 1px;
+top: 29px;
+z-index: 1;
+}
+#precio:after {
+content: "";
+position: absolute;
+background: rgb(190, 190, 190);
+width: 7px;
+left: 3px;
+border-radius: 50%;
+height: 6px;
+top: 26px;
+z-index: 1;
+box-shadow:30px 0 0 rgb(190, 190, 190),
+60px 0 0 rgb(190, 190, 190),
+90px 0 0 rgb(190, 190, 190),
+120px 0 0 rgb(190, 190, 190),
+150px 0 0 rgb(190, 190, 190),
+180px 0 0 rgb(190, 190, 190),
+210px 0 0 rgb(190, 190, 190),
+240px 0 0 rgb(190, 190, 190),
+270px 0 0 rgb(190, 190, 190),
+60px 1px 0 rgb(235, 235, 235),
+90px 1px 0 rgb(235, 235, 235),
+120px 1px 0 rgb(255, 255, 255),
+150px 1px 0 rgb(235, 235, 235),
+180px 1px 0 rgb(235, 235, 235),
+210px 1px 0 rgb(235, 235, 235),
+240px 1px 0 rgb(235, 235, 235),
+270px 1px 0 rgb(235, 235, 235);
+}
+
+.budget {
+position: absolute;
+top: 50%;
+left:0;
+margin-top: -100px;
+text-align: center;
+width: 100%;
+font-size: 2em;
+font-family: 'Advent Pro', sans-serif;
+color: rgb(58, 58, 58);
+}
+.outputp {
+position: absolute;
+left: 0;
+margin-bottom: -100px;
+text-align: center;
+width: 100%;
+font-size: 2em;
+font-family: 'Advent Pro', sans-serif;
+color: rgba(132, 206, 66, 1);
+}
+
+#save {
+  position:fixed;
+  bottom: 20px;
+  left: 15px;
+  padding: 20px 50px;
+  border-radius: 30px;
+  border: 0;
+  background: #51C1F0;
+  color: white;
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
+  cursor: pointer;
+  box-shadow: 0 30px 30px -20px rgba(0, 0, 0, 0.4);
+}
+#save:hover, #save:focus {
+  background: #22b0ec;
+  outline: 0;
+  box-shadow: 0 30px 30px -25px black;
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+}
+#save:active {
+  background: #13a4e1;
+  box-shadow: 0 30px 30px -20px rgba(0, 0, 0, 0.4);
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+}
+#save:disabled {
+  cursor: auto;
+}
+#save:disabled:hover {
+  box-shadow: 0 30px 30px -20px rgba(0, 0, 0, 0.4);
+}
+#save.done {
+  background: #7DCE94;
+  -webkit-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+#save .spinner {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid transparent;
+  -webkit-animation: loading 0.5s infinite linear;
+          animation: loading 0.5s infinite linear;
+}
+@-webkit-keyframes loading {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes shake {
+  10%, 90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+  }
+}
+@keyframes shake {
+  10%, 90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+  }
+}
+
+
+
+</style>
+    <div class='cerrar-boton-container'>
+      <div class='cerrar-boton'></div>
+    </div>
+
+<form action="#" oninput="output.value = Math.round(range.valueAsNumber / 1000)">
+  <h1>Campaña literaria</h1>
+   <div class="row">
+    <input type="checkbox" name="fancy-checkbox" id="fancy-checkbox"/>
+    <label for="fancy-checkbox" id="publicado" onclick="publicar()">Publicado</label>
+    <div class="fancy-checkboxlabel">Campaña publicada</div>
+  </div>
+  <div id="msgpublish"></div>
+
+
+  <div class="row">
+    <input data-tw-bind="title" type="text" name="fancy-text" id="fancy-text" class="titulo"/>
+
+    <label for="fancy-text">TÍTULO</label>
+  </div>
+  <div class="row">
+    <textarea data-tw-bind="descripcion" name="fancy-textarea" contenteditable="true" class="descripcion fancy-textarea" style="color: #4f4f4f !important;"></textarea>
+    <label for="fancy-textarea">SINOPSIS</label>
+  </div>
+  <div class="row">
+    <div data-tw-bind="chapter" name="fancy-textarea" contenteditable="true" class="fancy-textarea editablee"></div>
+    <label for="fancy-textarea">#1 CAPÍTULO</label>
+  </div>
+
+  <h1>Financiación</h1>
+  <div class="row">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+
+
+    <h2>
+      ¿Cuántos libros son tu meta?
+    </h2>
+    <div class="range">
+      <input data-tw-bind="preventas" name="range" type="range" min="30" max="30">
+
+      <div class="range-output">
+        <output class="output" name="output" for="range">
+          30
+        </output>
+      </div>
+    </div>
+
+<h1>Límite de tiempo</h1>
+   <h2>
+      Toca para configurar el día, mes y año que quieres que finalice la recaudación.
+    </h2>
+<style class="datepick">
+
+a {
+  text-decoration: none;
+}
+.datebox  {    
+  position: relative;
+
+  width: 100%;
+  margin: 0 auto;
+      }
+.dp_choice::selection, .dp_choice ol::selection, .dp_choice ol li::selection, .dp_choice span::selection {
+    background-color: transparent;
+}
+
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.dp_choice {
+    margin: 5px 0 15px;
+}
+
+.dp_years, .dp_months {
+    box-shadow: 0 0 1px rgba(0,0,0,.5);
+}
+
+.dp_choice li {
+    float: left;
+    text-align: center;
+    font-size: 20px;
+    background-color: #f7f7f7;
+    padding: 15px 0;
+    color: #555;
+    display: block;
+    cursor: pointer;
+}
+
+.dp_years li, .dp_months li {
+    width: 33.333333%;
+}
+
+.dp_years li:nth-child(2n+2), .dp_months li:nth-child(2n+2) {
+    background-color: #dedede;
+}
+
+.dp_yearNav {
+    display: block;
+    background-color: #666;
+    color: white;
+    text-align: center;
+    height: 15px;
+    padding: 10px 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dp_days {
+    position: relative;
+    zoom: 1;
+    vertical-align: top;
+    text-align: left;
+}
+
+.dp_days table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.dp_days th, .dp_tag:hover {
+    background-color: #666;
+    color: #fff;
+}
+
+.dp_days th, .dp_days td {
+    border: 1px solid #dedede;
+    padding: 10px;
+    font-weight: normal;
+}
+
+.dp_days td {
+    cursor: pointer;
+}
+
+td.dp_current, li.dp_current {
+    background: #333;
+    color: #fff;
+}
+
+.dp_days th {
+    pointer-events: none;
+}
+
+.dp_empty_day {
+    background-color: #dedede;
+    pointer-events: none;
+}
+
+.dp_years li:hover, .dp_months li:hover, .dp_days td:hover {
+    background-color: #999;
+    color: #fff;
+}
+
+.dp_tagBox {
+    width: 100%;
+    max-height: 80px !important;
+    border: 1px solid #CACACA;
+    color: #444;
+    float: left;
+    font-size: 1.4em;
+    padding: 2%;
+    cursor: text;
+    margin-bottom: 5px;
+}
+
+.dp_tagBox input {
+    border: none !important;
+    height: inherit !important;
+    width: inherit;
+    background-color: transparent !important;
+    font-size: .8em;
+    height: inherit !important;
+    border: none;
+    padding: 0;
+}
+
+.dp_tagBox input:focus {
+    outline: none;
+}
+
+.dp_tag {
+    margin-right: 2%;
+    padding: 1% 2%;
+    float: left;
+    cursor: pointer;
+    background: #333;
+    color: #fff;
+    font-size: 1.1em;
+}
+ .datebox input[type=date]{
+
+
+}
+
+.avatar-wrapper {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  margin: 50px auto;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 1px 1px 15px -5px black;
+  transition: all .3s ease;
+}
+.avatar-wrapper:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.avatar-wrapper:hover .profile-pic {
+  opacity: .5;
+}
+.avatar-wrapper .profile-pic {
+  height: 100%;
+  width: 100%;
+  transition: all .3s ease;
+}
+.avatar-wrapper .profile-pic:after {
+  font-family: FontAwesome;
+  content: "\f007";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-size: 190px;
+  background: #ecf0f1;
+  color: #34495e;
+  text-align: center;
+}
+.avatar-wrapper .upload-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.avatar-wrapper .upload-button .fa-arrow-circle-up {
+  position: absolute;
+  font-size: 190px;
+  padding:20px;
+  top: -17px;
+  left: 0;
+  text-align: center;
+  opacity: 0;
+  transition: all .3s ease;
+  color: #34495e;
+}
+.avatar-wrapper .upload-button:hover .fa-arrow-circle-up {
+  opacity: .9;
+}
+
+/* Animation property */
+.buttonshake {
+  animation: wiggle 2s linear infinite;
+}
+
+/* Keyframes */
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+.buttonshake {
+
+  
+  height: 4em;
+  width: 7em;
+  
+  background: #444;
+  background: linear-gradient(top, #555, #333);
+  border: none;
+  border-top: 3px solid orange;
+  border-radius: 0 0 0.2em 0.2em;
+  color: #fff;
+  font-family: Helvetica, Arial, Sans-serif;
+  font-size: 1em;
+  transform-origin: 50% 5em;
+}
+.tag-ctn{
+    position: relative;
+    height: 28px;
+    margin:0 auto;
+    padding: 0;
+    margin-bottom: 0px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555555;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    background-color: transparent;
+    border: 0
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    cursor: default;
+    display: block;
+    width: 90% !important;
+}
+.tag-ctn-invalid{
+    border: 1px solid #CC0000;
+}
+.tag-ctn-readonly{
+    cursor: pointer;
+}
+.tag-ctn-disabled{
+    cursor: not-allowed;
+    background-color: #eeeeee;
+}
+.tag-ctn-bootstrap-focus,
+.tag-ctn-bootstrap-focus .tag-res-ctn{
+    /* IE6-9 */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.tag-ctn input{
+    border: 0;
+    box-shadow: none;
+    -webkit-transition: none;
+    outline: none;
+    display: block;
+    padding: 4px 6px;
+    line-height: normal;
+    overflow: hidden;
+    height: auto;
+    border-radius: 0 !important;
+    float: left;
+    margin: 0;
+    background-color: rgba(255,255,255,.4);
+}
+.tag-ctn-disabled input{
+    cursor: not-allowed;
+    background-color: #eeeeee;
+}
+.tag-ctn .tag-input-readonly{
+    cursor: pointer;
+}
+.tag-ctn .tag-empty-text{
+    color: #DDD;
+    width: 100% !important;
+}
+.tag-ctn input:focus{
+    border: 0;
+    box-shadow: none;
+    -webkit-transition: none;
+    background: rgba(255,255,255,.6);
+    width: 100% !important;
+}
+.tag-ctn .tag-trigger{
+    float: right;
+    width: 27px;
+    height:40px;
+    position:absolute;
+    right:0;
+    background: rgba(0,0,0, .5) !important;
+    cursor: pointer;
+}
+.tag-ctn .tag-trigger .tag-trigger-ico {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    border-top: 4px solid gray;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    content: "";
+    margin-left: 9px;
+    margin-top: 15px;
+}
+.tag-ctn .tag-trigger:hover{
+    background: -moz-linear-gradient(100% 100% 90deg, #e3e3e3, #f1f1f1);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f1f1f1), to(#e3e3e3));
+}
+.tag-ctn .tag-trigger:hover .tag-trigger-ico{
+    background-position: 0 -4px;
+}
+.tag-ctn-disabled .tag-trigger{
+    cursor: not-allowed;
+    background-color: #eeeeee;
+}
+.tag-ctn-bootstrap-focus{
+    border-bottom: 1px solid #CCC;
+}
+.tag-res-ctn{
+    position: relative;
+    background: #FFF;
+    width: 100% !important;
+    overflow-y: auto;
+    z-index: 9999;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #CCC;
+    left: -1px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.tag-res-ctn .tag-res-group{
+    line-height: 23px;
+    text-align: left;
+    padding: 2px 5px;
+    font-weight: bold;
+    border-bottom: 1px dotted #CCC;
+    border-top: 1px solid #CCC;
+    background: #f3edff;
+    color: #333;
+}
+.tag-res-ctn .tag-res-item{
+    line-height: 25px;
+    text-align: left;
+    padding: 2px 5px;
+    color: #666;
+    cursor: pointer;
+}
+.tag-res-ctn .tag-res-item-grouped{
+    padding-left: 15px;
+}
+.tag-res-ctn .tag-res-odd{
+    background: #F3F3F3;
+}
+.tag-res-ctn .tag-res-item-active{
+    background-color: #3875D7;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3875D7', endColorstr='#2A62BC', GradientType=0 );
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(20%, #3875D7), color-stop(90%, #2A62BC));
+    background-image: -webkit-linear-gradient(top, #3875D7 20%, #2A62BC 90%);
+    background-image: -moz-linear-gradient(top, #3875D7 20%, #2A62BC 90%);
+    background-image: -o-linear-gradient(top, #3875D7 20%, #2A62BC 90%);
+    background-image: linear-gradient(#3875D7 20%, #2A62BC 90%);
+    color: #fff;
+}
+.tag-sel-ctn{
+    overflow: auto;
+    overflow-x: hidden !important;
+    line-height: 22px;
+    padding-right:27px;
+}
+.tag-sel-ctn .tag-sel-item{
+    background: #144f61;
+    color: #c3f6f9;
+    float: left;
+    font-size: 12px;
+    padding: 7px;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-top: 4px;
+}
+.tag-sel-ctn .tag-sel-text{
+    background: transparent;
+    color: #fff;
+    padding-right: 0;
+    margin-left: 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+.tag-res-ctn .tag-res-item em{
+    font-style: normal;
+    background: #565656;
+    color: #FFF;
+}
+.tag-sel-ctn .tag-sel-item:hover{
+    background: #565656;
+}
+.tag-sel-ctn .tag-sel-text:hover{
+    background: #FFF;
+}
+.tag-sel-ctn .tag-sel-item-active{
+    border: 1px solid red;
+    background: #757575;
+}
+.tag-ctn .tag-sel-ctn .tag-sel-item{
+    margin-top: 3px;
+}
+.tag-stacked .tag-sel-item{
+    float: inherit;
+}
+.tag-sel-ctn .tag-sel-item .tag-close-btn{
+    width: 7px;
+    cursor: pointer;
+    height: 7px;
+    float: right;
+    margin: 8px 2px 0 10px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAOCAYAAADjXQYbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AUkSYqIQkQSoghodkVUcERRUUEG8igiAOOjoCMFVEsDIoK2AfkIaKOg6OIisr74Xuja9a89+bN/rXXPues852zzwfACAyWSDNRNYAMqUIeEeCDx8TG4eQuQIEKJHAAEAizZCFz/SMBAPh+PDwrIsAHvgABeNMLCADATZvAMByH/w/qQplcAYCEAcB0kThLCIAUAEB6jkKmAEBGAYCdmCZTAKAEAGDLY2LjAFAtAGAnf+bTAICd+Jl7AQBblCEVAaCRACATZYhEAGg7AKzPVopFAFgwABRmS8Q5ANgtADBJV2ZIALC3AMDOEAuyAAgMADBRiIUpAAR7AGDIIyN4AISZABRG8lc88SuuEOcqAAB4mbI8uSQ5RYFbCC1xB1dXLh4ozkkXKxQ2YQJhmkAuwnmZGTKBNA/g88wAAKCRFRHgg/P9eM4Ors7ONo62Dl8t6r8G/yJiYuP+5c+rcEAAAOF0ftH+LC+zGoA7BoBt/qIl7gRoXgugdfeLZrIPQLUAoOnaV/Nw+H48PEWhkLnZ2eXk5NhKxEJbYcpXff5nwl/AV/1s+X48/Pf14L7iJIEyXYFHBPjgwsz0TKUcz5IJhGLc5o9H/LcL//wd0yLESWK5WCoU41EScY5EmozzMqUiiUKSKcUl0v9k4t8s+wM+3zUAsGo+AXuRLahdYwP2SycQWHTA4vcAAPK7b8HUKAgDgGiD4c93/+8//UegJQCAZkmScQAAXkQkLlTKsz/HCAAARKCBKrBBG/TBGCzABhzBBdzBC/xgNoRCJMTCQhBCCmSAHHJgKayCQiiGzbAdKmAv1EAdNMBRaIaTcA4uwlW4Dj1wD/phCJ7BKLyBCQRByAgTYSHaiAFiilgjjggXmYX4IcFIBBKLJCDJiBRRIkuRNUgxUopUIFVIHfI9cgI5h1xGupE7yAAygvyGvEcxlIGyUT3UDLVDuag3GoRGogvQZHQxmo8WoJvQcrQaPYw2oefQq2gP2o8+Q8cwwOgYBzPEbDAuxsNCsTgsCZNjy7EirAyrxhqwVqwDu4n1Y8+xdwQSgUXACTYEd0IgYR5BSFhMWE7YSKggHCQ0EdoJNwkDhFHCJyKTqEu0JroR+cQYYjIxh1hILCPWEo8TLxB7iEPENyQSiUMyJ7mQAkmxpFTSEtJG0m5SI+ksqZs0SBojk8naZGuyBzmULCAryIXkneTD5DPkG+Qh8lsKnWJAcaT4U+IoUspqShnlEOU05QZlmDJBVaOaUt2ooVQRNY9aQq2htlKvUYeoEzR1mjnNgxZJS6WtopXTGmgXaPdpr+h0uhHdlR5Ol9BX0svpR+iX6AP0dwwNhhWDx4hnKBmbGAcYZxl3GK+YTKYZ04sZx1QwNzHrmOeZD5lvVVgqtip8FZHKCpVKlSaVGyovVKmqpqreqgtV81XLVI+pXlN9rkZVM1PjqQnUlqtVqp1Q61MbU2epO6iHqmeob1Q/pH5Z/YkGWcNMw09DpFGgsV/jvMYgC2MZs3gsIWsNq4Z1gTXEJrHN2Xx2KruY/R27iz2qqaE5QzNKM1ezUvOUZj8H45hx+Jx0TgnnKKeX836K3hTvKeIpG6Y0TLkxZVxrqpaXllirSKtRq0frvTau7aedpr1Fu1n7gQ5Bx0onXCdHZ4/OBZ3nU9lT3acKpxZNPTr1ri6qa6UbobtEd79up+6Ynr5egJ5Mb6feeb3n+hx9L/1U/W36p/VHDFgGswwkBtsMzhg8xTVxbzwdL8fb8VFDXcNAQ6VhlWGX4YSRudE8o9VGjUYPjGnGXOMk423GbcajJgYmISZLTepN7ppSTbmmKaY7TDtMx83MzaLN1pk1mz0x1zLnm+eb15vft2BaeFostqi2uGVJsuRaplnutrxuhVo5WaVYVVpds0atna0l1rutu6cRp7lOk06rntZnw7Dxtsm2qbcZsOXYBtuutm22fWFnYhdnt8Wuw+6TvZN9un2N/T0HDYfZDqsdWh1+c7RyFDpWOt6azpzuP33F9JbpL2dYzxDP2DPjthPLKcRpnVOb00dnF2e5c4PziIuJS4LLLpc+Lpsbxt3IveRKdPVxXeF60vWdm7Obwu2o26/uNu5p7ofcn8w0nymeWTNz0MPIQ+BR5dE/C5+VMGvfrH5PQ0+BZ7XnIy9jL5FXrdewt6V3qvdh7xc+9j5yn+M+4zw33jLeWV/MN8C3yLfLT8Nvnl+F30N/I/9k/3r/0QCngCUBZwOJgUGBWwL7+Hp8Ib+OPzrbZfay2e1BjKC5QRVBj4KtguXBrSFoyOyQrSH355jOkc5pDoVQfujW0Adh5mGLw34MJ4WHhVeGP45wiFga0TGXNXfR3ENz30T6RJZE3ptnMU85ry1KNSo+qi5qPNo3ujS6P8YuZlnM1VidWElsSxw5LiquNm5svt/87fOH4p3iC+N7F5gvyF1weaHOwvSFpxapLhIsOpZATIhOOJTwQRAqqBaMJfITdyWOCnnCHcJnIi/RNtGI2ENcKh5O8kgqTXqS7JG8NXkkxTOlLOW5hCepkLxMDUzdmzqeFpp2IG0yPTq9MYOSkZBxQqohTZO2Z+pn5mZ2y6xlhbL+xW6Lty8elQfJa7OQrAVZLQq2QqboVFoo1yoHsmdlV2a/zYnKOZarnivN7cyzytuQN5zvn//tEsIS4ZK2pYZLVy0dWOa9rGo5sjxxedsK4xUFK4ZWBqw8uIq2Km3VT6vtV5eufr0mek1rgV7ByoLBtQFr6wtVCuWFfevc1+1dT1gvWd+1YfqGnRs+FYmKrhTbF5cVf9go3HjlG4dvyr+Z3JS0qavEuWTPZtJm6ebeLZ5bDpaql+aXDm4N2dq0Dd9WtO319kXbL5fNKNu7g7ZDuaO/PLi8ZafJzs07P1SkVPRU+lQ27tLdtWHX+G7R7ht7vPY07NXbW7z3/T7JvttVAVVN1WbVZftJ+7P3P66Jqun4lvttXa1ObXHtxwPSA/0HIw6217nU1R3SPVRSj9Yr60cOxx++/p3vdy0NNg1VjZzG4iNwRHnk6fcJ3/ceDTradox7rOEH0x92HWcdL2pCmvKaRptTmvtbYlu6T8w+0dbq3nr8R9sfD5w0PFl5SvNUyWna6YLTk2fyz4ydlZ19fi753GDborZ752PO32oPb++6EHTh0kX/i+c7vDvOXPK4dPKy2+UTV7hXmq86X23qdOo8/pPTT8e7nLuarrlca7nuer21e2b36RueN87d9L158Rb/1tWeOT3dvfN6b/fF9/XfFt1+cif9zsu72Xcn7q28T7xf9EDtQdlD3YfVP1v+3Njv3H9qwHeg89HcR/cGhYPP/pH1jw9DBY+Zj8uGDYbrnjg+OTniP3L96fynQ89kzyaeF/6i/suuFxYvfvjV69fO0ZjRoZfyl5O/bXyl/erA6xmv28bCxh6+yXgzMV70VvvtwXfcdx3vo98PT+R8IH8o/2j5sfVT0Kf7kxmTk/8EA5jz/GMzLdsAAAAEZ0FNQQAAsY58+1GTAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABSSURBVHjahI7BCQAwCAOTzpThHMHh3Kl9CVos9XckFwQAuPtGuWTWwMwaczKzyHsqg6+5JqMJr28BABHRwmTWQFJjTmYWOU1L4tdck9GE17dnALGAS+kAR/u2AAAAAElFTkSuQmCC);
+
+}
+.tag-sel-ctn .tag-sel-item .tag-close-btn:hover{
+    background-position: 0 -7px;
+}
+.tag-helper{
+    color: #AAA;
+    font-size: 10px;
+    position: absolute;
+    top: -17px;
+    right: 0;
+}
+.radio {
+  margin: 0.5rem;
+}
+.radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+.radio input[type="radio"] + .radio-label:before {
+  content: '';
+  background: #f4f4f4;
+  border-radius: 100%;
+  border: 1px solid #b4b4b4;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  position: relative;
+  top: -0.2em;
+  margin-right: 1em;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+.radio input[type="radio"]:checked + .radio-label:before {
+  background-color: #3197EE;
+  -webkit-box-shadow: inset 0 0 0 4px #f4f4f4;
+          box-shadow: inset 0 0 0 4px #f4f4f4;
+}
+.radio input[type="radio"]:focus + .radio-label:before {
+  outline: none;
+  border-color: #3197EE;
+}
+.radio input[type="radio"]:disabled + .radio-label:before {
+  -webkit-box-shadow: inset 0 0 0 4px #f4f4f4;
+          box-shadow: inset 0 0 0 4px #f4f4f4;
+  border-color: #b4b4b4;
+  background: #b4b4b4;
+}
+.radio input[type="radio"] + .radio-label:empty:before {
+  margin-right: 0;
+}
+
+.delete {
+  margin:0 auto;
+
+  color: #FFF;
+  width: 170px;
+  height: 35px;
+  display: block;
+  text-align: center;
+  text-indent: 20px;
+  padding: 0 10px;
+  border-radius: 3px;
+  line-height: 35px;
+  text-decoration: none;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+  box-shadow: 0px 0px 1px #213741;
+  background: #f34642 url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBkPSJNNDI0LjU2MiA3OC4wMjJ2NDAuMDMySDg3LjQzOFY3OC4wMjJoOTQuOTM4YzE1LjQ2NCAwIDI4LTEyLjU0NiAyOC0yOC4wMjJoOTEuMjUgYzAgMTUuNSAxMi41IDI4IDI4IDI4LjAyMkg0MjQuNTYyeiBNNDA2LjMzNCAxNDguMDc5VjQ2MkgxMDUuNjY2VjE0OC4wNzlINDA2LjMzNHogTTE5Ny4zMzMgMjEwLjUgYzAtOC4yOTEtNi43MTYtMTUuMDEyLTE1LTE1LjAxMnMtMTUgNi43MjEtMTUgMTUuMDEydjE5MC4xNTNjMCA4LjMgNi43IDE1IDE1IDE1LjAxMnMxNS02LjcyMSAxNS0xNS4wMTJWMjEwLjQ2MnogTTI3MSAyMTAuNDYyYzAtOC4yOTEtNi43MTYtMTUuMDEyLTE1LTE1LjAxMnMtMTUgNi43MjEtMTUgMTUuMDEydjE5MC4xNTNjMCA4LjMgNi43IDE1IDE1IDE1LjAxMnMxNS02LjcyMSAxNS0xNS4wMTIgVjIxMC40NjJ6IE0zNDQuNjY3IDIxMC40NjJjMC04LjI5MS02LjcxNi0xNS4wMTItMTUtMTUuMDEycy0xNSA2LjcyMS0xNSAxNS4wMTJ2MTkwLjE1M2MwIDguMyA2LjcgMTUgMTUgMTUgczE1LTYuNzIxIDE1LTE1LjAxMlYyMTAuNDYyeiIgc3R5bGU9ImZpbGw6ICNGRkY7Ii8+PC9zdmc+") no-repeat 10px center;
+  background-size: 17px;
+  position: relative;
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
+}
+.delete:hover {
+  background-color: #713031;
+}
+.delete.selected {
+  background-color: #713031;
+}
+.delete.selected .deleteBox {
+  z-index:1;
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacityIE)";
+  filter: alpha(opacity=100);
+  padding:20px;
+  margin-top: -90px;
+  width: 275px;
+  height: 175px;
+  overflow: visible;
+  -webkit-transition: opacity 0.3s, top 0.3s, width 0s, height 0s;
+  -webkit-transition-delay: 0s, 0s, 0s, 0s;
+  -moz-transition: opacity 0.3s, top 0.3s, width 0s 0s, height 0s 0s;
+  -o-transition: opacity 0.3s, top 0.3s, width 0s 0s, height 0s 0s;
+  transition: opacity 0.3s, top 0.3s, width 0s 0s, height 0s 0s;
+}
+.delete .deleteBox {
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  margin-left: -137px;
+  overflow: hidden;
+  background: #1C242B;
+  width: 0px;
+  height: 0px;
+  border-radius: 5px;
+  text-indent: 0px;
+  cursor: default;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacityIE)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.3s, top 0.3s, width 0s, height 0s;
+  -webkit-transition-delay: 0s, 0s, 0.3s, 0.3s;
+  -moz-transition: opacity 0.3s, top 0.3s, width 0s 0.3s, height 0s 0.3s;
+  -o-transition: opacity 0.3s, top 0.3s, width 0s 0.3s, height 0s 0.3s;
+  transition: opacity 0.3s, top 0.3s, width 0s 0.3s, height 0s 0.3s;
+  z-index: -1;
+}
+.delete .deleteBox:after {
+  content: '';
+  display: block;
+  width: 0px;
+  left: 0px;
+  border-top: 5px solid #1C242B;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  margin-left: -5px;
+}
+.delete .deleteBox p {
+  margin: 10px 0 3px;
+}
+.delete .deleteBox span {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0 10px;
+  color: #FFF;
+  border-radius: 3px;
+  width: 80px;
+  height: 25px;
+  line-height: 25px;
+  cursor: pointer;
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
+}
+.delete .deleteBox span.confirm {
+  background: #38B87C;
+}
+.delete .deleteBox span.confirm:hover {
+  background: #2c9162;
+}
+.delete .deleteBox span.cancel {
+  background: #696F73;
+}
+.delete .deleteBox span.cancel:hover {
+  background: #515558;
+}
+.delete .deleteBox:before {
+  content: 'Borrando...';
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 0px;
+  text-align: center;
+  line-height: 60px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacityIE)";
+  filter: alpha(opacity=0);
+  border-radius: 5px;
+  background: #1c242b url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+CiAgPGNpcmNsZSB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4IDApIiBjeD0iMCIgY3k9IjE2IiByPSIwIj4gCiAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJyIiB2YWx1ZXM9IjA7IDQ7IDA7IDAiIGR1cj0iMS4ycyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGJlZ2luPSIwIgogICAgICBrZXl0aW1lcz0iMDswLjI7MC43OzEiIGtleVNwbGluZXM9IjAuMiAwLjIgMC40IDAuODswLjIgMC42IDAuNCAwLjg7MC4yIDAuNiAwLjQgMC44IiBjYWxjTW9kZT0ic3BsaW5lIiAvPgogIDwvY2lyY2xlPgogIDxjaXJjbGUgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTYgMCkiIGN4PSIwIiBjeT0iMTYiIHI9IjAiPiAKICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9InIiIHZhbHVlcz0iMDsgNDsgMDsgMCIgZHVyPSIxLjJzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgYmVnaW49IjAuMyIKICAgICAga2V5dGltZXM9IjA7MC4yOzAuNzsxIiBrZXlTcGxpbmVzPSIwLjIgMC4yIDAuNCAwLjg7MC4yIDAuNiAwLjQgMC44OzAuMiAwLjYgMC40IDAuOCIgY2FsY01vZGU9InNwbGluZSIgLz4KICA8L2NpcmNsZT4KICA8Y2lyY2xlIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0IDApIiBjeD0iMCIgY3k9IjE2IiByPSIwIj4gCiAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJyIiB2YWx1ZXM9IjA7IDQ7IDA7IDAiIGR1cj0iMS4ycyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGJlZ2luPSIwLjYiCiAgICAgIGtleXRpbWVzPSIwOzAuMjswLjc7MSIga2V5U3BsaW5lcz0iMC4yIDAuMiAwLjQgMC44OzAuMiAwLjYgMC40IDAuODswLjIgMC42IDAuNCAwLjgiIGNhbGNNb2RlPSJzcGxpbmUiIC8+CiAgPC9jaXJjbGU+Cjwvc3ZnPg==") no-repeat center 50px;
+  -webkit-transition: opacity 0.3s, top 0.3s, left 0.3s;
+  -moz-transition: opacity 0.3s, top 0.3s, left 0.3s;
+  -o-transition: opacity 0.3s, top 0.3s, left 0.3s;
+  transition: opacity 0.3s, top 0.3s, left 0.3s;
+}
+.delete .deleteBox.loading:before {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacityIE)";
+  filter: alpha(opacity=100);
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+.delete .deleteBox.deleted:before {
+  content: 'Libro borrado.';
+  background: #1c242b url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoKCSB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KCjxwb2x5Z29uIGlkPSJjaGVjay1tYXJrLTctaWNvbiIgcG9pbnRzPSI1MCwyNDcuNzg3IDc3LjA5LDIxOS44MzMgMjA5Ljg1OSwyOTkuMjIyIDQzOC43ODcsODEuMjQ1IDQ2MiwxMDQuNSAyMTkuODYzLDQzMC43NTUgIiBmaWxsPSIjRkZGIi8+Cgo8L3N2Zz4=") no-repeat center 55px;
+  background-size: 20px 20px;
+}
+.chmln-demo__colors {
+  display: inline-flex;
+  min-height:50px;
+}
+.chmln__colors-elem {
+  padding:10px;
+  margin-right:5px;
+  border-radius:4px;
+}
+</style>
+
+
+  <div class="datebox">
+
+  <input type="date" id="datePicker">
+
+
+</div>  
+   <h2>
+      Las oportunidades vienen; con tiempo.<br>Toca el recuadro blanco para setear fecha límite.
+    </h2>
+
+
+    <h1 style="padding-top: 30px;">Precio por unidad</h1>
+   <h2>
+      Selecciona el monto por cada libro
+    </h2>
+<div style="  text-align:center;">
+<label for="precio">
+      <input type="range" name="precio" id="precio" min="0" max="800" step="5"/>
+
+</label>
+ <output for="precio" class="outputp"></output>
+ </div>
+
+
+
+
+<h1 style="margin-top: 100px;">Etiquetas</h1>
+   <h2>
+      Categoría/Género de tu libro
+    </h2>
+<input id="ms1" style="width:100%;" type="text" name="ms1"/>
+<div style="clear:both;"></div>
+
+
+<h1 style="margin-top: 100px;">Idiomas</h1>
+<h2>Elige el idioma de tu libro</h2>
+<div class="row" style="margin:30px;">
+  <div class="radio">
+    <input id="radio-1" name="radio" type="radio" checked>
+    <label for="radio-1" class="radio-label">Español</label>
+  </div>
+
+  <div class="radio">
+    <input id="radio-2" name="radio" type="radio" disabled>
+    <label  for="radio-2" class="radio-label">Ingles</label>
+  </div>
+
+  <div class="radio">
+    <input id="radio-3" name="radio" type="radio" disabled>
+    <label for="radio-3" class="radio-label">Portugues</label>
+  </div>
+  </div>
+  
+
+<h1>Portada de Libro</h1>
+   <h2>
+      Toca la imagen para elegir una nueva.
+    </h2>
+<div class="avatar-wrapper">
+  <img class="profile-pic" src="" />
+  <div class="upload-button">
+    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+  </div>
+  <input class="file-upload" type="file" accept="image/*" onchange="previewFile()"/>
+</div>
+
+ <div class="_example-GETIMAGECOLORS_full-container">
+  <div class="chmln-demo__colors"></div>
+</div>
+
+
+<!-- https://github.com/akfish/node-vibrant/ 
+Color de imagen average
+
+            <div class="book-item" data-color='#fcc278'>
+              <div class="bk-img">
+                <div class="bk-wrapper">
+                  <div class="bk-book bk-bookdefault">
+                    <div class="bk-front">
+                      <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_1-small.jpg')"></div>
+                    </div>
+                    <div class="bk-back"></div>
+                    <div class="bk-left"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+-->
+<script src="assets/mtk.colorthief.js"></script>
+<script >/**
+ * A new UI for picking dates
+ * 
+ * @constructor
+ * @dependencies jQuery 1.7
+ * 
+ * @param {HTMLElement} input The input you want to make a date picker
+ * @param {Object} options Overide the config defaults if you want to.
+ */
+      var checkbox = document.getElementById("fancy-checkbox"); 
+ if(is_published == true){
+      checkbox.setAttribute("checked", "true");   
+    }
+
+    console.log("está publicado?");
+    console.log(is_published);
+var timelessyr, timelessmt, timelessday;
+
+
+
+ (function() {
+   console.log("ID Project");
+
+    Object.keys(scope).forEach(function(key){
+            console.log(key + ': ' + scope[key]);
+
+        });
+
+ })();
+  console.log("Draft Precio: "+precio_unidad);   
+    console.log("Listo");
+    $('#precio').val(precio_unidad);
+     $('.outputp').val(precio_unidad +",00  $" );
+$('#precio').on("change", function() {
+    $('.outputp').val(this.value +",00  $" );
+    }).trigger("change");
+console.log("ver fecha");
+if(limit_final_time != ""){
+var splitfinal = limit_final_time.split('/');
+console.log(splitfinal);
+console.log(splitfinal[0]);
+console.log(splitfinal[1]);
+console.log(splitfinal[0]);}
+else {
+  var splitfinal = ["","",""];
+}
+
+function DatePicker(input, options) {
+
+    this.date = new Date();
+    this.input  = input;
+    this.config = {
+        spacer: '/',
+        order: ['day', 'month', 'year'],
+        year: {
+            start: 2017,
+            end: 2020,
+            rangeChange: 0,
+            infinite: true
+        },
+        selected: {
+            year: '',
+            month: '',
+            day: ''
+        },
+        months: {
+            '0': 'Ene',
+            '1': 'Feb',
+            '2': 'Mar',
+            '3': 'Abr',
+            '4': 'May',
+            '5': 'Jun',
+            '6': 'Jul',
+            '7': 'Ago',
+            '8': 'Sep',
+            '9': 'Oct',
+            '10': 'Nov',
+            '11': 'Dic'
+        },
+        position: 'default',
+        where: 'top',
+        currentDay : this.date.getDate(),
+        currentMonth : this.date.getMonth(),
+        currentYear  : this.date.getFullYear()
+    }
+    this.uniqueClass = 'dp_input_' + Math.floor(Math.random()*11);
+    this.wrapper     = undefined;
+    
+    $.extend({}, this.config, options);
+}
+
+/**
+ * @return {boolean}
+ */
+DatePicker.prototype.init = function() {
+    if ( this.input.size() == 0 ) return false;
+    
+    this.hideInput();
+    
+    this.wrapper = $(this.buildTagBox());
+    this.wrapper.insertAfter(this.input);
+    
+    // Next: positioning
+    
+    this.bind.focusTagBoxInput(this);
+    this.bind.pickYear(this);
+    this.bind.pickMonth(this);
+    this.bind.pickDay(this);
+    this.bind.updateYear(this);
+    this.bind.updateMonth(this);
+    this.bind.updateDay(this);
+    this.bind.backspaceTagBoxInput(this);
+    this.bind.blurTagBoxInput(this);
+    this.bind.yearFuture(this);
+    this.bind.yearPast(this);
+    this.bind.forceFocusOnInput(this);
+    
+    return true;
+}
+
+/**
+ * Prepends the years, months or days into wrapper.
+ * 
+ * @return {undefined}
+ */
+DatePicker.prototype.insertDateChoice = function(content) {
+    this.wrapper.find('.dp_choice').remove();
+    this.wrapper.prepend(content);
+}
+
+/**
+ *
+ */
+DatePicker.prototype.showCorrectDateChoice = function() {
+    var that    = this,
+        year    = that.wrapper.find('.dp_tag.dp_tag_year'),
+        month   = that.wrapper.find('.dp_tag.dp_tag_month'),
+        day     = that.wrapper.find('.dp_tag.dp_tag_day'),
+        choice;
+    
+    // Nothing choosen yet
+    if ( year.size() == 0 ) {
+        choice = $(that.build.yearRange(that, {start: that.config.year.start, 
+                                                 end: that.config.year.end}));
+            
+        that.insertDateChoice(choice);
+        return;
+    }
+    
+    // Year is already choosen
+    if ( year.size() > 0 && month.size() == 0 ) {
+        choice = $(that.build.months(that));
+        that.insertDateChoice(choice);
+        return;
+    }
+    
+    // Year and Month is already choosen
+    if ( year.size() > 0 && month.size() > 0 && day.size() == 0 ) {
+        choice = $(that.build.days(that));
+        that.insertDateChoice(choice);
+        return;
+    }
+    
+    // Year, Month and day is already choosen
+//    if ( year.size() > 0 && month.size() > 0 && day.size() > 0 ) {
+//        choice = $(that.build.days(that));
+//        that.insertDateChoice(choice);
+//        return;
+//    }
+    
+}
+
+/**
+ * Methods that build markup.
+ * 
+ * @return {string}
+ */
+DatePicker.prototype.build = {
+    /**
+     * Build the list of years to choose from.
+     * 
+     * @param {!DatePicker} dpObj
+     * @param {Object} range
+     * @return {string}
+     */
+    yearRange: function(dpObj, range) {
+        var that  = dpObj,
+            div   = ['<div class="dp_years dp_choice">'],
+            start = range.start,
+            end   = range.end;
+            
+        if ( that.config.year.infinite ) {
+            div.push('<span class="dp_pastYears dp_yearNav">∧</span>');
+        }
+        
+        div.push('<ol>');
+        
+
+        // Build year list
+        for ( var i=start; i<(end + 1); i++ ) {
+            if(i == that.config.currentYear){
+                div.push('<li class="dp_year dp_current">' + i + '</li>');
+            }
+            else {
+                div.push('<li class="dp_year">' + i + '</li>');
+            }
+        }
+
+
+        
+        div.push('</ol>');
+        
+        if ( that.config.year.infinite ) {
+            div.push('<span class="dp_futureYears dp_yearNav">∨</span>');
+        }
+        
+        div.push('</div>');
+
+        return div.join('');
+    },
+    /**
+     * Build the months to pick from.
+     * 
+     * @param {!DatePicker} dpObj
+     * @return {string}
+     */
+    months: function(dpObj) {
+        var that   = dpObj,
+            months = that.config.months,
+            div    = ['<div class="dp_months dp_choice">'];
+
+        div.push('<ol>');
+        
+        for ( var month in months ) {
+            if ( months.hasOwnProperty(month) ) {
+                if(month == that.config.currentMonth && that.config.selected.year == that.config.currentYear) {
+                    div.push('<li class="dp_month dp_current" data-month="' + month + '">' + months[month] + '</li>');
+                }
+                else {
+                    div.push('<li class="dp_month" data-month="' + month + '">' + months[month] + '</li>');
+                }
+            }
+        }
+
+        
+        div.push('</ol>');
+
+        div.push('</div>');
+
+        return div.join('');
+    },
+    days: function(dpObj) {
+        var that               = dpObj,
+            days_in_each_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+            year               = that.config.selected.year,
+            month              = that.config.selected.month,
+            howManyDays        = days_in_each_month[month];
+            
+        // February Leap Year Check
+        if ( month == 1 ) {
+            if ( (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 ) {
+                howManyDays = 29;
+            }
+        }
+                
+        var date = new Date(year, month, 1),
+            day  = date.getDay(),
+            days = ['<div class="dp_choice dp_days">', '<table>', '<tr>'];
+        
+        // Prepend Days of Week Headers
+        days.push('<th>D</th>');
+        days.push('<th>L</th>');
+        days.push('<th>M</th>');
+        days.push('<th>M</th>');
+        days.push('<th>J</th>');
+        days.push('<th>V</th>');
+        days.push('<th>S</th>');
+        
+        days.push('</tr>');
+        days.push('<tr>');
+        
+        // Prepend empty days
+        for ( var p=0; p<day; p++ ) {
+            days.push('<td class="dp_day dp_empty_day"></td>');
+        }
+
+        
+        // Build days
+        for ( var i=1; i<=howManyDays; i++ ) {
+            if(i == that.config.currentDay 
+                && that.config.selected.year == that.config.currentYear
+                && that.config.selected.month == that.config.currentMonth) {
+               days.push('<td class="dp_day dp_day_' + day + ' dp_current">' + i + '</td>');
+            }
+            else {
+                days.push('<td class="dp_day dp_day_' + day + ' ">' + i + '</td>');
+            }
+            
+            if ( 6 == day ) {
+                day = 0;
+                days.push('</tr>');
+                days.push('<tr>');
+            } else {
+                day++;
+            }
+        }
+
+        
+        // Append empty days
+        if ( 0 != day ) {
+            var daysLeft = 7-day;
+            
+            for ( var d=0; d<daysLeft; d++) {
+                days.push('<td class="dp_day dp_empty_day"></td>');
+            }
+
+
+        }
+        
+        days.push('</tr>');
+        days.push('</table>');
+        days.push('</div>');
+        
+        return days.join('');
+    }
+};
+
+/**
+ * 
+ */
+DatePicker.prototype.bind = {
+    /**
+     * What happens when you focus the dynamic input?
+     * 
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    focusTagBoxInput: function(dpObj) {
+        var that = dpObj;
+
+        that.wrapper.on('focus', 'input', function() {
+            if ( that.wrapper.find('.dp_choice').size() == 0 ) {
+                that.showCorrectDateChoice();
+            }
+        });
+    },
+    /**
+     * Forces the input to be focused
+     * 
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    forceFocusOnInput: function(dpObj) {
+        var that = dpObj;
+        
+        that.wrapper.on('click', '.dp_tagBox', function() {
+            that.wrapper.find('input').focus();
+        });
+    },
+    /**
+     * What happens when you blur the dynamic input?
+     * 
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    blurTagBoxInput: function(dpObj) {
+        var that = dpObj;
+        
+        that.wrapper.on('blur', 'input', function() {
+            //that.wrapper.find('.dp_choice').remove();
+        });
+    },
+    /**
+     * What happens once you pick a year?
+     * 
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    pickYear: function(dpObj) {
+        var that = dpObj;
+
+        that.wrapper.on('click', '.dp_year', function() {
+            var year = $(this).text();
+            
+            that.insertTag('year', year, year);
+            that.config.selected.year = year;
+            timelessyr = year;
+            // Build the months after picking a year
+            var months = $(that.build.months(that));
+            that.insertDateChoice(months);
+            
+            // Remove dependant tags
+            that.wrapper.find('.dp_tag_month, .dp_tag_day').remove();
+            
+            that.updateHiddenInput();
+        });
+    },
+    /**
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    pickMonth: function(dpObj) {
+        var that = dpObj;
+        
+        that.wrapper.on('click', '.dp_month', function() {
+            var month    = $(this).text(),
+                monthVal = $(this).data('month') + 1;
+            
+            that.insertTag('month', month, monthVal);
+            that.config.selected.month = $(this).data('month');
+            timelessmt = monthVal;
+            console.log("A ver MV: "+monthVal);
+            console.log("A ver MV: "+month);
+            // Build the days after picking a month
+            var days = $(that.build.days(that));
+            that.insertDateChoice(days);
+            
+            // Remove dependant tags
+            that.wrapper.find('.dp_tag_day').remove();
+            
+            that.updateHiddenInput();
+        });
+    },
+    /**
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    pickDay: function(dpObj) {
+        var that = dpObj;
+        
+        that.wrapper.on('click', '.dp_day', function() {
+            var day = $(this).text();
+            
+            that.insertTag('day', day, day);
+            that.config.selected.day = day;
+            timelessday = day;
+            that.updateHiddenInput();
+            that.wrapper.find('.dp_choice').remove();
+        });
+    },
+    /**
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    updateYear: function(dpObj) {
+        var that = dpObj;
+        
+        that.wrapper.on('click', '.dp_tag_year', function() {
+            var yearConfig = that.config.year,
+                rangeChange =  yearConfig.rangeChange,
+                newStart  = yearConfig.start + rangeChange,
+                newEnd    = yearConfig.end + rangeChange,
+                years = $(that.build.yearRange(that, {start: newStart, end: newEnd}));
+                
+            that.insertDateChoice(years);
+        });
+    },
+    /**
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    updateMonth: function(dpObj) {
+        var that = dpObj;
+        
+        that.wrapper.on('click', '.dp_tag_month', function() {
+            // Build the days
+            var months = $(that.build.months(that));
+            that.insertDateChoice(months);
+        });
+    },
+    /**
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    updateDay: function(dpObj) {
+        var that = dpObj;
+        
+        that.wrapper.on('click', '.dp_tag_day', function() {
+            // Build the days
+            var days = $(that.build.days(that));
+            that.insertDateChoice(days);
+        });
+    },
+    /**
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    backspaceTagBoxInput: function(dpObj) {
+        var that = dpObj;
+        
+        that.wrapper.on('keyup', 'input', function(e) {
+            var key = e.keyCode,
+                backspace = 8;
+            
+            if ( key == backspace ) {
+                that.wrapper.find('.dp_tag:first').remove();
+                that.showCorrectDateChoice();
+                that.updateHiddenInput();
+            }
+        });
+    },
+    /**
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    yearFuture: function(dpObj) {
+        var that       = dpObj,
+            yearConfig = that.config.year;
+            
+        that.wrapper.on('click', '.dp_futureYears', function(e) {
+            e.preventDefault();
+            
+            yearConfig.rangeChange = yearConfig.rangeChange + 9;
+            
+            var newStart = yearConfig.start + yearConfig.rangeChange,
+                newEnd   = yearConfig.end + yearConfig.rangeChange,
+                years    = $(that.build.yearRange(that, {start: newStart, end: newEnd}));
+        
+            that.insertDateChoice(years);    
+        });
+    },
+    /**
+     * @param {!DatePicker} dpObj
+     * @return {undefined}
+     */
+    yearPast: function(dpObj) {
+        var that       = dpObj,
+            yearConfig = that.config.year;
+            
+        that.wrapper.on('click', '.dp_pastYears', function(e) {
+            e.preventDefault();
+            
+            yearConfig.rangeChange = yearConfig.rangeChange - 9;
+            
+            var newStart = yearConfig.start + yearConfig.rangeChange,
+                newEnd   = yearConfig.end + yearConfig.rangeChange,
+                years    = $(that.build.yearRange(that, {start: newStart, end: newEnd}));
+        
+            that.insertDateChoice(years);    
+        });
+    }
+}
+
+/**
+ * @return {undefined}
+ */
+DatePicker.prototype.updateHiddenInput = function() {
+    var that  = this,
+        tag   = that.wrapper.find('.dp_tag'),
+        value = '',
+        order = that.config.order;
+    
+    that.input.val('');
+    
+    for ( var i=0; i<order.length; i++ ) {
+        if ( i < 2 ) {
+            value += $('.dp_tag_' + order[i]).data('valuesubmitted') + that.config.spacer;
+        } else {
+            value += $('.dp_tag_' + order[i]).data('valuesubmitted');
+        }
+        
+    }
+
+    
+    that.input.val(value);
+}
+
+/**
+ * @param {string} type The type of tag it is. (year, month, day)
+ * @param {string} valueDisplayed The value of the tag.
+ * @param {string|number} valueSubmitted The value of the tag submitted.
+ * @return {undefined}
+ */
+DatePicker.prototype.insertTag = function(type, valueDisplayed, valueSubmitted) {
+    var that   = this,
+        tagBox = that.wrapper.find('.dp_tagBox'),
+        tag    = tagBox.find('.dp_tag.dp_tag_' + type);
+
+    if ( tag.size() > 0 ) {
+        tag.text(valueDisplayed);
+    } else {
+        tagBox.prepend('<span class="dp_tag dp_tag_' + type + '" data-valuesubmitted-' + type + '="' + valueSubmitted + '">' + valueDisplayed + '</span>');
+    }
+}
+
+/**
+ * @return {undefined}
+ */
+DatePicker.prototype.buildTagBox = function() {
+    var classes = 'dp_wrapper ' + this.uniqueClass,
+        config  = this.config;
+    
+    if ( 'absolute' == config.position ) {
+        classes += (' ' + config.position + ' ' + config.where);
+    }
+    
+    var div = '<div class="' + classes + '"><div class="dp_tagBox"><input type="text" style="box-shadow: inherit;" readonly="readonly"></div></div>';
+    
+    return div;
+}
+
+/**
+ * @return {undefined}
+ */
+DatePicker.prototype.hideInput = function() {
+    this.input.hide();
+}
+
+var datePicker = new DatePicker($('#datePicker'));
+datePicker.init();
+console.log("LIMIT FINAL: ", limit_final_time);
+if(limit_final_time.indexOf('undefined') == -1){
+
+var splitfinal = limit_final_time.split('/');
+console.log(splitfinal);
+console.log(splitfinal[0]);
+console.log(splitfinal[1]);
+console.log(splitfinal[0]);
+
+datePicker.insertTag('year', splitfinal[2], splitfinal[2]);
+datePicker.insertTag('month', monthNumToName(splitfinal[1]), splitfinal[1]);
+datePicker.insertTag('day', splitfinal[0], splitfinal[0]);
+}
+else {
+  var splitfinal = ["","",""];
+}
+</script>
+
+
+<script >
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var END = 'change';
+var START = 'ontouchstart' in document ? 'touchstart' : 'mousedown';
+var INPUT = 'input';
+var MAX_ROTATION = 35;
+var SOFTEN_FACTOR = 3;
+
+var RangeInput = function () {
+  function RangeInput(el) {
+    _classCallCheck(this, RangeInput);
+
+    this.el = el;
+
+    this._handleEnd = this._handleEnd.bind(this);
+    this._handleStart = this._handleStart.bind(this);
+    this._handleInput = this._handleInput.bind(this);
+
+    //Call the plugin
+    $(this.el.querySelector('input[type=range]')).rangeslider({
+      polyfill: false, //Never use the native polyfill
+      rangeClass: 'rangeslider',
+      disabledClass: 'rangeslider-disabled',
+      horizontalClass: 'rangeslider-horizontal',
+      verticalClass: 'rangeslider-vertical',
+      fillClass: 'rangeslider-fill-lower',
+      handleClass: 'rangeslider-thumb',
+      onInit: function onInit() {
+        //No args are passed, so we can't change context of this
+        var pluginInstance = this;
+
+        //Move the range-output inside the handle so we can do all the stuff in css
+        $(pluginInstance.$element).parents('.range').find('.range-output').appendTo(pluginInstance.$handle);
+
+      }
+    });
+
+    this.sliderThumbEl = el.querySelector('.rangeslider-thumb');
+    this.outputEl = el.querySelector('.range-output');
+    this.inputEl = el.querySelector('input[type=range]');
+    this._lastOffsetLeft = 0;
+    this._lastTimeStamp = 0;
+
+    this.el.querySelector('.rangeslider').addEventListener(START, this._handleStart);
+  }
+
+  RangeInput.prototype._handleStart = function _handleStart(e) {
+    var _this = this;
+
+    this._lastTimeStamp = new Date().getTime();
+    this._lastOffsetLeft = this.sliderThumbEl.offsetLeft;
+
+    //Wrap in raf because offsetLeft is updated by the plugin after this fires
+    requestAnimationFrame(function (_) {
+      //Bind through jquery because plugin doesn't fire native event
+      $(_this.inputEl).on(INPUT, _this._handleInput);
+      $(_this.inputEl).on(END, _this._handleEnd);
+    });
+  };
+
+  RangeInput.prototype._handleEnd = function _handleEnd(e) {
+    var _this2 = this;
+
+    //Unbind through jquery because plugin doesn't fire native event
+    $(this.inputEl).off(INPUT, this._handleInput);
+    $(this.inputEl).off(END, this._handleEnd);
+
+    requestAnimationFrame(function (_) {
+      return _this2.outputEl.style.transform = 'rotate(0deg)';
+    });
+  };
+
+  RangeInput.prototype._handleInput = function _handleInput(e) {
+    var _this3 = this;
+
+    var now = new Date().getTime();
+    var timeElapsed = now - this._lastTimeStamp || 1;
+    var distance = this.sliderThumbEl.offsetLeft - this._lastOffsetLeft;
+    var direction = distance < 0 ? -1 : 1;
+    var velocity = Math.abs(distance) / timeElapsed; //pixels / millisecond
+    var targetRotation = Math.min(Math.abs(distance * velocity) * SOFTEN_FACTOR, MAX_ROTATION);
+
+    requestAnimationFrame(function (_) {
+      return _this3.outputEl.style.transform = 'rotate(' + targetRotation * -direction + 'deg)';
+    });
+
+    this._lastTimeStamp = now;
+    this._lastOffsetLeft = this.sliderThumbEl.offsetLeft;
+  };
+
+  return RangeInput;
+}();
+
+/*! rangeslider.js - v2.1.1 | (c) 2016 @andreruffert | MIT license | https://github.com/andreruffert/rangeslider.js */
+
+!function (a) {
+  "use strict";
+  "function" == typeof define && define.amd ? define(["jquery"], a) : "object" == (typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) ? module.exports = a(require("jquery")) : a(jQuery);
+}(function (a) {
+  "use strict";
+  function b() {
+    var a = document.createElement("input");return a.setAttribute("type", "range"), "text" !== a.type;
+  }function c(a, b) {
+    var c = Array.prototype.slice.call(arguments, 2);return setTimeout(function () {
+      return a.apply(null, c);
+    }, b);
+  }function d(a, b) {
+    return b = b || 100, function () {
+      if (!a.debouncing) {
+        var c = Array.prototype.slice.apply(arguments);a.lastReturnVal = a.apply(window, c), a.debouncing = !0;
+      }return clearTimeout(a.debounceTimeout), a.debounceTimeout = setTimeout(function () {
+        a.debouncing = !1;
+      }, b), a.lastReturnVal;
+    };
+  }function e(a) {
+    return a && (0 === a.offsetWidth || 0 === a.offsetHeight || a.open === !1);
+  }function f(a) {
+    for (var b = [], c = a.parentNode; e(c);) {
+      b.push(c), c = c.parentNode;
+    }return b;
+  }function g(a, b) {
+    function c(a) {
+      "undefined" != typeof a.open && (a.open = a.open ? !1 : !0);
+    }var d = f(a),
+        e = d.length,
+        g = [],
+        h = a[b];if (e) {
+      for (var i = 0; e > i; i++) {
+        g[i] = d[i].style.cssText, d[i].style.setProperty ? d[i].style.setProperty("display", "block", "important") : d[i].style.cssText += ";display: block !important", d[i].style.height = "0", d[i].style.overflow = "hidden", d[i].style.visibility = "hidden", c(d[i]);
+      }h = a[b];for (var j = 0; e > j; j++) {
+        d[j].style.cssText = g[j], c(d[j]);
+      }
+    }return h;
+  }function h(a, b) {
+    var c = parseFloat(a);return Number.isNaN(c) ? b : c;
+  }function i(a) {
+    return a.charAt(0).toUpperCase() + a.substr(1);
+  }function j(b, e) {
+    if (this.$window = a(window), this.$document = a(document), this.$element = a(b), this.options = a.extend({}, n, e), this.polyfill = this.options.polyfill, this.orientation = this.$element[0].getAttribute("data-orientation") || this.options.orientation, this.onInit = this.options.onInit, this.onSlide = this.options.onSlide, this.onSlideEnd = this.options.onSlideEnd, this.DIMENSION = o.orientation[this.orientation].dimension, this.DIRECTION = o.orientation[this.orientation].direction, this.DIRECTION_STYLE = o.orientation[this.orientation].directionStyle, this.COORDINATE = o.orientation[this.orientation].coordinate, this.polyfill && m) return !1;this.identifier = "js-" + k + "-" + l++, this.startEvent = this.options.startEvent.join("." + this.identifier + " ") + "." + this.identifier, this.moveEvent = this.options.moveEvent.join("." + this.identifier + " ") + "." + this.identifier, this.endEvent = this.options.endEvent.join("." + this.identifier + " ") + "." + this.identifier, this.toFixed = (this.step + "").replace(".", "").length - 1, this.$fill = a('<div class="' + this.options.fillClass + '" />'), this.$handle = a('<div class="' + this.options.handleClass + '" />'), this.$range = a('<div class="' + this.options.rangeClass + " " + this.options[this.orientation + "Class"] + '" id="' + this.identifier + '" />').insertAfter(this.$element).prepend(this.$fill, this.$handle), this.$element.css({ position: "absolute", width: "1px", height: "1px", overflow: "hidden", opacity: "0" }), this.handleDown = a.proxy(this.handleDown, this), this.handleMove = a.proxy(this.handleMove, this), this.handleEnd = a.proxy(this.handleEnd, this), this.init();var f = this;this.$window.on("resize." + this.identifier, d(function () {
+      c(function () {
+        f.update(!1, !1);
+      }, 300);
+    }, 20)), this.$document.on(this.startEvent, "#" + this.identifier + ":not(." + this.options.disabledClass + ")", this.handleDown), this.$element.on("change." + this.identifier, function (a, b) {
+      if (!b || b.origin !== f.identifier) {
+        var c = a.target.value,
+            d = f.getPositionFromValue(c);f.setPosition(d);
+      }
+    });
+  }Number.isNaN = Number.isNaN || function (a) {
+    return "number" == typeof a && a !== a;
+  };var k = "rangeslider",
+      l = 0,
+      m = b(),
+      n = { polyfill: !0, orientation: "horizontal", rangeClass: "rangeslider", disabledClass: "rangeslider--disabled", horizontalClass: "rangeslider--horizontal", verticalClass: "rangeslider--vertical", fillClass: "rangeslider__fill", handleClass: "rangeslider__handle", startEvent: ["mousedown", "touchstart", "pointerdown"], moveEvent: ["mousemove", "touchmove", "pointermove"], endEvent: ["mouseup", "touchend", "pointerup"] },
+      o = { orientation: { horizontal: { dimension: "width", direction: "left", directionStyle: "left", coordinate: "x" }, vertical: { dimension: "height", direction: "top", directionStyle: "bottom", coordinate: "y" } } };return j.prototype.init = function () {
+    this.update(!0, !1), this.onInit && "function" == typeof this.onInit && this.onInit();
+  }, j.prototype.update = function (a, b) {
+    a = a || !1, a && (this.min = h(this.$element[0].getAttribute("min"), 0), this.max = h(this.$element[0].getAttribute("max"), 100), this.value = h(this.$element[0].value, Math.round(this.min + (this.max - this.min) / 2)), this.step = h(this.$element[0].getAttribute("step"), 1)), this.handleDimension = g(this.$handle[0], "offset" + i(this.DIMENSION)), this.rangeDimension = g(this.$range[0], "offset" + i(this.DIMENSION)), this.maxHandlePos = this.rangeDimension - this.handleDimension, this.grabPos = this.handleDimension / 2, this.position = this.getPositionFromValue(this.value), this.$element[0].disabled ? this.$range.addClass(this.options.disabledClass) : this.$range.removeClass(this.options.disabledClass), this.setPosition(this.position, b);
+  }, j.prototype.handleDown = function (a) {
+    if (this.$document.on(this.moveEvent, this.handleMove), this.$document.on(this.endEvent, this.handleEnd), !((" " + a.target.className + " ").replace(/[\n\t]/g, " ").indexOf(this.options.handleClass) > -1)) {
+      var b = this.getRelativePosition(a),
+          c = this.$range[0].getBoundingClientRect()[this.DIRECTION],
+          d = this.getPositionFromNode(this.$handle[0]) - c,
+          e = "vertical" === this.orientation ? this.maxHandlePos - (b - this.grabPos) : b - this.grabPos;this.setPosition(e), b >= d && b < d + this.handleDimension && (this.grabPos = b - d);
+    }
+  }, j.prototype.handleMove = function (a) {
+    a.preventDefault();var b = this.getRelativePosition(a),
+        c = "vertical" === this.orientation ? this.maxHandlePos - (b - this.grabPos) : b - this.grabPos;this.setPosition(c);
+  }, j.prototype.handleEnd = function (a) {
+    a.preventDefault(), this.$document.off(this.moveEvent, this.handleMove), this.$document.off(this.endEvent, this.handleEnd), this.$element.trigger("change", { origin: this.identifier }), this.onSlideEnd && "function" == typeof this.onSlideEnd && this.onSlideEnd(this.position, this.value);
+  }, j.prototype.cap = function (a, b, c) {
+    return b > a ? b : a > c ? c : a;
+  }, j.prototype.setPosition = function (a, b) {
+    var c, d;void 0 === b && (b = !0), c = this.getValueFromPosition(this.cap(a, 0, this.maxHandlePos)), d = this.getPositionFromValue(c), this.$fill[0].style[this.DIMENSION] = d + this.grabPos + "px", this.$handle[0].style[this.DIRECTION_STYLE] = d + "px", this.setValue(c), this.position = d, this.value = c, b && this.onSlide && "function" == typeof this.onSlide && this.onSlide(d, c);
+  }, j.prototype.getPositionFromNode = function (a) {
+    for (var b = 0; null !== a;) {
+      b += a.offsetLeft, a = a.offsetParent;
+    }return b;
+  }, j.prototype.getRelativePosition = function (a) {
+    var b = i(this.COORDINATE),
+        c = this.$range[0].getBoundingClientRect()[this.DIRECTION],
+        d = 0;return "undefined" != typeof a["page" + b] ? d = a["client" + b] : "undefined" != typeof a.originalEvent["client" + b] ? d = a.originalEvent["client" + b] : a.originalEvent.touches && a.originalEvent.touches[0] && "undefined" != typeof a.originalEvent.touches[0]["client" + b] ? d = a.originalEvent.touches[0]["client" + b] : a.currentPoint && "undefined" != typeof a.currentPoint[this.COORDINATE] && (d = a.currentPoint[this.COORDINATE]), d - c;
+  }, j.prototype.getPositionFromValue = function (a) {
+    var b, c;return b = (a - this.min) / (this.max - this.min), c = Number.isNaN(b) ? 0 : b * this.maxHandlePos;
+  }, j.prototype.getValueFromPosition = function (a) {
+    var b, c;return b = a / (this.maxHandlePos || 1), c = this.step * Math.round(b * (this.max - this.min) / this.step) + this.min, Number(c.toFixed(this.toFixed));
+  }, j.prototype.setValue = function (a) {
+    (a !== this.value || "" === this.$element[0].value) && this.$element.val(a).trigger("input", { origin: this.identifier });
+  }, j.prototype.destroy = function () {
+    this.$document.off("." + this.identifier), this.$window.off("." + this.identifier), this.$element.off("." + this.identifier).removeAttr("style").removeData("plugin_" + k), this.$range && this.$range.length && this.$range[0].parentNode.removeChild(this.$range[0]);
+  }, a.fn[k] = function (b) {
+    var c = Array.prototype.slice.call(arguments, 1);return this.each(function () {
+      var d = a(this),
+          e = d.data("plugin_" + k);e || d.data("plugin_" + k, e = new j(this, b)), "string" == typeof b && e[b].apply(e, c);
+    });
+  }, "rangeslider.js is available in jQuery context e.g $(selector).rangeslider(options);";
+});
+
+new RangeInput(document.querySelector('.range'));
+dblee.getAttachment(selected_bookid, 'portada').then(function (blob) {
+console.log(blob);
+var url = URL.createObjectURL(blob);
+$('.profile-pic').attr('src', url);
+}).catch(function(err){
+  console.log(err);
+});
+var color ="";
+var format = "";
+  function getBuffer(resolve) {
+    var reader = new FileReader();
+    reader.readAsArrayBuffer(fileData);
+    reader.onload = function() {
+      var arrayBuffer = reader.result
+      var bytes = new Uint8Array(arrayBuffer);
+      resolve(bytes);
+    }
+  }
+
+
+  function previewFile() {
+  var preview = document.querySelector('.profile-pic');
+  var file    = document.querySelector('.file-upload').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+}
+$(document).ready(function() {
+  
+    var readURL = function(input, imgblob, size, type) {
+
+
+    toast("Subiendo...");
+
+            
+      console.log("YES! accepted");
+
+
+ dblee.putAttachment(selected_bookid, 'portada', selected_revbookid, imgblob, type).then(function () {
+        toast("Portada cambiada");
+        return dblee.getAttachment(selected_bookid, 'portada');
+      }).then(function (blob) {
+
+        var url = URL.createObjectURL(blob);
+      /*  document.body.innerHTML += '<div>Filesize: ' + JSON.stringify(Math.floor(blob.size/1024)) + 'KB, Content-Type: ' + JSON.stringify(blob.type) + "</div>";
+        document.body.innerHTML += '<div>Download link: <a href="' + url + '">' + url + '</div>'; */
+        toast("Procesando...");
+
+
+        return url;
+        /*  $("img").chameleon("getImageColors", {
+  "sort_type": "disabled",
+  "color_format": "hex",
+  "img_src": "",
+  "color_alpha": 200,
+  "color_difference": 120,
+  "canvas_side": 400,
+  "debug": false,
+  "onGetColorsSuccess": function (colors, $container, s) { 
+    var $colors = jQuery.fn.chameleon('wrapColor', colors, s.color_format); 
+    jQuery('._example-GETIMAGECOLORS_full-container .chmln-demo__colors').html($colors); 
+    $container.removeClass('_loading').addClass('_done').siblings().removeClass('_done'); 
+  },
+  "onGetColorsError": function (colors, $container, s, img_src) { 
+    jQuery('._example-GETIMAGECOLORS_full-container .chmln-demo__colors').html('Error occurred on getImageColors!'); 
+    console.error('Error occurred on getImageColors!', img_src); 
+  }
+});
+
+            <div class="_example-GETIMAGECOLORS_full-container">
+  <img src="img-src-here.jpg" alt="Chameleon Image">
+  <div class="chmln-demo__colors"></div>
+</div>
+*/
+
+
+        
+      }).then(function (returned) {
+        $("img.profile-pic").chameleon("getImageColors", {
+  "color_format": "hex",
+  "color_alpha": 200,
+  "color_difference": 70,
+  "canvas_side": 400,
+  "debug": false,
+  "onGetColorsSuccess": function (colors, $container, s) { 
+    var $colors = jQuery.fn.chameleon('wrapColor', colors, s.color_format); 
+    color = colors;
+    format = s.color_format
+    console.log("COLORS IMAGE: ", colors)
+     dblee.upsert(selected_bookid, function (doc) {
+        doc.upload_portada = true;
+        doc.colors = color;
+        doc.formatcolor = format;
+      return doc;
+    }).then(function (res) {
+               console.log(res);
+               selected_revbookid = res.rev;
+      // success, res is {rev: '1-xxx', updated: true, id: 'myDocId'}
+    }).catch(function (err) {
+      console.log(err);
+      toast("Ocurrió un error.");
+    }); 
+    jQuery('._example-GETIMAGECOLORS_full-container .chmln-demo__colors').html($colors); 
+    $container.removeClass('_loading').addClass('_done').siblings().removeClass('_done'); 
+  },
+  "onGetColorsError": function (colors, $container, s, img_src) { 
+    jQuery('._example-GETIMAGECOLORS_full-container .chmln-demo__colors').html('Imagen subida. Problema al extraer colores, caerá en el respaldo azul.'); 
+    toast('Error al extraer colores de imagen.'); 
+  }
+});
+       /* new PouchDB('attachments').destroy();*/
+      }).catch(function (err) {
+
+        console.log(err);
+      });
+      //
+      // IMPORTANT CODE ENDS HERE
+      //
+ 
+
+
+
+          /*  var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+              
+            reader.readAsDataURL(input.files[0]); */
+
+        
+  
+  
+
+       };
+   
+    $(".file-upload").on('change', function(){
+        var file = $('.file-upload')[0].files[0];
+  var fileReader = new FileReader();
+      var fileType = file["type"];
+    var imgvalid = ["image/jpeg", "image/png"];
+    
+    console.log(fileType);
+                
+    if ($.inArray(fileType, imgvalid) <= 0) {
+
+
+  fileReader.onloadend = function (e) {
+    var arrayBuffer = e.target.result;
+    blobUtil.arrayBufferToBlob(arrayBuffer, fileType).then(function (blob) {
+      var url = URL.createObjectURL(blob);
+      console.log('here is a blob', blob);
+      console.log('its size is', blob.size);
+      console.log('its type is', blob.type);
+
+        $('#'+selected_bookid).css('background', 'url('+url+') 0% 0% / cover');
+        toast("Chequeando portada...")
+        readURL(this, blob, blob.size, blob.type);
+    }).catch(console.log.bind(console));
+  };
+  fileReader.readAsArrayBuffer(file);
+      } else {
+        toast("Formato "+fileType+" no soportado.")
+      }
+
+
+    });
+    
+    $(".upload-button").on('click', function() {
+       $(".file-upload").click();
+    });
+
+     var editor = new MediumEditor('.editablee', {
+       paste: {
+        forcePlainText: true,
+        cleanPastedHTML: true,
+        cleanReplacements: [],
+       /* cleanAttrs: ['class', 'style', 'dir'], */
+        cleanTags: ['meta']
+        },
+        extensions: {
+            'insert': new MediumEditorInsert()
+        }
+    });
+
+});
+$editables = $('[contenteditable=true]');
+/*$editables.addEventListener("paste", function(e) {
+    // cancel paste
+    e.preventDefault();
+
+    // get text representation of clipboard
+    var text = e.clipboardData.getData("text/plain");
+
+    // insert text manually
+    document.execCommand("insertHTML", false, text);
+});*/
+$editables.filter("p,span").on('keypress',function(e){
+ if(e.keyCode==13){ //enter && shift
+
+  e.preventDefault(); //Prevent default browser behavior
+  if (window.getSelection) {
+      var selection = window.getSelection(),
+          range = selection.getRangeAt(0),
+          br = document.createElement("br"),
+          textNode = document.createTextNode("\u00a0"); //Passing " " directly will not end up being shown correctly
+      range.deleteContents();//required or not?
+      range.insertNode(br);
+      range.collapse(false);
+      range.insertNode(textNode);
+      range.selectNodeContents(textNode);
+
+      selection.removeAllRanges();
+      selection.addRange(range);
+      return false;
+  }
+
+   }
+});
+
+
+/* Tags Input */
+var tags_array;
+
+(function($)
+{
+    "use strict";
+    var TagSuggest = function(element, options)
+    {
+        var ms = this;
+
+        /**
+         * Initializes the TagSuggest component
+         * @param defaults - see config below
+         */
+        var defaults = {
+            /**********  CONFIGURATION PROPERTIES ************/
+            /**
+             * @cfg {Boolean} allowFreeEntries
+             * <p>Restricts or allows the user to validate typed entries.</p>
+             * Defaults to <code>true</code>.
+             */
+            allowFreeEntries: true,
+
+            /**
+             * @cfg {String} cls
+             * <p>A custom CSS class to apply to the field's underlying element.</p>
+             * Defaults to <code>''</code>.
+             */
+            cls: '',
+
+            /**
+             * @cfg {Array / String / Function} data
+             * JSON Data source used to populate the combo box. 3 options are available here:<br/>
+             * <p><u>No Data Source (default)</u><br/>
+             *    When left null, the combo box will not suggest anything. It can still enable the user to enter
+             *    multiple entries if allowFreeEntries is * set to true (default).</p>
+             * <p><u>Static Source</u><br/>
+             *    You can pass an array of JSON objects, an array of strings or even a single CSV string as the
+             *    data source.<br/>For ex. data: [* {id:0,name:"Paris"}, {id: 1, name: "New York"}]<br/>
+             *    You can also pass any json object with the results property containing the json array.</p>
+             * <p><u>Url</u><br/>
+             *     You can pass the url from which the component will fetch its JSON data.<br/>Data will be fetched
+             *     using a POST ajax request that will * include the entered text as 'query' parameter. The results
+             *     fetched from the server can be: <br/>
+             *     - an array of JSON objects (ex: [{id:...,name:...},{...}])<br/>
+             *     - a string containing an array of JSON objects ready to be parsed (ex: "[{id:...,name:...},{...}]")<br/>
+             *     - a JSON object whose data will be contained in the results property
+             *      (ex: {results: [{id:...,name:...},{...}]</p>
+             * <p><u>Function</u><br/>
+             *     You can pass a function which returns an array of JSON objects  (ex: [{id:...,name:...},{...}])<br/>
+             *     The function can return the JSON data or it can use the first argument as function to handle the data.<br/>
+             *     Only one (callback function or return value) is needed for the function to succeed.<br/>
+             *     See the following example:<br/>
+             *     function (response) { var myjson = [{name: 'test', id: 1}]; response(myjson); return myjson; }</p>
+             * Defaults to <b>null</b>
+             */
+            data: null,
+
+            /**
+             * @cfg {Object} dataParams
+             * <p>Additional parameters to the ajax call</p>
+             * Defaults to <code>{}</code>
+             */
+            dataUrlParams: {},
+
+            /**
+             * @cfg {Boolean} disabled
+             * <p>Start the component in a disabled state.</p>
+             * Defaults to <code>false</code>.
+             */
+            disabled: false,
+
+            /**
+             * @cfg {String} displayField
+             * <p>name of JSON object property displayed in the combo list</p>
+             * Defaults to <code>name</code>.
+             */
+            displayField: 'name',
+
+            /**
+             * @cfg {Boolean} editable
+             * <p>Set to false if you only want mouse interaction. In that case the combo will
+             * automatically expand on focus.</p>
+             * Defaults to <code>true</code>.
+             */
+            editable: true,
+
+            /**
+             * @cfg {String} emptyText
+             * <p>The default placeholder text when nothing has been entered</p>
+             * Defaults to <code>'Type or click here'</code> or just <code>'Click here'</code> if not editable.
+             */
+            emptyText: function() {
+                return cfg.editable ? 'Escribe o toca aquí' : 'Toca aquí';
+            },
+
+            /**
+             * @cfg {String} emptyTextCls
+             * <p>A custom CSS class to style the empty text</p>
+             * Defaults to <code>'tag-empty-text'</code>.
+             */
+            emptyTextCls: 'tag-empty-text',
+
+            /**
+             * @cfg {Boolean} expanded
+             * <p>Set starting state for combo.</p>
+             * Defaults to <code>false</code>.
+             */
+            expanded: false,
+
+            /**
+             * @cfg {Boolean} expandOnFocus
+             * <p>Automatically expands combo on focus.</p>
+             * Defaults to <code>false</code>.
+             */
+            expandOnFocus: function() {
+                return cfg.editable ? false : true;
+            },
+
+            /**
+             * @cfg {String} groupBy
+             * <p>JSON property by which the list should be grouped</p>
+             * Defaults to null
+             */
+            groupBy: null,
+
+            /**
+             * @cfg {Boolean} hideTrigger
+             * <p>Set to true to hide the trigger on the right</p>
+             * Defaults to <code>false</code>.
+             */
+            hideTrigger: false,
+
+            /**
+             * @cfg {Boolean} highlight
+             * <p>Set to true to highlight search input within displayed suggestions</p>
+             * Defaults to <code>true</code>.
+             */
+            highlight: true,
+
+            /**
+             * @cfg {String} id
+             * <p>A custom ID for this component</p>
+             * Defaults to 'tag-ctn-{n}' with n positive integer
+             */
+            id: function() {
+                return 'tag-ctn-' + $('div[id^="tag-ctn"]').length;
+            },
+
+            /**
+             * @cfg {String} infoMsgCls
+             * <p>A class that is added to the info message appearing on the top-right part of the component</p>
+             * Defaults to ''
+             */
+            infoMsgCls: '',
+
+            /**
+             * @cfg {Object} inputCfg
+             * <p>Additional parameters passed out to the INPUT tag. Enables usage of AngularJS's custom tags for ex.</p>
+             * Defaults to <code>{}</code>
+             */
+            inputCfg: {},
+
+            /**
+             * @cfg {String} invalidCls
+             * <p>The class that is applied to show that the field is invalid</p>
+             * Defaults to tag-ctn-invalid
+             */
+            invalidCls: 'tag-ctn-invalid',
+
+            /**
+             * @cfg {Boolean} matchCase
+             * <p>Set to true to filter data results according to case. Useless if the data is fetched remotely</p>
+             * Defaults to <code>false</code>.
+             */
+            matchCase: false,
+
+            /**
+             * @cfg {Integer} maxDropHeight (in px)
+             * <p>Once expanded, the combo's height will take as much room as the # of available results.
+             *    In case there are too many results displayed, this will fix the drop down height.</p>
+             * Defaults to 290 px.
+             */
+            maxDropHeight: 290,
+
+            /**
+             * @cfg {Integer} maxEntryLength
+             * <p>Defines how long the user free entry can be. Set to null for no limit.</p>
+             * Defaults to null.
+             */
+            maxEntryLength: null,
+
+            /**
+             * @cfg {String} maxEntryRenderer
+             * <p>A function that defines the helper text when the max entry length has been surpassed.</p>
+             * Defaults to <code>function(v){return 'Please reduce your entry by ' + v + ' character' + (v > 1 ? 's':'');}</code>
+             */
+            maxEntryRenderer: function(v) {
+                return 'Please reduce your entry by ' + v + ' character' + (v > 1 ? 's':'');
+            },
+
+            /**
+             * @cfg {Integer} maxSuggestions
+             * <p>The maximum number of results displayed in the combo drop down at once.</p>
+             * Defaults to null.
+             */
+            maxSuggestions: null,
+
+            /**
+             * @cfg {Integer} maxSelection
+             * <p>The maximum number of items the user can select if multiple selection is allowed.
+             *    Set to null to remove the limit.</p>
+             * Defaults to 10.
+             */
+            maxSelection: 10,
+
+            /**
+             * @cfg {Function} maxSelectionRenderer
+             * <p>A function that defines the helper text when the max selection amount has been reached. The function has a single
+             *    parameter which is the number of selected elements.</p>
+             * Defaults to <code>function(v){return 'You cannot choose more than ' + v + ' item' + (v > 1 ? 's':'');}</code>
+             */
+            maxSelectionRenderer: function(v) {
+                return 'No puedes etiquetar más de ' + v + ' géneros' + (v > 1 ? 's':'');
+            },
+
+            /**
+             * @cfg {String} method
+             * <p>The method used by the ajax request.</p>
+             * Defaults to 'POST'
+             */
+            method: 'POST',
+
+            /**
+             * @cfg {Integer} minChars
+             * <p>The minimum number of characters the user must type before the combo expands and offers suggestions.
+             * Defaults to <code>0</code>.
+             */
+            minChars: 0,
+
+            /**
+             * @cfg {Function} minCharsRenderer
+             * <p>A function that defines the helper text when not enough letters are set. The function has a single
+             *    parameter which is the difference between the required amount of letters and the current one.</p>
+             * Defaults to <code>function(v){return 'Please type ' + v + ' more character' + (v > 1 ? 's':'');}</code>
+             */
+            minCharsRenderer: function(v) {
+                return 'Escribe ' + v + ' más letra' + (v > 1 ? 's':'');
+            },
+
+            /**
+             * @cfg {String} name
+             * <p>The name used as a form element.</p>
+             * Defaults to 'null'
+             */
+            name: null,
+
+            /**
+             * @cfg {String} noSuggestionText
+             * <p>The text displayed when there are no suggestions.</p>
+             * Defaults to 'No suggestions"
+             */
+            noSuggestionText: '0 sugerencias',
+
+            /**
+             * @cfg {Boolean} preselectSingleSuggestion
+             * <p>If a single suggestion comes out, it is preselected.</p>
+             * Defaults to <code>true</code>.
+             */
+            preselectSingleSuggestion: true,
+
+            /**
+             * @cfg (function) renderer
+             * <p>A function used to define how the items will be presented in the combo</p>
+             * Defaults to <code>null</code>.
+             */
+            renderer: null,
+
+            /**
+             * @cfg {Boolean} required
+             * <p>Whether or not this field should be required</p>
+             * Defaults to false
+             */
+            required: false,
+
+            /**
+             * @cfg {Boolean} resultAsString
+             * <p>Set to true to render selection as comma separated string</p>
+             * Defaults to <code>false</code>.
+             */
+            resultAsString: true,
+
+            /**
+             * @cfg {String} resultsField
+             * <p>Name of JSON object property that represents the list of suggested objets</p>
+             * Defaults to <code>results</code>
+             */
+            resultsField: 'results',
+
+            /**
+             * @cfg {String} selectionCls
+             * <p>A custom CSS class to add to a selected item</p>
+             * Defaults to <code>''</code>.
+             */
+            selectionCls: '',
+
+            /**
+             * @cfg {String} selectionPosition
+             * <p>Where the selected items will be displayed. Only 'right', 'bottom' and 'inner' are valid values</p>
+             * Defaults to <code>'inner'</code>, meaning the selected items will appear within the input box itself.
+             */
+            selectionPosition: 'inner',
+
+            /**
+             * @cfg (function) selectionRenderer
+             * <p>A function used to define how the items will be presented in the tag list</p>
+             * Defaults to <code>null</code>.
+             */
+            selectionRenderer: null,
+
+            /**
+             * @cfg {Boolean} selectionStacked
+             * <p>Set to true to stack the selectioned items when positioned on the bottom
+             *    Requires the selectionPosition to be set to 'bottom'</p>
+             * Defaults to <code>false</code>.
+             */
+            selectionStacked: false,
+
+            /**
+             * @cfg {String} sortDir
+             * <p>Direction used for sorting. Only 'asc' and 'desc' are valid values</p>
+             * Defaults to <code>'asc'</code>.
+             */
+            sortDir: 'asc',
+
+            /**
+             * @cfg {String} sortOrder
+             * <p>name of JSON object property for local result sorting.
+             *    Leave null if you do not wish the results to be ordered or if they are already ordered remotely.</p>
+             *
+             * Defaults to <code>null</code>.
+             */
+            sortOrder: null,
+
+            /**
+             * @cfg {Boolean} strictSuggest
+             * <p>If set to true, suggestions will have to start by user input (and not simply contain it as a substring)</p>
+             * Defaults to <code>false</code>.
+             */
+            strictSuggest: false,
+
+            /**
+             * @cfg {String} style
+             * <p>Custom style added to the component container.</p>
+             *
+             * Defaults to <code>''</code>.
+             */
+            style: '',
+
+            /**
+             * @cfg {Boolean} toggleOnClick
+             * <p>If set to true, the combo will expand / collapse when clicked upon</p>
+             * Defaults to <code>false</code>.
+             */
+            toggleOnClick: true,
+
+
+            /**
+             * @cfg {Integer} typeDelay
+             * <p>Amount (in ms) between keyboard registers.</p>
+             *
+             * Defaults to <code>400</code>
+             */
+            typeDelay: 400,
+
+            /**
+             * @cfg {Boolean} useTabKey
+             * <p>If set to true, tab won't blur the component but will be registered as the ENTER key</p>
+             * Defaults to <code>false</code>.
+             */
+            useTabKey: false,
+
+            /**
+             * @cfg {Boolean} useCommaKey
+             * <p>If set to true, using comma will validate the user's choice</p>
+             * Defaults to <code>true</code>.
+             */
+            useCommaKey: true,
+
+
+            /**
+             * @cfg {Boolean} useZebraStyle
+             * <p>Determines whether or not the results will be displayed with a zebra table style</p>
+             * Defaults to <code>true</code>.
+             */
+            useZebraStyle: true,
+
+            /**
+             * @cfg {String/Object/Array} value
+             * <p>initial value for the field</p>
+             * Defaults to <code>null</code>.
+             */
+            value: null,
+
+            /**
+             * @cfg {String} valueField
+             * <p>name of JSON object property that represents its underlying value</p>
+             * Defaults to <code>id</code>.
+             */
+            valueField: 'id',
+
+            /**
+             * @cfg {Integer} width (in px)
+             * <p>Width of the component</p>
+             * Defaults to underlying element width.
+             */
+            width: function() {
+                return $(this).width();
+            }
+        };
+
+        var conf = $.extend({},options);
+        var cfg = $.extend(true, {}, defaults, conf);
+
+        // some init stuff
+        if ($.isFunction(cfg.emptyText)) {
+            cfg.emptyText = cfg.emptyText.call(this);
+        }
+        if ($.isFunction(cfg.expandOnFocus)) {
+            cfg.expandOnFocus = cfg.expandOnFocus.call(this);
+        }
+        if ($.isFunction(cfg.id)) {
+            cfg.id = cfg.id.call(this);
+        }
+
+        /**********  PUBLIC METHODS ************/
+        /**
+         * Add one or multiple json items to the current selection
+         * @param items - json object or array of json objects
+         * @param isSilent - (optional) set to true to suppress 'selectionchange' event from being triggered
+         */
+        this.addToSelection = function(items, isSilent)
+        {
+            if (!cfg.maxSelection || _selection.length < cfg.maxSelection) {
+                if (!$.isArray(items)) {
+                    items = [items];
+                }
+                var valuechanged = false;
+                $.each(items, function(index, json) {
+                    if ($.inArray(json[cfg.valueField], ms.getValue()) === -1) {
+                        _selection.push(json);
+                        valuechanged = true;
+                    }
+                });
+                if(valuechanged === true) {
+                    self._renderSelection();
+                    this.empty();
+                    if (isSilent !== true) {
+                        $(this).trigger('selectionchange', [this, this.getSelectedItems()]);
+                    }
+                }
+            }
+        };
+
+        /**
+         * Clears the current selection
+         * @param isSilent - (optional) set to true to suppress 'selectionchange' event from being triggered
+         */
+        this.clear = function(isSilent)
+        {
+            this.removeFromSelection(_selection.slice(0), isSilent); // clone array to avoid concurrency issues
+        };
+
+        /**
+         * Collapse the drop down part of the combo
+         */
+        this.collapse = function()
+        {
+            if (cfg.expanded === true) {
+                this.combobox.detach();
+                cfg.expanded = false;
+                $(this).trigger('collapse', [this]);
+            }
+        };
+
+        /**
+         * Set the component in a disabled state.
+         */
+        this.disable = function()
+        {
+            this.container.addClass('tag-ctn-disabled');
+            cfg.disabled = true;
+            ms.input.attr('disabled', true);
+        };
+
+        /**
+         * Empties out the combo user text
+         */
+        this.empty = function(){
+            this.input.removeClass(cfg.emptyTextCls);
+            this.input.val('');
+        };
+
+        /**
+         * Set the component in a enable state.
+         */
+        this.enable = function()
+        {
+            this.container.removeClass('tag-ctn-disabled');
+            cfg.disabled = false;
+            ms.input.attr('disabled', false);
+        };
+
+        /**
+         * Expand the drop drown part of the combo.
+         */
+        this.expand = function()
+        {
+            if (!cfg.expanded && (this.input.val().length >= cfg.minChars || this.combobox.children().size() > 0)) {
+                this.combobox.appendTo(this.container);
+                self._processSuggestions();
+                cfg.expanded = true;
+                $(this).trigger('expand', [this]);
+            }
+        };
+
+        /**
+         * Retrieve component enabled status
+         */
+        this.isDisabled = function()
+        {
+            return cfg.disabled;
+        };
+
+        /**
+         * Checks whether the field is valid or not
+         * @return {boolean}
+         */
+        this.isValid = function()
+        {
+            return cfg.required === false || _selection.length > 0;
+        };
+
+        /**
+         * Gets the data params for current ajax request
+         */
+        this.getDataUrlParams = function()
+        {
+            return cfg.dataUrlParams;
+        };
+
+        /**
+         * Gets the name given to the form input
+         */
+        this.getName = function()
+        {
+            return cfg.name;
+        };
+
+        /**
+         * Retrieve an array of selected json objects
+         * @return {Array}
+         */
+        this.getSelectedItems = function()
+        {
+            return _selection;
+        };
+
+        /**
+         * Retrieve the current text entered by the user
+         */
+        this.getRawValue = function(){
+            return ms.input.val() !== cfg.emptyText ? ms.input.val() : '';
+        };
+
+        /**
+         * Retrieve an array of selected values
+         */
+        this.getValue = function()
+        {
+            return $.map(_selection, function(o) {
+                return o[cfg.valueField];
+            });
+        };
+
+        /**
+         * Remove one or multiples json items from the current selection
+         * @param items - json object or array of json objects
+         * @param isSilent - (optional) set to true to suppress 'selectionchange' event from being triggered
+         */
+        this.removeFromSelection = function(items, isSilent)
+        {
+            if (!$.isArray(items)) {
+                items = [items];
+            }
+            var valuechanged = false;
+            $.each(items, function(index, json) {
+                var i = $.inArray(json[cfg.valueField], ms.getValue());
+                if (i > -1) {
+                    _selection.splice(i, 1);
+                    valuechanged = true;
+                }
+            });
+            if (valuechanged === true) {
+                self._renderSelection();
+                if(isSilent !== true){
+                    $(this).trigger('selectionchange', [this, this.getSelectedItems()]);
+                }
+                if(cfg.expandOnFocus){
+                    ms.expand();
+                }
+                if(cfg.expanded) {
+                    self._processSuggestions();
+                }
+            }
+        };
+
+        /**
+         * Set up some combo data after it has been rendered
+         * @param data
+         */
+        this.setData = function(data){
+            cfg.data = data;
+            self._processSuggestions();
+        };
+
+        /**
+         * Sets the name for the input field so it can be fetched in the form
+         * @param name
+         */
+        this.setName = function(name){
+            cfg.name = name;
+            if(ms._valueContainer){
+                ms._valueContainer.name = name;
+            }
+        };
+
+        /**
+         * Sets a value for the combo box. Value must be a value or an array of value with data type matching valueField one.
+         * @param data
+         */
+        this.setValue = function(data)
+        {
+            var values = data, items = [];
+            if(!$.isArray(data)){
+                if(typeof(data) === 'string'){
+                    if(data.indexOf('[') > -1){
+                        values = eval(data);
+                    } else if(data.indexOf(',') > -1){
+                        values = data.split(',');
+                    }
+                } else {
+                    values = [data];
+                }
+            }
+
+            $.each(_cbData, function(index, obj) {
+                if($.inArray(obj[cfg.valueField], values) > -1) {
+                    items.push(obj);
+                }
+            });
+            if(items.length > 0) {
+                this.addToSelection(items);
+            }
+        };
+
+        /**
+         * Sets data params for subsequent ajax requests
+         * @param params
+         */
+        this.setDataUrlParams = function(params)
+        {
+            cfg.dataUrlParams = $.extend({},params);
+        };
+
+        /**********  PRIVATE ************/
+        var _selection = [],      // selected objects
+            _comboItemHeight = 0, // height for each combo item.
+            _timer,
+            _hasFocus = false,
+            _groups = null,
+            _cbData = [],
+            _ctrlDown = false;
+
+        var self = {
+
+            /**
+             * Empties the result container and refills it with the array of json results in input
+             * @private
+             */
+            _displaySuggestions: function(data) {
+                ms.combobox.empty();
+
+                var resHeight = 0, // total height taken by displayed results.
+                    nbGroups = 0;
+
+                if(_groups === null) {
+                    self._renderComboItems(data);
+                    resHeight = _comboItemHeight * data.length;
+                }
+                else {
+                    for(var grpName in _groups) {
+                        nbGroups += 1;
+                        $('<div/>', {
+                            'class': 'tag-res-group',
+                            html: grpName
+                        }).appendTo(ms.combobox);
+                        self._renderComboItems(_groups[grpName].items, true);
+                    }
+
+
+                    resHeight = _comboItemHeight * (data.length + nbGroups);
+                }
+
+                if(resHeight < ms.combobox.height() || resHeight <= cfg.maxDropHeight) {
+                    ms.combobox.height(resHeight);
+                }
+                else if(resHeight >= ms.combobox.height() && resHeight > cfg.maxDropHeight) {
+                    ms.combobox.height(cfg.maxDropHeight);
+                }
+
+                if(data.length === 1 && cfg.preselectSingleSuggestion === true) {
+                    ms.combobox.children().filter(':last').addClass('tag-res-item-active');
+                }
+
+                if(data.length === 0 && ms.getRawValue() !== "") {
+                    self._updateHelper(cfg.noSuggestionText);
+                    ms.collapse();
+                }
+            },
+
+            /**
+             * Returns an array of json objects from an array of strings.
+             * @private
+             */
+            _getEntriesFromStringArray: function(data) {
+                var json = [];
+                $.each(data, function(index, s) {
+                    var entry = {};
+                    entry[cfg.displayField] = entry[cfg.valueField] = $.trim(s);
+                    json.push(entry);
+                });
+                return json;
+            },
+
+            /**
+             * Replaces html with highlighted html according to case
+             * @param html
+             * @private
+             */
+            _highlightSuggestion: function(html) {
+                var q = ms.input.val() !== cfg.emptyText ? ms.input.val() : '';
+                if(q.length === 0) {
+                    return html; // nothing entered as input
+                }
+
+                if(cfg.matchCase === true) {
+                    html = html.replace(new RegExp('(' + q + ')(?!([^<]+)?>)','g'), '<em>$1</em>');
+                }
+                else {
+                    html = html.replace(new RegExp('(' + q + ')(?!([^<]+)?>)','gi'), '<em>$1</em>');
+                }
+                return html;
+            },
+
+            /**
+             * Moves the selected cursor amongst the list item
+             * @param dir - 'up' or 'down'
+             * @private
+             */
+            _moveSelectedRow: function(dir) {
+                if(!cfg.expanded) {
+                    ms.expand();
+                }
+                var list, start, active, scrollPos;
+                list = ms.combobox.find(".tag-res-item");
+                if(dir === 'down') {
+                    start = list.eq(0);
+                }
+                else {
+                    start = list.filter(':last');
+                }
+                active = ms.combobox.find('.tag-res-item-active:first');
+                if(active.length > 0) {
+                    if(dir === 'down') {
+                        start = active.nextAll('.tag-res-item').first();
+                        if(start.length === 0) {
+                            start = list.eq(0);
+                        }
+                        scrollPos = ms.combobox.scrollTop();
+                        ms.combobox.scrollTop(0);
+                        if(start[0].offsetTop + start.outerHeight() > ms.combobox.height()) {
+                            ms.combobox.scrollTop(scrollPos + _comboItemHeight);
+                        }
+                    }
+                    else {
+                        start = active.prevAll('.tag-res-item').first();
+                        if(start.length === 0) {
+                            start = list.filter(':last');
+                            ms.combobox.scrollTop(_comboItemHeight * list.length);
+                        }
+                        if(start[0].offsetTop < ms.combobox.scrollTop()) {
+                            ms.combobox.scrollTop(ms.combobox.scrollTop() - _comboItemHeight);
+                        }
+                    }
+                }
+                list.removeClass("tag-res-item-active");
+                start.addClass("tag-res-item-active");
+            },
+
+            /**
+             * According to given data and query, sort and add suggestions in their container
+             * @private
+             */
+            _processSuggestions: function(source) {
+                var json = null, data = source || cfg.data;
+                if(data !== null) {
+                    if(typeof(data) === 'function'){
+                        data = data.call(ms);
+                    }
+                    if(typeof(data) === 'string' && data.indexOf(',') < 0) { // get results from ajax
+                        $(ms).trigger('beforeload', [ms]);
+                        var params = $.extend({query: ms.input.val()}, cfg.dataUrlParams);
+                        $.ajax({
+                            type: cfg.method,
+                            url: data,
+                            data: params,
+                            success: function(asyncData){
+                                json = typeof(asyncData) === 'string' ? JSON.parse(asyncData) : asyncData;
+                                self._processSuggestions(json);
+                                $(ms).trigger('load', [ms, json]);
+                            },
+                            error: function(){
+                                throw("Could not reach server");
+                            }
+                        });
+                        return;
+                    } else if(typeof(data) === 'string' && data.indexOf(',') > -1) { // results from csv string
+                        _cbData = self._getEntriesFromStringArray(data.split(','));
+                    } else { // results from local array
+                        if(data.length > 0 && typeof(data[0]) === 'string') { // results from array of strings
+                            _cbData = self._getEntriesFromStringArray(data);
+                        } else { // regular json array or json object with results property
+                            _cbData = data[cfg.resultsField] || data;
+                        }
+                    }
+                    self._displaySuggestions(self._sortAndTrim(_cbData));
+
+                }
+            },
+
+            /**
+             * Render the component to the given input DOM element
+             * @private
+             */
+            _render: function(el) {
+                $(ms).trigger('beforerender', [ms]);
+                var w = $.isFunction(cfg.width) ? cfg.width.call(el) : cfg.width;
+                // holds the main div, will relay the focus events to the contained input element.
+                ms.container = $('<div/>', {
+                    id: cfg.id,
+                    'class': 'tag-ctn ' + cfg.cls +
+                        (cfg.disabled === true ? ' tag-ctn-disabled' : '') +
+                        (cfg.editable === true ? '' : ' tag-ctn-readonly'),
+                    style: cfg.style
+                });
+                ms.container.focus($.proxy(handlers._onFocus, this));
+                ms.container.blur($.proxy(handlers._onBlur, this));
+                ms.container.keydown($.proxy(handlers._onKeyDown, this));
+                ms.container.keyup($.proxy(handlers._onKeyUp, this));
+
+                // holds the input field
+                ms.input = $('<input/>', $.extend({
+                    id: 'tag-input-' + $('input[id^="tag-input"]').length,
+                    type: 'text',
+                    'class': cfg.emptyTextCls + (cfg.editable === true ? '' : ' tag-input-readonly'),
+                    value: cfg.emptyText,
+                    readonly: !cfg.editable,
+                    disabled: cfg.disabled
+                }, cfg.inputCfg));
+
+                ms.input.focus($.proxy(handlers._onInputFocus, this));
+                ms.input.click($.proxy(handlers._onInputClick, this));
+
+                // holds the trigger on the right side
+                if(cfg.hideTrigger === false) {
+                    ms.trigger = $('<div/>', {
+                        id: 'tag-trigger-' + $('div[id^="tag-trigger"]').length,
+                        'class': 'tag-trigger',
+                        html: '<div class="tag-trigger-ico"></div>'
+                    });
+                    ms.trigger.click($.proxy(handlers._onTriggerClick, this));
+                    ms.container.append(ms.trigger);
+                }
+
+                // holds the suggestions. will always be placed on focus
+                ms.combobox = $('<div/>', {
+                    id: 'tag-res-ctn-' + $('div[id^="tag-res-ctn"]').length,
+                    'class': 'tag-res-ctn '
+                }).height(cfg.maxDropHeight);
+
+                // bind the onclick and mouseover using delegated events (needs jQuery >= 1.7)
+                ms.combobox.on('click', 'div.tag-res-item', $.proxy(handlers._onComboItemSelected, this));
+                ms.combobox.on('mouseover', 'div.tag-res-item', $.proxy(handlers._onComboItemMouseOver, this));
+
+                ms.selectionContainer = $('<div/>', {
+                    id: 'tag-sel-ctn-' +  $('div[id^="tag-sel-ctn"]').length,
+                    'class': 'tag-sel-ctn'
+                });
+                ms.selectionContainer.click($.proxy(handlers._onFocus, this));
+
+                if(cfg.selectionPosition === 'inner') {
+                    ms.selectionContainer.append(ms.input);
+                }
+                else {
+                    ms.container.append(ms.input);
+                }
+
+                ms.helper = $('<div/>', {
+                    'class': 'tag-helper ' + cfg.infoMsgCls
+                });
+                self._updateHelper();
+                ms.container.append(ms.helper);
+
+
+                // Render the whole thing
+                $(el).replaceWith(ms.container);
+
+                switch(cfg.selectionPosition) {
+                    case 'bottom':
+                        ms.selectionContainer.insertAfter(ms.container);
+                        if(cfg.selectionStacked === true) {
+                            ms.selectionContainer.width(ms.container.width());
+                            ms.selectionContainer.addClass('tag-stacked');
+                        }
+                        break;
+                    case 'right':
+                        ms.selectionContainer.insertAfter(ms.container);
+                        ms.container.css('float', 'left');
+                        break;
+                    default:
+                        ms.container.append(ms.selectionContainer);
+                        break;
+                }
+
+                self._processSuggestions();
+                if(cfg.value !== null) {
+                    ms.setValue(cfg.value);
+                    self._renderSelection();
+                }
+
+                $(ms).trigger('afterrender', [ms]);
+                $("body").click(function(e) {
+                    if(ms.container.hasClass('tag-ctn-bootstrap-focus') &&
+                        ms.container.has(e.target).length === 0 &&
+                        e.target.className.indexOf('tag-res-item') < 0 &&
+                        e.target.className.indexOf('tag-close-btn') < 0 &&
+                        ms.container[0] !== e.target) {
+                        handlers._onBlur();
+                    }
+                });
+
+                if(cfg.expanded === true) {
+                    cfg.expanded = false;
+                    ms.expand();
+                }
+            },
+
+            _renderComboItems: function(items, isGrouped) {
+                var ref = this, html = '';
+                $.each(items, function(index, value) {
+                    var displayed = cfg.renderer !== null ? cfg.renderer.call(ref, value) : value[cfg.displayField];
+                    var resultItemEl = $('<div/>', {
+                        'class': 'tag-res-item ' + (isGrouped ? 'tag-res-item-grouped ':'') +
+                            (index % 2 === 1 && cfg.useZebraStyle === true ? 'tag-res-odd' : ''),
+                        html: cfg.highlight === true ? self._highlightSuggestion(displayed) : displayed,
+                        'data-json': JSON.stringify(value)
+                    });
+                    resultItemEl.click($.proxy(handlers._onComboItemSelected, ref));
+                    resultItemEl.mouseover($.proxy(handlers._onComboItemMouseOver, ref));
+                    html += $('<div/>').append(resultItemEl).html();
+                });
+                ms.combobox.append(html);
+                _comboItemHeight = ms.combobox.find('.tag-res-item:first').outerHeight();
+            },
+
+            /**
+             * Renders the selected items into their container.
+             * @private
+             */
+            _renderSelection: function() {
+                var ref = this, w = 0, inputOffset = 0, items = [],
+                    asText = cfg.resultAsString === true && !_hasFocus;
+
+                ms.selectionContainer.find('.tag-sel-item').remove();
+                if(ms._valueContainer !== undefined) {
+                    ms._valueContainer.remove();
+                }
+
+                $.each(_selection, function(index, value){
+
+                    var selectedItemEl, delItemEl,
+                        selectedItemHtml = cfg.selectionRenderer !== null ? cfg.selectionRenderer.call(ref, value) : value[cfg.displayField];
+                    // tag representing selected value
+                    if(asText === true) {
+                        selectedItemEl = $('<div/>', {
+                            'class': 'tag-sel-item tag-sel-text ' + cfg.selectionCls,
+                            html: selectedItemHtml + (index === (_selection.length - 1) ? '' : ',')
+                        }).data('json', value);
+                    }
+                    else {
+                        selectedItemEl = $('<div/>', {
+                            'class': 'tag-sel-item ' + cfg.selectionCls,
+                            html: selectedItemHtml
+                        }).data('json', value);
+
+                        if(cfg.disabled === false){
+                            // small cross img
+                            delItemEl = $('<span/>', {
+                                'class': 'tag-close-btn'
+                            }).data('json', value).appendTo(selectedItemEl);
+
+                            delItemEl.click($.proxy(handlers._onTagTriggerClick, ref));
+                        }
+                    }
+
+                    items.push(selectedItemEl);
+                });
+
+                ms.selectionContainer.prepend(items);
+                ms._valueContainer = $('<input/>', {
+                    type: 'hidden',
+                    name: cfg.name,
+                    value: JSON.stringify(ms.getValue())
+                });
+                ms._valueContainer.appendTo(ms.selectionContainer);
+
+                if(cfg.selectionPosition === 'inner') {
+                  /*  ms.input.width(0);*/
+                    inputOffset = ms.input.offset().left - ms.selectionContainer.offset().left;
+                 /*   w = ms.container.width() - inputOffset - 42;*/
+               /*     ms.input.width(w);*/
+                    ms.container.height(ms.selectionContainer.height());
+                }
+
+                if(_selection.length === cfg.maxSelection){
+                    self._updateHelper(cfg.maxSelectionRenderer.call(this, _selection.length));
+                } else {
+                    ms.helper.hide();
+                }
+            },
+
+            /**
+             * Select an item either through keyboard or mouse
+             * @param item
+             * @private
+             */
+            _selectItem: function(item) {
+                if(cfg.maxSelection === 1){
+                    _selection = [];
+                }
+                ms.addToSelection(item.data('json'));
+                item.removeClass('tag-res-item-active');
+                if(cfg.expandOnFocus === false || _selection.length === cfg.maxSelection){
+                    ms.collapse();
+                }
+                if(!_hasFocus){
+                    ms.input.focus();
+                } else if(_hasFocus && (cfg.expandOnFocus || _ctrlDown)){
+                    self._processSuggestions();
+                    if(_ctrlDown){
+                        ms.expand();
+                    }
+                }
+            },
+
+            /**
+             * Sorts the results and cut them down to max # of displayed results at once
+             * @private
+             */
+            _sortAndTrim: function(data) {
+                var q = ms.getRawValue(),
+                    filtered = [],
+                    newSuggestions = [],
+                    selectedValues = ms.getValue();
+                // filter the data according to given input
+                if(q.length > 0) {
+                    $.each(data, function(index, obj) {
+                        var name = obj[cfg.displayField];
+                        if((cfg.matchCase === true && name.indexOf(q) > -1) ||
+                            (cfg.matchCase === false && name.toLowerCase().indexOf(q.toLowerCase()) > -1)) {
+                            if(cfg.strictSuggest === false || name.toLowerCase().indexOf(q.toLowerCase()) === 0) {
+                                filtered.push(obj);
+                            }
+                        }
+                    });
+                }
+                else {
+                    filtered = data;
+                }
+                // take out the ones that have already been selected
+                $.each(filtered, function(index, obj) {
+                    if($.inArray(obj[cfg.valueField], selectedValues) === -1) {
+                        newSuggestions.push(obj);
+                    }
+                });
+                // sort the data
+                if(cfg.sortOrder !== null) {
+                    newSuggestions.sort(function(a,b) {
+                        if(a[cfg.sortOrder] < b[cfg.sortOrder]) {
+                            return cfg.sortDir === 'asc' ? -1 : 1;
+                        }
+                        if(a[cfg.sortOrder] > b[cfg.sortOrder]) {
+                            return cfg.sortDir === 'asc' ? 1 : -1;
+                        }
+                        return 0;
+                    });
+                }
+                // trim it down
+                if(cfg.maxSuggestions && cfg.maxSuggestions > 0) {
+                    newSuggestions = newSuggestions.slice(0, cfg.maxSuggestions);
+                }
+                // build groups
+                if(cfg.groupBy !== null) {
+                    _groups = {};
+                    $.each(newSuggestions, function(index, value) {
+                        if(_groups[value[cfg.groupBy]] === undefined) {
+                            _groups[value[cfg.groupBy]] = {title: value[cfg.groupBy], items: [value]};
+                        }
+                        else {
+                            _groups[value[cfg.groupBy]].items.push(value);
+                        }
+                    });
+                }
+                return newSuggestions;
+            },
+
+            /**
+             * Update the helper text
+             * @private
+             */
+            _updateHelper: function(html) {
+                ms.helper.html(html);
+                if(!ms.helper.is(":visible")) {
+                    ms.helper.fadeIn();
+                }
+            }
+        };
+
+        var handlers = {
+            /**
+             * Triggered when blurring out of the component
+             * @private
+             */
+            _onBlur: function() {
+                ms.container.removeClass('tag-ctn-bootstrap-focus');
+                ms.collapse();
+                _hasFocus = false;
+                if(ms.getRawValue() !== '' && cfg.allowFreeEntries === true){
+                    var obj = {};
+                    obj[cfg.displayField] = obj[cfg.valueField] = ms.getRawValue();
+                    ms.addToSelection(obj);
+                }
+                self._renderSelection();
+
+                if(ms.isValid() === false) {
+                    ms.container.addClass('tag-ctn-invalid');
+                }
+
+                if(ms.input.val() === '' && _selection.length === 0) {
+                    ms.input.addClass(cfg.emptyTextCls);
+                    ms.input.val(cfg.emptyText);
+                }
+                else if(ms.input.val() !== '' && cfg.allowFreeEntries === false) {
+                    ms.empty();
+                    self._updateHelper('');
+                }
+
+                if(ms.input.is(":focus")) {
+                    $(ms).trigger('blur', [ms]);
+                }
+            },
+
+            /**
+             * Triggered when hovering an element in the combo
+             * @param e
+             * @private
+             */
+            _onComboItemMouseOver: function(e) {
+                ms.combobox.children().removeClass('tag-res-item-active');
+                $(e.currentTarget).addClass('tag-res-item-active');
+            },
+
+            /**
+             * Triggered when an item is chosen from the list
+             * @param e
+             * @private
+             */
+            _onComboItemSelected: function(e) {
+                self._selectItem($(e.currentTarget));
+            },
+
+            /**
+             * Triggered when focusing on the container div. Will focus on the input field instead.
+             * @private
+             */
+            _onFocus: function() {
+                ms.input.focus();
+            },
+
+            /**
+             * Triggered when clicking on the input text field
+             * @private
+             */
+            _onInputClick: function(){
+                if (ms.isDisabled() === false && _hasFocus) {
+                    if (cfg.toggleOnClick === true) {
+                        if (cfg.expanded){
+                            ms.collapse();
+                        } else {
+                            ms.expand();
+                        }
+                    }
+                }
+            },
+
+            /**
+             * Triggered when focusing on the input text field.
+             * @private
+             */
+            _onInputFocus: function() {
+                if(ms.isDisabled() === false && !_hasFocus) {
+                    _hasFocus = true;
+                    ms.container.addClass('tag-ctn-bootstrap-focus');
+                    ms.container.removeClass(cfg.invalidCls);
+
+                    if(ms.input.val() === cfg.emptyText) {
+                        ms.empty();
+                    }
+
+                    var curLength = ms.getRawValue().length;
+                    if(cfg.expandOnFocus === true){
+                        ms.expand();
+                    }
+
+                    if(_selection.length === cfg.maxSelection) {
+                        self._updateHelper(cfg.maxSelectionRenderer.call(this, _selection.length));
+                    } else if(curLength < cfg.minChars) {
+                        self._updateHelper(cfg.minCharsRenderer.call(this, cfg.minChars - curLength));
+                    }
+
+                    self._renderSelection();
+                    $(ms).trigger('focus', [ms]);
+                }
+            },
+
+            /**
+             * Triggered when the user presses a key while the component has focus
+             * This is where we want to handle all keys that don't require the user input field
+             * since it hasn't registered the key hit yet
+             * @param e keyEvent
+             * @private
+             */
+            _onKeyDown: function(e) {
+                // check how tab should be handled
+                var active = ms.combobox.find('.tag-res-item-active:first'),
+                    freeInput = ms.input.val() !== cfg.emptyText ? ms.input.val() : '';
+                $(ms).trigger('keydown', [ms, e]);
+
+                if(e.keyCode === 9 && (cfg.useTabKey === false ||
+                    (cfg.useTabKey === true && active.length === 0 && ms.input.val().length === 0))) {
+                    handlers._onBlur();
+                    return;
+                }
+                switch(e.keyCode) {
+                    case 8: //backspace
+                        if(freeInput.length === 0 && ms.getSelectedItems().length > 0 && cfg.selectionPosition === 'inner') {
+                            _selection.pop();
+                            self._renderSelection();
+                            $(ms).trigger('selectionchange', [ms, ms.getSelectedItems()]);
+                            ms.input.focus();
+                            e.preventDefault();
+                        }
+                        break;
+                    case 9: // tab
+                    case 188: // esc
+                    case 13: // enter
+                        e.preventDefault();
+                        break;
+                    case 17: // ctrl
+                        _ctrlDown = true;
+                        break;
+                    case 40: // down
+                        e.preventDefault();
+                        self._moveSelectedRow("down");
+                        break;
+                    case 38: // up
+                        e.preventDefault();
+                        self._moveSelectedRow("up");
+                        break;
+                    default:
+                        if(_selection.length === cfg.maxSelection) {
+                            e.preventDefault();
+                        }
+                        break;
+                }
+            },
+
+            /**
+             * Triggered when a key is released while the component has focus
+             * @param e
+             * @private
+             */
+            _onKeyUp: function(e) {
+                var freeInput = ms.getRawValue(),
+                    inputValid = $.trim(ms.input.val()).length > 0 && ms.input.val() !== cfg.emptyText &&
+                        (!cfg.maxEntryLength || $.trim(ms.input.val()).length <= cfg.maxEntryLength),
+                    selected,
+                    obj = {};
+
+                $(ms).trigger('keyup', [ms, e]);
+
+                clearTimeout(_timer);
+
+                // collapse if escape, but keep focus.
+                if(e.keyCode === 27 && cfg.expanded) {
+                    ms.combobox.height(0);
+                }
+                // ignore a bunch of keys
+                if((e.keyCode === 9 && cfg.useTabKey === false) || (e.keyCode > 13 && e.keyCode < 32)) {
+                    if(e.keyCode === 17){
+                        _ctrlDown = false;
+                    }
+                    return;
+                }
+                switch(e.keyCode) {
+                    case 40:case 38: // up, down
+                    e.preventDefault();
+                    break;
+                    case 13:case 9:case 188:// enter, tab, comma
+                    if(e.keyCode !== 188 || cfg.useCommaKey === true) {
+                        e.preventDefault();
+                        if(cfg.expanded === true){ // if a selection is performed, select it and reset field
+                            selected = ms.combobox.find('.tag-res-item-active:first');
+                            if(selected.length > 0) {
+                                self._selectItem(selected);
+                                return;
+                            }
+                        }
+                        // if no selection or if freetext entered and free entries allowed, add new obj to selection
+                        if(inputValid === true && cfg.allowFreeEntries === true) {
+                            obj[cfg.displayField] = obj[cfg.valueField] = freeInput;
+                            ms.addToSelection(obj);
+                            ms.collapse(); // reset combo suggestions
+                            ms.input.focus();
+                        }
+                        break;
+                    }
+                    default:
+                        if(_selection.length === cfg.maxSelection){
+                            self._updateHelper(cfg.maxSelectionRenderer.call(this, _selection.length));
+                        }
+                        else {
+                            if(freeInput.length < cfg.minChars) {
+                                self._updateHelper(cfg.minCharsRenderer.call(this, cfg.minChars - freeInput.length));
+                                if(cfg.expanded === true) {
+                                    ms.collapse();
+                                }
+                            }
+                            else if(cfg.maxEntryLength && freeInput.length > cfg.maxEntryLength) {
+                                self._updateHelper(cfg.maxEntryRenderer.call(this, freeInput.length - cfg.maxEntryLength));
+                                if(cfg.expanded === true) {
+                                    ms.collapse();
+                                }
+                            }
+                            else {
+                                ms.helper.hide();
+                                if(cfg.minChars <= freeInput.length){
+                                    _timer = setTimeout(function() {
+                                        if(cfg.expanded === true) {
+                                            self._processSuggestions();
+                                        } else {
+                                            ms.expand();
+                                        }
+                                    }, cfg.typeDelay);
+                                }
+                            }
+                        }
+                        break;
+                }
+            },
+
+            /**
+             * Triggered when clicking upon cross for deletion
+             * @param e
+             * @private
+             */
+            _onTagTriggerClick: function(e) {
+                ms.removeFromSelection($(e.currentTarget).data('json'));
+            },
+
+            /**
+             * Triggered when clicking on the small trigger in the right
+             * @private
+             */
+            _onTriggerClick: function() {
+                if(ms.isDisabled() === false && !(cfg.expandOnFocus === true && _selection.length === cfg.maxSelection)) {
+                    $(ms).trigger('triggerclick', [ms]);
+                    if(cfg.expanded === true) {
+                        ms.collapse();
+                    } else {
+                        var curLength = ms.getRawValue().length;
+                        if(curLength >= cfg.minChars){
+                            ms.input.focus();
+                            ms.expand();
+                        } else {
+                            self._updateHelper(cfg.minCharsRenderer.call(this, cfg.minChars - curLength));
+                        }
+                    }
+                }
+            }
+        };
+
+        // startup point
+        if(element !== null) {
+            self._render(element);
+        }
+    };
+
+    $.fn.tagSuggest = function(options) {
+        var obj = $(this);
+
+        if(obj.size() === 1 && obj.data('tagSuggest')) {
+            return obj.data('tagSuggest');
+        }
+
+        obj.each(function(i) {
+            // assume $(this) is an element
+            var cntr = $(this);
+
+            // Return early if this element already has a plugin instance
+            if(cntr.data('tagSuggest')){
+                return;
+            }
+
+            if(this.nodeName.toLowerCase() === 'select'){ // rendering from select
+                options.data = [];
+                options.value = [];
+                $.each(this.children, function(index, child){
+                    if(child.nodeName && child.nodeName.toLowerCase() === 'option'){
+                        options.data.push({id: child.value, name: child.text});
+                        if(child.selected){
+                            options.value.push(child.value);
+                        }
+                    }
+                });
+
+            }
+
+            var def = {};
+            // set values from DOM container element
+            $.each(this.attributes, function(i, att){
+                def[att.name] = att.value;
+            });
+            var field = new TagSuggest(this, $.extend(options, def));
+            cntr.data('tagSuggest', field);
+            field.container.data('tagSuggest', field);
+        });
+
+        if(obj.size() === 1) {
+            return obj.data('tagSuggest');
+        }
+        return obj;
+    };
+
+//    $.fn.tagSuggest.defaults = {};
+})(jQuery);
+
+
+        $(document).ready(function() {
+
+
+            var jsonData = [];
+    
+            var fruits = 'Arte,Humor,Fantasia,Horror,Terror,Relatos,Auto ayuda,Ciencia Ficción,Educación,Ficción, Juvenil,No Ficción,Novela,Pensamientos,Poesía,Policial,Cuentos,Romance,Suspenso,Thriller'.split(',');
+            for(var i=0;i<fruits.length;i++) {
+            jsonData.push({id:fruits[i],name:fruits[i]});
+
+
+
+}
+
+
+            var ms1 = $('#ms1').tagSuggest({
+                data: jsonData,
+                sortOrder: 'name',
+                maxDropHeight: 200,
+                name: 'ms1',
+                value: tags_set
+            });
+            tags_array = ms1.getValue();
+              $(ms1).on('selectionchange', function(e,m){
+    console.log("values: " + ms1.getValue());
+    tags_array = ms1.getValue();
+   
+
+});
+        });
+       
+</script>
+
+  </div>
+
+
+<a href="#delete" class="delete">Borrar campaña</a>
+</form>
+
+<!-- <button class="offset" style="position:absolute; left:45%;">Guardar</button> -->
+<div style="text-align:center; padding-bottom: 30px;">
+<button id="save" alt="Guardar" title="Guardar" onclick="saveButton(this)">Guardar</button>
+</div>
+
+<script>
+
+$('.editablee').html(chapter_content);
+$('.descripcion').html(desc_content);
+console.log("Draft ID: "+selected_bookid);
+$('.titulo').keyup(function(){
+        var $this=$(this);
+     /*   console.log( $this.val());*/
+        var n1 = $this.val();
+     /*   console.log(selected_bookid);*/
+        $('#title'+selected_bookid).text(n1);
+    });
+
+
+
+
+/*  cuando algo cambia $("#content").html('something').change(); */
+var saveButton = function(button) {
+  console.log("Fechas");
+console.log(timelessyr);
+console.log(timelessmt);
+console.log(timelessday);
+
+
+ /* button.disabled = true; */
+console.log(tags_array);
+
+      dblee.upsert(selected_bookid, function (doc) {
+         button.innerHTML = 'Guardando <span class="spinner"></span>';
+      
+        doc.title = $('.titulo').val();
+        doc.chapter = $('.editablee').html();
+        doc.descripcion = $('.descripcion').val();
+        doc.price_unity = $('#precio').val();
+        doc.lang = "es";
+        doc.tags = tags_array.toString();
+
+        if(timelessday != "" || timelessmt != "" || timelessyr != "" || timelessday != null || timelessmt != null || timelessyr != null){
+            doc.time_limit = timelessday+'/'+timelessmt+'/'+timelessyr;
+        }
+       /* doc.time_limit ? */
+      return doc;
+    }).then(function (res) {
+      console.log(res);
+      selected_revbookid = res.rev;
+        setTimeout(function(){
+    button.innerHTML = 'Guardado';
+    button.className = 'done';
+  }, 3000);
+          setTimeout(function(){
+    button.innerHTML = 'Guardar';
+    button.classList.remove("done");
+  }, 6000);
+      // success, res is {rev: '1-xxx', updated: true, id: 'myDocId'}
+    }).catch(function (err) {
+      console.log(err);
+      toast("Error guardando datos");
+    }); 
+  // Simulate successful AJAX call
+
+
+
+
+  
+};
+
+  var deleteBox = '<span class="deleteBox"><p>¿Estás seguro de borrar ésta campaña literaria?<br>No hay vuelta atrás, y los reembolsos serán entregados a sus destinatarios.</p><span class="cancel">Cancelar</span><span class="confirm">Sí</span></span>';
+  $('.delete').each(function(){
+    $(this).append(deleteBox);
+  }).click(function(){
+    if(!$(this).hasClass('selected')){
+      $(this).addClass('selected');
+      var owner = $(this);
+      
+      $(this).find('.cancel').unbind('click').bind('click',function(){
+        owner.removeClass('selected');
+        return false;
+      })
+      
+      $(this).find('.confirm').unbind('click').bind('click',function(){
+        $(this).parent().addClass('loading');
+        var parent = $(this).parent();
+        console.log("ID:");
+        console.log(selected_bookid);
+        //ajax to delete
+        dblee.get(selected_bookid).then(function (doc) {
+          return dblee.remove(doc);
+        }).then(function(docs){
+          console.log(docs);
+           
+                      
+                    setTimeout(function(){ //On success
+                parent.addClass('deleted');
+                setTimeout(function(){
+                  owner.fadeOut(600);
+                  
+                  //remove item deleted
+                  
+                      
+                  setTimeout(function(){
+                    owner.find('.deleted').removeClass('loading').removeClass('deleted');
+                    owner.removeClass('selected');
+                    owner.show();
+                    console.log("campaña borrada");
+                      cerrarmodal();
+                       deletefromcarousel(selected_bookid);
+                  },1000) 
+                },1000)
+              },1000)
+
+        });
+
+        
+        return false;
+      })
+    }   
+    return false;
+  });
+  
+  
+ /* setTimeout(function(){
+    $('.delete').addClass('selected');
+    setTimeout(function(){
+       $('.deleteBox').addClass('loading'); 
+      setTimeout(function(){
+        $('.deleteBox').addClass('deleted');
+        setTimeout(function(){
+          $('.delete').fadeOut(600,function(){
+            
+             $('.deleted').removeClass('loading').removeClass('deleted'); 
+          $('.delete').removeClass('selected');
+            setTimeout(function(){
+              $('.delete').show();
+            },500)
+          
+            
+          });
+ 
+          
+          
+        },500)
+        
+      },1000)
+    },1000)
+  },500)
+  
+*/
+
+
+
+function publicar(){
+  $('#msgpublish').html("Comprobando");
+  if(is_published == false){
+
+    console.log(timelessday);
+    if(typeof timelessday !== 'undefined' || typeof timelessmt !== 'undefined' || typeof timelessyr !== 'undefined' || $('.titulo').val() != "" || $('.editablee').html() != "" || tags_array != null){
+   dblee.upsert(selected_bookid, function (doc) {
+    $('#msgpublish').html("Guardando...");
+
+
+        
+                  doc.title = $('.titulo').val();
+        doc.chapter = $('.editablee').html();
+        doc.price_unity = $('#precio').val();
+        doc.lang = "es";
+        doc.tags = tags_array.toString();
+            doc.time_limit = timelessday+'/'+timelessmt+'/'+timelessyr;
+            toast((timelessday+'/'+timelessmt+'/'+timelessyr).toString());
+            doc.publish = true;
+            is_published = true;
+               console.log("PUBLICADO!")
+               console.log(timelessday+'/'+timelessmt+'/'+timelessyr);
+    checkbox.setAttribute("checked", "true");  
+    $('#msgpublish').html("Publicado");
+    dbleelocal.replicate.from(dblee).on('complete', function(info) {
+      console.log(info);
+        });
+  
+       /* doc.time_limit ? */ 
+      return doc;
+    }).then(function (res) {
+
+    
+  console.log(res);
+  selected_revbookid = res.rev;
+  /*
+  if(docg.chapter == "" || docg.title == "" || docg.upload_portada != true || docg.time_limit == "") {
+    $('#msgpublish').html("No has terminado de completar tu campaña");
+    $('#fancy-checkbox').removeAttr("checked");
+} else {
+
+
+
+}
+
+
+*/
+      // success, res is {rev: '1-xxx', updated: true, id: 'myDocId'}
+    }).catch(function (err) {
+      console.log(err);
+      toast("Error. Reintentando...");
+      publicar();
+    }); 
+    } else {
+      toast("Necesitas llenar algunos datos");
+    }
+} else {
+
+
+   dblee.upsert(selected_bookid, function (doc) {
+    $('#msgpublish').html("Libro anulado");
+            doc.publish = false;
+               console.log("ANULADO!");
+               is_published = false;
+    checkbox.setAttribute("checked", "false");  
+    $('#msgpublish').html("Libro anulado");
+    dbleelocal.replicate.from(dblee).on('complete', function(info) {
+      console.log(info);
+        });
+      
+       /* doc.time_limit ? */
+      return doc;
+    }).then(function (res) {
+
+    
+  console.log(res);
+  selected_revbookid = res.rev;
+  /*
+  if(docg.chapter == "" || docg.title == "" || docg.upload_portada != true || docg.time_limit == "") {
+    $('#msgpublish').html("No has terminado de completar tu campaña");
+    $('#fancy-checkbox').removeAttr("checked");
+} else {
+
+
+
+}
+
+
+*/
+      // success, res is {rev: '1-xxx', updated: true, id: 'myDocId'}
+    }).catch(function (err) {
+      console.log(err);
+      toast("Error. Reintentando...");
+      publicar();
+    }); 
+
+
+
+}
+
+}
+  $('.cerrar-boton').click(function() {
+  var _this = this;
+  $(_this).addClass('slide-down');
+  setTimeout(function() {
+    $(_this).removeClass('slide-down');
+
+  }, 1250);
+    setTimeout(function() {
+    cerrarmodal();
+  }, 1350);
+});
+</script>

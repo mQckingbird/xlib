@@ -1,0 +1,314 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/kevinnewcombe/pen/aEwNjB" />
+
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<style class="cp-pen-styles">html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
+  background-color: #000;
+  font-size: 18px;
+}
+
+viewport {
+  width: 100%;
+  height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+#btn-steroscropic-mode {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  width: auto;
+  transition: 0.25s all;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 11px 15px 11px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#btn-steroscropic-mode:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+</style></head><body>
+<div id="viewport"></div>
+<div id="btn-steroscropic-mode">stereo mode</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/67732/three.min.js'></script><script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/67732/StereoEffect.js'></script>
+<script >var scene = new THREE.Scene();
+var viewport, renderer, camera, controls, dirLight;
+viewport = document.getElementById('viewport');
+THREE.ImageUtils.crossOrigin = "";
+THREE.ImageUtils.crossOrigin = "anonymous";
+var useStereoCamera = false;
+
+// geometry
+var geometry, textMesh, meshContainer = new THREE.Object3D(); 
+var alphaMap, imageMap, line, materials, numberOfLoadedTextures = 0;
+var starContainer = new THREE.Object3D();
+
+// textures
+var textureLoader = new THREE.TextureLoader();
+var textureImages = new Array(
+  "https://s3-us-west-2.amazonaws.com/s.cdpn.io/67732/alphaMap2.jpg", "https://s3-us-west-2.amazonaws.com/s.cdpn.io/67732/imageMap.jpg"
+);
+var textures = {};
+// animation
+var clock = new THREE.Clock();
+
+
+
+function init() {
+  scene = new THREE.Scene();
+
+  var WIDTH = window.innerWidth, HEIGHT = window.innerHeight;
+
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(WIDTH, HEIGHT);
+  renderer.shadowMap.enabled = true; 
+  renderer.shadowMap.soft = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setClearColor( 0x111111, 1 ); // the default
+  renderer.shadowMap.renderReverseSided = true;
+
+  effect = new THREE.StereoEffect( renderer );
+  effect.setSize( window.innerWidth, window.innerHeight );
+
+  viewport.appendChild(renderer.domElement);
+  
+  // camera
+  camera = new THREE.PerspectiveCamera(10, WIDTH / HEIGHT, 0.1, 200000);
+  camera.position.set(0,0,60 );
+  camera.lookAt(new THREE.Vector3(0,0,0));
+  scene.add(camera);
+
+  window.addEventListener( 'resize', onWindowResize, false );
+
+  // add lights
+  addLight(10, 10, 10);
+  addLight(10, -10, 10);
+  addLight(-10, 10, 10);
+  addLight(-10, -10, 10);
+
+  // load textures
+  for(var i=0; i<textureImages.length; i++){if (window.CP.shouldStopExecution(1)){break;}
+    loadTexture(textureImages[i], i);
+  }
+window.CP.exitedLoop(1);
+
+}
+
+function addLight(x,y,z){
+  var directionalLight = new THREE.DirectionalLight( 0x8fdbff, 1 );
+  directionalLight.position.set(x,y,z);
+  scene.add( directionalLight );
+}
+
+function loadTexture(src, position){
+  textureLoader.load(src, function ( texture ) {
+    numberOfLoadedTextures++;
+    textures[position] = texture;
+    if(numberOfLoadedTextures == textureImages.length){
+      loadText();
+      loadStars();
+    }
+  });
+}
+
+function loadStars(){
+
+  var starsGeometry = new THREE.Geometry();
+
+  for ( var i = 0; i < 1000; i ++ ) {if (window.CP.shouldStopExecution(2)){break;}
+
+    var star = new THREE.Vector3();
+    star.x = THREE.Math.randFloatSpread( 100 );
+    star.y = THREE.Math.randFloatSpread( 100 );
+    star.z = THREE.Math.randInt( -300, 60 );
+
+    starsGeometry.vertices.push( star );
+
+  }
+window.CP.exitedLoop(2);
+
+
+  var starsMaterial = new THREE.PointsMaterial({ 
+    color: 0xffffed,
+    size : 0.3
+  });
+
+  starContainer = new THREE.Points( starsGeometry, starsMaterial );
+
+  scene.add( starContainer );
+}
+
+function loadText(){
+  var loader = new THREE.FontLoader();
+  loader.load( 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/67732/Kanit_ExtraBold_Regular.js', function ( font ) {
+    text = 'EMANCIPATE'
+    geometry = new THREE.TextGeometry( text, {
+      font: font,
+      size: 1,
+      height: 50
+    });
+    geometry.elementsNeedUpdate = true; // update faces
+
+    materials = [];
+    materials.push(
+      new THREE.MeshPhongMaterial({
+        alphaMap: textures[0],
+        map: textures[1],
+        side: THREE.DoubleSide,
+        transparent: true
+      })
+    );
+    materials.push(
+      new THREE.MeshPhongMaterial({
+        opacity: 0,
+        side: THREE.BackSide,
+        transparent: true
+      })
+    );
+
+    for(i=0; i<geometry.faces.length; i++){if (window.CP.shouldStopExecution(3)){break;}
+      var v1 = geometry.vertices[ geometry.faces[i].a ];
+      var v2 = geometry.vertices[ geometry.faces[i].b ];
+      var v3 = geometry.vertices[ geometry.faces[i].c ];
+      if((v1.z == v2.z) && (v1.z == v3.z)){
+        geometry.faces[i].materialIndex = 1;
+      }else{
+         geometry.faces[i].materialIndex = 0;
+      }
+    }
+window.CP.exitedLoop(3);
+
+
+    textMesh = new THREE.Mesh(geometry, materials );
+    var box = new THREE.Box3().setFromObject( textMesh );
+    textMesh.position.set(-box.getSize().x / 2, -box.getSize().y / 2, 0);
+    
+    var geometry = new THREE.TextGeometry( text, {
+        font: font,
+        size: 1,
+        height: 0.0001
+    });
+    var edges = new THREE.EdgesGeometry( geometry );
+    line = new THREE.LineSegments( edges, new THREE.LineBasicMaterial({
+      color: 0x8fdbff,
+      linewidth : 1,
+      transparent: true,
+      opacity:0.6
+    }));
+    line.position.set(-box.getSize().x / 2, -box.getSize().y / 2, 0 );
+  
+    scene.add(meshContainer);
+
+    clock.start();
+    animate();
+
+    meshContainer.add(textMesh);
+    meshContainer.add(line);
+  } );
+}
+
+function onWindowResize( event ) {
+  SCREEN_HEIGHT = window.innerHeight;
+  SCREEN_WIDTH  = window.innerWidth;
+  renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
+  camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
+  camera.updateProjectionMatrix();
+}
+
+function animateText(progress){
+  if(progress > 1){
+    clock.start();
+  }
+
+  starContainer.position.set(0, 0, progress*100);
+
+  if(progress < 0.5){
+    textMesh.scale.z = 1 - (progress * 2);
+  }
+  if(progress > 0.75){
+    line.material.opacity = 0.6 -  ((progress - 0.8) * 5) * 0.6;
+  }else{
+    line.material.opacity = 0.6;
+  }
+
+  if(progress < 0.25){
+    y_position = (-0.25 + progress) * -1.5;
+    meshContainer.rotation.set(0, 0, -0.25 + progress );
+  }else{
+    meshContainer.rotation.set(0, 0, 0 );
+    y_position = 0;
+  }
+  meshContainer.position.set(0, y_position, 60 - (progress * 150));
+}
+
+function animate() {
+  delta = clock.getDelta();
+  requestAnimationFrame(animate);
+  animateText(clock.elapsedTime / 6);
+  if(useStereoCamera){
+    effect.render(scene, camera);
+  }else{
+    renderer.render(scene, camera);
+  }
+}
+
+// full screen functions
+function fullscreen(){
+  if (viewport.requestFullscreen) {
+    viewport.requestFullscreen();
+  } else if (viewport.msRequestFullscreen) {
+    viewport.msRequestFullscreen();
+  } else if (viewport.mozRequestFullScreen) {
+    viewport.mozRequestFullScreen();
+  } else if (viewport.webkitRequestFullscreen) {
+    viewport.webkitRequestFullscreen();
+  }
+}
+
+document.addEventListener("fullscreenchange", function() {
+ useStereoCamera = document.fullscreenElement;
+}, false);
+
+document.addEventListener("msfullscreenchange", function() {
+  useStereoCamera = document.msFullscreenElement;
+}, false);
+
+document.addEventListener("mozfullscreenchange", function() {
+  useStereoCamera = document.mozFullScreen;
+}, false);
+
+document.addEventListener("webkitfullscreenchange", function() {
+  useStereoCamera = document.webkitIsFullScreen;
+}, false);
+
+
+document.getElementById('btn-steroscropic-mode').addEventListener("click", function(){
+  if(useStereoCamera){
+    useStereoCamera = false;
+  } else{
+    useStereoCamera = true;
+  }
+  SCREEN_HEIGHT = window.innerHeight;
+  SCREEN_WIDTH  = window.innerWidth;
+  renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
+  camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
+  camera.updateProjectionMatrix();
+  fullscreen();
+}, false);
+
+init(); // light this candle
+//# sourceURL=pen.js
+</script>
+</body></html>

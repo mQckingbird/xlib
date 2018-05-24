@@ -1,0 +1,590 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/enwaara/pen/PKPEPY" />
+<script src="https://use.typekit.net/tsl0qfs.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+<style class="cp-pen-styles">* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "proxima-nova", sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  color: #F8F8F8;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+body {
+  background-color: #E8FFFF;
+}
+
+#wrapper {
+  position: absolute;
+  top: 50%;
+  margin-top: -335px;
+  left: 0;
+  width: 100%;
+}
+
+#container {
+  width: 375px;
+  height: 670px;
+  margin: 0 auto;
+  -webkit-box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.7);
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.7);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  background: #FF7878;
+  white-space: nowrap;
+}
+
+#contact-list {
+  width: 100%;
+  height: calc(100% - 55px);
+  position: relative;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+}
+#contact-list .menu {
+  width: 100%;
+  height: 80px;
+  padding: 30px;
+  overflow: hidden;
+  background: #F8F8F8;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+#contact-list .menu i {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #FF7878;
+}
+#contact-list .menu i:hover {
+  color: #ed6868;
+}
+#contact-list .menu #user {
+  float: left;
+}
+#contact-list .menu #bars {
+  float: right;
+}
+#contact-list ul {
+  width: 100%;
+  height: calc(100% - 84px);
+  overflow-y: scroll;
+}
+#contact-list ul::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+#contact-list ul::-webkit-scrollbar {
+  width: 10px;
+}
+#contact-list ul::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #c05d5d;
+}
+#contact-list ul li {
+  width: 100%;
+  overflow: hidden;
+  padding: 15px 30px;
+  list-style: none;
+  position: relative;
+  cursor: pointer;
+}
+#contact-list ul li .status {
+  width: 17px;
+  height: 17px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  border: 2px solid #F8F8F8;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+#contact-list ul li .online {
+  background: #40BC86;
+}
+#contact-list ul li .away {
+  background: #F1C40F;
+}
+#contact-list ul li .offline {
+  background: #E74C3C;
+}
+#contact-list ul li img {
+  width: 70px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  float: left;
+  border: 3px solid #F8F8F8;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+#contact-list ul li h2 {
+  float: left;
+  font-size: 1.2em;
+  margin: 15px 0 5px 20px;
+  letter-spacing: 1.5px;
+}
+#contact-list ul li p {
+  float: left;
+  margin-left: 20px;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  color: #ffcfcf;
+}
+#contact-list ul li .time {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  float: none;
+  margin: 0;
+  font-size: 0.7em;
+  color: #c05d5d;
+  text-transform: uppercase;
+}
+#contact-list ul li .toRead {
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 0.7em;
+  background: #c05d5d;
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  overflow: hidden;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+#contact-list ul li:hover {
+  background: #ed6868;
+}
+
+.navBar {
+  width: 100%;
+  height: 60px;
+  background: #F8F8F8;
+  -webkit-box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+.navBar i {
+  padding: 17px 0;
+  color: #FF7878;
+  float: left;
+  font-size: 1.5em;
+  text-align: center;
+  width: 25%;
+  cursor: pointer;
+}
+.navBar i:hover {
+  color: #c05d5d;
+}
+
+#chatt {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+}
+#chatt .header {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  padding: 30px;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+#chatt .header i {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+#chatt .header i:hover {
+  color: #c05d5d;
+}
+#chatt .header #back {
+  float: left;
+}
+#chatt .header #cog {
+  float: right;
+}
+#chatt .header h2 {
+  margin-left: 105px;
+  text-align: center;
+  float: left;
+}
+#chatt .header img {
+  position: absolute;
+  bottom: -65px;
+  left: 142.5px;
+  width: 90px;
+  height: 90px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  border: 3px solid #F8F8F8;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.messages {
+  width: 100%;
+  height: calc(100% - 65px);
+  background: #F8F8F8;
+}
+
+.statusbar {
+  width: 100%;
+  height: 50px;
+  padding: 15px 30px;
+  overflow: hidden;
+}
+.statusbar .status {
+  width: 17px;
+  height: 17px;
+  float: left;
+  margin: 1px 10px 0 0;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  border: 2px solid #F8F8F8;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+.statusbar .online {
+  background: #40BC86;
+}
+.statusbar p {
+  float: left;
+  color: #0E212C;
+  letter-spacing: 1px;
+}
+.statusbar #time {
+  float: right;
+  padding-right: 20px;
+}
+
+.convo {
+  width: 100%;
+  height: calc(100% - 125px);
+  overflow-y: scroll;
+  padding: 15px 0 10px 0;
+}
+.convo::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+.convo::-webkit-scrollbar {
+  width: 10px;
+}
+.convo::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #c05d5d;
+}
+.convo .message {
+  max-width: 60%;
+  padding: 15px 20px;
+  margin: 7px 15px;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  line-height: 1.3em;
+  list-style: none;
+}
+.convo .me {
+  float: right;
+  clear: both;
+  background: #FF7878;
+  border-radius: 25px 0px 25px 25px;
+}
+.convo .other {
+  float: left;
+  clear: both;
+  background: #ffa9a9;
+  border-radius: 0px 25px 25px 25px;
+}
+
+.write {
+  width: 100%;
+  height: 60px;
+  background: #FF7878;
+  padding: 15px 30px;
+  -webkit-box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+.write i {
+  font-size: 1.5em;
+  margin: 3px 25px 0 0;
+  float: left;
+  cursor: pointer;
+}
+.write i:hover {
+  color: #c05d5d;
+}
+.write input {
+  float: left;
+  width: 175px;
+  min-height: 30px;
+  padding: 7px 15px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  border-radius: 20px;
+  border: none;
+  color: #0E212C;
+}
+.write input:focus {
+  outline: none;
+}
+.write input::-webkit-input-placeholder {
+  color: #ffcfcf;
+}
+.write input::-moz-placeholder {
+  color: #ffcfcf;
+}
+.write input:-ms-input-placeholder {
+  color: #ffcfcf;
+}
+.write input:-moz-placeholder {
+  color: #ffcfcf;
+}
+.write button {
+  float: right;
+  text-align: center;
+  background: #ffcfcf;
+  border: none;
+  padding: 8px 9px 9px 8px;
+  overflow: hidden;
+  margin-top: -1px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.write button i {
+  margin: 0;
+  font-size: 0.9em;
+}
+.write button i:hover {
+  color: #F8F8F8;
+}
+.write button:hover {
+  background: #c05d5d;
+}
+
+@media screen and (max-width: 1440px) {
+  #wrapper {
+    transform: scale(0.8);
+  }
+}
+</style></head><body>
+<div id="wrapper">
+  <div id="container">
+    
+    <div id="contact-list">
+      <div class="menu">
+        <i id="user" class="fa fa-user" aria-hidden="true"></i>
+        <i id="bars" class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+      
+      <ul>
+        <li id="slide">
+          <div class="status online"></div>
+          <img src ="http://enwaara.se/codepen/rick.jpg"/>
+          <h2>Rick Sanzhes</h2>
+          <p>Rikki-Tikki-Tavi, biatch!</p>
+          <p class="time">04:09 pm</p>
+          <span class="toRead">1</span>
+        </li>
+        <li>
+          <div class="status online"></div>
+          <img src ="http://enwaara.se/codepen/morty.png"/>
+          <h2>Morty Smith</h2>
+          <p>Nobody exists on purpose...</p>
+          <p class="time">09:13 am</p>
+        </li>
+        <li>
+          <div class="status offline"></div>
+          <img src ="http://enwaara.se/codepen/snowball.jpg"/>
+          <h2>Snowball</h2>
+          <p>Snuffles was my slave name...</p>
+          <p class="time">Wednesday</p>
+        </li>
+        <li>
+          <div class="status away"></div>
+          <img src ="http://enwaara.se/codepen/summer.png"/>
+          <h2>Summer Smith</h2>
+          <p>Oh, my God. Oh, God. Wha...</p>
+          <p class="time">Tuseday</p>
+        </li>
+        <li>
+          <div class="status online"></div>
+          <img src ="http://enwaara.se/codepen/birdperson.png"/>
+          <h2>Birdperson</h2>
+          <p>In bird culture, this is consid...</p>
+          <p class="time">Tuseday</p>
+        </li>
+        <li>
+          <div class="status offline"></div>
+          <img src ="http://enwaara.se/codepen/beth.jpg"/>
+          <h2>Beth Smith</h2>
+          <p>Were you born with your fe...</p>
+          <p class="time">23 July</p>
+        </li>
+        <li>
+          <div class="status online"></div>
+          <img src ="http://enwaara.se/codepen/mrpoopybutthole.jpg"/>
+          <h2>Mr. Poopybutthole</h2>
+          <p>Oo-wee!</p>
+          <p class="time">25 July</p>
+        </li>
+        <li>
+          <div class="status offline"></div>
+          <img src ="http://enwaara.se/codepen/squanchy.png"/>
+          <h2>Squanchy</h2>
+          <p>Squanchin' party bro!</p>
+          <p class="time">26 July</p>
+        </li>
+        <li>
+          <div class="status away"></div>
+          <img src ="http://enwaara.se/codepen/jerry.png"/>
+          <h2>Jerry Smith</h2>
+          <p>God? God's turning people i...</p>
+          <p class="time">20 July</p>
+          <span class="toRead">28</span>
+        </li>
+      </ul>
+      
+      <div class="navBar">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <i class="fa fa-phone" aria-hidden="true"></i>
+        <i class="fa fa-list-ul" aria-hidden="true"></i>
+        <i class="fa fa-gamepad" aria-hidden="true"></i>
+      </div>
+      
+    </div>
+    
+    <div id="chatt">
+      
+      <div class="header">
+        <i id="back" class="fa fa-angle-left" aria-hidden="true"></i>
+        <h2>Rick Sanzhes</h2>
+        <img src="http://enwaara.se/codepen/rick.jpg" />
+        <i id="cog" class="fa fa-cog" aria-hidden="true"></i>
+      </div>
+      
+      <div class="messages">
+        
+        <div class="statusbar">
+          <div class="status online"></div>
+          <p>Online</p>
+          <p id="time" ></p>
+        </div>
+        
+        <ul class="convo">
+          <li class="me message">
+            <p>Rick, what is love?</p>
+          </li>
+          <li class="other message">
+            <p>I hate to break it to you, but what people call "love" is just a chemical reaction that compels animals to breed. It hits hard Morty then it slowly fades leaving you stranded in a failing marriage. I did it. Your parents are going to do it. Break the cycle Morty, rise above, focus on science.</p>
+            </li>
+          <li class="other message">
+            <p>Stupid-ass fart-saving carpet store motherfucker. </p>
+          </li>
+          <li class="me message">
+            <p>Rick don't hurt me. Don't hurt me, no more.</p>
+          </li>
+          <li class="other message">
+            <p>Whatever you say you little punk ass little bitch.</p>
+          </li>
+          <li class="me message">
+            <p>Wanna go to Plim Plom Tavern?</p>
+          </li>
+          <li class="other message">
+            <p>Rikki-Tikki-Tavi, biatch</p>
+          </li>
+        </ul>
+        
+        <div class="write">
+          <i id="addImg" class="fa fa-camera-retro" aria-hidden="true"></i>
+          <i id="addFile" class="fa fa-paperclip" aria-hidden="true"></i>
+          <input id="textfield" type="textfield" placeholder="message..."></input>
+          <button><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script >var slideW = $('#container').width() + 4;
+$('#slide').click(function( e ){
+  e.preventDefault();
+  $('#container').animate({scrollLeft: slideW }, 400);
+});
+
+$('#back').click(function( e ){
+  e.preventDefault();
+  $('#container').animate({scrollLeft: -(slideW) }, 400);
+});
+
+$(".convo").scrollTop($(".convo")[0].scrollHeight);
+
+$("input#textfield").focus( function() {
+  $('#addImg').animate({fontSize: '0em', opacity: '0', margin: '0 0 0 0'}, 20);
+  $('#addFile').animate({fontSize: '0em', opacity: '0', margin: '0 0 0 0'}, 20);
+  $('#textfield').animate({width: '250px'}, 20);
+});
+
+$("input#textfield").blur( function() {
+  $('#addImg').animate({fontSize: '1.5em', opacity: '1', margin: '0 25px 0 0'}, 20);
+  $('#addFile').animate({fontSize: '1.5em', opacity: '1', margin: '0 25px 0 0'}, 20);
+  $('#textfield').animate({width: '175px'}, 20);
+});
+
+var today = new Date();
+var currentTime = (today.getHours() <= 9 ? "0" : "") + today.getHours() + ":" + (today.getMinutes() <= 9 ? "0" : "") + today.getMinutes();
+document.getElementById('time').innerHTML= currentTime;
+//# sourceURL=pen.js
+</script>
+</body></html>

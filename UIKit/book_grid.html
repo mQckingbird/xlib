@@ -1,0 +1,482 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/rrenula/pen/PJjJGX" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'><script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script><link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato:400,700'>
+<style class="cp-pen-styles">* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  margin: 0 3px;
+  font-family: 'Lato', sans-serif;
+}
+
+img {
+  display: block;
+  object-fit: cover;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 3px auto;
+  font-size: 0;
+  display: grid;
+  grid-gap: 3px;
+}
+
+@media (min-width: 600px) {
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 728px) {
+  .wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Styles related to the thumbnails */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  padding: 16px;
+  z-index: 3;
+  left: 0;
+}
+
+.title,
+.tag {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 4px;
+  line-height: 1.35em;
+}
+
+.tag {
+  background: #ff0052;
+  padding: 4px 8px;
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.thumbnail {
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper:after {
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(1, transparent), color-stop(0, black));
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: .5;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.news-item {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+  padding: 2px;
+  position: relative;
+}
+
+@media (min-width: 1100px) {
+  .news-item:first-child:before {
+    display: block;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-color: #fff;
+    border-width: 0 55px 55px 0;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 5;
+  }
+}
+
+.hero-item,
+.standard-item {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .hero-item {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (min-width: 728px) {
+  .hero-item {
+    grid-column: 1 / span 3;
+  }
+}
+
+@media (min-width: 1100px) {
+  .hero-item {
+    width: 70%;
+    grid-column: 1 / span 3;
+  }
+}
+
+@media (min-width: 600px) {
+  .standard-item {
+    width: 50%;
+  }
+  .standard-item:nth-child(4) {
+    width: 100%;
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (min-width: 728px) {
+  .standard-item {
+    width: 33.33333%;
+  }
+  .standard-item:nth-child(4) {
+    width: 33.33333%;
+    grid-column: 3 / span 1;
+  }
+  .standard-item:nth-child(5) {
+    width: 100%;
+    grid-column: 1 / span 3;
+  }
+}
+
+@media (min-width: 1100px) {
+  .standard-item {
+    width: 30%;
+  }
+  .standard-item:nth-child(2) {
+    vertical-align: bottom;
+  }
+  .standard-item:nth-child(4), .standard-item:nth-child(6) {
+    width: 40%;
+  }
+  .standard-item:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+  .standard-item:nth-child(6) {
+    grid-column: 1 / span 2;
+  }
+  .standard-item:nth-child(5) {
+    width: 30%;
+    grid-column: 4 / span 1;
+  }
+}
+
+/* For browsers with grid */
+@supports (display: grid) {
+  .wrapper > *,
+  .standard-item:nth-child(4),
+  .standard-item:nth-child(5),
+  .standard-item:nth-child(6) {
+    margin: 0;
+  }
+  @media (min-width: 600px) {
+    .wrapper > *,
+    .standard-item:nth-child(4),
+    .standard-item:nth-child(5),
+    .standard-item:nth-child(6) {
+      width: auto;
+    }
+  }
+  .news-item {
+    padding: 0;
+  }
+  @media (min-width: 1100px) {
+    .standard-item:nth-child(2) {
+      border-top: 55px solid #fff;
+    }
+  }
+  .caption {
+    position: static;
+    margin-right: auto;
+  }
+  .title,
+  .author {
+    color: #333;
+  }
+  @media (min-width: 600px) {
+    .hero-item .thumbnail,
+    .hero-item .responsive-img,
+    .hero-item .image-wrapper,
+    .standard-item:nth-child(4) .thumbnail,
+    .standard-item:nth-child(4) .responsive-img,
+    .standard-item:nth-child(4) .image-wrapper,
+    .standard-item:nth-child(5) .thumbnail,
+    .standard-item:nth-child(5) .responsive-img,
+    .standard-item:nth-child(5) .image-wrapper,
+    .standard-item:nth-child(6) .thumbnail,
+    .standard-item:nth-child(6) .responsive-img,
+    .standard-item:nth-child(6) .image-wrapper {
+      height: 100%;
+    }
+    .hero-item .responsive-img,
+    .standard-item:nth-child(4) .responsive-img,
+    .standard-item:nth-child(5) .responsive-img,
+    .standard-item:nth-child(6) .responsive-img {
+      width: 100%;
+    }
+    .hero-item .caption,
+    .standard-item:nth-child(4) .caption,
+    .standard-item:nth-child(5) .caption,
+    .standard-item:nth-child(6) .caption {
+      position: absolute;
+    }
+    .hero-item .title,
+    .hero-item .author,
+    .standard-item:nth-child(4) .title,
+    .standard-item:nth-child(4) .author,
+    .standard-item:nth-child(5) .title,
+    .standard-item:nth-child(5) .author,
+    .standard-item:nth-child(6) .title,
+    .standard-item:nth-child(6) .author {
+      color: #fff;
+    }
+  }
+  @media (min-width: 1100px) {
+    .hero-item .image-wrapper,
+    .hero-item picture,
+    .hero-item img,
+    .standard-item:nth-child(4) .image-wrapper,
+    .standard-item:nth-child(4) picture,
+    .standard-item:nth-child(4) img,
+    .standard-item:nth-child(6) .image-wrapper,
+    .standard-item:nth-child(6) picture,
+    .standard-item:nth-child(6) img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .standard-item:nth-child(2) {
+      vertical-align: baseline;
+    }
+  }
+  @media (min-width: 728px) and (max-width: 1100px), (max-width: 599px) {
+    .standard-item:nth-child(4) .caption {
+      position: static;
+      margin-right: auto;
+    }
+    .standard-item:nth-child(4) .thumbnail,
+    .standard-item:nth-child(4) .responsive-img,
+    .standard-item:nth-child(4) .image-wrapper {
+      height: auto;
+    }
+    .standard-item:nth-child(4) .title,
+    .standard-item:nth-child(4) .author {
+      color: #333;
+    }
+  }
+  @media (min-width: 1100px), (max-width: 728px) {
+    .standard-item:nth-child(5) .caption {
+      position: static;
+      margin-right: auto;
+    }
+    .standard-item:nth-child(5) .thumbnail,
+    .standard-item:nth-child(5) .responsive-img,
+    .standard-item:nth-child(5) .image-wrapper {
+      height: auto;
+    }
+    .standard-item:nth-child(5) .title,
+    .standard-item:nth-child(5) .author {
+      color: #333;
+    }
+  }
+  @media (max-width: 1100px) {
+    .standard-item:nth-child(6) .caption {
+      position: static;
+      margin-right: auto;
+    }
+    .standard-item:nth-child(6) .thumbnail,
+    .standard-item:nth-child(6) .responsive-img,
+    .standard-item:nth-child(6) .image-wrapper {
+      height: auto;
+    }
+    .standard-item:nth-child(6) .title,
+    .standard-item:nth-child(6) .author {
+      color: #333;
+    }
+  }
+}
+</style></head><body>
+<div class="wrapper">
+  <div class="news-item hero-item">
+    <div class="thumbnail">
+        <div class="image-wrapper">
+           <picture>
+            <!--[if IE 9]><video style="display: none;"><![endif]-->
+            <source media="(max-width: 599px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/divinity-small.jpg">
+            <source media="(min-width: 600px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/divinity-ori-sin.jpg">
+            <!--[if IE 9]></video><![endif]-->
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/divinity-ori-sin.jpg" alt="Divinity" class="responsive-img">
+          </picture>
+        </div>
+        <div class="caption">
+          <span class="tag">Review</span>
+          <h1 class="title">Divinity: Original Sin 2 is awesome</h1>
+          <span class="author">by Ren Aysha</span>
+        </div> 
+    </div>
+  </div>
+  <div class="news-item standard-item">
+    <div class="thumbnail">
+      <div class="image-wrapper">
+        <picture>
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source media="(max-width: 599px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/re7-chris-large.jpg">
+          <source media="(min-width: 600px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/re7-chris-small.jpg">
+          <!--[if IE 9]></video><![endif]-->
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/re7-chris-large.jpg" alt="Resident Evil 7" class="responsive-img">
+        </picture>
+      </div>
+      <div class="caption">
+        <span class="tag">Featured</span>
+        <h1 class="title">Resident Evil 7: Scarier than ever</h1>
+        <span class="author">by Ren Aysha</span>
+      </div> 
+    </div>
+  </div>
+  <div class="news-item standard-item">
+    <div class="thumbnail">
+      <div class="image-wrapper">
+        <picture>
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source media="(max-width: 599px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/bioshock-large.jpg">
+          <source media="(min-width: 600px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/bioshock-small.jpg">
+          <!--[if IE 9]></video><![endif]-->
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/bioshock-large.jpg" alt="Bioshock 2" class="responsive-img">
+        </picture>
+      </div>
+      <div class="caption">
+        <span class="tag">Guide</span>
+        <h1 class="title">Bioshock 2: Tactics on killing Big Sisters</h1>
+        <span class="author">by Ren Aysha</span>
+      </div> 
+    </div>
+  </div>
+  <div class="news-item standard-item">
+    <div class="thumbnail">
+      <div class="image-wrapper">
+        <picture>
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source media="(min-width: 1100px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/lara-large.jpg">
+          <source media="(min-width: 728px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/lara-small.jpg">
+          <source media="(min-width: 600px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/lara-large.jpg">
+          <!--[if IE 9]></video><![endif]-->
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/lara-large.jpg" alt="Tomb Raider" class="responsive-img">
+        </picture>
+      </div>
+      <div class="caption">
+        <span class="tag">Adventure</span>
+        <h1 class="title">Tomb Raider: The reincarnation of Lara Croft</h1>
+        <span class="author">by Ren Aysha</span>
+      </div> 
+    </div>
+  </div>
+  <div class="news-item standard-item">
+    <div class="thumbnail">
+      <div class="image-wrapper">
+        <picture>
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source media="(min-width: 1100px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/dishonored-small.jpg">
+          <source media="(min-width: 728px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/dishonored-large.jpg">
+          <source media="(min-width: 600px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/dishonored-small.jpg">
+          <!--[if IE 9]></video><![endif]-->
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/dishonored-small.jpg" alt="Dishonored 2" class="responsive-img">
+        </picture>
+      </div>
+      <div class="caption">
+        <span class="tag">Stealth</span>
+        <h1 class="title">Dishonored 2: Creative Kills have never look so good</h1>
+        <span class="author">by Ren Aysha</span>
+      </div> 
+    </div>
+  </div>
+  <div class="news-item standard-item">
+    <div class="thumbnail">
+      <div class="image-wrapper">
+        <picture>
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source media="(min-width: 1100px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/infinite-large.jpg">
+          <source media="(min-width: 600px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/infinite-small.jpg">
+          <!--[if IE 9]></video><![endif]-->
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/infinite-large.jpg" alt="Bioshock Infinite" class="responsive-img">
+        </picture>
+      </div>
+      <div class="caption">
+        <span class="tag">First person shooter</span>
+        <h1 class="title">Bioshock Infinite: Colorful instead of morbid</h1>
+        <span class="author">by Ren Aysha</span>
+      </div> 
+    </div>
+  </div>
+  <div class="news-item standard-item">
+    <div class="thumbnail">
+      <div class="image-wrapper">
+        <picture>
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source media="(max-width: 599px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/trine-2-large.png">
+          <source media="(min-width: 600px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/trine-2-small.png">
+          <!--[if IE 9]></video><![endif]-->
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/trine-2-large.png" alt="Trine 2" class="responsive-img">
+        </picture>
+      </div>
+      <div class="caption">
+        <span class="tag">Review</span>
+        <h1 class="title">Trine 2: Entertaining & Funny</h1>
+        <span class="author">by Ren Aysha</span>
+      </div> 
+    </div>
+  </div>
+  
+  <div class="news-item standard-item">
+    <div class="thumbnail">
+      <div class="image-wrapper">
+        <picture>
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source media="(max-width: 599px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/wild-hunt-large.jpg">
+          <source media="(min-width: 600px)" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/wild-hunt-small.jpg">
+          <!--[if IE 9]></video><![endif]-->
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/wild-hunt-large.jpg" alt="Witcher 3: Wild Hunt" class="responsive-img">
+        </picture>
+      </div>
+      <div class="caption">
+        <span class="tag">Adventure</span>
+        <h1 class="title">Witcher 3: Blood and Wine</h1>
+        <span class="author">by Ren Aysha</span>
+      </div>
+    </div>
+  </div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js'></script>
+</body></html>

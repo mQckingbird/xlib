@@ -1,0 +1,181 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/DreySkee/pen/dPmLmw?depth=everything&order=popularity&page=3&q=user+data&show_forks=false" />
+
+
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Muli);
+body {
+  background: #eee;
+}
+.hamburger,
+.close {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 160px;
+  height: 160px;
+  background: #404040;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px #555;
+}
+.hamburger i,
+.close i {
+  position: absolute;
+  bottom: 35px;
+  right: 36px;
+  color: #eee;
+  font-size: 30px;
+}
+.close {
+  background: #ccc;
+  box-shadow: inset 0px 0px 15px #555;
+}
+.close i {
+  position: absolute;
+  bottom: 40px;
+  right: 43px;
+  color: #eee;
+  font-size: 22px;
+}
+.small-circle {
+  position: absolute;
+  top: -300px;
+  left: -300px;
+  width: 300px;
+  height: 300px;
+  background: #754848;
+  border-radius: 50%;
+}
+.small-circle .fa-home {
+  position: absolute;
+  bottom: 32px;
+  right: 89px;
+  color: #eee;
+  font-size: 30px;
+}
+.small-circle .fa-search {
+  position: absolute;
+  bottom: 95px;
+  right: 33px;
+  color: #eee;
+  font-size: 28px;
+}
+.medium-circle {
+  position: absolute;
+  top: -460px;
+  left: -460px;
+  width: 460px;
+  height: 460px;
+  background: #404040;
+  border-radius: 50%;
+}
+.medium-circle .fa-picture-o {
+  position: absolute;
+  bottom: 175px;
+  right: 30px;
+  color: #eee;
+  font-size: 28px;
+}
+.medium-circle .fa-user {
+  position: absolute;
+  bottom: 82px;
+  right: 79px;
+  color: #eee;
+  font-size: 33px;
+}
+.medium-circle .fa-envelope {
+  position: absolute;
+  bottom: 29px;
+  right: 168px;
+  color: #eee;
+  font-size: 28px;
+}
+.large-circle {
+  position: absolute;
+  top: -475px;
+  left: -475px;
+  width: 475px;
+  height: 475px;
+  background: #eee;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 2px #555;
+}
+.circle i {
+  cursor: pointer;
+}
+.label {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 3px 9px;
+  border: 1px solid #ccc;
+  color: #404040;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: 'Muli', sans-serif;
+}
+</style></head><body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<div class="large-circle circle"></div>
+	<div class="medium-circle circle">
+		<i class="fa fa-picture-o" data-label="Gallery"></i>
+		<i class="fa fa-user" data-label="About Me"></i>
+		<i class="fa fa-envelope" data-label="Contact"></i>
+	</div>
+	<div class="small-circle circle">
+		<i class="fa fa-home" data-label="Home"></i>
+		<i class="fa fa-search" data-label="Search"></i>
+	</div>
+	<div class="close"><i class="fa fa-times"></i></div>
+	<div class="hamburger"><i class="fa fa-bars"></i></div>
+
+	<div class="label"></div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+<script >openMenu();
+		setTimeout(function(){
+			closeMenu();	
+		}, 1500);
+
+		$(".close").click(function(){
+			closeMenu();	
+		});
+
+		$(".hamburger").click(function(){
+			openMenu();	
+		});
+
+		$("i").hover(function(){
+			if($(this).attr('data-label') != undefined){
+				var attrVal = $(this).attr('data-label');
+				var offset = $(this).offset();
+
+				$(".label").text(attrVal);
+
+				TweenLite.set(".label", {top: offset.top, left: offset.left + 80});
+				TweenLite.fromTo(".label", 0.25, {autoAlpha: 0, left: "+=20"}, {autoAlpha: 1, left: offset.left + 50})
+			}
+		}, function(){
+			var offset = $(this).offset();
+			TweenLite.to(".label", 0.25, {autoAlpha: 0, left: offset.left + 70});
+		});
+
+		function openMenu() {
+			$($(".circle").get().reverse()).each(function (i) {
+				var radius = $(this).width();
+				TweenLite.to($(this), 0.3, {top: -radius/2, left: -radius/2, delay: 0.1*i})
+			});
+			TweenLite.to(".hamburger", 0.3, {top: -160, left: -160});	
+		}
+
+		function closeMenu() {
+			$(".circle").each(function (i) {
+				var radius = $(this).width();
+				TweenLite.to($(this), 0.4, {top: -radius, left: -radius, delay: 0.1*i})
+			});
+			TweenLite.to(".hamburger", 0.3, {top: -80, left: -80});	
+		}
+//# sourceURL=pen.js
+</script>
+</body></html>

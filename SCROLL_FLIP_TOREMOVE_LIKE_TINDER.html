@@ -1,0 +1,702 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/kiyutink/pen/JKjgQv?depth=everything&order=popularity&page=6&q=back+button&show_forks=false" />
+<link href='https://fonts.googleapis.com/css?family=Courgette|Oxygen+Mono|Lato:400,700' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" width = "device-width" />
+<script src="https://use.fontawesome.com/798759b2a2.js"></script>
+
+
+<style class="cp-pen-styles">*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+}
+
+.demo-container {
+  width: 100vw;
+  min-height: 100vh;
+  background: radial-gradient(farthest-corner at 50% 50%, #6270a4, #3B4465);
+  font-family: "Oxygen Mono", sans-serif;
+  overflow: hidden;
+}
+
+.phone-back, .demo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.phone-screen {
+  width: 18rem;
+  height: 32rem;
+  background: white;
+  overflow: hidden;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.app-hidden {
+  opacity: 0;
+  pointer-event: none;
+}
+
+.app-book {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 500;
+  opacity: 0;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+}
+
+.app-book-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.app-header {
+  height: 4rem;
+  width: 100%;
+  position: relative;
+  font-family: "Courgette", sans-serif;
+  font-size: 1.7rem;
+  z-index: 200;
+}
+
+.app-book-header {
+  width: 100%;
+  position: relative;
+  height: 4rem;
+}
+
+.checkout-box {
+  width: 90%;
+  margin-left: 5%;
+  background: white;
+  height: 25rem;
+  opacity: 0.9;
+  padding: 5px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Lato", sans-serif;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 300;
+  pointer-events: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.overlay-display {
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.app-menu {
+  width: 85%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: -85%;
+  padding-top: 60px;
+  z-index: 501;
+  background: #f2f3fb;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: "Lato", sans-serif;
+}
+
+input {
+  padding: 2px;
+}
+
+.app-menu-open {
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+}
+
+.back-button-menu .fa {
+  color: #181f57;
+}
+
+.input-url, .input-caption, .input-info {
+  display: block;
+  height: 2rem;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 1px;
+  top: 4rem;
+  border: 1px solid #6573d5;
+  outline: none !important;
+}
+.input-url:focus, .input-caption:focus, .input-info:focus {
+  border: 1px solid #181f57;
+}
+
+.input-caption {
+  top: 6rem;
+}
+
+.input-info {
+  top: 8rem;
+}
+
+.append {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 40%;
+  height: 1.5rem;
+  background: #181f57;
+  margin-left: 30%;
+  margin-top: 3px;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  line-height: 1.5rem;
+}
+.append:hover {
+  -webkit-box-shadow: 0 0 6px #181f57;
+          box-shadow: 0 0 6px #181f57;
+}
+.append:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+
+.menu-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 201;
+  width: 4rem;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 1.4rem;
+  height: 2px;
+  background: #181f57;
+  margin: 2px;
+}
+
+.app-caption {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  color: #181f57;
+  font-weight: 700;
+}
+
+.photo-container {
+  height: 22rem;
+  position: relative;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.bg-pic {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.bg-active {
+  opacity: 0.2;
+}
+
+.bg-book {
+  opacity: 0.9;
+}
+
+.back-button, .back-button-menu {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+.back-button span, .back-button-menu span {
+  font-size: 1.3rem;
+  color: white;
+  line-height: 3rem;
+  margin-right: 0.1rem;
+}
+
+.photo {
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  left: 1.5rem;
+  top: 2.5rem;
+  background: white;
+  -webkit-box-shadow: 0 0 6px black;
+          box-shadow: 0 0 6px black;
+  background-size: cover;
+  background-position: center;
+  will-change: transform, opacity;
+}
+
+.photo-caption, .photo-info {
+  color: #070a1b;
+  text-align: center;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 12rem, 0);
+          transform: translate3d(0, 12rem, 0);
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  width: 18rem;
+  position: relative;
+  left: -1.5rem;
+  will-change: transform, opacity;
+}
+
+.ph-info-active {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 18rem, 0);
+          transform: translate3d(0, 18rem, 0);
+}
+
+.photo-caption {
+  font-weight: 500;
+  font-size: 1.5rem;
+  font-family: "Courgette", sans-serif;
+}
+
+.photo-info {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+  font-family: "Lato", sans-serif;
+}
+
+.photo-counter {
+  position: absolute;
+  bottom: 1.5rem;
+  height: 1.5rem;
+  width: 50%;
+  left: 25%;
+  text-align: center;
+  color: #020207;
+}
+
+.photo-0 {
+  background-image: url("https://kiyutink.github.io/sidney/sidney1.jpg");
+}
+
+.photo-1 {
+  background-image: url("https://kiyutink.github.io/nyc/nyc1.jpg");
+}
+
+.photo-2 {
+  background-image: url("https://kiyutink.github.io/beijing/beijing1.jpg");
+}
+
+.photo-3 {
+  background-image: url("https://kiyutink.github.io/tokyo/tokyo1.jpg");
+}
+
+.photo-4 {
+  background-image: url("https://kiyutink.github.io/london/london1.jpg");
+}
+
+.photo-5 {
+  background-image: url("https://kiyutink.github.io/moscow/moscow1.jpg");
+}
+
+.photo-6 {
+  background-image: url("https://kiyutink.github.io/madrid/madrid1.jpg");
+}
+
+.photo-7 {
+  background-image: url("https://kiyutink.github.io/la/la2.jpg");
+}
+
+.photo-8 {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/450545/profile/profile-512.jpg?3);
+}
+
+.animation {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.app-footer {
+  height: 4rem;
+  width: 100%;
+  position: absolute;
+  z-index: 200;
+  bottom: 0;
+}
+
+a {
+  color: #181f57;
+}
+
+.button {
+  width: 50%;
+  margin: 0.5rem auto;
+  height: 2rem;
+  background: #181f57;
+  color: white;
+  font-family: "Courgette", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 2rem;
+  cursor: pointer;
+}
+.button:hover {
+  -webkit-box-shadow: 0 0 10px #181f57;
+          box-shadow: 0 0 10px #181f57;
+}
+.button:active {
+  -webkit-transform: translate3d(0, 2px, 0);
+          transform: translate3d(0, 2px, 0);
+}
+</style></head><body>
+<div class="demo-container">
+  <div class="phone-screen">
+    <div class="overlay"></div>
+    <div class="app-menu">
+      <div class="back-button-menu">
+        <span class="fa fa-arrow-left"></span>
+      </div>
+      <input placeholder="URL" class="input-url" type="text" />
+      <input placeholder="Caption" type="text" class="input-caption" />
+      <input placeholder="Info" type="text" class="input-info" />
+      <div class="append">Add Photo</div>
+    </div>
+    <div class="app-book">
+      <div class="app-book-header">
+        <div class="back-button">
+          <span class="fa fa-arrow-left"></span>
+        </div>
+      </div>
+      <div class="checkout-box">
+        There goes booking stuff that I just don't feel like making =)
+      </div>
+    </div>   
+    <div class="app">
+      <div class="app-header">
+        <div class="app-caption">Traveller</div>
+        <div class="menu-button">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="photo-container">
+        <div class="photo photo-8" number="8" ph-index="8">
+          <div class="photo-caption">Me</div>
+          <div class="photo-info">Take a look at my other <a target="_blank" href="https://codepen.io/kiyutink/">Pens</a></div>
+        </div>
+        <div class="photo photo-7" number="7" ph-index="7">
+          <div class="photo-caption">Los Angeles</div>
+          <div class="photo-info">The city of Angels</div>
+        </div>
+        <div class="photo photo-6" number="6" ph-index="6">
+          <div class="photo-caption">Madrid</div>
+          <div class="photo-info">It's somewhere in Spain I believe</div>
+        </div>
+        <div class="photo photo-5" number="5" ph-index="5">
+          <div class="photo-caption">Moscow</div>
+          <div class="photo-info">Putin. Vodka. Balalaika.</div>
+        </div>
+        <div class="photo photo-4" number="4" ph-index="4">
+          <div class="photo-caption">London</div>
+          <div class="photo-info">Have you ever seen the Queen?</div>
+        </div>
+        <div class="photo photo-3" number="3" ph-index="3">
+          <div class="photo-caption">Tokyo</div>
+          <div class="photo-info">One of the biggest cities in the world</div>
+        </div>
+        <div class="photo photo-2" number="2" ph-index="2">
+          <div class="photo-caption">Beijing</div>
+          <div class="photo-info">The capital of China</div>
+        </div>
+        <div class="photo photo-1" number="1" ph-index="1">
+          <div class="photo-caption">New York</div>
+          <div class="photo-info">The heart of America</div>
+        </div>
+        <div class="photo photo-0" number="0" ph-index="0">
+          <div class="photo-caption">Sidney</div>
+          <div class="photo-info">Overall a nice city</div>
+        </div>
+        <div class="photo-counter"></div>
+      </div>
+      <div class="app-footer">
+        <div class="button">Book</div>    
+      </div>
+    </div>
+  </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script >$(document).ready(function() {
+
+  /*              SETTINGS               */
+  /*              SETTINGS               */
+  /*              SETTINGS               */
+
+  var animTime = 300; //animation time (also needs to be set in css)
+
+  /*              /SETTINGS               */
+  /*              /SETTINGS               */
+  /*              /SETTINGS               */
+  var delX;
+  var delY;
+  var phWid = parseInt($(".photo").css("width"));
+  var numOfPhotos = $(".photo").length;
+  var topCard = "div[ph-index='0']";
+  var curPhoto = 1;
+  var shift;
+  var k = parseInt($("html").css("font-size")) / 16;
+
+  for (i = 0; i <= (numOfPhotos - 1); i++) {if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;}
+    loadBackground(".photo-" + i);
+  }
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+
+
+  changeCounter();
+  rearrangeStack();
+
+  //takes care of photo counter
+  function changeCounter(nope) {
+    if (!nope) {
+      $(".photo-counter").html(curPhoto + "/" + numOfPhotos);
+      if (curPhoto != numOfPhotos)
+        curPhoto++;
+      else
+        curPhoto = 1;
+    } else
+      $(".photo-counter").html((curPhoto - 1) + "/" + numOfPhotos);
+  }
+
+  //adds and removes transition
+  function handleAnimation() {
+    $(".photo").addClass("animation");
+    setTimeout(function() {
+      $(".photo").removeClass("animation");
+    }, animTime);
+  }
+
+  //animates position changes of photos in the stack
+  function rearrangeStack() {
+    handleAnimation();
+
+    //this timeput takes care of z-indexes after animating opacity and puts the shifted card back
+    setTimeout(function() {
+
+      //taking care of z-indexes
+      for (i = 0; i < numOfPhotos; i++)
+        {if (window.CP.shouldStopExecution(2)){break;}if (window.CP.shouldStopExecution(2)){break;}$("div[ph-index=" + i + "]").css({
+          "z-index": numOfPhotos - i - 1
+        });}
+window.CP.exitedLoop(2);
+
+window.CP.exitedLoop(2);
+
+
+      //puts shifted card back in the stack with opacity 0
+      if (numOfPhotos != 1)
+        $("div[ph-index=" + (numOfPhotos - 1) + "]").css(
+          "transform", "translate3d(0, " + 0.65 * (numOfPhotos - 1) + "rem, 0)" + " scale(" + (1 - (numOfPhotos - 1) * 0.05) + ")"
+        );
+
+    }, animTime);
+
+    //shifts picked card after mouseup event and removes info
+    if (numOfPhotos != 1)
+      $("div[ph-index=" + (numOfPhotos - 1) + "]").css({
+        "opacity": 0,
+        "transform": "translate3d" + shift
+      }).children().removeClass("ph-info-active");
+    else
+      $("div[ph-index='0']").css("transform", "none");
+
+    //makes info appear
+    $("div[ph-index='0']").children().addClass("ph-info-active");
+
+    //changing backgrounds
+    $(".bg-pic").removeClass("bg-active");
+    var n = $("div[ph-index='0']").attr("number");
+    $(".bg-pic-" + n).addClass("bg-active");
+
+    //the rearrangement itself    
+    for (i = 0; i < numOfPhotos - 1; i++) {if (window.CP.shouldStopExecution(3)){break;}if (window.CP.shouldStopExecution(3)){break;}
+      if (i >= 5) var op = 0;
+      else var op = 1;
+      $("div[ph-index=" + i + "]").css({
+        "transform": "translate3d(0, " + 0.65 * i + "rem, 0)" + " scale(" + (1 - i * 0.05) + ")",
+        "opacity": op
+      });
+    }
+window.CP.exitedLoop(3);
+
+window.CP.exitedLoop(3);
+
+  }
+
+  //recalculates ph-indexes of photos
+  function reindexate() {
+    for (i = 0; i < numOfPhotos; i++)
+      {if (window.CP.shouldStopExecution(4)){break;}if (window.CP.shouldStopExecution(4)){break;}$("div[ph-index=" + i + "]").attr("ph-index", i - 1);}
+window.CP.exitedLoop(4);
+
+window.CP.exitedLoop(4);
+
+    $("div[ph-index='-1']").attr("ph-index", numOfPhotos - 1);
+    changeCounter();
+  }
+
+  //loads images for transparent backgrounds
+  function loadBackground(selector) {
+    var url = $(selector).css("background-image");
+    var bgIndex = $(selector).attr("ph-index");
+    $(".phone-screen").append("<div class='bg-pic bg-pic-" + $(selector).attr("number") + "'></div>");
+    $(".bg-pic").last().css("background-image", url);
+  }
+
+  //main function that takes care of the interaction with cursor
+  $(".photo-container").on("mousedown touchstart", function(event) {
+    if (!event.pageX) event.preventDefault();
+    var stX = event.pageX || event.originalEvent.touches[0].pageX;
+    var stY = event.pageY || event.originalEvent.touches[0].pageY;
+    $(".phone-screen").on("mousemove touchmove", function(event) {
+      delX = (event.pageX || event.originalEvent.touches[0].pageX) - stX;
+      delY = (event.pageY || event.originalEvent.touches[0].pageY) - stY;
+      var rotY = delX / phWid;
+      var rotX = delY / phWid;
+      $(topCard).css("transform", "rotateY(" + rotY * 25 + "deg)" + " rotateX(" + rotX * (-25) + "deg)" + " translate3d(" + delX / 5 * k + "px, " + delY / 5 * k + "px, 0)");
+    });
+  });
+
+  $(".phone-screen").on("mouseleave", function() {
+    $(document).trigger("mouseup");
+    delX = 0;
+    delY = 0;
+  });
+
+  $(document).on("mouseup touchend", function() {
+    $(".phone-screen").off("mousemove touchmove");
+    if (delX > delY && delX > phWid / 2) {
+      shift = "(" + phWid * 1.5 + "px, 0, 0)";
+      reindexate();
+    } else if (delX < delY && delY > phWid / 2) {
+      shift = "(0, " + phWid * 1.5 + "px, 0)";
+      reindexate();
+    } else if (Math.abs(delX) > Math.abs(delY) && delX < -phWid / 2) {
+      shift = "(" + (-phWid * 1.5) + "px, 0, 0)";
+      reindexate();
+    } else if (Math.abs(delX) < Math.abs(delY) && delY < -phWid / 2) {
+      shift = "(0, " + (-phWid * 1.5) + "px, 0)";
+      reindexate();
+    }
+    delX = 0;
+    delY = 0;
+    rearrangeStack();
+  });
+
+  $(".button, .back-button").on("click", function() {
+    $(".app-book").toggleClass("app-book-active");
+    $(".app").toggleClass("app-hidden");
+    $(".bg-active").toggleClass("bg-book");
+  });
+
+  $(".menu-button, .back-button-menu, .overlay").on("click", function() {
+    $(".app-menu").toggleClass("app-menu-open");
+    $(".overlay").toggleClass("overlay-display");
+  });
+
+  $(".append").on("click", function() {
+    if ($(".input-url").val() != "" && $(".input-caption").val() != "" && $(".input-info").val() != "") {
+      var imageUrl = $(".input-url").val();
+      var imageCaption = $(".input-caption").val();
+      var imageInfo = $(".input-info").val();
+      $(".input-url").val("");
+      $(".input-info").val("");
+      $(".input-caption").val("");
+      $(".photo-container").prepend("<div class='photo photo-" + numOfPhotos + "' number=" + (numOfPhotos) + " ph-index=" + (numOfPhotos) + "></div>");
+      $(".photo-" + numOfPhotos).css("background-image", "url(" + imageUrl + ")");
+      $(".photo-" + numOfPhotos).append("<div class='photo-caption'>" + imageCaption + "</div><div class='photo-info'>" + imageInfo + "</div>");
+      loadBackground(".photo-" + numOfPhotos);
+      numOfPhotos++;
+      rearrangeStack();
+      changeCounter(true);
+      $(".back-button-menu").trigger("click");
+    }
+  });
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

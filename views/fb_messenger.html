@@ -1,0 +1,145 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/xvilo/pen/vyQOxL?depth=everything&order=popularity&page=25&q=chat&show_forks=false" />
+
+
+<style class="cp-pen-styles">.fb--chat__icon {
+  z-index: 9999;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06), 0 2px 32px rgba(0, 0, 0, 0.16);
+  background: #1182FC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-50deg);
+  transition: all 160ms ease-in-out;
+  cursor: pointer;
+}
+.fb--chat__icon svg {
+  transition: opacity 160ms ease-in-out;
+}
+.fb--chat__icon svg#close-icon {
+  width: 19px;
+  height: 19px;
+  top: 21px;
+  left: 21px;
+  opacity: 0;
+  position: absolute;
+}
+.fb--chat__icon svg#fb-msng-icon {
+  width: 30px;
+  height: 30px;
+  transform: rotate(50deg);
+  transition: opacity 160ms ease-in-out;
+  opacity: 1;
+}
+.fb--chat__icon.fb-chat-btn__opend svg#close-icon {
+  opacity: 1;
+}
+.fb--chat__icon.fb-chat-btn__opend svg#fb-msng-icon {
+  opacity: 0;
+}
+
+.fb-chat-btn__opend {
+  transform: rotate(0deg);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.16), 0 2px 32px rgba(0, 0, 0, 0.26);
+}
+
+.fb-chat {
+  max-width: 300px;
+  height: 350px;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  transform: translateY(50px);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: transform 160ms ease-in-out, opacity 160ms ease-in-out;
+  transition: transform 160ms ease-in-out, opacity 160ms ease-in-out;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06), 0 2px 32px rgba(0, 0, 0, 0.16);
+}
+.fb-chat--close {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 16px;
+  top: 15px;
+  cursor: pointer;
+}
+.fb-chat__opend {
+  pointer-events: all;
+  transform: translateY(0px);
+  opacity: 1;
+}
+.fb-chat--header {
+  height: 50px;
+  background: #1182FC;
+  padding: 0px 0px 0px 40px;
+  display: flex;
+  border-radius: 10px 10px 0px 0px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 25px;
+  position: relative;
+}
+.fb-chat iframe {
+  border: none;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+.fb-chat--text svg {
+  height: 20px;
+  width: 20px;
+  left: 10px;
+  top: 14px;
+  position: absolute;
+}
+</style></head><body>
+<div id="fb-chat" class="fb-chat">
+	<header class="fb-chat--header">
+		<p class="fb-chat--text"><svg id="fb-msng-icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.47 30.66"><path d="M29.56,14.34c-8.41,0-15.23,6.35-15.23,14.19A13.83,13.83,0,0,0,20,39.59V45l5.19-2.86a16.27,16.27,0,0,0,4.37.59c8.41,0,15.23-6.35,15.23-14.19S38,14.34,29.56,14.34Zm1.51,19.11-3.88-4.16-7.57,4.16,8.33-8.89,4,4.16,7.48-4.16Z" transform="translate(-14.32 -14.34)" style="fill:#fff"/></svg> Facebook Messenger</p>
+		<span id="close-header" class="fb-chat--close"><svg id="close-icon" data-name="close icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.98 39.99"><path d="M48.88,11.14a3.87,3.87,0,0,0-5.44,0L30,24.58,16.58,11.14a3.84,3.84,0,1,0-5.44,5.44L24.58,30,11.14,43.45a3.87,3.87,0,0,0,0,5.44,3.84,3.84,0,0,0,5.44,0L30,35.45,43.45,48.88a3.84,3.84,0,0,0,5.44,0,3.87,3.87,0,0,0,0-5.44L35.45,30,48.88,16.58A3.87,3.87,0,0,0,48.88,11.14Z" transform="translate(-10.02 -10.02)" style="fill:#fff"/></svg></span>
+	</header>
+	<iframe width="100%" height="300" scrolling="no" frameborder="0" allowtransparency="true" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F113813372010398&amp;tabs=messages&amp;width=302&amp;height=300&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=true&amp;show_facepile=false&amp;appId"></iframe>
+</div>
+<div id="fb-chat-btn" class="fb--chat__icon">
+	<svg id="fb-msng-icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.47 30.66"><path d="M29.56,14.34c-8.41,0-15.23,6.35-15.23,14.19A13.83,13.83,0,0,0,20,39.59V45l5.19-2.86a16.27,16.27,0,0,0,4.37.59c8.41,0,15.23-6.35,15.23-14.19S38,14.34,29.56,14.34Zm1.51,19.11-3.88-4.16-7.57,4.16,8.33-8.89,4,4.16,7.48-4.16Z" transform="translate(-14.32 -14.34)" style="fill:#fff"/></svg>
+	<svg id="close-icon" data-name="close icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.98 39.99"><path d="M48.88,11.14a3.87,3.87,0,0,0-5.44,0L30,24.58,16.58,11.14a3.84,3.84,0,1,0-5.44,5.44L24.58,30,11.14,43.45a3.87,3.87,0,0,0,0,5.44,3.84,3.84,0,0,0,5.44,0L30,35.45,43.45,48.88a3.84,3.84,0,0,0,5.44,0,3.87,3.87,0,0,0,0-5.44L35.45,30,48.88,16.58A3.87,3.87,0,0,0,48.88,11.14Z" transform="translate(-10.02 -10.02)" style="fill:#fff"/></svg>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >	document.addEventListener('DOMContentLoaded', function(){ 
+	    document.getElementById('fb-chat-btn').addEventListener("click", function(){
+			toggleClass(document.getElementById('fb-chat'), 'fb-chat__opend');
+			toggleClass(document.getElementById('fb-chat-btn'), 'fb-chat-btn__opend');
+		});
+		document.getElementById('close-header').addEventListener("click", function(){
+			toggleClass(document.getElementById('fb-chat'), 'fb-chat__opend');
+			toggleClass(document.getElementById('fb-chat-btn'), 'fb-chat-btn__opend');
+		});
+	}, false);
+	
+	function toggleClass(element, className){
+	    if (!element || !className){
+	        return;
+	    }
+	
+	    var classString = element.className, nameIndex = classString.indexOf(className);
+	    if (nameIndex == -1) {
+	        classString += ' ' + className;
+	    }
+	    else {
+	        classString = classString.substr(0, nameIndex) + classString.substr(nameIndex+className.length);
+	    }
+	    element.className = classString;
+	}
+//# sourceURL=pen.js
+</script>
+</body></html>

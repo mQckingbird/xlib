@@ -1,0 +1,271 @@
+<style class="cp-pen-styles">
+:root {
+  --blue: #3DA5D9;
+  --dark-gray: #222;
+  --white: #fff;
+}
+
+.tooltip__trigger {
+  border: 0.125em solid var(--blue);
+  color: var(--blue);
+  cursor: pointer;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1em 2em;
+  font-size: 1.25em;
+}
+
+.tooltip {
+  background: var(--white);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.8);
+  padding: 0;
+  position: relative;
+  color: #f4f4f0;
+  width: 300px;
+  -webkit-transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out;
+}
+
+.tooltip__content {
+  line-height: 1.2;
+}
+
+.tooltip.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip__arrow {
+  display: block;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: var(--white);
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+[x-placement^='top'] .tooltip__arrow {
+  bottom: -8px;
+  left: calc(50% - 8px);
+}
+
+[x-placement^='right'] .tooltip__arrow {
+  left: -8px;
+  top: calc(50% - 8px);
+}
+
+[x-placement^='bottom'] .tooltip__arrow {
+  top: -8px;
+  left: calc(50% - 8px);
+}
+
+[x-placement^='left'] .tooltip__arrow {
+  right: -8px;
+  top: calc(50% - 8px);
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal;
+}
+@keyframes spinner {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(359deg);
+  }
+}
+
+.createcampaign {
+  border-radius: 2px 2px 5px 5px;
+  padding: 0;
+
+  background: #ffffff;
+  position: relative;
+  padding-bottom: 50px;
+  margin:0;
+}
+
+.createcampaign.loading button {
+  max-height: 100%;
+  padding-top: 50px;
+}
+
+.createcampaign.loading button .spinner {
+  opacity: 1;
+  top: 40%;
+}
+
+.createcampaign.ok button {
+  background-color: #8bc34a;
+}
+
+.createcampaign.ok button .spinner {
+  border-radius: 0;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  height: 20px;
+  animation: none;
+  transform: rotateZ(-45deg);
+}
+
+.createcampaign input {
+  display: block;
+  padding: 15px 10px;
+  margin-bottom: 11px;
+  width: 100%;
+  border: 1px solid transparent;
+  transition: border-width 0.2s ease;
+  border-radius: 0;
+  color: #ccc;
+}
+
+.createcampaign input + i.fa {
+  color: #fff;
+  font-size: 1em;
+  position: absolute;
+  margin-top: -47px;
+  opacity: 0;
+  left: 0;
+  transition: all 0.1s ease-in;
+}
+
+.createcampaign input:focus {
+  outline: none;
+  color: #444;
+  border-color: #2196F3;
+  border-left-width: 35px;
+}
+
+.createcampaign input:focus + i.fa {
+  opacity: 1;
+  left: 9px;
+  transition: all 0.25s ease-out;
+}
+
+.createcampaign a {
+  font-size: 0.8em;
+  color: #2196F3;
+  text-decoration: none;
+}
+
+.createcampaign .title {
+  color: #444;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+}
+
+.createcampaign button {
+  outline:0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px;
+  background: #2196F3;
+  color: #fff;
+  display: block;
+  border: none;
+  margin-top: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-height: 60px;
+  border: 0px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 2px 2px;
+  transform: rotateZ(0deg);
+  transition: all 0.1s ease-out;
+  border-bottom-width: 7px;
+}
+
+.createcampaign button .spinner {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  border: 4px solid #ffffff;
+  border-top-color: rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+  left: 50%;
+  top: 0;
+  opacity: 0;
+  margin-left: -20px;
+  margin-top: -20px;
+  animation: spinner 0.6s infinite linear;
+  transition: top 0.3s 0.3s ease, opacity 0.3s 0.3s ease, border-radius 0.3s ease;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+.createcampaign:not(.loading) button:hover {
+  box-shadow: 0px 1px 3px #2196F3;
+}
+
+.createcampaign:not(.loading) button:focus {
+  border-bottom-width: 4px;
+}
+</style>
+<button class="tooltip__trigger js-tooltip__trigger" data-target="#tooltip-1">Nuevo</button>
+
+<div class="tooltip js-tooltip is-hidden" id="tooltip-1">
+  <span class="tooltip__arrow js-tooltip__arrow"></span>
+  <div class="tooltip__content" aria-live="assertive">
+  <!--  <p class="tooltip__text"> -->
+
+    <form class="createcampaign">
+    <p class="title">Nueva campaña</p>
+    <input type="text" placeholder="Título" />
+    <i class="fa fa-book"></i>
+    <button>
+      <i class="spinner"></i>
+      <span class="state">Crear</span>
+    </button>
+  </form>
+
+ <!-- </p> -->
+    
+    <span class="js-tooltip__hidden-text visually-hidden"></span>
+  </div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script src='https://unpkg.com/popper.js@1.10.8'></script><script src='https://unpkg.com/tooltip.js@1.1.4'></script>
+<script >
+var $tooltip = $('.js-tooltip'),
+    $trigger = $('.js-tooltip__trigger'),
+    $arrow = $('.js-tooltip__arrow'),
+    $hiddenTxt = $('.js-tooltip__hidden-text');
+
+var popper = new Popper($trigger, $tooltip, {
+    placement: 'bottom'
+});
+
+$trigger.on('click', function (e) {
+    e.preventDefault();
+
+    var targetId = $(this).data('target'),
+        $thisTarget = $(targetId),
+        $thisHiddenTxt = $thisTarget.find($hiddenTxt),
+        hiddenContent = ' ';
+
+    $thisTarget.toggleClass('is-hidden is-visible');
+    $thisHiddenTxt.html(hiddenContent);
+});
+</script>
+</body></html>

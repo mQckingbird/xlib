@@ -1,0 +1,331 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/enwaara/pen/RgBjZK" />
+<script src="https://use.typekit.net/tsl0qfs.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">@-webkit-keyframes downUp {
+  0% {
+    height: 55%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 55%;
+  }
+}
+@-moz-keyframes downUp {
+  0% {
+    height: 55%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 55%;
+  }
+}
+@keyframes downUp {
+  0% {
+    height: 55%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 55%;
+  }
+}
+@-webkit-keyframes drop {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: -250px;
+    height: 0px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@-moz-keyframes drop {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: -250px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes drop {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: -250px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "proxima-nova", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  -webkit-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+  -o-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+body {
+  background-color: #D2D7D3;
+}
+
+#wrapper {
+  position: absolute;
+  top: 50%;
+  margin-top: -240px;
+  left: 50%;
+  margin-left: -345px;
+  width: 100%;
+}
+
+#container-success, #container-fail {
+  float: left;
+  width: 320px;
+  height: 480px;
+  margin-right: 50px;
+  -webkit-box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.7);
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.7);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+#container-success .color-drop, #container-fail .color-drop {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 270px;
+  background-image: url("http://enwaara.se/codepen/colordrop.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#failDrop.active {
+  -webkit-animation: drop ease-in 1;
+  -moz-animation: drop ease-in 1;
+  animation: drop ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+#container-success {
+  background: #197042;
+  background: -moz-linear-gradient(45deg, #197042 1%, #239954 44%, #2ecc71 100%);
+  background: -webkit-linear-gradient(45deg, #197042 1%, #239954 44%, #2ecc71 100%);
+  background: linear-gradient(45deg, #197042 1%, #239954 44%, #2ecc71 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#197042', endColorstr='#2ecc71',GradientType=1 );
+  color: #2ECC71;
+}
+
+#container-fail {
+  background: #a53030;
+  background: -moz-linear-gradient(45deg, #a53030 0%, #d33d3d 44%, #f64747 100%);
+  background: -webkit-linear-gradient(45deg, #a53030 0%, #d33d3d 44%, #f64747 100%);
+  background: linear-gradient(45deg, #a53030 0%, #d33d3d 44%, #f64747 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a53030', endColorstr='#f64747',GradientType=1 );
+  color: #F64747;
+}
+
+.overflow {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.message {
+  width: 100%;
+  height: 55%;
+  background: #F7F7F7;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 60px;
+}
+.message h1 {
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  padding-bottom: 50px;
+}
+.message p {
+  font-weight: 300;
+  font-size: 1.1em;
+  padding-bottom: 30px;
+  letter-spacing: 1px;
+  z-index: 500;
+}
+.message span {
+  font-weight: 300;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  margin-left: -33px;
+  position: relative;
+}
+.message span i {
+  text-align: center;
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  padding-top: 5px;
+  padding-left: 1px;
+  bottom: -3px;
+  position: absolute;
+  left: calc(100% + 15px);
+  color: #F7F7F7;
+  background: #F64747;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.message span i:hover {
+  background: #D64541;
+}
+
+#failMessage.active {
+  -webkit-animation: downUp ease-in 1;
+  -moz-animation: downUp ease-in 1;
+  animation: downUp ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+#refresh.active {
+  -webkit-animation: spin ease-in 1;
+  -moz-animation: spin ease-in 1;
+  animation: spin ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.close {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
+  background: #F7F7F7;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-size: 2em;
+  padding-top: 6.5px;
+  padding-left: 1px;
+  cursor: pointer;
+}
+.close i {
+  text-align: center;
+}
+
+#success-btn i {
+  color: #2ECC71;
+}
+#success-btn:hover i {
+  color: #26A65B;
+}
+
+#fail-btn i {
+  color: #F64747;
+}
+#fail-btn:hover i {
+  color: #D64541;
+}
+</style></head><body>
+<div id="wrapper">
+  
+  <div id="container-success">
+    
+    <div class="color-drop">
+    </div>
+    
+    <div class="message">
+      <h1>Success!</h1>
+      <p>Everything is working fine!</p>
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+    </div>
+    
+    <div class="close" id="success-btn">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    
+  </div>
+  
+  <div id="container-fail">
+    
+    <div class="overflow">
+      <div id="failDrop" class="color-drop">
+      </div>
+
+      <div id="failMessage" class="message">
+        <h1>Whoops..</h1>
+        <p>Something went wrong.</p>
+        <span>Try again?<i id="refresh" class="fa fa-refresh" aria-hidden="true"></i></span>
+      </div>
+    </div>
+    
+    <div class="close" id="fail-btn">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    
+  </div>
+  
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script >$(document).ready(function($){
+  $('#refresh').click(
+      function(){ $("#failMessage, #failDrop, #refresh").toggleClass('active') }
+    )
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

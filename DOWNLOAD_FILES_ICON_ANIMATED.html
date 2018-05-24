@@ -1,0 +1,149 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/pnowell/pen/GJrxXg?depth=everything&order=popularity&page=7&q=icon&show_forks=false" />
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script>
+<style class="cp-pen-styles">.attachments-icon {
+  transition: all .4s ease;
+}
+
+/* Initial State */
+.attachments-icon .document-container {
+  transform-origin: 43.32px 28.79px;
+  /* transform-origin: center center;
+      Use Pixels instead for Firefox Bug */
+  transform: translate(0,0) rotate(12deg);
+  transition: all .4s ease;
+}
+.attachments-icon .photo-1-container {
+  transform-origin: 15.1px 43.71px;
+  transform: translate(0,0) rotate(-11deg);
+  transition: all .4s ease;
+}
+.attachments-icon .photo-2-container {
+  transform-origin: 19.17px 23.01px;
+  transform: translate(0,0) rotate(-3deg);
+  transition: all .4s ease;
+}
+
+/* Hover State */
+.attachments-button:hover .document-container {
+  transform: translate(-7.46px,1.56px) rotate(22deg);
+}
+.attachments-button:hover .photo-1-container {
+  transform: translate(5.18px,-4.3px) rotate(-16deg);
+}
+.attachments-button:hover .photo-2-container {
+  transform: translate(6.71px,5.16px) rotate(4deg);
+}
+
+
+
+/* Other Styling */
+.attachments-button {
+  width: 270px;
+  height: 60px;
+  padding: 12px 0;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  background: white;
+  border-top: 1px solid #F0F0F0;
+  border-bottom: 1px solid #F0F0F0;
+  transform: translate(-50%,-50%) scale(1);
+  transition: all .5s ease;
+}
+.attachments-button span {
+  display: block;
+  float: right;
+  font-family: "Avenir", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 65px;
+  color: #5C6374;
+}
+.attachments-button:hover span {
+  color: #4B89E2;
+}
+.attachments-button.zoom {
+  transform: translate(-50%,-50%) scale(2);
+}
+.zoom-button {
+  width: 84px;
+  height: 36px;
+  position: absolute;
+  top: 80vh;
+  left: 50vw;
+  transform: translate(-50%,-50%);
+  border-radius: 4px;
+  font-family: "Avenir", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 37px;
+  text-align: center;
+  color: #D8D8D8;
+  background: white;
+  border: 1px solid #D8D8D8;
+  cursor: pointer;
+}
+.zoom-button:hover {
+  border-color: #B3B3B3;
+  color: #B3B3B3;
+}
+.attachments-button, .zoom-button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}</style></head><body>
+<!-- 
+
+ANIMATING ICONS WITH SKETCH & SVG
+—————————————————————————————————
+Designed by Peter Nowell @pnowelldesign for a tutorial in Net Magazine's summer 2015 issue. 
+
+-->
+
+<a class="attachments-button" href="http://pnowell.com/s/Animating-Icon-Project-Files.zip">
+  
+  <svg class="attachments-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" version="1.1">
+    <title>attachments icon</title>
+    
+    <g class="document-container">
+      <path id="document-background" d="M28.32 9.286L46.32 9.286 58.32 21.286 58.32 48.286 28.32 48.286 28.32 9.286Z" stroke="#FFFFFF" stroke-width="4" fill="#FFFFFF" />
+      <path id="document-paper" d="M28.32 9.286L46.32 9.286 58.32 21.286 58.32 48.286 28.32 48.286 28.32 9.286Z" stroke="#4F92F0" fill="#FFFFFF" />
+      <g class="document-lines" fill="#4F92F0">
+        <rect id="text-line-5" x="33.82" y="39.786" width="6" height="1"/>
+        <rect id="text-line-4" x="33.82" y="36.786" width="19" height="1"/>
+        <rect id="text-line-3" x="33.82" y="33.786" width="16" height="1"/>
+        <rect id="text-line-2" x="33.82" y="30.786" width="19" height="1"/>
+        <rect id="text-line-1" x="33.82" y="27.786" width="16" height="1"/>
+      </g>
+      <path id="paper-fold" d="M58.32 21.286L46.32 21.286 46.32 9.286" stroke="#4F92F0" fill="none"/>
+    </g>
+
+    <g class="photo-2-container" fill="#FFFFFF">
+      <rect id="photo-2-background" stroke="#FFFFFF" stroke-width="4" x="9.667" y="10.506" width="19" height="25" />
+      <rect id="photo-2-border" stroke="#4F92F0" x="9.667" y="10.506" width="19" height="25" />
+    </g>
+
+    <g class="photo-1-container" fill="#FFFFFF">
+      <rect id="photo-1-background" stroke="#FFFFFF" stroke-width="4" x="2.569" y="34.297" width="25" height="19" />
+      <rect id="photo-1-border" stroke="#4F92F0" x="2.602" y="34.208" width="25" height="19" />
+    </g>
+
+  </svg>
+  
+  <span>Download Project Files</span>
+  
+</a>
+
+<div class="zoom-button">Zoom</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >function zoom() {
+  $('.attachments-button').toggleClass('zoom');
+  $('.zoom-button').toggleClass('active');
+}
+
+$('.zoom-button').click( zoom );
+//# sourceURL=pen.js
+</script>
+</body></html>

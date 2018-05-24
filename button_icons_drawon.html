@@ -1,0 +1,453 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/lukemeyrick/pen/pRbqgd?depth=everything&order=popularity&page=6&q=icon&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'><script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script>
+<style class="cp-pen-styles">body {
+  background: #FF1261;
+}
+
+.icons {
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: translate3d(0, -50%, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  min-width: 20px;
+  max-width: 60px;
+  max-height: 60px;
+  margin: 0 calc(60px / 2);
+}
+.icon span {
+  background: #02074D;
+  position: absolute;
+}
+
+.-menu {
+  height: calc(60px * 0.75);
+}
+.-menu span {
+  height: 4px;
+  left: 0;
+  right: 0;
+}
+.-menu span:nth-of-type(1) {
+  top: 0;
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.5, 0, 0, 1);
+}
+.-menu span:nth-of-type(2) {
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  transform-origin: center;
+  background: none;
+}
+.-menu span:nth-of-type(2):before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #02074D;
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0, 1) 0.15s;
+}
+.-menu span:nth-of-type(3) {
+  bottom: 0;
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0, 1);
+  transform: scale3d(0.75, 1, 1);
+}
+.-menu.active span:nth-of-type(1) {
+  transform: translate3d(15%, 0, 0) rotate(45deg);
+  transition: transform 0.4s cubic-bezier(0.5, 0, 0, 1) 0.2s;
+}
+.-menu.active span:nth-of-type(2) {
+  transform: translate3d(0, -50%, 0) rotate(180deg);
+}
+.-menu.active span:nth-of-type(2):before {
+  transform: translate3d(20%, 0, 0) scale3d(0, 1, 1);
+}
+.-menu.active span:nth-of-type(3) {
+  transform: translate3d(15%, 0, 0) rotate(-45deg);
+  transition: transform 0.4s cubic-bezier(0.5, 0, 0, 1) 0.25s;
+}
+
+.-plus {
+  height: 60px;
+  transition: transform 0.3s cubic-bezier(0.5, 0, 0, 1);
+}
+.-plus span:nth-of-type(1) {
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  left: calc(50% - (4px / 2));
+}
+.-plus span:nth-of-type(2) {
+  top: calc(50% - (4px / 2));
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.5, 0, 0, 1) 0.2s;
+}
+.-plus.active {
+  transform: rotate(-90deg);
+  transition: transform 0s;
+}
+.-plus.active span:nth-of-type(2) {
+  transition: transform 0.3s cubic-bezier(0.5, 0, 0, 1);
+  transform: translate3d(-15%, 0, 0) scale3d(0, 1, 1);
+}
+
+.-arrow {
+  height: 60px;
+}
+.-arrow div {
+  height: 4px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - (4px / 2));
+}
+.-arrow div:before {
+  content: '';
+  position: absolute;
+  background: #02074D;
+  top: 0;
+  left: calc(4px * 1.5);
+  right: calc(4px * 1.5);
+  bottom: 0;
+  transition: transform 0.4s cubic-bezier(0.5, 0, 0, 1) 0.3s;
+  transform: translate3d(calc(4px * 1.5), 0, 0);
+}
+.-arrow span {
+  height: calc(60px / 2);
+  width: 4px;
+  background: none;
+}
+.-arrow span:before {
+  content: '';
+  background: #02074D;
+  transition: 0.4s cubic-bezier(0.5, 0, 0, 1) 0.4s;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+.-arrow span:nth-of-type(even)::before {
+  transform-origin: top;
+}
+.-arrow span:nth-of-type(odd)::before {
+  transform-origin: bottom;
+}
+.-arrow span:nth-of-type(1) {
+  bottom: 0;
+  transform: translate3d(calc(-60px / 8), calc(60px / 17), 0) rotate(-45deg);
+}
+.-arrow span:nth-of-type(2) {
+  top: 0;
+  transform: translate3d(calc(-60px / 8), calc(-60px / 17), 0) rotate(45deg);
+}
+.-arrow span:nth-of-type(3) {
+  bottom: 0;
+  transform: translate3d(calc(60px / 8), calc(60px / 17), 0) rotate(45deg);
+}
+.-arrow span:nth-of-type(4) {
+  top: 0;
+  transform: translate3d(calc(60px / 8), calc(-60px / 17), 0) rotate(-45deg);
+}
+.-arrow span.left:before {
+  transform: scale3d(1, 0, 1);
+  transition: 0.4s cubic-bezier(0.5, 0, 0, 1);
+}
+.-arrow .right {
+  right: 0;
+}
+.-arrow .left {
+  left: 0;
+}
+.-arrow.active div:before {
+  transform: translate3d(calc(-4px * 1.5), 0, 0);
+}
+.-arrow.active .right:before {
+  transform: scale3d(1, 0, 1);
+  transition: 0.4s cubic-bezier(0.5, 0, 0, 1);
+}
+.-arrow.active .left:before {
+  transform: scale3d(1, 1, 1);
+  transition: 0.4s cubic-bezier(0.5, 0, 0, 1) 0.4s;
+}
+
+.-chevron {
+  height: 60px;
+}
+.-chevron div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-75%, -50%, 0) rotate(-45deg);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0, 1) 0.2s;
+  width: calc(60px / 2);
+  height: calc(60px / 2);
+}
+.-chevron span {
+  position: absolute;
+  background: #02074D;
+}
+.-chevron span:nth-of-type(odd) {
+  width: 4px;
+  top: 0;
+  bottom: 0;
+}
+.-chevron span:nth-of-type(even) {
+  height: 4px;
+  left: 0;
+  right: 0;
+}
+.-chevron span:nth-of-type(1) {
+  right: 0;
+  transform-origin: bottom;
+  transition: transform 0.3s cubic-bezier(0.1, 0.5, 0.2, 1) 0.4s;
+}
+.-chevron span:nth-of-type(2) {
+  bottom: 0;
+  transform-origin: left;
+  transition: transform 0.15s linear 0.3s;
+}
+.-chevron span:nth-of-type(3) {
+  left: 0;
+  transform-origin: bottom;
+  transform: scale3d(1, 0, 1);
+  transition: transform 0.15s linear 0.3s;
+}
+.-chevron span:nth-of-type(4) {
+  top: 0;
+  transform-origin: left;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.2s cubic-bezier(0.69, 0, 0.94, 1);
+}
+.-chevron.active div {
+  transform: translate3d(-25%, -50%, 0) rotate(-45deg);
+}
+.-chevron.active span:nth-of-type(1) {
+  transform-origin: top;
+  transform: scale3d(1, 0, 1);
+  transition: transform 0.15s linear 0.3s;
+}
+.-chevron.active span:nth-of-type(2) {
+  transform-origin: right;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.2s cubic-bezier(0.69, 0, 0.94, 1);
+}
+.-chevron.active span:nth-of-type(3) {
+  transform-origin: top;
+  transform: scale3d(1, 1, 1);
+  transition: transform 0.3s cubic-bezier(0.1, 0.5, 0.2, 1) 0.4s;
+}
+.-chevron.active span:nth-of-type(4) {
+  transform-origin: right;
+  transform: scale3d(1, 1, 1);
+  transition: transform 0.15s linear 0.3s;
+}
+
+.-search {
+  width: 60px;
+  height: 60px;
+  transform: rotate(-45deg);
+}
+.-search span {
+  background: none;
+}
+.-search .circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.-search .circle span {
+  position: absolute;
+  width: 50%;
+  overflow: hidden;
+}
+.-search .circle span:before {
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  width: 200%;
+  border: 4px solid transparent;
+  transform: rotate(45deg);
+  box-sizing: border-box;
+}
+.-search .circle span:nth-of-type(1) {
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+.-search .circle span:nth-of-type(1):before {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-bottom-color: #02074D;
+  border-left-color: #02074D;
+  transition: transform 0.3s cubic-bezier(0, 0, 0, 1) 0.3s;
+}
+.-search .circle span:nth-of-type(2) {
+  right: 0;
+  top: 0;
+  height: 50%;
+}
+.-search .circle span:nth-of-type(2):before {
+  top: 0;
+  right: 0;
+  height: 200%;
+  border-top-color: #02074D;
+  transition: transform 0.2s cubic-bezier(0.7, 0, 1, 1) 0.1s;
+}
+.-search .circle span:nth-of-type(3) {
+  right: 0;
+  height: 50%;
+  bottom: 0;
+}
+.-search .circle span:nth-of-type(3):before {
+  bottom: 0;
+  right: 0;
+  height: 200%;
+  border-right-color: #02074D;
+  transition: transform 0.6s cubic-bezier(0.5, 0, 0, 1) 0.1s;
+}
+.-search .cross {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.-search .cross span:before {
+  content: '';
+  background: #02074D;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.-search .cross span:nth-of-type(1) {
+  left: 50%;
+  width: 4px;
+  top: 0;
+  bottom: 0;
+  transform: translate3d(-50%, calc(60px / 3.5), 0);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.7, 0, 1, 1);
+}
+.-search .cross span:nth-of-type(1):before {
+  transform-origin: bottom;
+  transform: translate3d(0, calc(100% - calc(60px / 3.5 + 4px)), 0);
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0, 1);
+}
+.-search .cross span:nth-of-type(2) {
+  top: 50%;
+  height: 4px;
+  left: 0;
+  right: 0;
+  transform: translate3d(0, -50%, 0);
+}
+.-search .cross span:nth-of-type(2):before {
+  transform-origin: right;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s cubic-bezier(0.6, 0, 1, 1);
+}
+.-search.active .circle span:nth-of-type(1):before {
+  transform: rotate(225deg);
+  transition: transform 0.2s cubic-bezier(0.7, 0, 1, 1);
+}
+.-search.active .circle span:nth-of-type(2):before {
+  transform: rotate(135deg);
+  transition: transform 0.3s cubic-bezier(0, 0, 0, 1) 0.2s;
+}
+.-search.active .circle span:nth-of-type(3):before {
+  transform: rotate(-45deg);
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0, 1) 0.1s;
+}
+.-search.active .cross span:nth-of-type(1) {
+  transform: translate3d(-50%, 0, 0);
+}
+.-search.active .cross span:nth-of-type(1):before {
+  transform: translate3d(0, 0, 0);
+}
+.-search.active .cross span:nth-of-type(2):before {
+  transform: scale3d(1, 1, 1);
+  transition: transform 0.25s cubic-bezier(0, 0.27, 0.06, 1.01) 0.35s;
+}
+</style></head><body>
+<div class="icons">
+  
+  <a class="icon -menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>  
+  
+  <a class="icon -plus">
+    <span></span>
+    <span></span>
+  </a>  
+  
+  <a class="icon -arrow">
+    <div>
+      <span class="right"></span>
+      <span class="right"></span>      
+      <span class="left"></span>
+      <span class="left"></span>
+    </div>
+  </a>
+  
+  <a class="icon -chevron">
+    <div>
+      <span class="right"></span>
+      <span class="right"></span>      
+      <span class="left"></span>
+      <span class="left"></span>
+    </div>
+  </a>
+  
+  <a class="icon -search">
+  <div class="circle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="cross">
+    <span></span>
+    <span></span>
+  </div>
+</a>
+  
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script >$(document).ready(function () {
+  
+  $('.icon').on('click', function() {
+    $(this).toggleClass('active');
+  });
+  
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

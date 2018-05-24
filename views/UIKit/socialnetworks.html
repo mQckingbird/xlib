@@ -1,0 +1,281 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/fleeting/pen/YXzXPr" />
+<script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lora'>
+<style class="cp-pen-styles">@charset "UTF-8";
+@font-face {
+  font-family: 'icomoon';
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/icomoon.eot?3qkin2");
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/icomoon.eot?#iefix3qkin2") format("embedded-opentype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/icomoon.woff?3qkin2") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/icomoon.ttf?3qkin2") format("truetype"), url("fhttps://s3-us-west-2.amazonaws.com/s.cdpn.io/93/icomoon.svg?3qkin2#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.social-networks {
+  margin: 0 0 35px;
+  padding: 0;
+  font-size: 0;
+  text-align: center;
+}
+
+.social-networks li {
+  display: inline-block;
+}
+
+.social-networks a {
+  display: block;
+  position: relative;
+  margin: 0 7px;
+  width: 68px;
+  height: 68px;
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+.social-networks a:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  margin-top: -50%;
+  margin-left: -50%;
+  border-radius: 100px;
+  background-color: #1f2027;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+}
+
+.social-networks a:after {
+  position: relative;
+  display: block;
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  color: #fff;
+  font-size: 26px;
+  line-height: 66px;
+}
+
+.social-networks a:hover, .social-networks a:focus {
+  text-decoration: none;
+}
+
+.social-networks.spin-icon a:hover:after, .social-networks.spin-icon a:focus:after {
+  -webkit-transition: -webkit-transform 0.4s ease-out;
+  transition: -webkit-transform 0.4s ease-out;
+  transition: transform 0.4s ease-out;
+  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;
+  -webkit-transform: rotateZ(360deg);
+          transform: rotateZ(360deg);
+}
+
+.social-networks.square a:hover:before, .social-networks.square a:focus:before {
+  border-radius: 0;
+}
+
+.social-networks.bounce a:hover, .social-networks.bounce a:focus {
+  -webkit-animation: bounce 1s;
+          animation: bounce 1s;
+}
+
+.social-networks .icon-linkedin:after {
+  content: "";
+}
+
+.social-networks .icon-linkedin:hover:before, .social-networks .icon-linkedin:focus:before {
+  background: #0077b5;
+}
+
+.social-networks .icon-facebook:after {
+  content: "";
+}
+
+.social-networks .icon-facebook:hover:before, .social-networks .icon-facebook:focus:before {
+  background: #3b5998;
+}
+
+.social-networks .icon-twitter:after {
+  content: "";
+}
+
+.social-networks .icon-twitter:hover:before, .social-networks .icon-twitter:focus:before {
+  background: #00b0ed;
+}
+
+.social-networks .icon-github:after {
+  content: "";
+}
+
+.social-networks .icon-github:hover:before, .social-networks .icon-github:focus:before {
+  background: #4183c4;
+}
+
+.social-networks .icon-instagram:after {
+  content: "";
+}
+
+.social-networks .icon-instagram:hover:before, .social-networks .icon-instagram:focus:before {
+  background: #3f729b;
+}
+
+.social-networks .icon-vimeo:after {
+  content: "";
+}
+
+.social-networks .icon-vimeo:hover:before, .social-networks .icon-vimeo:focus:before {
+  background: #1ab7ea;
+}
+
+.social-networks .icon-twitch:after {
+  content: "";
+}
+
+.social-networks .icon-twitch:hover:before, .social-networks .icon-twitch:focus:before {
+  background: #6441a5;
+}
+
+.social-networks .icon-pinterest:after {
+  content: "";
+}
+
+.social-networks .icon-pinterest:hover:before, .social-networks .icon-pinterest:focus:before {
+  background: #cc2127;
+}
+
+@-webkit-keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  40% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+            transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -6px, 0);
+            transform: translate3d(0, -6px, 0);
+  }
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+            transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -4px, 0);
+            transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -2px, 0);
+            transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  40% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+            transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -6px, 0);
+            transform: translate3d(0, -6px, 0);
+  }
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+            transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -4px, 0);
+            transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -2px, 0);
+            transform: translate3d(0, -2px, 0);
+  }
+}
+
+/* Extra stuff just to make the demo pretty. */
+body {
+  padding: 35px 0;
+  color: #fff;
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  background: #262730 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/noise-bg.png) repeat 0 0;
+}
+
+h1 {
+  margin-bottom: 0px;
+  font-size: 55px;
+  line-height: 1.0;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 45px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+footer {
+  margin: 75px 0 35px;
+}
+
+a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7ba9d6;
+}
+</style></head><body>
+<h1>Animated Social Icons</h1>
+<h2>&bull; <a href="https://codepen.io/collection/XRRmOM/" target="_blank">View The Collection</a> &bull;</h2>
+
+<ul class="social-networks square spin-icon">
+  <li><a href="https://www.linkedin.com/" class="icon-linkedin">LinkedIn</a></li>
+  <li><a href="https://twitter.com/" class="icon-twitter">Twitter</a></li>
+  <li><a href="https://www.facebook.com/" class="icon-facebook">Facebook</a></li>
+  <li><a href="https://twitch.tv" class="icon-twitch">Twitch</a></li>
+  <li><a href="https://github.com" class="icon-github">GitHub</a></li>
+  <li><a href="https://pinterest.com" class="icon-pinterest">Pinterest</a></li>
+  <li><a href="https://instagram.com" class="icon-instagram">Instagram</a></li>
+  <li><a href="https://vimeo.com" class="icon-vimeo">Vimeo</a></li>
+</ul>
+
+<ul class="social-networks spin-icon">
+  <li><a href="https://www.linkedin.com/" class="icon-linkedin">LinkedIn</a></li>
+  <li><a href="https://twitter.com/" class="icon-twitter">Twitter</a></li>
+  <li><a href="https://www.facebook.com/" class="icon-facebook">Facebook</a></li>
+  <li><a href="https://twitch.tv" class="icon-twitch">Twitch</a></li>
+  <li><a href="https://github.com" class="icon-github">GitHub</a></li>
+  <li><a href="https://pinterest.com" class="icon-pinterest">Pinterest</a></li>
+  <li><a href="https://instagram.com" class="icon-instagram">Instagram</a></li>
+  <li><a href="https://vimeo.com" class="icon-vimeo">Vimeo</a></li>
+</ul>
+
+<ul class="social-networks bounce">
+  <li><a href="https://www.linkedin.com/" class="icon-linkedin">LinkedIn</a></li>
+  <li><a href="https://twitter.com/" class="icon-twitter">Twitter</a></li>
+  <li><a href="https://www.facebook.com/" class="icon-facebook">Facebook</a></li>
+  <li><a href="https://twitch.tv" class="icon-twitch">Twitch</a></li>
+  <li><a href="https://github.com" class="icon-github">GitHub</a></li>
+  <li><a href="https://pinterest.com" class="icon-pinterest">Pinterest</a></li>
+  <li><a href="https://instagram.com" class="icon-instagram">Instagram</a></li>
+  <li><a href="https://vimeo.com" class="icon-vimeo">Vimeo</a></li>
+</ul>
+
+<footer>Handcrafted with ♥ from Austin, TX by <a href="https://twitter.com/fleetingftw">James Fleeting</a></footer>
+
+</body></html>

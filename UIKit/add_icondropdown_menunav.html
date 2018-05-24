@@ -1,0 +1,166 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/michaelmov/pen/RaxxJB?depth=everything&order=popularity&page=19&q=popover&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(to top right, #FC636B, #FF6D92 35%, #FFB900 100%);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 1px 1px 10px #666666;
+}
+.navbar .menu-item {
+  position: relative;
+  width: 30px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.navbar .menu-item .add-button {
+  position: relative;
+  text-align: center;
+  height: 30px;
+  width: 30px;
+  background: linear-gradient(to top right, #FC636B, #FF6D92 35%, #FFB900 100%);
+  border-radius: 30px;
+}
+.navbar .menu-item .add-button div {
+  position: relative;
+  top: 48%;
+  font-size: 1.5rem;
+  transform: translateY(-52%);
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.navbar .menu-item .add-button:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+  background: linear-gradient(to top right, #FC636B, #FF6D92 35%, #FFB900 100%);
+  content: '';
+  z-index: -1;
+  border-radius: 30px;
+  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+}
+.navbar .menu-item .add-button:hover:after {
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+}
+.navbar .menu-item .dropdown {
+  position: relative;
+  top: 15px;
+  left: -85px;
+  margin: 0 auto;
+  padding: 11px 0 0 0;
+  width: 200px;
+  height: auto;
+  background: #ffffff;
+  border: 1px solid #A1A4AA;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px #666666;
+  list-style: none;
+}
+.navbar .menu-item .dropdown:before {
+  content: "";
+  border-width: 1px 0 0 1px;
+  border-style: solid;
+  border-color: #A1A4AA;
+  background: #ffffff;
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  top: -7px;
+  transform: translateX(-50%) rotate(45deg);
+}
+.navbar .menu-item .dropdown a {
+  text-decoration: none;
+  color: #898E95;
+}
+.navbar .menu-item .dropdown a li {
+  text-align: left;
+  padding: 20px 15px;
+  margin: 0;
+}
+.navbar .menu-item .dropdown a li i {
+  margin-right: 10px;
+}
+.navbar .menu-item .dropdown a:hover {
+  color: #ffffff;
+}
+.navbar .menu-item .dropdown a:hover li {
+  background: linear-gradient(to top right, #FC636B, #FF6D92 35%, #FFB900 100%);
+}
+
+.hidden {
+  visibility: hidden;
+}
+</style></head><body>
+<body>
+  <nav class="navbar">
+    <ul class="menu-item">
+      <li class="add-button">
+        <div>+</div>
+        <ul class="dropdown hidden">
+          <a href=""><li><i class="fa fa-check-square-o fa-2"></i>Task</li></a>
+          <a href=""><li><i class="fa fa-comments fa-2"></i>Conversation</li></a>
+          <a href=""><li><i class="fa fa-clipboard fa-2"></i>Project</li></a>
+          <a href=""><li><i class="fa fa-user-plus fa-2"></i>Invite</li></a>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  
+</body>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >// Define menu elements
+var addButton = document.querySelector('.add-button');
+
+var dropdown = document.querySelector('.dropdown');
+
+var body = document.querySelector('body');
+
+// Handle click event
+addButton.addEventListener('click', openDropdown, false);
+
+function openDropdown(event) {
+  if(dropdown.classList.contains('hidden')) {
+    dropdown.classList.remove('hidden');
+  } else {
+    dropdown.classList.add('hidden');
+  }
+  
+  body.addEventListener('click', closeDropdown, true);
+}
+
+// Close popover on outside click.
+function closeDropdown(event){
+  console.log('body clicked!');
+  if(event.target !== dropdown){
+    dropdown.classList.add('hidden');
+  }
+  body.removeEventListener('click', openDropdown);
+}
+
+//# sourceURL=pen.js
+</script>
+</body></html>

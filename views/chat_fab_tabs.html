@@ -1,0 +1,458 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/ZachCase/pen/dojpjB?depth=everything&order=popularity&page=30&q=chat&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  background-image: url(https://subtlepatterns.com/patterns/shattered.png);
+}
+.headline {
+  width: 450px;
+  padding: 20px 20px;
+}
+.headline h1 {
+  font-size: 28px;
+  color: #03A9F4;
+  text-shadow: 0px 1px 1px rgba(2, 99, 143, 0.75);
+}
+.headline p {
+  font-size: 16px;
+  padding-top: 15px;
+  color: #595959;
+  text-shadow: 0px 1px 0px #FFF;
+}
+#chat-trigger {
+  display: none;
+}
+#chat-trigger:checked ~ .chat-box {
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25);
+  transition-delay: .5s;
+}
+#chat-trigger:checked ~ .chat-box .chat-header-icon {
+  width: 250px;
+  border-radius: 0;
+  box-shadow: 0 0 0 0 transparent;
+  transition: 0.5s border-radius ease-in-out 0s, 0.5s width ease-in-out 0s, 0.5s box-shadow ease-in-out 0.5s;
+}
+#chat-trigger:checked ~ .chat-box .chat-header-icon .close-icon {
+  opacity: 1;
+  transition: 0.5s opacity ease-in-out 0.5s, 0.25s color ease-in-out 0s;
+}
+#chat-trigger:checked ~ .chat-box .chat-header-icon .user-name {
+  left: 0;
+  opacity: 1;
+  transition: 0.5s left ease-in-out 0.5s, 0.5s opacity ease-in-out 0.65s;
+}
+#chat-trigger:checked ~ .chat-box .chat-area {
+  height: 300px;
+  width: 250px;
+  transition: 0.5s height ease-in-out 0.5s, 0.5s width linear 0s;
+}
+#chat-trigger:checked ~ .chat-box .chat-area .chat-content {
+  width: 250px;
+  transition: 0s width 0.5s, 0.25s left ease-in-out;
+}
+#chat-trigger:checked ~ .chat-box .chat-area .chat-buttons {
+  width: 250px;
+  transition: 0s width .5s;
+}
+#chat-trigger:checked ~ .chat-box .quote-icon-close {
+  left: -50px;
+  opacity: 1;
+  box-shadow: 0px 4px 10px -3px rgba(0, 0, 0, 0.75);
+  transition: 0.25s background-color ease-in-out 0s, 0.5s box-shadow ease-in 0s, 0s opacity ease-in 0s, 0.5s left ease-in 0s;
+}
+.chat-box {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  box-shadow: 0 0 0 0 transparent;
+  transition: 0.5s box-shadow ease-in-out;
+  transition-delay: 0s;
+}
+.chat-box .chat-header-icon {
+  position: relative;
+  display: block;
+  height: 40px;
+  width: 40px;
+  overflow-x: hidden;
+  background-color: #1E9C5A;
+  color: #d2ebde;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px -3px rgba(0, 0, 0, 0.75);
+  transition: 0.5s border-radius ease-in-out 0.5s, 0.5s width ease-in-out 0.5s, 0.5s box-shadow ease-in-out 0s;
+}
+.chat-box .chat-header-icon .close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 40px;
+  opacity: 0;
+  transition: 0.5s opacity ease-in-out 0s, 0.25s color ease-in-out 0s;
+}
+.chat-box .chat-header-icon .close-icon:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.chat-box .chat-header-icon .user-name {
+  position: absolute;
+  top: 0;
+  left: -125px;
+  bottom: 0;
+  padding-left: 10px;
+  min-width: 40px;
+  color: #d2ebde;
+  font-size: 13px;
+  line-height: 40px;
+  opacity: 0;
+  transition: 0.5s left ease-in-out 0.15s, 0.5s opacity ease-in-out 0s;
+}
+.chat-box .chat-area {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 0%;
+  height: 0px;
+  background: #fff;
+  border-bottom: 0px solid transparent;
+  transition: 0.4s height ease-in-out 0s, 0.5s width linear 0.5s;
+}
+.chat-box .chat-area [name='chat-switch'] {
+  display: none;
+}
+.chat-box .chat-area #contacts:checked ~ .chat-content .scroll-container {
+  left: 0%;
+}
+.chat-box .chat-area #contacts:checked ~ .chat-buttons .contacts:hover {
+  background-color: #fff;
+}
+.chat-box .chat-area #contacts:checked ~ .chat-buttons .contacts i {
+  background-position: -80px 1px;
+}
+.chat-box .chat-area #contacts:checked ~ .chat-buttons .active-line {
+  left: 0;
+}
+.chat-box .chat-area #conversations:checked ~ .chat-content .scroll-container {
+  left: -100%;
+}
+.chat-box .chat-area #conversations:checked ~ .chat-buttons .conversations:hover {
+  background-color: #fff;
+}
+.chat-box .chat-area #conversations:checked ~ .chat-buttons .conversations i {
+  background-position: -40px 1px;
+}
+.chat-box .chat-area #conversations:checked ~ .chat-buttons .active-line {
+  left: 33.3333%;
+}
+.chat-box .chat-area #calls:checked ~ .chat-content .scroll-container {
+  left: -200%;
+}
+.chat-box .chat-area #calls:checked ~ .chat-buttons .calls:hover {
+  background-color: #fff;
+}
+.chat-box .chat-area #calls:checked ~ .chat-buttons .calls i {
+  background-position: -120px 1px;
+}
+.chat-box .chat-area #calls:checked ~ .chat-buttons .active-line {
+  left: 66.6667%;
+}
+.chat-box .chat-area .chat-content {
+  position: relative;
+  left: 0%;
+  width: 0;
+  height: 259px;
+  overflow: hidden;
+  transition: 0s width linear 0.5s, 0.25s left ease-in-out;
+}
+.chat-box .chat-area .chat-content .scroll-container {
+  position: relative;
+  width: 300%;
+  height: 100%;
+  transition: 0.25s left ease-in-out;
+}
+.chat-box .chat-area .chat-content .contact-content {
+  float: left;
+  width: 250px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #fff;
+}
+.chat-box .chat-area .chat-content .contact-content .overflow {
+  width: 100%;
+  height: 125%;
+}
+.chat-box .chat-area .chat-content .conversation-content {
+  float: left;
+  width: 250px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #fff;
+}
+.chat-box .chat-area .chat-content .conversation-content .nameMsg {
+  display: inline-block;
+  vertical-align: middle;
+  width: 110px;
+}
+.chat-box .chat-area .chat-content .conversation-content .nameMsg .name,
+.chat-box .chat-area .chat-content .conversation-content .nameMsg .msg {
+  display: block;
+}
+.chat-box .chat-area .chat-content .conversation-content .nameMsg .name {
+  margin-bottom: 5px;
+}
+.chat-box .chat-area .chat-content .conversation-content .nameMsg .msg {
+  font-size: 11px;
+  color: #808080;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat-box .chat-area .chat-content .conversation-content .time {
+  display: inline-block;
+  width: 67px;
+  text-align: right;
+  color: #404040;
+  font-size: 12px;
+}
+.chat-box .chat-area .chat-content .calls-content {
+  float: left;
+  width: 250px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #fff;
+}
+.chat-box .chat-area .chat-content .calls-content .namePhone {
+  display: inline-block;
+  vertical-align: middle;
+}
+.chat-box .chat-area .chat-content .calls-content .namePhone .name {
+  display: block;
+  margin-bottom: 5px;
+}
+.chat-box .chat-area .chat-content .calls-content .namePhone .tel {
+  display: block;
+  color: #808080;
+  font-size: 10px;
+}
+.chat-box .chat-area .chat-content .user {
+  width: 100%;
+  padding: 5px 10px;
+  background-color: #fff;
+  transition: 0.5s background-color ease-in-out;
+}
+.chat-box .chat-area .chat-content .user .icon {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+  margin-right: 5px;
+  background: url('https://i.imgur.com/0pA4Loz.png') no-repeat;
+  background-position: 0 0;
+}
+.chat-box .chat-area .chat-content .user .name {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #404040;
+}
+.chat-box .chat-area .chat-content .user:hover {
+  cursor: pointer;
+  background-color: #f2f2f2;
+}
+.chat-box .chat-area .chat-buttons {
+  position: relative;
+  overflow: hidden;
+  width: 0;
+  height: 41px;
+  border-top: 1px solid #ebebeb;
+  transition: 0s width linear .5s;
+}
+.chat-box .chat-area .chat-buttons label {
+  float: left;
+  width: 33.3333%;
+  background-color: #fff;
+  transition: 0.5s background-color ease-in-out;
+}
+.chat-box .chat-area .chat-buttons label:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+.chat-box .chat-area .chat-buttons .contacts i {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  background-image: url('https://i.imgur.com/0pA4Loz.png');
+  background-position: -80px 40px;
+}
+.chat-box .chat-area .chat-buttons .conversations i {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  background-image: url('https://i.imgur.com/0pA4Loz.png');
+  background-position: -40px 40px;
+}
+.chat-box .chat-area .chat-buttons .calls i {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  background-image: url('https://i.imgur.com/0pA4Loz.png');
+  background-position: -120px 40px;
+}
+.chat-box .chat-area .chat-buttons .active-line {
+  position: absolute;
+  bottom: 0;
+  height: 5px;
+  width: 33.3333%;
+  background-color: #1E9C5A;
+  transition: 0.25s left ease-in-out;
+}
+.chat-box .chat-area .chat-buttons .clear {
+  clear: both;
+}
+.chat-box .quote-icon-close {
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  height: 40px;
+  width: 40px;
+  background-color: #1E9C5A;
+  border-radius: 20px;
+  background-image: url('https://i.imgur.com/0pA4Loz.png');
+  background-position: 0 40px;
+  box-shadow: 0 0 0 0 transparent;
+  transition: 0.25s background-color ease-in-out 0s, 0.5s box-shadow ease-out 0s, 0.4s left linear 0.4s;
+}
+.chat-box .quote-icon-close:hover {
+  cursor: pointer;
+  /* background-color: mix(@green, @white, 90%); */
+}
+</style></head><body>
+
+<div class="headline">
+  <h1>Dev Wars Week 2</h1>
+  <p>This is a simple base makeover of Google Hangouts. Instead of making over how the UI and actual design looks, I used CSS Animations to make the interaction look smoother and more elegant.</p>
+  <p>Unlike Week 1, I decided to leave this as HTML/CSS only.</p>
+</div>
+<input type="checkbox" id="chat-trigger"/>
+<div class="chat-box">
+  <div class="chat-header-icon">
+    <label class="close-icon" for="chat-trigger">x</label>
+    <p class="user-name">Zach</p>
+  </div>
+  <div class="chat-area">
+    <input type="radio" name="chat-switch" id="contacts" checked="checked"/>
+    <input type="radio" name="chat-switch" id="conversations"/>
+    <input type="radio" name="chat-switch" id="calls"/>
+    <div class="chat-content">
+      <div class="scroll-container">
+        <div class="contact-content">
+          <div class="user">
+            <div class="icon"></div>
+            <p class="name">Barry Marks</p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="name">Ted Curlow</p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="name">Anne Terrs</p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="name">Julia Ned</p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="name">Jakob Lik</p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="name">Olia Hutz</p>
+          </div>
+        </div>
+        <div class="conversation-content">
+          <div class="user">
+            <div class="icon"></div>
+            <p class="nameMsg"> <span class="name">Hugh Klutz</span><span class="msg">Hey There... let's party!</span></p>
+            <p class="time">3:59pm</p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="nameMsg"> <span class="name">Jik Nop</span><span class="msg">You missed everything today!</span></p>
+            <p class="time">11:32am</p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="nameMsg"> <span class="name">Jameson Trus</span><span class="msg">Let's go fly a kite.</span></p>
+            <p class="time">7:12pm</p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="nameMsg"> <span class="name">Wells Plous</span><span class="msg">Bang bang</span></p>
+            <p class="time">12:20pm</p>
+          </div>
+        </div>
+        <div class="calls-content">
+          <div class="user">
+            <div class="icon"></div>
+            <p class="namePhone"><span class="name">Barry Marks</span><span class="tel">555-264-4234</span></p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="namePhone"><span class="name">Heyie Viel</span><span class="tel">555-024-0192</span></p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="namePhone"><span class="name">Poil Ulpe</span><span class="tel">555-028-1980</span></p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="namePhone"><span class="name">Beau Kiol</span><span class="tel">555-123-7654</span></p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="namePhone"><span class="name">Kilz Quir</span><span class="tel">555-752-0549</span></p>
+          </div>
+          <div class="user">
+            <div class="icon"></div>
+            <p class="namePhone"><span class="name">Hector Wer</span><span class="tel">555-432-6431</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-buttons">
+      <label class="contacts" for="contacts"><i></i></label>
+      <label class="conversations" for="conversations"><i></i></label>
+      <label class="calls" for="calls"><i></i></label>
+      <div class="clear"></div>
+      <div class="active-line"></div>
+    </div>
+  </div>
+  <label class="quote-icon-close" for="chat-trigger"></label>
+</div>
+
+</body></html>

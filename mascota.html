@@ -1,0 +1,457 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/mikemang/pen/oYzYzV?depth=everything&order=popularity&page=12&q=book&show_forks=false" />
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+<style class="cp-pen-styles">body {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #FBE2A9;
+  background-size: cover;
+}
+
+#square {
+  position: relative;
+  width: 450px;
+  height: 240px;
+  display: block;
+  margin: auto;
+  background: #2E3C5A;
+  z-index: 3;
+}
+
+#leftSquare {
+  width: 40%;
+  display: block;
+  margin: auto;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  background: white;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#bar-green-left {
+  width: 80%;
+  display: block;
+  margin: auto;
+  height: 8%;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  background: #26B56F;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#bar-orange-left {
+  width: 80%;
+  display: block;
+  margin: auto;
+  height: 8%;
+  position: absolute;
+  top: 32%;
+  right: 10%;
+  background: #D56A47;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#bar-blue-left {
+  width: 80%;
+  display: block;
+  margin: auto;
+  height: 8%;
+  position: absolute;
+  top: 55%;
+  right: 10%;
+  background: #31ABF9;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#bar-yellow-left {
+  width: 80%;
+  display: block;
+  margin: auto;
+  height: 8%;
+  position: absolute;
+  top: 80%;
+  right: 10%;
+  background: #ECBD3D;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#rightSquare {
+  width: 40%;
+  display: block;
+  margin: auto;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  background: white;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#bottom {
+  width: 100%;
+  display: block;
+  margin: auto;
+  height: 50%;
+  position: relative;
+  background: none;
+  border-radius: 5%;
+  z-index: 1;
+}
+
+#bar-green-right {
+  width: 80%;
+  display: block;
+  margin: auto;
+  height: 8%;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  background: #26B56F;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#bar-orange-right {
+  width: 80%;
+  display: block;
+  margin: auto;
+  height: 8%;
+  position: absolute;
+  top: 32%;
+  right: 10%;
+  background: #D56A47;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#bar-blue-right {
+  width: 80%;
+  display: block;
+  margin: auto;
+  height: 8%;
+  position: absolute;
+  top: 55%;
+  right: 10%;
+  background: #31ABF9;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#bar-yellow-right {
+  width: 80%;
+  display: block;
+  margin: auto;
+  height: 8%;
+  position: absolute;
+  top: 80%;
+  right: 10%;
+  background: #ECBD3D;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#ribbon {
+  width: 4%;
+  display: block;
+  margin: auto;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 48%;
+  background: #26B56F;
+  border-radius: 0%;
+  z-index: 3;
+}
+
+#eye-left {
+  cursor: pointer;
+  background: #3C5582;
+  border-radius: 50%;
+  width: 40%;
+  height: 40%;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 31%;
+  right: 29%;
+  z-index: 2;
+}
+
+#eye-right {
+  cursor: pointer;
+  background: #3C5582;
+  border-radius: 50%;
+  width: 40%;
+  height: 40%;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 31%;
+  right: 29%;
+  z-index: 2;
+}
+
+#arrow-down {
+  display: block;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #D0A070;
+}
+
+#tie-blue {
+  width: 20%;
+  display: block;
+  margin: 4% auto;
+  height: 10%;
+  background: #31ABF9;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#tie-orange {
+  width: 12%;
+  display: block;
+  margin: -4% auto;
+  height: 15%;
+  background: #D56A47;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#tie-green {
+  width: 12%;
+  display: block;
+  margin: 3% auto;
+  height: 15%;
+  background: #26B56F;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#tie-yellow {
+  width: 12%;
+  display: block;
+  margin: -3% auto;
+  height: 15%;
+  background: #ECBD3E;
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  z-index: 1;
+}
+
+#arm-left {
+  position: absolute;
+  left: -45%;
+  top: 30%;
+  width: 45%;
+  height: 30%;
+  display: block;
+  margin: auto;
+  background: #3D4F6E;
+  z-index: 3;
+}
+
+#arm-left-down {
+  position: absolute;
+  left: -45%;
+  top: 33%;
+  width: 15%;
+  height: 60%;
+  display: block;
+  margin: auto;
+  background: #3D4F6E;
+  z-index: 3;
+  border-top-left-radius: 40%;
+}
+
+#hand-left {
+  position: absolute;
+  left: -53%;
+  bottom: -10%;
+  width: 30%;
+  height: 40%;
+  display: block;
+  margin: auto;
+  background: #3D4F6E;
+  z-index: 3;
+  border-radius: 20%;
+}
+
+#arm-right {
+  position: absolute;
+  right: -45%;
+  top: 30%;
+  width: 45%;
+  height: 30%;
+  display: block;
+  margin: auto;
+  background: #3D4F6E;
+  z-index: 3;
+}
+
+#arm-right-down {
+  position: absolute;
+  right: -45%;
+  top: 33%;
+  width: 15%;
+  height: 60%;
+  display: block;
+  margin: auto;
+  background: #3D4F6E;
+  z-index: 3;
+}
+
+#hand-right {
+  position: absolute;
+  right: -53%;
+  bottom: -10%;
+  width: 30%;
+  height: 40%;
+  display: block;
+  margin: auto;
+  background: #3D4F6E;
+  z-index: 3;
+  border-radius: 20%;
+}
+
+#shirt {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  display: block;
+  margin: auto;
+  background: #E6E6E6;
+  z-index: 3;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+}
+
+#pants {
+  position: relative;
+  width: 200px;
+  height: 110px;
+  display: block;
+  margin: auto;
+  background: #D0A070;
+  z-index: 3;
+}
+
+#shoe-left {
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 100px;
+  height: 50px;
+  display: block;
+  margin: auto;
+  background: #3D4F6E;
+  z-index: 2;
+  border-top-left-radius: 15%;
+  border-bottom-left-radius: 15%;
+  border-bottom-right-radius: 5%;
+}
+
+#shoe-right {
+  position: absolute;
+  bottom: -30%;
+  right: -10%;
+  width: 100px;
+  height: 50px;
+  display: block;
+  margin: auto;
+  background: #3D4F6E;
+  z-index: 2;
+  border-top-right-radius: 15%;
+  border-bottom-right-radius: 15%;
+  border-bottom-left-radius: 5%;
+}
+
+#background-bar {
+  width: 20%;
+  display: block;
+  margin: auto;
+  height: 70%;
+  position: absolute;
+  bottom: 0%;
+  left: 40%;
+  background: #FBE2A9;
+  border-radius: 0%;
+  z-index: 4;
+}
+</style></head><body>
+<body>
+
+      <div class="animated slideInLeft" id="square">
+    
+    <div class="animated bounceInUp" id="leftSquare">
+      <div class="animated slideInRight" id="eye-left"></div>
+    <div class="animated slideInRight" id="bar-green-left"></div>
+      <div class="animated slideInRight" id="bar-orange-left"></div>
+      <div class="animated slideInRight" id="bar-blue-left"></div>
+    <div class="animated slideInRight" id="bar-yellow-left"></div>
+    
+    </div>
+    
+    <div class="animated bounceInUp" id="ribbon"></div>
+    
+    <div class="animated bounceInDown" id="rightSquare">
+      <div class="animated slideInRight" id="eye-right"></div>
+      <div class="animated slideInRight" id="bar-green-right"></div>
+      <div class="animated slideInRight" id="bar-orange-right"></div>
+      <div class="animated slideInRight" id="bar-blue-right"></div>
+    <div class="animated slideInRight" id="bar-yellow-right"></div>
+    
+    </div>
+   
+  </div>
+  
+  <div class="animated slideInLeft" id="shirt"> 
+    
+      <div class="animated slideInLeft" id="arrow-down"> </div>
+    <div class="animated slideInLeft" id="tie-blue"> </div>
+    <div class="animated slideInLeft" id="tie-orange"> </div>
+    <div class="animated slideInLeft" id="tie-green"> </div>
+    <div class="animated slideInLeft" id="tie-yellow"> </div>
+    
+  <div class="animated slideInLeft" id="arm-left"> </div>
+    <div class="animated slideInLeft" id="arm-left-down"> </div>
+     <div class="animated slideInLeft" id="hand-left"> </div>
+     <div class="animated slideInLeft" id="arm-right"> </div>
+    <div class="animated slideInLeft" id="arm-right-down"> </div>
+     <div class="animated slideInLeft" id="hand-right"> </div>
+  
+  </div>
+  
+    
+                                        <div class="animated slideInLeft" id="pants">
+                                          <div class="animated slideInLeft" id="shoe-left"></div>
+                                          <div class="animated slideInLeft" id="shoe-right"></div>
+                                          <div class="animated slideInLeft" id="background-bar"></div>
+                                      
+  
+  </div>
+  
+
+</body>
+
+</body></html>

@@ -1,0 +1,2730 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/matikbird/pen/LeVoey?depth=everything&order=popularity&page=6&q=popover&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css'>
+<style class="cp-pen-styles">.sunny-morning-gradient {
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+.mean-fruit-gradient {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+.btn-danger:not([disabled]):not(.disabled).active, .btn-danger:not([disabled]):not(.disabled):active, .show>.btn-danger.dropdown-toggle  {
+                        box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+                    }
+.bc-icons .breadcrumb-item + .breadcrumb-item::before {
+    content: none; }
+.bc-icons .breadcrumb-item.active {
+    color: #eeeeee; }
+
+.bc-icons-2 .breadcrumb-item + .breadcrumb-item::before {
+    content: none; } 
+.bc-icons-2 .breadcrumb-item.active {
+    color: #455a64; } 
+
+
+.light-font .breadcrumb-item + .breadcrumb-item::before {
+    color: #fff; }
+.light-font .breadcrumb-item.active {
+    color: #cfd8dc; }
+
+.dark-font .breadcrumb-item + .breadcrumb-item::before {
+    color: #000; }
+.dark-font .breadcrumb-item.active {
+    color: #455a64; }    
+.navbar .dropdown-menu a:hover {
+    color: #616161 !important;
+}</style></head><body>
+<!--Main layout-->
+    <main class="pt-5">
+        <div class="container text-center">
+
+            <!--First row-->
+            <div class="row">
+
+                <!--First column-->
+                <div class="col-md-10 mx-auto">
+                    <!--Featured image-->
+                    <div class="view overlay hm-white-slight z-depth-2">
+                        <img src="https://mdbootstrap.com/img/Others/mdb-about2.jpg" class="img-fluid">
+                        <a target="_blank" href="https://mdbootstrap.com/material-design-for-bootstrap/">
+                            <div class="mask"></div>
+                        </a>
+                    </div>
+
+                    <!--Excerpt-->
+                    <h2 class="font-bold mt-5 mb-4 pb-3">Material Design for Bootstrap 4</h2>
+
+                    <p class="lead text-center mb-5">This presentation shows a small part of components and features available in Material Design for Bootstrap. <strong>To see all of them have a look at our full demo.</strong></p>
+
+                    <h4 class="font-bold mb-4">Full demo & download</h4>
+
+                   <a target="_blank" href="https://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-primary btn-lg"><i class="fa fa-download left"></i> Free download</a>
+                </div>
+                <!--/First column-->
+
+            </div>
+            <!--/First row-->
+
+            <hr class="my-5">
+
+            <!--Section: Buttons-->
+            <section class="section">
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold mb-5">Buttons</h1>
+
+                <h5>Basic buttons</h5>
+                <br>
+
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                <button type="button" class="btn btn-primary">Primary</button>
+
+                <!-- Indicates a dangerous or potentially negative action -->
+                <button type="button" class="btn btn-default">Default</button>
+
+                <!-- Secondary, outline button -->
+                <button type="button" class="btn btn-secondary">Secondary</button>
+
+                <!-- Indicates a successful or positive action -->
+                <button type="button" class="btn btn-success">Success</button>
+
+                <!-- Contextual button for informational alert messages -->
+                <button type="button" class="btn btn-info">Info</button>
+
+                <!-- Indicates caution should be taken with this action -->
+                <button type="button" class="btn btn-warning">Warning</button>
+
+                <!-- Indicates a dangerous or potentially negative action -->
+                <button type="button" class="btn btn-danger">Danger</button>
+
+                <div style="height: 40px"></div>
+
+                <h5>Additional buttons</h5>
+                <br>
+
+                <!--Elegant-->
+                <button type="button" class="btn btn-elegant">Elegant</button>
+
+                <!--Unique-->
+                <button type="button" class="btn btn-unique">Unique</button>
+
+                <!--Pink-->
+                <button type="button" class="btn btn-pink">Pink</button>
+
+                <!--Purple-->
+                <button type="button" class="btn btn-purple">Purple</button>
+
+                <!--Deep-purple-->
+                <button type="button" class="btn btn-deep-purple">Deep-purple</button>
+
+                <!--Indigo-->
+                <button type="button" class="btn btn-indigo">Indigo</button>
+
+                <!--Light blue-->
+                <button type="button" class="btn btn-light-blue">Light blue</button>
+
+                <!--Cyan-->
+                <button type="button" class="btn btn-cyan">Cyan</button>
+
+                <!--Dark-green-->
+                <button type="button" class="btn btn-dark-green">Dark-green</button>
+
+                <!--Light-green-->
+                <button type="button" class="btn btn-light-green">Light-green</button>
+
+                <!--Yellow-->
+                <button type="button" class="btn btn-yellow">Yellow</button>
+
+                <!--Amber-->
+                <button type="button" class="btn btn-amber">Amber</button>
+
+                <!--Deep-orange-->
+                <button type="button" class="btn btn-deep-orange">Deep-orange</button>
+
+                <!--Brown-->
+                <button type="button" class="btn btn-brown">Brown</button>
+
+                <!--Blue-grey-->
+                <button type="button" class="btn btn-blue-grey">Grey</button>
+
+                <!--MDB-->
+                <button type="button" class="btn btn-mdb">MDB</button>
+
+                <div style="height: 40px"></div>
+                <h5>Outline buttons </h5>
+                <br>
+
+                <button type="button" class="btn btn-outline-primary waves-effect">Primary</button>
+                <button type="button" class="btn btn-outline-default waves-effect">Default</button>
+                <button type="button" class="btn btn-outline-secondary waves-effect">Secondary</button>
+                <button type="button" class="btn btn-outline-success waves-effect">Success</button>
+                <button type="button" class="btn btn-outline-info waves-effect">Info</button>
+                <button type="button" class="btn btn-outline-warning waves-effect">Warning</button>
+                <button type="button" class="btn btn-outline-danger waves-effect">Danger</button>
+
+                <div style="height: 40px"></div>
+                <h5>Large, medium and small buttons </h5>
+                <br>
+
+                <button type="button" class="btn btn-unique btn-lg">Unique</button>
+
+                <button type="button" class="btn btn-default btn-lg">Default</button>
+
+                <button type="button" class="btn btn-deep-orange btn-md">Deep Orange</button>
+
+                <button type="button" class="btn btn-cyan btn-md">Cyan</button>
+
+                <button type="button" class="btn btn-deep-purple btn-sm">Deep Purple</button>
+
+                <button type="button" class="btn btn-success btn-sm">Success</button>
+
+            </section>
+            <!--/Section: Buttons-->
+
+            <hr class="my-5">
+
+            <!--Section: Cards-->
+            <section>
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Cards</h1>
+
+                <div style="height: 50px"></div>
+                <h5>Classic cards</h5>
+                <br>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-12">
+
+                        <!--Card-->
+                        <div class="card">
+
+                            <!--Card image-->
+                            <div class="view overlay hm-white-slight">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (120).jpg" class="img-fluid" alt="">
+                                <a>
+                                    <div class="mask"></div>
+                                </a>
+                            </div>
+
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+                                <h4 class="card-title">Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#!" class="btn btn-md btn-indigo">Button</a>
+                            </div>
+
+                        </div>
+                        <!--/.Card-->
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <!--Card-->
+                        <div class="card">
+
+                            <!--Card image-->
+                            <!--Card image-->
+                            <div class="view overlay hm-white-slight">
+                                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (119).jpg" alt="Card image cap">
+                                <a>
+                                    <div class="mask"></div>
+                                </a>
+                            </div>
+
+
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+                                <h4 class="card-title">Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#!" class="btn btn-md btn-primary">Button</a>
+                            </div>
+
+                        </div>
+                        <!--/.Card-->
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <!--Card-->
+                        <div class="card">
+
+                            <!--Card image-->
+                            <div class="view overlay hm-white-slight">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (116).jpg" class="img-fluid" alt="">
+                                <a>
+                                    <div class="mask"></div>
+                                </a>
+                            </div>
+
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+                                <h4 class="card-title">Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#!" class="btn btn-md btn-light-blue">Button</a>
+                            </div>
+
+                        </div>
+                        <!--/.Card-->
+
+                    </div>
+                    <!--/.Card-->
+
+                </div>
+
+                <div style="height: 40px"></div>
+                <h5>Cards group</h5>
+                <br>
+
+                <div class="row" style="margin-bottom:2rem;">
+
+                    <div class="col-md-12">
+
+                        <!-- Card group -->
+                        <div class="card-group">
+                            <div class="card">
+                                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (130).jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos iure, esse beatae sapiente dolor aliquid ea ipsam, ducimus facere. Ut culpa at asperiores voluptatibus ipsa vero natus, voluptates, quasi cum!</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (129).jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (128).jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                                    <a class="btn btn-sm btn-elegant waves-effect waves-light">Button</a>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Card group -->
+                    </div>
+
+                </div>
+
+            </section>
+            <!--/Section: Cards-->
+
+            <hr class="my-5">
+
+            <!--Section: Dropdowns-->
+            <section>
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Dropdowns</h1>
+
+                <div style="height: 40px"></div>
+                <h5>Dropdown </h5>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="flex-center">
+
+                            <!-- Dropdown -->
+                            <div class="btn-group" style="padding:5px;">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Basic dropdown</button>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#!">Action</a>
+                                    <a class="dropdown-item" href="#!">Another action</a>
+                                    <a class="dropdown-item" href="#!">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#!">Separated link</a>
+                                </div>
+                            </div>
+                            <!--/ Dropdown -->
+
+                            <!-- Split button -->
+                            <div class="btn-group" style="padding:5px;">
+                                <button type="button" class="btn btn-secondary">Action</button>
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#!">Action</a>
+                                    <a class="dropdown-item" href="#!">Another action</a>
+                                    <a class="dropdown-item" href="#!">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#!">Separated link</a>
+                                </div>
+                            </div>
+                            <!--/ Split button -->
+
+                            <!-- Dropup -->
+                            <div class="btn-group dropup" style="padding:5px;">
+                                <button type="button" class="btn btn-default">Dropup</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#!">Action</a>
+                                    <a class="dropdown-item" href="#!">Another action</a>
+                                    <a class="dropdown-item" href="#!">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#!">Separated link</a>
+                                </div>
+                            </div>
+                            <!--/ Dropup -->
+
+                            <!-- Right side -->
+                            <div class="btn-group" style="padding:5px;">
+                                <button class="btn btn-cyan dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Right side
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                                    <a class="dropdown-item" href="#!">Action</a>
+                                    <a class="dropdown-item" href="#!">Another action</a>
+                                    <a class="dropdown-item" href="#!">Something else here</a>
+                                </div>
+                            </div>
+                            <!--/ Right side -->
+
+                            <!-- Disabled link -->
+                            <div class="btn-group" style="padding:5px;">
+                                <button class="btn btn-indigo dropdown-toggle" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Disabled
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                    <a class="dropdown-item" href="#!">Regular link</a>
+                                    <a class="dropdown-item disabled" href="#!">Disabled link</a>
+                                    <a class="dropdown-item" href="#!">Another link</a>
+                                </div>
+                            </div>
+                            <!--/ Disabled link -->
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="height: 40px"></div>
+                <h5>Large and small dropdowns </h5>
+                <br>
+
+                <div class="row" style="margin-bottom:1.7rem;">
+                    <div class="col-md-12">
+
+                        <!-- Large button group -->
+                        <div class="btn-group" style="padding:5px;">
+                            <button class="btn btn-pink btn-lg dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Large button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <h6 class="dropdown-header">Dropdown header</h6>
+                                <a class="dropdown-item" href="#!">Action</a>
+                                <a class="dropdown-item" href="#!">Another action</a>
+                                <a class="dropdown-item" href="#!">Something else here</a>
+                            </div>
+                        </div>
+                        <!--/ Large button group -->
+
+                        <!-- Large button group -->
+                        <div class="btn-group" style="padding:5px;">
+                            <button class="btn btn-blue-grey btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Large button
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#!">Action</a>
+                                <a class="dropdown-item" href="#!">Another action</a>
+                                <a class="dropdown-item" href="#!">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#!">Separated link</a>
+                            </div>
+                        </div>
+                        <!--/ Large button group -->
+
+                        <!-- Large button group -->
+                        <div class="btn-group" style="padding:5px;">
+                            <button class="btn btn-deep-purple btn-lg dropdown-toggle" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Large button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <a class="dropdown-item" href="#!">Regular link</a>
+                                <a class="dropdown-item disabled" href="#!">Disabled link</a>
+                                <a class="dropdown-item" href="#!">Another link</a>
+                            </div>
+                        </div>
+                        <!--/ Large button group -->
+
+                        <!-- Small button group -->
+                        <div class="btn-group" style="padding:5px;">
+                            <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Small button
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#!">Action</a>
+                                <a class="dropdown-item" href="#!">Another action</a>
+                                <a class="dropdown-item" href="#!">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#!">Separated link</a>
+                            </div>
+                        </div>
+                        <!--/ Small button group -->
+
+                        <!-- Small button group -->
+                        <div class="btn-group" style="padding:5px;">
+                            <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Small button
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#!">Action</a>
+                                <a class="dropdown-item" href="#!">Another action</a>
+                                <a class="dropdown-item" href="#!">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#!">Separated link</a>
+                            </div>
+                        </div>
+                        <!--/ Small button group -->
+
+                        <!-- Small button group -->
+                        <div class="btn-group" style="padding:5px;">
+                            <button class="btn btn-unique btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Small button
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#!">Action</a>
+                                <a class="dropdown-item" href="#!">Another action</a>
+                                <a class="dropdown-item" href="#!">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#!">Separated link</a>
+                            </div>
+                        </div>
+                        <!--/ Small button group -->
+
+                    </div>
+                </div>
+
+            </section>
+            <!--/Section: Dropdowns-->
+
+            <hr class="my-5">
+
+            <!--Section: Inputs-->
+            <section class="section">
+
+                <div style="height: 10px"></div>
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Inputs</h1>
+
+                <div style="height: 40px"></div>
+                <h5>Input fields </h5>
+                <div style="height: 60px"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="md-form">
+                            <input type="text" id="form1" class="form-control">
+                            <label for="form1" class="">Example label</label>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="md-form">
+                            <input placeholder="Placeholder" type="text" id="form5" class="form-control">
+                            <label for="form5">Example label</label>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.Live preview-->
+
+                <div style="height: 40px"></div>
+
+                <!-- Live preview-->
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="md-form">
+                            <input value="John Doe" type="text" id="form6" class="form-control">
+                            <label class="active" for="form6">Example label</label>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="md-form">
+                            <input type="text" id="form11" class="form-control" disabled>
+                            <label for="form11" class="disabled">Disabled</label>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.Live preview-->
+
+                <div style="height: 40px"></div>
+
+                <!-- Live preview-->
+                <div class="row text-left">
+                    <div class="col-md-6">
+
+                        <div class="md-form">
+                            <i class="fa fa-tag prefix"></i>
+                            <input type="text" id="form2" class="form-control">
+                            <label for="form2">Example label</label>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="md-form">
+                            <i class="fa fa-user prefix"></i>
+                            <input type="text" id="form3" class="form-control">
+                            <label for="form3">Example label</label>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.Live preview-->
+
+                <div style="height: 40px"></div>
+
+                <!-- Live preview-->
+                <div class="row text-left">
+                    <div class="col-md-12">
+                        <h5 class="text-center">Error or Success Messages </h5>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="col-md-6">
+
+                        <div class="md-form">
+                            <i class="fa fa-envelope prefix"></i>
+                            <input type="email" id="form9" class="form-control validate">
+                            <label for="form9" data-error="wrong" data-success="right">Type your email</label>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="md-form">
+                            <i class="fa fa-lock prefix"></i>
+                            <input type="password" id="form10" class="form-control validate">
+                            <label for="form10" data-error="wrong" data-success="right">Type your password</label>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.Live preview-->
+
+                <div style="height: 40px"></div>
+
+                <!--Image-->
+                <h5 class="text-center">Textarea </h5>
+                <div style="height: 40px"></div>
+
+                <!-- Live preview-->
+                <div class="row text-left">
+                    <div class="col-md-6">
+
+                        <div class="md-form">
+                            <textarea type="text" id="form7" class="md-textarea"></textarea>
+                            <label for="form7">Basic textarea</label>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <textarea type="text" id="form8" class="md-textarea"></textarea>
+                            <label for="form8">Icon Prefix</label>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.Live preview-->
+
+            </section>
+            <!--/Section: Inputs-->
+
+            <hr class="my-5">
+
+            <!--Section: Carousels-->
+            <section class="section">
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Carousels</h1>
+
+                <div style="height: 40px"></div>
+                <h5>Classic carousel </h5>
+                <br>
+
+
+                <!--Carousel Wrapper-->
+                <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+                    <!--Indicators-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+                    </ol>
+                    <!--/.Indicators-->
+
+                    <!--Slides-->
+                    <div class="carousel-inner" role="listbox">
+                        <!--First slide-->
+                        <div class="carousel-item active">
+                            <img class="d-block w-100"src="https://mdbootstrap.com/img/Photos/Slides/img (147).jpg" alt="First slide">
+                        </div>
+                        <!--/First slide-->
+
+                        <!--Second slide-->
+                        <div class="carousel-item">
+                            <img class="d-block w-100"src="https://mdbootstrap.com/img/Photos/Slides/img (150).jpg" alt="Second slide">
+                        </div>
+                        <!--/Second slide-->
+
+                        <!--Third slide-->
+                        <div class="carousel-item">
+                            <img class="d-block w-100"src="https://mdbootstrap.com/img/Photos/Slides/img (152).jpg" alt="Third slide">
+                        </div>
+                        <!--/Third slide-->
+                    </div>
+                    <!--/.Slides-->
+
+                    <!--Controls-->
+                    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    <!--/.Controls-->
+                </div>
+                <!--/.Carousel Wrapper-->
+
+                <div style="height: 40px"></div>
+                <h5>Classic carousel with captions </h5>
+                <br>
+
+                <!--Carousel Wrapper-->
+                <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+                    <!--Indicators-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+                    </ol>
+                    <!--/.Indicators-->
+
+                    <!--Slides-->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <div class="view hm-black-light">
+                                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img (121).jpg" alt="First slide">
+                                <div class="mask"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3>Heading</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="view hm-black-light">
+                                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img (122).jpg" alt="Second slide">
+                                <div class="mask"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3>Heading</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="view hm-black-light">
+                                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img (123).jpg" alt="Third slide">
+                                <div class="mask"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3>Heading</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.Slides-->
+
+                    <!--Controls-->
+                    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    <!--/.Controls-->
+                </div>
+                <!--/.Carousel Wrapper-->
+
+                <div style="height: 40px"></div>
+                <h5>Video Carousel </h5>
+                <br>
+
+                <!--Carousel Wrapper-->
+                <div id="video-carousel-example" class="carousel slide carousel-fade" data-ride="carousel">
+                    <!--Indicators-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#video-carousel-example" data-slide-to="0" class="active"></li>
+                        <li data-target="#video-carousel-example" data-slide-to="1"></li>
+                        <li data-target="#video-carousel-example" data-slide-to="2"></li>
+                    </ol>
+                    <!--/.Indicators-->
+
+                    <!--Slides-->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <video class="video-fluid" autoplay loop>
+                                    <source src="https://mdbootstrap.com/img/video/Strum-Away.mp4" type="video/mp4" />
+                                </video>
+                        </div>
+                        <div class="carousel-item">
+                            <video class="video-fluid" autoplay loop>
+                                    <source src="https://mdbootstrap.com/img/video/Beach-Ball.mp4" type="video/mp4" />
+                                </video>
+                        </div>
+                        <div class="carousel-item">
+                            <video class="video-fluid" autoplay loop>
+                                    <source src="https://mdbootstrap.com/img/video/Nature-Sunset.mp4" type="video/mp4" />
+                                </video>
+                        </div>
+                    </div>
+                    <!--/.Slides-->
+
+                    <!--Controls-->
+                    <a class="carousel-control-prev" href="#video-carousel-example" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#video-carousel-example" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    <!--/.Controls-->
+                </div>
+                <!--/.Carousel Wrapper-->
+
+            </section>
+            <!--/Section: Carousels-->
+
+            <hr class="my-5">
+
+            <!-- Section: Panels -->
+            <section>
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Panels</h1>
+
+                <div style="height: 40px"></div>
+                <h5>Basic, Header and Footer</h5>
+                <br>
+
+                <!-- Grid row -->
+                <div class="row">
+                
+                    <!-- Grid column -->
+                    <div class="col-md-6 mb-4">
+                
+                        <!--Card Primary-->
+                        <div class="card sunny-morning-gradient text-center z-depth-2">
+                            <div class="card-body">
+                                <p class="white-text mb-4" align="justify">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                                <p class="white-text mb-0" align="justify">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.</p>
+                            </div>
+                        </div>
+                        <!--/.Card Primary-->
+                
+                    </div>
+                    <!-- Grid column -->
+                
+                    <!-- Grid column -->
+                    <div class="col-md-6 mb-4">
+                
+                        <!--Card Danger-->
+                        <div class="card mean-fruit-gradient text-center z-depth-2">
+                            <div class="card-body">
+                                <p class="black-text mb-4" align="justify">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.</p>
+                                <p class="black-text mb-0" align="justify">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                            </div>
+                        </div>
+                        <!--/.Card Danger-->
+                
+                    </div>
+                    <!-- Grid column -->
+                
+                </div>
+                <!-- Grid row -->
+                <!-- Grid row -->
+                <div class="row">
+                
+                    <!-- Grid column -->
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        
+                        <!--Panel-->
+                        <div class="card">
+                            <div class="card-header primary-color white-text">
+                                Featured
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Special title treatment</h4>
+                                <p class="card-text">Asperiores nesciunt neque impedit, laboriosam eos quod at, quasi mollitia cum necessitatibus eligendi incidunt sapiente aliquid recusandae, soluta sequi aliquam, maxime aut.</p>
+                                <a class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <!--/.Panel-->
+                
+                    </div>
+                    <!-- Grid column -->
+                
+                    <!-- Grid column -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                
+                        <!--Panel-->
+                        <div class="card">
+                            <h3 class="card-header secondary-color white-text">Featured</h3>
+                            <div class="card-body">
+                                <h4 class="card-title">Special title treatment</h4>
+                                <p class="card-text">Asperiores nesciunt neque impedit, laboriosam eos quod at, quasi mollitia cum necessitatibus eligendi incidunt sapiente aliquid recusandae, soluta sequi aliquam, maxime aut.</p>
+                                <a class="btn btn-secondary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <!--/.Panel-->
+                
+                    </div>
+                    <!-- Grid column -->
+                
+                    <!-- Grid column -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                
+                        <!--Panel-->
+                        <div class="card text-center">
+                            <div class="card-header pink white-text">
+                                Featured
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Special title treatment</h4>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit reprehenderit fugit odio.</p>
+                                <a class="btn btn-pink btn-sm">Go somewhere</a>
+                            </div>
+                            <div class="card-footer text-muted pink white-text">
+                                <p class="mb-0">2 days ago</p>
+                            </div>
+                        </div>
+                        <!--/.Panel-->
+                
+                    </div>
+                    <!-- Grid column -->
+                
+                </div>
+                <!-- Grid row -->
+
+            </section>
+            <!--/ Section: Panels -->
+
+            <hr class="my-5">
+
+            <section>
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Typography</h1>
+
+                <div style="height: 40px"></div>
+                <h5>Headings</h5>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <h1 class="text-left h1"><span style="font-size: 1rem; margin-right: 5rem;">Header 1</span>h1. Material Design for Bootstrap </h1>
+                        <br>
+
+                        <h2 class="text-left h2"><span style="font-size: 1rem; margin-right: 5rem;">Header 2</span>h2. Material Design for Bootstrap </h2>
+                        <br>
+
+                        <h3 class="text-left h3"><span style="font-size: 1rem; margin-right: 5rem;">Header 3</span>h3. Material Design for Bootstrap </h3>
+                        <br>
+
+                        <h4 class="text-left h4"><span style="font-size: 1rem; margin-right: 5rem;">Header 4</span>h4. Material Design for Bootstrap </h4>
+                        <br>
+
+                        <h5 class="text-left h5"><span style="font-size: 1rem; margin-right: 5rem;">Header 5</span>h5. Material Design for Bootstrap </h5>
+                        <br>
+
+                        <h6 class="text-left h6"><span style="font-size: 1rem; margin-right: 5rem;">Header 6</span>h6. Material Design for Bootstrap </h6>
+                        <br>
+
+                        <div style="height: 40px"></div>
+                        <h5>Responsive headings</h5>
+                        <br>
+
+                        <p class="text-left">By adding an appropriate class you can make your heading responsive. Thanks to that it will looks good on all screen sizes.</p>
+                        <p class="text-left red-text">Resize your browser windows to see the effect</p>
+                        <br>
+
+                        <h1 class="h1-responsive text-left"><span style="font-size: 1rem; margin-right: 5rem;">Header 1</span>h1. heading</h1>
+                        <br>
+
+                        <h2 class="h2-responsive text-left"><span style="font-size: 1rem; margin-right: 5rem;">Header 2</span>h2. heading</h2>
+                        <br>
+
+                        <h3 class="h3-responsive text-left"><span style="font-size: 1rem; margin-right: 5rem;">Header 3</span>h3. heading</h3>
+                        <br>
+
+                        <h4 class="h4-responsive text-left"><span style="font-size: 1rem; margin-right: 5rem;">Header 4</span>h4. heading</h4>
+                        <br>
+
+                        <h5 class="h5-responsive text-left"><span style="font-size: 1rem; margin-right: 5rem;">Header 5</span>h5. heading</h5>
+                        <br>
+
+                        <div style="height: 40px"></div>
+                        <h5>Notifications</h5>
+                        <br>
+
+                        <div class="text-left">
+                            <blockquote class="blockquote bq-primary">
+                                <p class="bq-title">Info notification</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem,
+                                    in?
+                                </p>
+                            </blockquote>
+
+                            <blockquote class="blockquote bq-warning">
+                                <p class="bq-title">Warning notification</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem,
+                                    in?
+                                </p>
+                            </blockquote>
+
+                            <blockquote class="blockquote bq-success">
+                                <p class="bq-title">Success notification</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem,
+                                    in?
+                                </p>
+                            </blockquote>
+
+                            <blockquote class="blockquote bq-danger">
+                                <p class="bq-title">Danger notification</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem,
+                                    in?
+                                </p>
+                            </blockquote>
+                        </div>
+
+                        <div style="height: 40px"></div>
+                        <h5>Text colors</h5>
+                        <br>
+
+                        <div class="text-left">
+
+                            <p class="red-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <p class="pink-text">Impedit architecto, totam hic sunt eum odio, deleniti.</p>
+                            <p class="purple-text">Similique ex, expedita minus assumenda a magni beatae dolorum itaque.</p>
+                            <p class="deep-purple-text">Veritatis eum libero nam, adipisci, necessitatibus eos.</p>
+                            <p class="indigo-text">Sapiente, ea. Molestias sunt nihil saepe numquam quas perferendis.</p>
+                            <p class="blue-text">Sapiente sit, possimus maiores, quo alias corporis cum eum nesciunt.</p>
+                            <p class="light-blue-text">Corrupti adipisci, praesentium iusto eos, iure debitis modi.</p>
+                            <p class="cyan-text">Odio autem veritatis aliquam consequuntur ea voluptatibus.</p>
+                            <p class="teal-text">Similique, adipisci ea, sequi magnam sit inventore.</p>
+                            <p class="green-text">Eos et vitae, odit deserunt dignissimos voluptas.</p>
+                            <p class="light-green-text">Fugit nihil numquam inventore accusantium tenetur ex est.</p>
+                            <p class="lime-text">Sed odit inventore illum excepturi officia, reiciendis numquam modi.</p>
+                            <p class="yellow-text">At odio animi distinctio, aut enim tempora nobis error odit mollitia.</p>
+                            <p class="amber-text">Quo at accusamus vel earum hic, inventore non, minima sint.</p>
+                            <p class="orange-text">Iusto odit eos distinctio temporibus voluptates ad, illo repellat.</p>
+                            <p class="deep-orange-text">Quas fugit fuga assumenda nihil esse et culpa reiciendis voluptatum.</p>
+                            <p class="brown-text">Excepturi iusto amet sunt illo ad debitis quibusdam eius, consequatur.</p>
+                            <p class="grey-text">Non sint nulla incidunt, odit repellat tempore, veniam ratione fugit.</p>
+                            <p class="blue-grey-text">Eius, provident. Quo similique, repellat atque voluptas explicabo odio.</p>
+                            <p class="white-text">In consequuntur error, non consequatur expedita maxime dolorum.</p>
+
+                        </div>
+
+                        <div style="height: 40px"></div>
+                        <h5>Blockquotes</h5>
+                        <br>
+
+                        <blockquote class="blockquote text-left">
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                        </blockquote>
+
+                        <div style="height: 40px"></div>
+                        <h5>Font weight and italics</h5>
+                        <br>
+
+                        <div class="text-left">
+
+                            <p class="font-weight-bold">Bold text.</p>
+                            <p class="font-weight-normal">Normal weight text.</p>
+                            <p class="font-italic">Italicized text.</p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <hr class="my-5">
+
+            <!-- Section: Icons -->
+            <section>
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">600+ Icons</h1>
+
+                <div style="height: 40px"></div>
+                <p class="lead">MDB uses a powerful set of icons called Font Awesome.</p>
+
+                <p>Font Awesome gives you scalable vector icons that can be customized — size, color, drop shadow and anything that can be done with the power of CSS.</p>
+                <div style="height: 40px"></div>
+
+                <div class="row text-left">
+                    <div class="col-md-3 col-sm-4">
+                        <p><i class="fa fa-camera-retro fa-lg indigo-text" aria-hidden="true"></i> fa-lg</p>
+                        <p><i class="fa fa-camera-retro fa-2x indigo-text" aria-hidden="true"></i> fa-2x</p>
+                        <p><i class="fa fa-camera-retro fa-3x indigo-text" aria-hidden="true"></i> fa-3x</p>
+                        <p><i class="fa fa-camera-retro fa-4x indigo-text" aria-hidden="true"></i> fa-4x</p>
+                        <p><i class="fa fa-camera-retro fa-5x indigo-text" aria-hidden="true"></i> fa-5x</p>
+                    </div>
+
+                    <div class="col-md-3 col-sm-4">
+                        <p><i class="fa fa-heart-o fa-lg pink-text" aria-hidden="true"></i> fa-lg</p>
+                        <p><i class="fa fa-heart-o fa-2x pink-text" aria-hidden="true"></i> fa-2x</p>
+                        <p><i class="fa fa-heart-o fa-3x pink-text" aria-hidden="true"></i> fa-3x</p>
+                        <p><i class="fa fa-heart-o fa-4x pink-text" aria-hidden="true"></i> fa-4x</p>
+                        <p><i class="fa fa-heart-o fa-5x pink-text" aria-hidden="true"></i> fa-5x</p>
+                    </div>
+
+                    <div class="col-md-3 col-sm-4">
+                        <p><i class="fa fa-birthday-cake fa-lg amber-text" aria-hidden="true"></i> fa-lg</p>
+                        <p><i class="fa fa-birthday-cake fa-2x amber-text" aria-hidden="true"></i> fa-2x</p>
+                        <p><i class="fa fa-birthday-cake fa-3x amber-text" aria-hidden="true"></i> fa-3x</p>
+                        <p><i class="fa fa-birthday-cake fa-4x amber-text" aria-hidden="true"></i> fa-4x</p>
+                        <p><i class="fa fa-birthday-cake fa-5x amber-text" aria-hidden="true"></i> fa-5x</p>
+                    </div>
+
+                    <div class="col-md-3 col-sm-4">
+                        <p><i class="fa fa-plane fa-lg lime-text" aria-hidden="true"></i> fa-lg</p>
+                        <p><i class="fa fa-plane fa-2x lime-text" aria-hidden="true"></i> fa-2x</p>
+                        <p><i class="fa fa-plane fa-3x lime-text" aria-hidden="true"></i> fa-3x</p>
+                        <p><i class="fa fa-plane fa-4x lime-text" aria-hidden="true"></i> fa-4x</p>
+                        <p><i class="fa fa-plane fa-5x lime-text" aria-hidden="true"></i> fa-5x</p>
+                    </div>
+                </div>
+
+            </section>
+            <!--/ Section: Icons -->
+
+            <hr class="my-5">
+
+            <!--Section: Animations-->
+            <section class="section">
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold pb-5">Animations</h1>
+
+                <p class="lead"><strong>Over 70 CSS animations</strong> </p>
+
+                <p>Bunch of cool, fun, and cross-browser animations for you to use in your projects. Great for emphasis, home pages, sliders, and general just-add-water-awesomeness.</p>
+                <br>
+
+                <!--Section: Live preview-->
+                <section>
+
+                    <div class="row mb-4 d-flex flex-column">
+
+                        <div class="col-md-4 mb-4 mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(121).jpg" alt="A view on mountains." class="img-fluid z-depth-1 wow bounceIn">
+                        </div>
+
+                        <div class="col-md-4 mb-4 mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(115).jpg" alt="Cottage on a lake surrounded by mountains." class="img-fluid z-depth-1 wow tada" data-wow-delay="0.2s">
+                        </div>
+
+                        <div class="col-md-4 mb-4 mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(122).jpg" alt="Cyclist riding down the mountain path." class="img-fluid z-depth-1 wow fadeInLeft" data-wow-delay="0.3s">
+                        </div>
+
+                        <div class="col-md-4 mb-4 mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(1).jpg" alt="View on mountains from mountain top." class="img-fluid z-depth-1 wow fadeInRight">
+                        </div>
+
+                        <div class="col-md-4 mb-4 mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" alt="Rocky shore in the morning." class="img-fluid z-depth-1 wow jello">
+                        </div>
+
+                        <div class="col-md-4 mb-4 mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(7).jpg" alt="Rocky shore in the morning." class="img-fluid z-depth-1 wow swing">
+                        </div>
+
+                        <div class="col-md-4 mb-4 mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(32).jpg" alt="View on mountains from mountain top." class="img-fluid z-depth-1 wow wobble">
+                        </div>
+
+                        <div class="col-md-4 mb-4 mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(31).jpg" alt="Rocky shore in the morning." class="img-fluid z-depth-1 wow zoomIn">
+                        </div>
+
+                        <div class="col-md-4 mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(125).jpg" alt="Rocky shore in the morning." class="img-fluid z-depth-1 wow flipInX">
+                        </div>
+
+                    </div>
+
+                </section>
+                <!--Section: Live preview-->
+
+            </section>
+            <!--/Section: Animations-->
+
+            <hr class="my-5">
+
+            <!--Section: Charts-->
+            <section class="section">
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold pb-5">Charts</h1>
+
+                <p class="lead">Simple, clean and interactive charts</p>
+                <br>
+
+                <div style="height: 40px"></div>
+                <h5>Classic charts </h5>
+                <br>
+
+                <!-- Live preview-->
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <canvas id="lineChart"></canvas>
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <canvas id="barChart"></canvas>
+
+                    </div>
+
+                </div>
+
+                <br>
+                <br>
+
+                <div class="row">
+
+                    <div class="col-lg-4">
+
+                        <canvas id="pieChart"></canvas>
+
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <canvas id="radarChart"></canvas>
+
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <canvas id="doughnutChart"></canvas>
+
+                    </div>
+
+                </div>
+                <!-- /.Live preview-->
+
+            </section>
+            <!--/Section: Charts-->
+
+            <hr class="my-5">
+
+            <!--Section: Hover effects-->
+            <section>
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Hover effects</h1>
+
+                <div style="height: 40px"></div>
+                <h4>Overlay effect</h4>
+                <br>
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="view overlay hm-blue-light">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (2).jpg" class="img-fluid " alt="">
+                            <div class="mask flex-center">
+                                <p class="white-text">Light overlay</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="view overlay hm-red-strong">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (1).jpg" class="img-fluid " alt="">
+                            <div class="mask flex-center">
+                                <p class="white-text">Strong overlay</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="view overlay hm-green-slight">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (7).jpg" class="img-fluid " alt="">
+                            <div class="mask flex-center">
+                                <p class="white-text">Super light overlay</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+                <br>
+
+                <br>
+                <div class="row" style="margin-bottom:2rem;">
+                    <div class="col-md-6">
+                        <h4 class="text-center">Zoom effect</h4>
+                        <br>
+                        <div class="view overlay hm-zoom">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img (119).jpg" class="img-fluid " alt="">
+                            <div class="mask flex-center">
+                                <p class="white-text">Zoom effect</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h4 class="text-center">Shadow effect</h4>
+                        <br>
+
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img (133).jpg" class="img-fluid img-circle hoverable" alt="">
+                    </div>
+
+                </div>
+
+            </section>
+            <!--/Section: Hover effects-->
+
+            <hr class="my-5">
+
+            <!--Section: Masks-->
+            <section class="section">
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Masks</h1>
+
+                <div style="height: 40px"></div>
+                <h5>Patterns </h5>
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (137).jpg" class="img-fluid" alt="">
+                            <div class="mask flex-center">
+                                <p class="white-text">no mask</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (137).jpg" class="img-fluid" alt="">
+                            <div class="mask pattern-1 flex-center">
+                                <p class="white-text">.pattern-1</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (137).jpg" class="img-fluid" alt="">
+                            <div class="mask pattern-2 flex-center">
+                                <p class="white-text">.pattern-2</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (137).jpg" class="img-fluid" alt="">
+                            <div class="mask pattern-3 flex-center">
+                                <p class="white-text">.pattern-3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (137).jpg" class="img-fluid" alt="">
+                            <div class="mask pattern-4 flex-center">
+                                <p class="white-text">.pattern-4</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (137).jpg" class="img-fluid" alt="">
+                            <div class="mask pattern-5 flex-center">
+                                <p class="white-text">.pattern-5</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (137).jpg" class="img-fluid" alt="">
+                            <div class="mask pattern-8 flex-center">
+                                <p class="white-text">.pattern-8</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (137).jpg" class="img-fluid" alt="">
+                            <div class="mask pattern-6 flex-center">
+                                <p class="white-text">.pattern-6</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (137).jpg" class="img-fluid" alt="">
+                            <div class="mask pattern-7 flex-center">
+                                <p class="white-text">.pattern-7</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (137).jpg" class="img-fluid" alt="">
+                            <div class="mask pattern-9 flex-center">
+                                <p class="white-text">.pattern-9</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div style="height: 40px"></div>
+                <h5>Overlays </h5>
+                <br>
+
+
+                <!-- Live preview-->
+                <div class="row">
+                    <div class="col-md-12 col-lg-4">
+                        <div class="view">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (138).jpg" class="img-fluid" alt="">
+                            <div class="mask flex-center">
+                                <h2 class="white-text">no overlay</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="view hm-black-light">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (138).jpg" class="img-fluid" alt="">
+                            <div class="mask flex-center">
+                                <p class="white-text">light overlay</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="view hm-black-strong">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (138).jpg" class="img-fluid" alt="">
+                            <div class="mask flex-center">
+                                <p class="white-text">strong overlay</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            <!--/Section: Masks-->
+
+            <hr class="my-5">
+
+            <!--Section: Modals-->
+            <section class="section">
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Modals</h1>
+
+                <p>Click the button:</p>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Launch demo modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!--/Section: Modals-->
+
+            <hr class="my-5">
+
+            <!-- Images -->
+            <section>
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Images</h1>
+
+                <br>
+                <br>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-3">
+
+                        <h5>Rounded image</h5>
+                        <br>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg" alt="..." class="rounded">
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <h5>Circle image</h5>
+                        <br>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg" alt="..." class="rounded-circle">
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <h5>Rounded raised</h5>
+                        <br>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg" alt="..." class="rounded z-depth-4">
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <h5>Circle raised</h5>
+                        <br>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg" alt="..." class="rounded-circle z-depth-4">
+
+                    </div>
+                </div>
+                <br>
+                <br>
+
+            </section>
+            <!--/ Images -->
+
+            <hr class="my-5">
+
+            <!-- List groups -->
+            <section>
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">List groups</h1>
+
+                <div style="height: 40px"></div>
+                <h5>Labels</h5>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-12 text-left">
+
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cras justo odio
+                                <span class="badge badge-primary badge-pill">14</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Dapibus ac facilisis in
+                                <span class="badge badge-primary badge-pill">2</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Morbi leo risus
+                                <span class="badge badge-primary badge-pill">1</span>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div style="height: 40px"></div>
+                <h5>Linked items</h5>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-12 text-left">
+
+                        <div class="list-group">
+                            <a href="#!" class="list-group-item active">
+                         Cras justo odio
+                         </a>
+                            <a href="#!" class="list-group-item">Dapibus ac facilisis in</a>
+                            <a href="#!" class="list-group-item">Morbi leo risus</a>
+                            <a href="#!" class="list-group-item">Porta ac consectetur ac</a>
+                            <a href="#!" class="list-group-item">Vestibulum at eros</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div style="height: 40px"></div>
+                <h5>Contextual classes</h5>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-12 text-left">
+
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
+                            <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
+                            <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
+                            <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
+                        </ul>
+
+                        <br>
+
+                        <div class="list-group">
+                            <a href="#!" class="list-group-item list-group-item-success">Dapibus ac facilisis in</a>
+                            <a href="#!" class="list-group-item list-group-item-info">Cras sit amet nibh libero</a>
+                            <a href="#!" class="list-group-item list-group-item-warning">Porta ac consectetur ac</a>
+                            <a href="#!" class="list-group-item list-group-item-danger">Vestibulum at eros</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div style="height: 40px"></div>
+                <h5>Custom content</h5>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-12 text-left">
+
+                        <div class="list-group">
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1">List group item heading</h5>
+                              <small>3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small>Donec id elit non mi porta.</small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1">List group item heading</h5>
+                              <small class="text-muted">3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1">List group item heading</h5>
+                              <small class="text-muted">3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
+                          </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div style="height: 40px"></div>
+                <h5>Reviews</h5>
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-12 text-left">
+                        
+                        <!--First review-->
+                           <div class="media mb-1">
+                               <a class="media-left waves-light mr-3">
+                                   <img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-13.jpg" alt="Generic placeholder image">
+                               </a>
+                               <div class="media-body">
+                                   <h4 class="media-heading">John Doe</h4>
+                                   <ul class="pl-0 rating inline-ul">
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star"></i></li>
+                                       <li><i class="fa fa-star"></i></li>
+                                   </ul>
+                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate temporibus iure soluta. Quasi mollitia maxime nemo quam accusamus possimus, voluptatum expedita assumenda. Earum sit id ullam eum vel delectus!</p>
+                               </div>
+                           </div>
+
+                           <!--Second review-->
+                           <div class="media mb-1">
+                               <a class="media-left waves-light mr-3">
+                                   <img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Generic placeholder image">
+                               </a>
+                               <div class="media-body">
+                                   <h4 class="media-heading">Anna Casie</h4>
+                                   <ul class="pl-0 rating inline-ul">
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                   </ul>
+                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate temporibus iure soluta. Quasi mollitia maxime nemo quam accusamus possimus, voluptatum expedita assumenda. Earum sit id ullam eum vel delectus!</p>
+                               </div>
+                           </div>
+
+                           <!--Second review-->
+                           <div class="media mb-1">
+                               <a class="media-left waves-light mr-3">
+                                   <img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-7.jpg" alt="Generic placeholder image">
+                               </a>
+                               <div class="media-body">
+                                   <h4 class="media-heading">Dave Snow</h4>
+                                   <ul class="pl-0 rating inline-ul">
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star amber-text"></i></li>
+                                       <li><i class="fa fa-star"></i></li>
+                                   </ul>
+                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate temporibus iure soluta. Quasi mollitia maxime nemo quam accusamus possimus, voluptatum expedita assumenda. Earum sit id ullam eum vel delectus!</p>
+                               </div>
+                           </div>
+
+                    </div>
+                </div>
+
+            </section>
+            <!--/ List groups -->
+
+            <hr class="my-5">
+
+            <!--Section: Navbars-->
+            <section class="section">
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold pb-5">Navbars</h1>
+
+                <!--Navbar blue-->
+                <nav class="navbar navbar-expand-lg navbar-dark teal mb-4">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown 
+                                    </a>
+                                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        </form>
+                    </div>
+                </nav>
+                <!--/.Navbar blue-->
+                <!--Navbar -->
+                <nav class="mb-4 navbar navbar-expand-lg navbar-dark bg-unique">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent-3">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Lifestyle <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Beauty</a>
+                            </li>
+                            <li class="nav-item dropdown active">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tutorials 
+                                    </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-unique" aria-labelledby="navbarDropdownMenuLink-3">
+                                    <a class="dropdown-item" href="#">Make-up</a>
+                                    <a class="dropdown-item" href="#">Nails</a>
+                                    <a class="dropdown-item" href="#">DIY</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto nav-flex-icons">
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light"><i class="fa fa-google-plus"></i></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> 
+                                    </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-unique" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--/.Navbar -->
+                <!--Navbar -->
+                <nav class="mb-4 navbar navbar-expand-lg navbar-dark cyan">
+                    <a class="navbar-brand font-bold" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#"><i class="fa fa-envelope"></i> Contact <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fa fa-gear"></i> Settings</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Profile </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                                    <a class="dropdown-item" href="#">My account</a>
+                                    <a class="dropdown-item" href="#">Log out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--/.Navbar -->
+                <!--Navbar -->
+                <nav class="mb-4 navbar navbar-expand-lg navbar-dark purple lighten-1">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-5" aria-controls="navbarSupportedContent-5" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent-5">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Technology <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Gadgets</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Laptops</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Phones 
+                                    </a>
+                                <div class="dropdown-menu dropdown-purple" aria-labelledby="navbarDropdownMenuLink-5">
+                                    <a class="dropdown-item" href="#">Iphone</a>
+                                    <a class="dropdown-item" href="#">Android</a>
+                                    <a class="dropdown-item" href="#">Windows</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto nav-flex-icons">
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light">1 <i class="fa fa-envelope"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--Navbar -->
+                <nav class="mb-4 navbar navbar-expand-lg navbar-dark indigo">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto">
+                            <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Books</a>
+                                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Fantasy</a>
+                                    <a class="dropdown-item" href="#">Travels</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light" href="#">Movies</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link waves-effect waves-light" href="#">Songs</a>
+                            </li>
+                        </ul>
+                        <span class="navbar-text white-text">
+                                    Navbar text with an inline element
+                                </span>
+                    </div>
+                </nav>
+                <!--/.Navbar -->
+                <!--Navbar-->
+                <nav class="mb-4 navbar navbar-expand-lg navbar-light pink lighten-4">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand font-bold" href="#">Navbar</a>
+                    <!-- Collapse button -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <!-- Collapsible content -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Links -->
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link font-bold" href="#">Shop <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-bold" href="#">Dolls</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-bold" href="#">Toys</a>
+                            </li>
+                        </ul>
+                        <!-- Links -->
+                        <!-- Search form -->
+                        <form class="form-inline md-form mb-0">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <input class="form-control font-bold w-75 ml-3" type="text" placeholder="Search" aria-label="Search">
+                        </form>
+                    </div>
+                    <!-- Collapsible content -->
+                </nav>
+                <!--/.Navbar-->
+                <!--Navbar -->
+                <nav class="mb-4 navbar navbar-expand-lg navbar-dark red darken-2">
+                    <a class="navbar-brand font-bold" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText1" aria-controls="navbarText1" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText1">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light" href="#">News <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light" href="#">World</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light" href="#">Country</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="text" aria-label="Search">
+                            <button class="btn btn-outline-white btn-sm my-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+                <!--/.Navbar -->
+                <!--Navbar -->
+                <nav class="mb-4 navbar navbar-expand-lg navbar-dark unique-color-dark">
+                    <a class="navbar-brand" href="#"><img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#"><i class="fa fa-heart"></i> Follow <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fa fa-thumbs-up"></i> Collaboration</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-newspaper-o"></i> Media </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                                    <a class="dropdown-item" href="#">Facebook</a>
+                                    <a class="dropdown-item" href="#">Instagram</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--/.Navbar -->
+                <div style="height: 40px"></div>
+                <h5>Breadcrumbs </h5>
+                <br>
+
+                <!-- Grid row -->
+                <div class="row">
+                
+                    <!-- Grid column -->
+                    <div class="col-md-12">
+                                
+                        <div class="light-font">
+
+                            <ol class="breadcrumb default-color">
+                                <li class="breadcrumb-item active">Home</li>
+                            </ol>
+                            <ol class="breadcrumb primary-color">
+                                <li class="breadcrumb-item"><a class="white-text" href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Library</li>
+                            </ol>
+                            <ol class="breadcrumb secondary-color">
+                                <li class="breadcrumb-item"><a class="white-text" href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a class="white-text" href="#">Library</a></li>
+                                <li class="breadcrumb-item active">Data</li>
+                            </ol>
+
+                        </div>
+
+                        <div class="bc-icons pb-4">
+
+                            <ol class="breadcrumb purple darken-4">
+                                <li class="breadcrumb-item active"><i class="fa fa-star-o mr-2 white-text" aria-hidden="true"></i>Home</li>
+                            </ol>
+                            <ol class="breadcrumb pink darken-4">
+                                <li class="breadcrumb-item"><i class="fa fa-star-o mr-2 white-text" aria-hidden="true"></i><a class="white-text" href="#">Home</a></li>
+                                <li class="breadcrumb-item active"><i class="fa fa-star-o mx-2 white-text" aria-hidden="true"></i>Library</li>
+                            </ol>
+                            <ol class="breadcrumb red darken-4">
+                                <li class="breadcrumb-item"><i class="fa fa-star-o mr-2 white-text" aria-hidden="true"></i><a class="white-text" href="#">Home</a></li>
+                                <li class="breadcrumb-item"><i class="fa fa-star-o mx-2 white-text" aria-hidden="true"></i><a class="white-text" href="#">Library</a></li>
+                                <li class="breadcrumb-item active"><i class="fa fa-star-o mx-2 white-text" aria-hidden="true"></i>Data</li>
+                            </ol>
+
+                        </div>
+
+                        <div class="bc-icons-2">
+
+                            <ol class="breadcrumb indigo lighten-4">
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Home</a><i class="fa fa-caret-right mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Library</a><i class="fa fa-caret-right mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item active">Data</li>
+                            </ol>
+                            <ol class="breadcrumb blue-grey lighten-4">
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Home</a><i class="fa fa-angle-double-right mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Library</a><i class="fa fa-angle-double-right mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item active">Data</li>
+                            </ol>
+                            <ol class="breadcrumb purple lighten-4">
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Home</a><i class="fa fa-angle-right mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Library</a><i class="fa fa-angle-right mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item active">Data</li>
+                            </ol>
+                            <ol class="breadcrumb red lighten-4">
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Home</a><i class="fa fa-angle-double-left mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Library</a><i class="fa fa-angle-double-left mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item active">Data</li>
+                            </ol>
+                            <ol class="breadcrumb cyan lighten-4">
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Home</a><i class="fa fa-angle-left mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Library</a><i class="fa fa-angle-left mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item active">Data</li>
+                            </ol>
+                            <ol class="breadcrumb amber lighten-4">
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Home</a><i class="fa fa-caret-left mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item"><a class="black-text" href="#">Library</a><i class="fa fa-caret-left mx-2" aria-hidden="true"></i></li>
+                                <li class="breadcrumb-item active">Data</li>
+                            </ol>
+
+                        </div>
+                
+                    </div>
+                    <!-- Grid column -->
+                
+                </div>
+                <!-- Grid row -->
+
+            </section>
+            <!--/Section: Navbars-->
+
+            <hr class="my-5">
+
+            <!--Section: Miscellaneous-->
+            <section class="section">
+
+                <!--Section heading-->
+                <h1 class="section-heading font-bold">Miscellaneous</h1>
+
+                <div style="height: 40px"></div>
+
+
+                <div class="row">
+
+                    <div class="col-md-5">
+
+                        <h5>Paginations </h5>
+                        <br>
+
+                        <!--Pagination blue-->
+                        <nav>
+                            <ul class="pagination pg-blue">
+                                <!--Arrow left-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+
+                                <!--Numbers-->
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <li class="page-item"><a class="page-link">2</a></li>
+                                <li class="page-item"><a class="page-link">3</a></li>
+                                <li class="page-item"><a class="page-link">4</a></li>
+                                <li class="page-item"><a class="page-link">5</a></li>
+
+                                <!--Arrow right-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--/Pagination blue-->
+
+                        <!--Pagination red-->
+                        <nav>
+                            <ul class="pagination pg-red">
+                                <!--Arrow left-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+
+                                <!--Numbers-->
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <li class="page-item"><a class="page-link">2</a></li>
+                                <li class="page-item"><a class="page-link">3</a></li>
+                                <li class="page-item"><a class="page-link">4</a></li>
+                                <li class="page-item"><a class="page-link">5</a></li>
+
+                                <!--Arrow right-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--/Pagination red-->
+
+                        <!--Pagination teal-->
+                        <nav>
+                            <ul class="pagination pg-teal">
+                                <!--Arrow left-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+
+                                <!--Numbers-->
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <li class="page-item"><a class="page-link">2</a></li>
+                                <li class="page-item"><a class="page-link">3</a></li>
+                                <li class="page-item"><a class="page-link">4</a></li>
+                                <li class="page-item"><a class="page-link">5</a></li>
+
+                                <!--Arrow right-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--/Pagination teal-->
+
+                        <!--Pagination dark-->
+                        <nav>
+                            <ul class="pagination pg-dark">
+                                <!--Arrow left-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+
+                                <!--Numbers-->
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <li class="page-item"><a class="page-link">2</a></li>
+                                <li class="page-item"><a class="page-link">3</a></li>
+                                <li class="page-item"><a class="page-link">4</a></li>
+                                <li class="page-item"><a class="page-link">5</a></li>
+
+                                <!--Arrow right-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--/Pagination dark-->
+
+                        <!--Pagination blue grey-->
+                        <nav>
+                            <ul class="pagination pg-bluegrey">
+                                <!--Arrow left-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+
+                                <!--Numbers-->
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <li class="page-item"><a class="page-link">2</a></li>
+                                <li class="page-item"><a class="page-link">3</a></li>
+                                <li class="page-item"><a class="page-link">4</a></li>
+                                <li class="page-item"><a class="page-link">5</a></li>
+
+                                <!--Arrow right-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--/Pagination grey-->
+
+                        <!--Pagination amber-->
+                        <nav>
+                            <ul class="pagination pg-amber">
+                                <!--Arrow left-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+
+                                <!--Numbers-->
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <li class="page-item"><a class="page-link">2</a></li>
+                                <li class="page-item"><a class="page-link">3</a></li>
+                                <li class="page-item"><a class="page-link">4</a></li>
+                                <li class="page-item"><a class="page-link">5</a></li>
+
+                                <!--Arrow right-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--/Pagination amber-->
+
+                        <!--Pagination purple-->
+                        <nav>
+                            <ul class="pagination pg-purple">
+                                <!--Arrow left-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+
+                                <!--Numbers-->
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <li class="page-item"><a class="page-link">2</a></li>
+                                <li class="page-item"><a class="page-link">3</a></li>
+                                <li class="page-item"><a class="page-link">4</a></li>
+                                <li class="page-item"><a class="page-link">5</a></li>
+
+                                <!--Arrow right-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--/Pagination purple-->
+
+                        <!--Pagination dark grey-->
+                        <nav>
+                            <ul class="pagination pg-darkgrey">
+                                <!--Arrow left-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+
+                                <!--Numbers-->
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <li class="page-item"><a class="page-link">2</a></li>
+                                <li class="page-item"><a class="page-link">3</a></li>
+                                <li class="page-item"><a class="page-link">4</a></li>
+                                <li class="page-item"><a class="page-link">5</a></li>
+
+                                <!--Arrow right-->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--/Pagination dark grey-->
+
+                    </div>
+
+                    <div class="col-md-7">
+                        <h5>Tags </h5>
+                        <br>
+
+                        <h1>Example heading <span class="badge red">New</span></h1>
+                        <h2>Example heading <span class="badge blue">New</span></h2>
+                        <h3>Example heading <span class="badge black">New</span></h3>
+                        <h4>Example heading <span class="badge green">New</span></h4>
+                        <h5>Example heading <span class="badge grey">New</span></h5>
+                        <h6>Example heading <span class="badge purple">New</span></h6>
+
+                        <div style="height: 60px"></div>
+                        <h5>Collapse</h5>
+                        <br>
+
+                        <p>
+                            <a class="btn btn-indigo" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Link with href
+                          </a>
+                            <button class="btn btn-indigo" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Button with data-target
+                          </button>
+                        </p>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body text-left">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div style="height: 40px"></div>
+                        <h5>Tooltips (hover buttons below)</h5>
+                        <br>
+
+                        <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            Tooltip on top
+                            </button>
+                        <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+                            Tooltip on right
+                            </button>
+                        <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+                            Tooltip on bottom
+                            </button>
+                        <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                            Tooltip on left
+                            </button>
+
+                        <div style="height: 40px"></div>
+                        <h5>Popovers (click buttons below)</h5>
+                        <br>
+
+                        <button type="button" class="btn btn-danger" data-toggle="popover" title="Popover title" data-placement="left" data-content="And here's some amazing content. It's very engaging. Right?">Popover on left</button>
+
+                        <button type="button" class="btn btn-danger" data-toggle="popover" title="Popover title" data-placement="top" data-content="And here's some amazing content. It's very engaging. Right?">Popover on top</button>
+
+                        <button type="button" class="btn btn-danger" data-toggle="popover" title="Popover title" data-placement="right" data-content="And here's some amazing content. It's very engaging. Right?">Popover on right</button>
+
+                        <button type="button" class="btn btn-danger" data-toggle="popover" title="Popover title" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom</button>
+
+                    </div>
+                </div>
+
+            </section>
+            <!--/Section: Miscellaneous-->
+
+            <hr class="mt-5">
+
+            <!--Section: More-->
+            <section class="section">
+
+                <!--First row-->
+                <div class="row">
+
+                    <!--First column-->
+                    <div class="col-md-10 mx-auto">
+                        
+                        <!--Section heading-->
+                        <h1 class="section-heading font-bold">...and many more</h1>
+
+                        <!--Featured image-->
+                        <div class="view overlay hm-white-slight z-depth-2">
+                            <img src="https://mdbootstrap.com/img/Others/mdb-about2.jpg" class="img-fluid">
+                            <a target="_blank" href="https://mdbootstrap.com/material-design-for-bootstrap/">
+                                <div class="mask"></div>
+                            </a>
+                        </div>
+
+                        <!--Excerpt-->
+                        <h2 class="font-bold mt-5 mb-4 pb-3">Material Design for Bootstrap 4</h2>
+
+                        <h4 class="font-bold mb-4">Full demo & download</h4>
+
+                       <a target="_blank" href="https://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-primary btn-lg"><i class="fa fa-download left"></i> Free download</a>
+                    </div>
+                    <!--/First column-->
+
+                </div>
+                <!--/First row-->
+
+            </section>
+            <!--/Section: More-->
+
+            <hr class="my-5">
+
+            <!--Projects section v.1-->
+            <section class="section">
+
+                <!--Section heading-->
+                <h1 class="section-heading wow fadeIn">Learn more about MDB</h1>
+                <!--Section sescription-->
+                <p class="section-description wow fadeIn my-5">Start our free, amazing tutorials, which will let you combine Material Design with Bootstrap and Wordpress.</p>
+
+                <!--First row-->
+                <div class="row">
+
+                    <!--Second column-->
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <!--Card-->
+                        <div class="card">
+
+                            <!--Card image-->
+                            <div class="view overlay hm-white-slight">
+                                <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/bootstrap.jpg" class="img-fluid" alt="MDB Bootstrap tutorial">
+                                <a id="about-card-img-bpTutorial" href="https://mdbootstrap.com/bootstrap-tutorial/">
+                                    <div class="mask"></div>
+                                </a>
+                            </div>
+                            <!--/.Card image-->
+
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+                                <h4 class="card-title mt-2">Bootstrap 4 tutorial</h4>
+                                <!--Text-->
+                                <p class="card-text">The complete and easy guide will teach you how to create stunning, responsive website and
+                                    apps. Each lesson is provided with series of practical examples and each of those examples
+                                    brings an essential web design knowledge.
+                                </p>
+                                <a id="about-card-button-bpTutorial" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank" class="btn btn-info">Start</a>
+                            </div>
+                            <!--/.Card content-->
+
+                        </div>
+                        <!--/.Card-->
+
+                    </div>
+                    <!--/Second column-->
+
+                    <!--Third column-->
+                    <div class="col-lg-6 col-md-12 mb-4">
+
+                        <!--Card-->
+                        <div class="card">
+
+                            <!--Card image-->
+                            <div class="view overlay hm-white-slight">
+                                <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/wp.jpg" class="img-fluid" alt="MDB WordPress tutorial">
+                                <a id="about-card-img-wpTutorial" href="https://mdbootstrap.com/wordpress-tutorial/">
+                                    <div class="mask"></div>
+                                </a>
+                            </div>
+                            <!--/.Card image-->
+
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+                                <h4 class="card-title mt-2">Wordpress tutorial</h4>
+                                <!--Text-->
+                                <p class="card-text">This comprehensive tutorial contains everything you have to know about WordPress Theme development,
+                                    starting with setting the environment, through WordPress installation and configuration,
+                                    setting up theme construction, development including custom widgets and functions. </p>
+                                <a id="about-card-img-wpTutorial" href="https://mdbootstrap.com/wordpress-tutorial/" target="_blank" class="btn btn-info">Start</a>
+                            </div>
+                            <!--/.Card content-->
+
+                        </div>
+                        <!--/.Card-->
+
+                    </div>
+                    <!--/Third column-->
+                </div>
+                <!--/First row-->
+            </section>
+            <!--/Projects section v.1-->
+
+        </div>
+    </main>
+    <!--/Main layout-->
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js'></script><script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js'></script>
+<script >new WOW().init();
+
+// Tooltips Initialization
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+// popovers Initialization
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+//line
+var ctxL = document.getElementById("lineChart").getContext('2d');
+var myLineChart = new Chart(ctxL, {
+    type: 'line',
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+            {
+                label: "My First dataset",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: [65, 59, 80, 81, 56, 55, 40]
+            },
+            {
+                label: "My Second dataset",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: [28, 48, 40, 19, 86, 27, 90]
+            }
+        ]
+    },
+    options: {
+        responsive: true
+    }    
+});
+
+//radar
+var ctxR = document.getElementById("radarChart").getContext('2d');
+var myRadarChart = new Chart(ctxR, {
+    type: 'radar',
+    data: {
+        labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+        datasets: [
+            {
+                label: "My First dataset",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: [65, 59, 90, 81, 56, 55, 40]
+            },
+            {
+                label: "My Second dataset",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: [28, 48, 40, 19, 96, 27, 100]
+            }
+        ]
+    },
+    options: {
+        responsive: true
+    }    
+});
+
+//bar
+var ctxB = document.getElementById("barChart").getContext('2d');
+var myBarChart = new Chart(ctxB, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    optionss: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+//pie
+var ctxP = document.getElementById("pieChart").getContext('2d');
+var myPieChart = new Chart(ctxP, {
+    type: 'pie',
+    data: {
+        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+        datasets: [
+            {
+                data: [300, 50, 100, 40, 120],
+                backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+            }
+        ]
+    },
+    options: {
+        responsive: true
+    }    
+});
+
+//doughnut
+var ctxD = document.getElementById("doughnutChart").getContext('2d');
+var myLineChart = new Chart(ctxD, {
+    type: 'doughnut',
+    data: {
+        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+        datasets: [
+            {
+                data: [300, 50, 100, 40, 120],
+                backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+            }
+        ]
+    },
+    options: {
+        responsive: true
+    }    
+});        
+//# sourceURL=pen.js
+</script>
+</body></html>

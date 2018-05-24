@@ -1,0 +1,329 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/airnan/pen/RazwzX" />
+
+
+<style class="cp-pen-styles">@font-face {
+  font-family: Roboto;
+  src: url(Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Bold;
+  src: url(Roboto-Bold.ttf);
+}
+
+body,
+html {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  background-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+}
+
+.column {
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+}
+
+.bm_container {
+  width: 23%;
+  margin: 1%;
+  height: 200px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  margin-bottom: 100px;
+  border: 1px solid #cccccc;
+  background-color: #F9F6EB;
+}
+
+.bm_container .title {
+  font-family: Roboto-Bold, sans-serif;
+  color: #666666;
+  font-size: 27px;
+  text-align: center;
+}
+
+.bm_inner_container {
+  width: 80%;
+  height: 200px;
+  margin: auto;
+}
+
+.header {
+  background-color: #ffffff;
+  color: #ffffff;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.header .title {
+  padding-top: 50px;
+  background-color: #F26B53;
+  height: 193px;
+}
+
+.header .bar {
+  background-color: #ffffff;
+  height: 10px;
+  background: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 634.7 9.2" style="enable-background:new 0 0 634.7 9.2;" xml:space="preserve"><g><rect fill="#F26B53" width="158.8" height="9.2"/><rect x="158.8" fill="#F3B573" width="158.8" height="9.2"/><rect x="317.2" fill="#5BC2A8" width="158.8" height="9.2"/><rect x="476" fill="#603256" width="158.8" height="9.2"/></g></svg>');
+}
+
+.navigation {
+  text-align: center;
+}
+
+.navigation .navButton {
+  width: 80px;
+  height: 50px;
+  background-color: #F26B53;
+  color: #DDDDDD;
+  cursor: pointer;
+}
+
+#navText {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.navigation .navButton:hover {
+  color: white;
+}
+
+@media only screen and (max-width: 680px) {
+  .header {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  .bm_container {
+    margin-bottom: 50px;
+    height: 120px;
+  }
+  .bm_inner_container {
+    height: 100px;
+  }
+  .bm_container .title {
+    font-size: 14px;
+  }
+  .header .title {
+    padding-top: 10px;
+    height: 70px;
+  }
+  .header .bar {
+    height: 2px;
+  }
+  .navigation {
+    margin-bottom: 20px;
+  }
+  .navigation .navButton {
+    height: 40px;
+  }
+}
+
+.bm_icon_hoverable {
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(.18, .78, .37, .84);
+  transform-origin: 50% 50%;
+  transform: scale(1, 1);
+}
+
+.bm_shadow_hoverable {
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(.18, .78, .37, .84);
+  transform-origin: 50% 50%;
+  transform: translate(0, 0);
+}
+
+.bm_icon_hoverable:hover {
+  transform: scale(1.05, 1.05);
+}
+
+.bm_icon_hoverable:hover .bm_shadow_hoverable {
+  transform: translate(10px, 10px);
+}
+
+.bm_color_1{
+    fill: #F26B53;
+    stroke: #F26B53;
+}
+.bm_color_2{
+    fill: #F3B573;
+    stroke: #F3B573;
+}
+.bm_color_3{
+    fill: #5BC2A8;
+    stroke: #5BC2A8;
+}
+.bm_color_4{
+    fill: #603256;
+    stroke: #603256;
+}</style></head><body>
+<div class="header">
+    <div class="title">Medical SVG<br/>Animated Icons
+    </div>
+    <div class="bar"></div>
+</div>
+<div class="navigation">
+    <button class="navButton" id="prevButton">Prev</button>
+    <div id="navText">1/4</div>
+    <button class="navButton" id="nextButton">Next</button>
+</div>
+<div class="column">
+    <div class="bm_container" id="icon-container-cross">
+        <div class="bm_inner_container" id="icon-cross"></div>
+    </div><!--
+    --><div class="bm_container" id="icon-container-bandaid">
+        <div class="bm_inner_container" id="icon-bandaid"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-bottle">
+        <div class="bm_inner_container" id="icon-bottle"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-eye">
+        <div class="bm_inner_container" id="icon-eye"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-mobile">
+        <div class="bm_inner_container" id="icon-mobile"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-pills">
+        <div class="bm_inner_container" id="icon-pills"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-stethoscope">
+        <div class="bm_inner_container" id="icon-stethoscope"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-syringe">
+        <div class="bm_inner_container" id="icon-syringe"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-ambulance">
+        <div class="bm_inner_container" id="icon-ambulance"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-apple">
+        <div class="bm_inner_container" id="icon-apple"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-atoms">
+        <div class="bm_inner_container" id="icon-atoms"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-heart">
+        <div class="bm_inner_container" id="icon-heart"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-bicycle">
+        <div class="bm_inner_container" id="icon-bicycle"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-dropper">
+        <div class="bm_inner_container" id="icon-dropper"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-female_doctor">
+        <div class="bm_inner_container" id="icon-female_doctor"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-female_nurse">
+        <div class="bm_inner_container" id="icon-female_nurse"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-male_doctor">
+        <div class="bm_inner_container" id="icon-male_doctor"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-male_nurse">
+        <div class="bm_inner_container" id="icon-male_nurse"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-thermometer">
+        <div class="bm_inner_container" id="icon-thermometer"></div>
+    </div><!--
+        --><div class="bm_container" id="icon-container-tubes">
+        <div class="bm_inner_container" id="icon-tubes"></div>
+    </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://labs.nearpod.com/bodymovin/demo/medical_icons/animations.js'></script><script src='https://labs.nearpod.com/bodymovin/demo/medical_icons/bodymovin.js'></script>
+<script >var elementsArr = ['ambulance','apple','atoms','bandaid','bicycle','bottle','cross','eye','female_doctor','female_nurse','male_doctor','male_nurse','dropper','heart','mobile','pills','stethoscope','syringe','thermometer','tubes'];
+    var currentPage = 0;
+    var itemsPerPage = 4;
+    var icons = [];
+    var navText;
+
+    function buildIcons(){
+        var element, anim;
+        for(var i=0;i<elementsArr.length;i+=1){if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;}
+            element = document.getElementById('icon-container-'+elementsArr[i]);
+            element.style.display = 'none';
+            var params = {
+                container: document.getElementById('icon-'+elementsArr[i]),
+                autoplay:false,
+                loop:false,
+                animationData:animations[elementsArr[i]],
+                renderer:'svg'
+            };
+            anim = bodymovin.loadAnimation(params);
+            icons.push({
+                anim:anim,
+                element: element
+            })
+        }
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+
+    }
+
+    function buildNavigation(){
+        navText = document.getElementById('navText');
+        var nextButton = document.getElementById('nextButton');
+        nextButton.addEventListener('click', function(){
+            movePage(1);
+        })
+        var prevButton = document.getElementById('prevButton');
+        prevButton.addEventListener('click', function(){
+            movePage(-1);
+        })
+    }
+
+
+    function renderPage(){
+        var i, len = icons.length;
+        for(i=0;i<len;i+=1){if (window.CP.shouldStopExecution(2)){break;}if (window.CP.shouldStopExecution(2)){break;}if (window.CP.shouldStopExecution(2)){break;}if (window.CP.shouldStopExecution(2)){break;}
+            if(i<currentPage*itemsPerPage || i>=(currentPage+1)*itemsPerPage){
+                icons[i].element.style.display = 'none';
+                icons[i].anim.goToAndStop(0);
+            } else {
+                icons[i].element.style.display = 'inline-block';
+                icons[i].anim.play();
+            }
+        }
+window.CP.exitedLoop(2);
+
+window.CP.exitedLoop(2);
+
+window.CP.exitedLoop(2);
+
+window.CP.exitedLoop(2);
+
+        navText.innerHTML = (currentPage+1)+'/'+Math.ceil(icons.length/itemsPerPage);
+    }
+
+    function movePage(dir){
+        if(currentPage === 0 && dir < 0){
+            return;
+        } else if((currentPage+1)*itemsPerPage > icons.length - 1 && dir > 0){
+            return;
+        }
+        currentPage += dir;
+        renderPage();
+
+    }
+
+    buildIcons();
+    buildNavigation();
+    renderPage();
+//# sourceURL=pen.js
+</script>
+</body></html>

@@ -1,0 +1,137 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/wadehammes/pen/bqYzwG" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">.tm-card-wrapper {
+	position: relative
+	
+	/* Add Card Stack if Campaign */
+}
+.tm-card-wrapper.is-campaign:before,
+		.tm-card-wrapper.is-campaign:after {
+	content: '';
+	display: block;
+	background: white;
+	border: 1px solid rgba(20, 20, 20, .1);
+	border-radius: 4px;
+	-webkit-box-shadow: 0 0 2px rgba(60, 60, 60, .15);
+	        box-shadow: 0 0 2px rgba(60, 60, 60, .15);
+	overflow: hidden;
+	-webkit-transition: border 0.5s ease-in-out;
+	transition: border 0.5s ease-in-out;
+}
+.tm-card-wrapper.is-campaign:before:hover, .tm-card-wrapper.is-campaign:after:hover {
+	border-color: rgba(20, 20, 20, .15);
+}
+.tm-card-wrapper.is-campaign:before,
+		.tm-card-wrapper.is-campaign:after {
+	position: absolute;
+	-webkit-transition: -webkit-transform 0.5s ease-in-out;
+	transition: -webkit-transform 0.5s ease-in-out;
+	transition: transform 0.5s ease-in-out;
+	transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+	-webkit-transform-origin: center;
+	        transform-origin: center;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+	will-change: transform;
+}
+.tm-card-wrapper.is-campaign:before {
+	-webkit-transform: rotate(4deg);
+	        transform: rotate(4deg);
+}
+.tm-card-wrapper.is-campaign:after {
+	-webkit-transform: rotate(2deg);
+	        transform: rotate(2deg);
+}
+.tm-card-wrapper {
+	
+	/* Animate Card stack on Hover */
+}
+.tm-card-wrapper.is-campaign:hover:before {
+	-webkit-transform: rotate(6deg);
+	        transform: rotate(6deg);
+}
+.tm-card-wrapper.is-campaign:hover:after {
+	-webkit-transform: rotate(3deg);
+	        transform: rotate(3deg);
+}
+
+/* Card Setup */
+.tm-card {
+		display: block;
+		background: white;
+		border: 1px solid rgba(20, 20, 20, .1);
+		border-radius: 4px;
+		-webkit-box-shadow: 0 0 2px rgba(60, 60, 60, .15);
+		        box-shadow: 0 0 2px rgba(60, 60, 60, .15);
+		overflow: hidden;
+		-webkit-transition: border 0.5s ease-in-out;
+		transition: border 0.5s ease-in-out;
+}
+.tm-card:hover {
+	border-color: rgba(20, 20, 20, .15);
+}
+
+.tm-card-layout {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch;
+	justitfy-content: center
+}
+
+.tm-card-layout .tm-card-content {
+	-webkit-box-flex: 4;
+	    -ms-flex: 4;
+	        flex: 4;
+}
+
+.tm-card-layout .tm-card-meta {
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	border-left: 1px solid rgba(20, 20, 20, .1);
+}
+
+.tm-content-image {
+	height: 20em;
+	width: 100%;
+	background-size: cover;
+}
+
+/* Codepen Setup */
+body {
+	background: #f5f6f7;
+	padding: 8em;
+	text-align: center;
+}
+
+.tm-card,
+.tm-card-wrapper,
+.tm-card-wrapper:after,
+.tm-card-wrapper:before {
+	height: 40em;
+	width: 50em;
+	margin: 0 auto;
+}
+
+p {
+	color: #515b66;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	margin-bottom: 4em;
+}</style></head><body>
+<p>Campaign Card</p>
+<div class="tm-card-wrapper is-campaign">
+	<div class="tm-card tm-card-layout">
+			<div class="tm-card-content"></div>
+			<div class="tm-card-meta"></div>
+	</div>
+</div>
+
+</body></html>

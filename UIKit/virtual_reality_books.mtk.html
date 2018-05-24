@@ -1,0 +1,501 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/AlexJedi/pen/PmRrZG?depth=everything&order=popularity&page=2&q=a-frame&show_forks=false" />
+
+
+<style class="cp-pen-styles">/* Where is CSS?!! It's so weird... */</style></head><body>
+
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://res.cloudinary.com/dybluctxg/raw/upload/v1495309810/index_bp9czc.js"></script>
+  </head>
+  <body>
+    <a-scene light="shadowMapType: basic" shadow="shadow">
+      <a-assets></a-assets>
+      <a-light class="ambient-light" type="ambient" color="#fff" position="0 -3 0" angle="360" intensity="0.6" decay="0"></a-light>
+      <a-light type="point" color="#fff" position="-2 -2 0" angle="360" intensity="0.3" decay="0"></a-light>
+      <a-text class="text-first" value="What You See Is What You Get" color="#4B5154" width="10" position="-4 0 3" rotation="0 90 0" opacity="0">
+        <a-animation attribute="position" dur="5500" to="-4 3 3" easing="ease-in-out"></a-animation>
+        <a-animation attribute="opacity" dur="4500" from="0" to="1" easing="ease-in-out"></a-animation>
+      </a-text>
+      <a-text class="text-second" value="Look Around" color="#4B5154" width="10" position="-4 -1 1.4" rotation="0 90 0" opacity="0">
+        <a-animation attribute="position" dur="5500" delay="6000" to="-4 2 1.4" easing="ease-in-out"></a-animation>
+        <a-animation attribute="opacity" dur="4500" delay="6000" from="0" to="1" easing="ease-in-out"></a-animation>
+      </a-text>
+      <a-text class="text-third" value="Welcome to the Future" color="#4B5154" width="10" position="-4 -2 2.3" rotation="0 90 0" opacity="0">
+        <a-animation attribute="position" dur="5500" delay="12000" to="-4 1 2.3" easing="ease-in-out"></a-animation>
+        <a-animation attribute="opacity" dur="4500" delay="12000" from="0" to="1" easing="ease-in-out"></a-animation>
+      </a-text>
+      <a-light type="directional" color="#fff" position="2 2 0" angle="360" intensity="0.5"></a-light>
+      <a-sky class="first-back" color="#fff" radius="49"></a-sky>
+      <a-curvedimage class="gallery-switch-front" color="#ff758c" height="20.0" radius="15" theta-length="0" rotation="0 0 0" scale="2 2 2" position="-2 0 0"></a-curvedimage>
+      <a-curvedimage class="gallery-switch-back" color="#fff" opacity="0.4" height="17.0" radius="13" theta-length="0" theta-start="90" rotation="180 0 0" scale="2 2 2" position="-2 0 0"></a-curvedimage>
+      <a-entity class="nav" position="2 0 0">
+        <a-cylinder class="btn-main" color="#66a6ff" rotation="0 0 -30" segments-radial="8" position="-2 -3 0" scale="0.7 0.7 0.7" width="1.5" height="1.5" depth="1.5" shadow="cast: true; receive: true">
+          <a-entity class="group-plus" rotation="0 0 0" position="0.2 0 0">
+            <a-box color="#fff" rotation="0 0 0" position="0 1.7 0" scale="0.8 0.8 0.8" height="0.3" width="0.3" shadow="cast: true; receive: true"></a-box>
+            <a-box color="#fff" rotation="0 90 0" position="0 1.7 0" scale="0.8 0.8 0.8" height="0.3" width="0.3" shadow="cast: true; receive: true"></a-box>
+          </a-entity>
+          <a-animation attribute="position" begin="click" dur="1500" to="-2 -3.5 0" easing="ease-expo"></a-animation>
+          <a-animation attribute="material.color" begin="click" dur="1500" from="#66a6ff" to="#874da2" easing="ease"></a-animation>
+          <a-animation attribute="material.color" begin="click" delay="1800" dur="1500" from="#874da2" to="#66a6ff" easing="ease"></a-animation>
+          <a-animation attribute="position" begin="click" delay="1800" dur="1500" from="-2 -3.5 0" to="-2 -3 0" easing="ease"></a-animation>
+        </a-cylinder>
+        <a-entity class="main-nav" position="-2 -3 0" rotation="0 0 0" scale="0 0 0">
+          <a-cylinder class="gallery-btn-right" color="#66a6ff" segments-radial="8" rotation="20 0 -30" position="0 0 -3" scale="0.7 0.7 0.7">
+            <a-tetrahedron material="color: #764ba2; roughness: 1; metalness: 0" rotation="-50 180 0" position="0.5 2 0.3" scale="0.5 0.5 0.5"></a-tetrahedron>
+            <a-animation attribute="position" begin="click" dur="1500" to="0 -1 -3" easing="ease"></a-animation>
+            <a-animation attribute="material.color" begin="click" dur="1500" from="#66a6ff" to="#2a5298" easing="ease"></a-animation>
+            <a-animation attribute="material.color" begin="click" delay="1800" dur="1500" from="#2a5298" to="#66a6ff" easing="ease"></a-animation>
+            <a-animation attribute="position" begin="click" delay="1800" dur="1500" from="0 -1 -3" to="0 0 -3" easing="ease"></a-animation>
+          </a-cylinder>
+          <a-cylinder class="gallery-btn-left" color="#66a6ff" segments-radial="8" rotation="-20 0 -30" position="0 0 3" scale="0.7 0.7 0.7">
+            <a-tetrahedron material="color: #764ba2; roughness: 1; metalness: 0" rotation="-50 180 0" position="0.5 2 -0.3" scale="0.5 0.5 0.5" shadow="none"></a-tetrahedron>
+            <a-animation attribute="position" begin="click" dur="1500" to="0 -1 3" easing="ease"></a-animation>
+            <a-animation attribute="material.color" begin="click" dur="1500" from="#66a6ff" to="#2a5298" easing="ease"></a-animation>
+            <a-animation attribute="material.color" begin="click" delay="1800" dur="1500" from="#2a5298" to="#66a6ff" easing="ease"></a-animation>
+            <a-animation attribute="position" begin="click" delay="1800" dur="1500" from="0 -1 3" to="0 0 3" easing="ease"></a-animation>
+          </a-cylinder>
+          <a-box class="gallery-btn-share" color="#21d4fd" depth="8" height="0.2" rotation="0 0 -90" position="-4 8 0" scale="0 0 0">
+            <a-box color="#ff0844" rotation="-50 180 0" position="0.7 2 0" scale="0.2 0.2 0.2" shadow="none"></a-box>
+            <a-animation attribute="position" begin="click" dur="1500" to="-5 8 0" easing="ease"></a-animation>
+            <a-animation attribute="material.color" begin="click" dur="1500" from="#21d4fd" to="#2a5298" easing="ease"></a-animation>
+            <a-animation attribute="material.color" begin="click" delay="1800" dur="1500" from="#2a5298" to="#21d4fd" easing="ease"></a-animation>
+            <a-animation attribute="position" begin="click" delay="1800" dur="1500" from="-5 8 0" to="-4 8 0" easing="ease"></a-animation>
+          </a-box>
+          <a-box class="gallery-btn-like" color="#21d4fd" depth="8" height="0.2" rotation="0 0 -90" position="-4 0 0" scale="0 0 0">
+            <a-tetrahedron color="#ff0844" rotation="-50 180 0" position="-0.9 2 0" scale="0.2 0.2 0.2" shadow="none"></a-tetrahedron>
+            <a-animation attribute="position" begin="click" dur="1500" to="-5 0 0" easing="ease"></a-animation>
+            <a-animation attribute="material.color" begin="click" dur="1500" from="#21d4fd" to="#ff0844" easing="ease"></a-animation>
+            <a-animation attribute="material.color" begin="click" delay="1800" dur="1500" from="#ff0844" to="#21d4fd" easing="ease"></a-animation>
+            <a-animation attribute="position" begin="click" delay="1800" dur="1500" from="-5 0 0" to="-4 0 0" easing="ease"></a-animation>
+          </a-box>
+        </a-entity>
+      </a-entity>
+      <a-entity class="share" position="-2 7 0" rotation="0 0 240" scale="0 0 0">
+        <a-cylinder class="share-facebook" color="#4facfe" rotation="0 0 -30" segments-radial="8" position="-2 -3 0" scale="1 1 1" src="http://res.cloudinary.com/dta92sz5c/image/upload/c_crop,h_256,w_256/a_180/v1496219428/official-facebook-logo-slide_yp1ikm.jpg">
+          <a-animation attribute="position" begin="click" dur="1500" to="-2 -3.5 0" easing="ease-expo"></a-animation>
+          <a-animation attribute="material.color" begin="click" dur="1500" from="#4facfe" to="#3c93e0" easing="ease"></a-animation>
+          <a-animation attribute="material.color" begin="click" delay="1800" dur="1500" from="#3c93e0" to="#4facfe" easing="ease"></a-animation>
+          <a-animation attribute="position" begin="click" delay="1800" dur="1500" from="-2 -3.5 0" to="-2 -3 0" easing="ease"></a-animation>
+        </a-cylinder>
+        <a-cylinder class="share-twitter" color="#005bea" rotation="0 0 -30" segments-radial="8" position="-2.5 -3 -3" scale="1 1 1" src="http://res.cloudinary.com/dta92sz5c/image/upload/c_scale,h_256,w_256/a_180/v1496219076/apple-touch-icon-192x192_xdhmbn.png">
+          <a-animation attribute="position" begin="click" dur="1500" to="-2 -3.5 -3" easing="ease-expo"></a-animation>
+          <a-animation attribute="material.color" begin="click" dur="1500" from="#005bea" to="#874da2" easing="ease"></a-animation>
+          <a-animation attribute="material.color" begin="click" delay="1800" dur="1500" from="#874da2" to="#005bea" easing="ease"></a-animation>
+          <a-animation attribute="position" begin="click" delay="1800" dur="1500" from="-2 -3.5 -3" to="-2 -3 -3" easing="ease"></a-animation>
+        </a-cylinder>
+        <a-cylinder class="share-pinterest" color="#ff0844" rotation="0 0 -30" segments-radial="8" position="-2.5 -3 3" scale="1 1 1" src="http://res.cloudinary.com/dta92sz5c/image/upload/c_crop,h_256,w_256/a_180/v1496219715/1-brand-guidelines-01_wbxhuy.jpg">
+          <a-animation attribute="position" begin="click" dur="1500" to="-2 -3.5 3" easing="ease-expo"></a-animation>
+          <a-animation attribute="material.color" begin="click" dur="1500" from="#ff0844" to="#874da2" easing="ease"></a-animation>
+          <a-animation attribute="material.color" begin="click" delay="1800" dur="1500" from="#82a6e0" to="#ff0844" easing="ease"></a-animation>
+          <a-animation attribute="position" begin="click" delay="1800" dur="1500" from="-2 -3.5 3" to="-2 -3 3" easing="ease"></a-animation>
+        </a-cylinder>
+        <a-cylinder class="share-close" color="#3cba92" rotation="0 0 -30" segments-radial="8" position="-4.5 -3 0" scale="0.7 0.7 0.7">
+          <a-entity class="group-close" rotation="0 45 0" position="0 0 0">
+            <a-box color="#fff" rotation="0 0 0" position="0 1.7 0" scale="0.8 0.8 0.8" height="0.3" width="0.3"></a-box>
+            <a-box color="#fff" rotation="0 90 0" position="0 1.7 0" scale="0.8 0.8 0.8" height="0.3" width="0.3"></a-box>
+          </a-entity>
+          <a-animation attribute="position" begin="click" dur="1500" to="-5 -4 0" easing="ease-expo"></a-animation>
+          <a-animation attribute="material.color" begin="click" dur="1500" from="#3cba92" to="#0ba360" easing="ease"></a-animation>
+          <a-animation attribute="material.color" begin="click" delay="1800" dur="1500" from="#0ba360" to="#3cba92" easing="ease"></a-animation>
+          <a-animation attribute="position" begin="click" delay="1800" dur="1500" from="-5 -4 0" to="-4.5 -3 0" easing="ease"></a-animation>
+        </a-cylinder>
+      </a-entity>
+      <a-sound class="sound-back" src="https://dl.dropbox.com/s/n8m6tvcrxap1k8p/enter.wav"></a-sound>
+      <a-sound class="sound-click" src="https://dl.dropbox.com/s/al1hd8myju4evxa/click.wav"></a-sound>
+      <a-entity position="5 0 0" rotation="0 90 0">
+        <a-camera class="camera" rotation="-10 0 0">
+          <a-cursor>
+            <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+          </a-cursor>
+        </a-camera>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >const switchEl = document.querySelector('.gallery-switch-front');
+const switchbackEl = document.querySelector('.gallery-switch-back');
+const btnleftEl = document.querySelector('.gallery-btn-left');
+const btnrightEl = document.querySelector('.gallery-btn-right');
+const btnshareEl = document.querySelector('.gallery-btn-share');
+const btnlikeEl = document.querySelector('.gallery-btn-like');
+const btncloseEl = document.querySelector('.share-close');
+const shareEl = document.querySelector('.share');
+const btnmainEl = document.querySelector('.btn-main');
+const mainnavEl = document.querySelector('.main-nav');
+const groupplusEl = document.querySelector('.group-plus');
+const imgEl = document.querySelector('.image');
+
+
+const cameraEl = document.querySelector('.camera');
+const lightEl = document.querySelector('.ambient-light');
+const clickEl = document.querySelector('.sound-click');
+const soundEl = document.querySelector('.sound-back');
+const backgroundEl = document.querySelector('.first-back');
+
+const textfirstEl = document.querySelector('.text-first');
+const textsecondEl = document.querySelector('.text-second');
+const textthirdEl = document.querySelector('.text-third');
+
+let switchYPos = 0;
+function rotateSwitch(pos) {
+  clickEl.components.sound.playSound();
+  const animationEl = document.createElement('a-animation');
+  setAttributes(animationEl, [
+    ['attribute', 'rotation'],
+    ['to', `0 ${pos} 0`],
+    ['dur', '1500'],
+    ['easing', 'ease']
+  ]);
+  switchEl.appendChild(animationEl);
+}
+
+btnleftEl.addEventListener('click', () => {
+  switchYPos -= 60;
+  rotateSwitch(switchYPos);
+});
+btnrightEl.addEventListener('click', () => {
+  switchYPos += 60;
+  rotateSwitch(switchYPos);
+});
+
+// const picturegroupEl = document.createElement('a-entity');
+// picturegroupEl.setAttribute('scale', '0 0 0');
+// switchEl.appendChild(picturegroupEl);
+
+const pictureEls = [];
+let yRot = 235;
+let yPos;
+
+for (var i = 0; i < 30; i++) {if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;}
+  const pictureEl = document.createElement('a-curvedimage');
+  pictureEl.classList.add('image');
+  
+  if (i <= 10) {
+    yRot -= 40;
+    yPos = 5;
+  } else if (i <= 20) {
+    yRot = i === 11 ? 255 : yRot + 40;
+    yPos = 0;
+  } else {
+    yRot = i === 21 ? 275 : yRot - 40;
+    yPos = -5;
+  }
+  
+  setAttributes(pictureEl, [
+    ['src', 'http://res.cloudinary.com/dta92sz5c/image/upload/c_scale,h_1024,w_2048/v1496214536/Cygnus_Wall_i41jwv.jpg'],
+    ['color', '#a6c1ee'],
+    ['height', '2.0'],
+    ['radius', '6'],
+    ['theta-length', '30'],
+    ['scale', '0 0 0'],
+    ['rotation', `0 ${yRot} 0`],
+    ['position', `0 ${yPos} 0`]
+  ]);
+  
+
+  let condition = false;
+  let yposition;
+  let yrotation;
+  pictureEl.addEventListener('click', () => {
+    yposition = pictureEl.getAttribute('position').y;
+    yrotation = pictureEl.getAttribute('rotation').y;
+    condition = !condition;
+    clickEl.components.sound.playSound();
+    
+    createAndSetAttributes('a-animation', pictureEl, [
+      ['attribute', 'scale'],
+      ['to', '3 3 3'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    createAndSetAttributes('a-animation', btnshareEl, [
+      ['attribute', 'scale'],
+      ['to', '1 1 1'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    createAndSetAttributes('a-animation', btnlikeEl, [
+      ['attribute', 'scale'],
+      ['to', '1 1 1'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    createAndSetAttributes('a-animation', pictureEl, [
+      ['attribute', 'position'],
+      ['to', '10 0 0'],
+      ['dur', '1500'],
+      ['easing', 'ease'],
+    ]);
+    createAndSetAttributes('a-animation', pictureEl, [
+      ['attribute', 'rotation'],
+      ['to', `0 ${255} 0`],
+      ['dur', '1500'],
+      ['easing', 'ease'],
+    ]);
+    createAndSetAttributes('a-animation', switchbackEl, [
+      ['attribute', 'radius'],
+      ['to', '11'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    createAndSetAttributes('a-animation', switchbackEl, [
+      ['attribute', 'material.color'],
+      ['from', '#fff'],
+      ['to', '#333'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    createAndSetAttributes('a-animation', switchbackEl, [
+      ['attribute', 'opacity'],
+      ['to', '0.9'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    
+    btnlikeEl.addEventListener('click', () => {
+      clickEl.components.sound.playSound();
+      const heartEl = document.createElement('a-sphere');
+      pictureEL.appendChild(heartEl);
+    });
+    
+  });
+    
+  switchbackEl.addEventListener('click', () => {
+    if (!condition) return;
+    condition = !condition;
+
+    createAndSetAttributes('a-animation', pictureEl, [
+      ['attribute', 'scale'],
+      ['to', '2 2 2'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    createAndSetAttributes('a-animation', btnshareEl, [
+      ['attribute', 'scale'],
+      ['to', '0 0 0'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    createAndSetAttributes('a-animation', btnlikeEl, [
+      ['attribute', 'scale'],
+      ['to', '0 0 0'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    createAndSetAttributes('a-animation', pictureEl, [
+      ['attribute', 'position'],
+      ['to', `0 ${yposition} 0`],
+      ['dur', '1500'],
+      ['easing', 'ease'],
+    ]);
+    createAndSetAttributes('a-animation', pictureEl, [
+      ['attribute', 'rotation'],
+      ['to', `0 ${yrotation} 0`],
+      ['dur', '1500'],
+      ['easing', 'ease'],
+    ]);
+    createAndSetAttributes('a-animation', switchbackEl, [
+      ['attribute', 'radius'],
+      ['to', '13'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    createAndSetAttributes('a-animation', switchbackEl, [
+      ['attribute', 'material.color'],
+      ['from', '#333'],
+      ['to', '#fff'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+    createAndSetAttributes('a-animation', switchbackEl, [
+      ['attribute', 'opacity'],
+      ['to', '0.4'],
+      ['dur', '1500'],
+      ['easing', 'ease']
+    ]);
+  });
+  
+  switchEl.appendChild(pictureEl);
+  pictureEls.push(pictureEl);
+}
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+
+
+let power = true;
+  btnmainEl.addEventListener('click', () => {
+    soundEl.components.sound.playSound();
+    clickEl.components.sound.playSound();
+    if (power) {
+      power = !power;
+      createAndSetAttributes('a-animation', groupplusEl, [
+        ['attribute', 'rotation'],
+        ['to', '0 45 0'],
+        ['dur', '1500'],
+        ['easing', 'ease']
+      ]);
+      createAndSetAttributes('a-animation', cameraEl, [
+        ['attribute', 'rotation'],
+        ['to', '-7 0 0'],
+        ['dur', '2000'],
+        ['easing', 'ease-in-out']
+      ]);
+      createAndSetAttributes('a-animation', textfirstEl, [
+        ['attribute', 'visible'],
+        ['to', 'false'],
+        ['dur', '1000'],
+        ['easing', 'ease-in-out']
+      ]);
+      createAndSetAttributes('a-animation', textsecondEl, [
+        ['attribute', 'visible'],
+        ['to', 'false'],
+        ['dur', '1000'],
+        ['easing', 'ease-in-out']
+      ]);
+      createAndSetAttributes('a-animation', textthirdEl, [
+        ['attribute', 'visible'],
+        ['to', 'false'],
+        ['dur', '1000'],
+        ['easing', 'ease-in-out']
+      ]);
+      createAndSetAttributes('a-animation', switchEl, [
+        ['attribute', 'theta-length'],
+        ['to', '360'],
+        ['dur', '1500'],
+        ['easing', 'ease-in']
+      ]);
+      createAndSetAttributes('a-animation', switchbackEl, [
+        ['attribute', 'theta-length'],
+        ['to', '360'],
+        ['delay', '1000'],
+        ['dur', '1500'],
+        ['easing', 'ease-in']
+      ]);
+      createAndSetAttributes('a-animation', mainnavEl, [
+        ['attribute', 'scale'],
+        ['to', '1 1 1'],
+        ['dur', '1000'],
+        ['easing', 'ease-in-out']
+      ]);
+      createAndSetAttributes('a-animation', backgroundEl, [
+        ['attribute', 'color'],
+        ['from', '#fff'],
+        ['to', '#2b5876'],
+        ['dur', '1500'],
+        ['easing', 'ease-in']
+      ]);
+      pictureEls.forEach((pictureEl) => {
+        createAndSetAttributes('a-animation', pictureEl, [
+          ['attribute', 'scale'],
+          ['to', '2 2 2'],
+          ['delay', '2500'],
+          ['dur', '1500'],
+          ['easing', 'ease']
+        ]);
+      });
+    }
+    else {
+      power = !power;
+      createAndSetAttributes('a-animation', groupplusEl, [
+        ['attribute', 'rotation'],
+        ['to', '0 0 0'],
+        ['dur', '1500'],
+        ['easing', 'ease']
+      ]);
+      createAndSetAttributes('a-animation', cameraEl, [
+        ['attribute', 'rotation'],
+        ['to', '-7 0 0'],
+        ['dur', '2000'],
+        ['easing', 'ease-in-out']
+      ]);
+      createAndSetAttributes('a-animation', switchEl, [
+        ['attribute', 'theta-length'],
+        ['to', '0'],
+        ['delay', '2000'],
+        ['dur', '1500'],
+        ['easing', 'ease-in']
+      ]);
+      createAndSetAttributes('a-animation', switchbackEl, [
+        ['attribute', 'theta-length'],
+        ['to', '0'],
+        ['delay', '1000'],
+        ['dur', '1500'],
+        ['easing', 'ease-in']
+      ]);
+      createAndSetAttributes('a-animation', mainnavEl, [
+        ['attribute', 'scale'],
+        ['to', '0 0 0'],
+        ['dur', '1000'],
+        ['easing', 'ease-in-out']
+      ]);
+      pictureEls.forEach((pictureEl) => {
+        createAndSetAttributes('a-animation', pictureEl, [
+          ['attribute', 'scale'],
+          ['to', '0 0 0'],
+          ['dur', '1500'],
+          ['easing', 'ease']
+        ]);
+        createAndSetAttributes('a-animation', pictureEl, [
+          ['attribute', 'position'],
+          ['to', '0 0 0'],
+          ['dur', '1500'],
+          ['easing', 'ease']
+        ]);
+      });
+    }
+  });
+
+btnshareEl.addEventListener('click', () => {
+  clickEl.components.sound.playSound();
+  createAndSetAttributes('a-animation', cameraEl, [
+    ['attribute', 'rotation'],
+    ['to', '55 0 0'],
+    ['dur', '2000'],
+    ['easing', 'ease-in-out']
+  ]);
+  createAndSetAttributes('a-animation', shareEl, [
+    ['attribute', 'scale'],
+    ['to', '1 1 1'],
+    ['delay', '1000'],
+    ['dur', '1500'],
+    ['easing', 'ease-in-out']
+  ]);
+});
+btncloseEl.addEventListener('click', () => {
+  clickEl.components.sound.playSound();
+   createAndSetAttributes('a-animation', cameraEl, [
+    ['attribute', 'rotation'],
+    ['to', '-7 0 0'],
+    ['dur', '2000'],
+    ['easing', 'ease-in-out']
+  ]);
+  createAndSetAttributes('a-animation', shareEl, [
+    ['attribute', 'scale'],
+    ['to', '0 0 0'],
+    ['delay', '1000'],
+    ['dur', '1500'],
+    ['easing', 'ease-in-out']
+  ]);
+});
+
+function createAndSetAttributes(el, parentEl, attrs) {
+  const newEl = document.createElement(el);
+  attrs.forEach((attr) => {
+    newEl.setAttribute(attr[0], attr[1]);
+  });
+  parentEl.appendChild(newEl);
+}
+
+function setAttributes(el, attrs) {
+  attrs.forEach((attr) => {
+    el.setAttribute(attr[0], attr[1]);
+  });
+}
+//# sourceURL=pen.js
+</script>
+</body></html>

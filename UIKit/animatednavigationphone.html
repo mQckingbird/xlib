@@ -1,0 +1,276 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/gregh/pen/WxkNNv?limit=all&page=13&q=home" />
+<title>Animated Navigation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto'>
+<style class="cp-pen-styles">body {
+  background: #9a5ae8;
+  padding: 0;
+  margin: 0;
+}
+body * {
+  outline: none !important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.bg {
+	position: fixed;
+	background: red;
+	width: 100%;
+	height: 100%;
+	background: #29b3db; /* Old browsers */
+	background: -moz-linear-gradient(top,  #29b3db 0%, #9a5ae8 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #29b3db 0%,#9a5ae8 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #29b3db 0%,#9a5ae8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#29b3db', endColorstr='#9a5ae8',GradientType=0 ); /* IE6-9 */
+}
+.phone {
+  visibility: hidden;
+  background-color: #524662;    
+  width: 320px;
+  height: 480px;
+  padding: 64px 12px 64px;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -172px;
+  margin-top: -304px;
+}
+.phone:after {
+  content: " ";
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #41354F;
+  display: table;
+  position: absolute;
+  left: 50%;
+  margin-left: -21px;
+  margin-top: 10px;
+}
+.phone:before {
+  content: " ";
+  width: 64px;
+  height: 8px;
+  border-radius: 5px;
+  background-color: #41354F;
+  display: table;
+  position: absolute;
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -35px;
+}
+.screen {
+  background: url(https://greghub.github.io/animated-navigation/assets/background.svg);
+  background-size: cover;
+  width: 320px;
+  height: 480px;
+}
+.nav {
+  position: relative;
+  top: 12px;
+  left: 12px;
+}
+.nav a {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+}
+.nav a img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav a.home {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+}
+.nav a.home img {	
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.nav a.profile { 
+  position: absolute;
+  left: 113px;
+  top: -5px;
+}
+.nav a.like {
+  position: absolute;
+  left: 115px;
+  top: 59px;
+}
+.nav a.message {
+  position: absolute;
+  left: 65px;
+  top: 106px;
+}
+.nav a.tools {  
+  position: absolute;
+  top: 114px;
+  left: 0;
+}
+.home:not(.active) .close, .home.active .open {
+  display: none;
+}
+.home.active .close, .home:not(.active) .open {
+  display: block;
+}
+h1 {
+  position: absolute;
+  top: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36px;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+  .phone {	
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: transparent;
+  }
+  .phone:before, .phone:after {
+    content: "";
+    display: none;
+  }
+  .screen {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+}</style></head><body>
+<body>
+
+  <div class="bg"></div>
+	
+  <div class="phone">
+
+    <div class="screen">
+
+      <h1 class="hello">Welcome!</h1>
+
+      <div class="nav">
+        <a class="home" href="#">
+          <img class="open" src="https://greghub.github.io/animated-navigation/assets/menu.svg" title="Menu" width="30">
+          <img class="close" src="https://greghub.github.io/animated-navigation/assets/close.svg" title="Close" width="30">
+        </a>
+        <a class="item profile" href="#"><img src="https://greghub.github.io/animated-navigation/assets/user.svg" alt="User" width="25"></a>
+        <a class="item like" href="#"><img src="https://greghub.github.io/animated-navigation/assets/heart.svg" alt="Like" width="25"></a>
+        <a class="item message" href="#"><img src="https://greghub.github.io/animated-navigation/assets/message.svg" alt="Message" width="25"></a>
+        <a class="item tools" href="#"><img src="https://greghub.github.io/animated-navigation/assets/tools.svg" title="Tools" width="25"></a>
+      </div><!-- .nav -->
+
+    </div><!-- .screen -->
+
+  </div><!-- .phone -->
+  
+</body>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js'></script>
+<script >$(window).load(function() {
+
+  var tl = new TimelineMax({
+      paused: true
+    }),
+    tlback = new TimelineMax({
+      paused: true
+    }),
+    intro = new TimelineMax();
+
+  intro
+    .from('.phone', 1, {
+      autoAlpha: 0
+    })
+    .from('.hello', 0.5, {
+      autoAlpha: 0
+    }, 0.5)
+
+  tl
+    .to('.hello', 0.3, {
+      autoAlpha: 0
+    })
+    .set('.home', {
+      className: '+=active'
+    })
+    .set('.item', {
+      scale: 1
+    }) // fix for a bug when on of the item was appearing at 0.5 scale
+    .to('.home', 0.1, {
+      scale: 1.2,
+      yoyo: true,
+      repeat: 1
+    })
+    .to('.home', 0.3, {
+      x: 20,
+      y: 20,
+      ease: Elastic.easeOut.config(1, 0.5)
+    }, 0)
+    .staggerFrom('.item', 0.7, {
+      left: 20,
+      top: 20,
+      autoAlpha: 0,
+      scale: 0.5,
+      ease: Elastic.easeOut.config(1, 0.5)
+    }, 0.1);
+
+  tlback
+    .set('.home', {
+      className: '-=active'
+    })
+    .staggerTo('.item', 0.7, {
+      left: 20,
+      top: 20,
+      autoAlpha: 0,
+      scale: 0.5,
+      ease: Elastic.easeOut.config(1, 0.5)
+    }, 0.1)
+    .to('.hello', 0.3, {
+      autoAlpha: 1
+    })
+    .to('.home', 0.3, {
+      x: 0,
+      y: 0,
+      ease: Power2.easeOut
+    }, 0.5);
+
+  $(document).on('click', '.home:not(.active)', function(e) {
+    event.preventDefault();
+    tl.play(0);
+  });
+
+  $(document).on('click', '.home.active, .item', function(e) {
+    event.preventDefault();
+    TweenMax.to($(this), 0.1, {
+      scale: 1.2,
+      yoyo: true,
+      repeat: 1,
+      onComplete: function() {
+        tlback.play(0)
+      }
+    });
+  });
+
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

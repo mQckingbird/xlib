@@ -1,0 +1,1076 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/geotrev/pen/EXJPvE?limit=all&page=9&q=button+dropdown" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+<style class="cp-pen-styles">.no-scroll {
+  overflow: hidden;
+}
+
+.dropdown {
+  display: inline-block;
+  position: initial;
+}
+@media screen and (min-width: 400px) and (min-height: 400px) {
+  .dropdown {
+    position: relative;
+  }
+}
+.dropdown a, .dropdown a:hover, .dropdown a:focus {
+  text-decoration: none;
+}
+
+.dropdown-button {
+  color: crimson;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 1rem;
+}
+.dropdown-button .has-avatar {
+  height: 40px;
+  width: 40px;
+  background: darkgray;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.dropdown-button:hover {
+  opacity: 0.8;
+}
+.dropdown-button::after {
+  -ms-flex-item-align: center;
+      align-self: center;
+  content: '\f107';
+  font-family: 'FontAwesome';
+  margin-left: 0.5rem;
+}
+.dropdown-button.has-icon::after {
+  content: '';
+  margin-left: 0;
+}
+
+.dropdown-list {
+  background: white;
+  display: none;
+  height: 100vh;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  max-height: unset;
+  overflow: scroll;
+  position: absolute;
+  width: 100vw;
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+.dropdown-list.active {
+  display: block;
+}
+.dropdown-list.wide {
+  width: 100vw;
+}
+.dropdown-list.wider {
+  width: 100vw;
+}
+.dropdown-list li a {
+  padding: 0.75rem 0.75rem;
+  max-width: 100%;
+  display: block;
+  color: gray;
+  font-size: 16px;
+}
+.dropdown-list li a:focus {
+  opacity: 0.8;
+}
+.dropdown-list li a:hover {
+  opacity: 0.8;
+}
+@media screen and (min-width: 400px) and (min-height: 400px) {
+  .dropdown-list {
+    border-radius: 4px;
+    height: unset;
+    left: unset;
+    max-height: 500px;
+    overflow: visible;
+    top: unset;
+    width: 200px;
+    border: 1px solid #f6f6f6;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  .dropdown-list.wide {
+    width: 300px;
+  }
+  .dropdown-list.wider {
+    width: 400px;
+  }
+}
+@media screen and (min-width: 400px) and (min-height: 400px) {
+  .dropdown-list.appears-right.appears-top {
+    right: -8px;
+    bottom: 50px;
+    left: unset;
+  }
+  .dropdown-list.appears-right {
+    right: -8px;
+    left: unset;
+  }
+  .dropdown-list.appears-top {
+    bottom: 50px;
+  }
+}
+
+.dropdown-list .title {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: gray;
+  display: none;
+}
+@media screen and (min-width: 400px) and (min-height: 400px) {
+  .dropdown-list .title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+.dropdown-list .dropdown-close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.dropdown-list .dropdown-close .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media screen and (min-width: 400px) and (min-height: 400px) {
+  .dropdown-list .dropdown-close .title {
+    display: none;
+  }
+}
+.dropdown-list .dropdown-close a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: crimson;
+}
+@media screen and (min-width: 400px) and (min-height: 400px) {
+  .dropdown-list .dropdown-close {
+    display: none;
+  }
+  .dropdown-list .dropdown-close a {
+    display: none;
+  }
+}
+.dropdown-list .has-label a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.dropdown-list .has-label a .label {
+  font-size: 14px;
+  font-weight: normal;
+}
+.dropdown-list .has-label.left a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.dropdown-list .has-label.left a span:first-child {
+  padding-bottom: 0.25rem;
+}
+.dropdown-list .has-icon a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.dropdown-list .has-icon a i {
+  margin-right: 0.25rem;
+  min-width: 1.25rem;
+}
+.dropdown-list .social, .dropdown-list .social a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.dropdown-list .social a:hover {
+  opacity: 0.5;
+}
+.dropdown-list .disabled a {
+  cursor: default;
+  pointer-events: none;
+  color: darkgray;
+}
+.dropdown-list .selected a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: bold;
+  color: crimson;
+}
+.dropdown-list .selected a::after {
+  content: '\f00c';
+  font-family: 'FontAwesome';
+}
+.dropdown-list .title, .dropdown-list .sub-title {
+  padding: 0.75rem 0.75rem;
+  font-size: 14px;
+  font-weight: bold;
+}
+.dropdown-list .sub-title {
+  font-size: 14px;
+  color: gray;
+  padding-bottom: 0.25rem;
+}
+.dropdown-list .has-border {
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.dropdown .dropdown-list .arrow {
+  border-bottom: 6px solid #f6f6f6;
+  border-top: none;
+  top: -6px;
+  left: 1rem;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  position: absolute;
+  z-index: 9999;
+}
+.dropdown .dropdown-list .arrow::after {
+  border-bottom: 5px solid white;
+  border-top: none;
+  top: 1px;
+  left: -5px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+}
+.dropdown .dropdown-list.appears-top .arrow {
+  border-bottom: none;
+  border-top: 6px solid #f6f6f6;
+  top: 100%;
+  left: 1rem;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  position: absolute;
+  z-index: 9999;
+}
+.dropdown .dropdown-list.appears-top .arrow::after {
+  border-bottom: none;
+  border-top: 5px solid white;
+  top: -6px;
+  left: -5px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+}
+.dropdown .dropdown-list.appears-right .arrow {
+  border-bottom: 6px solid #f6f6f6;
+  border-top: none;
+  top: -6px;
+  left: unset;
+  right: 1rem;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  position: absolute;
+  z-index: 9999;
+}
+.dropdown .dropdown-list.appears-right .arrow::after {
+  border-bottom: 5px solid white;
+  border-top: none;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+}
+.dropdown .dropdown-list.appears-top.appears-right .arrow {
+  border-bottom: none;
+  border-top: 6px solid #f6f6f6;
+  top: 100%;
+  left: unset;
+  right: 1rem;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  position: absolute;
+  z-index: 9999;
+}
+.dropdown .dropdown-list.appears-top.appears-right .arrow::after {
+  border-bottom: none;
+  border-top: 5px solid white;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+}
+
+.fa.fa-facebook {
+  color: blue;
+}
+
+.fa.fa-twitter {
+  color: skyblue;
+}
+
+.fa.fa-pinterest {
+  color: red;
+}
+
+.fa.fa-envelope {
+  color: black;
+}
+
+.dark.dropdown .dropdown-button {
+  color: darkgray;
+}
+.dark.dropdown .for-form {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.dark.dropdown .dropdown-list {
+  background: #1a1a1a;
+}
+@media screen and (min-width: 400px) and (min-height: 400px) {
+  .dark.dropdown .dropdown-list {
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-color: #1a1a1a;
+  }
+}
+.dark.dropdown .dropdown-list li a {
+  color: #cfcfcf;
+}
+.dark.dropdown .dropdown-list .arrow {
+  border-bottom-color: #1a1a1a !important;
+  border-top-color: #1a1a1a !important;
+}
+.dark.dropdown .dropdown-list .arrow::after {
+  border-bottom-color: #1a1a1a !important;
+  border-top-color: #1a1a1a !important;
+}
+.dark.dropdown .dropdown-list .dropdown-close a {
+  color: white;
+}
+.dark.dropdown .dropdown-list .disabled a {
+  color: gray;
+}
+.dark.dropdown .dropdown-list .selected a {
+  color: darkgray;
+}
+.dark.dropdown .dropdown-list .title {
+  color: gray;
+}
+.dark.dropdown .dropdown-list .social a {
+  color: #cfcfcf;
+}
+.dark.dropdown .dropdown-list .sub-title {
+  color: gray;
+}
+.dark.dropdown .dropdown-list .has-border {
+  border-bottom: 1px solid #343434;
+}
+
+.dd-container {
+  max-width: 1024px;
+  margin: 2rem auto;
+  height: 160vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+}
+.dd-container .light-wrap {
+  background: inherit;
+  padding: 1rem;
+}
+.dd-container .dark-wrap {
+  background: black;
+  padding: 1rem;
+}
+</style></head><body>
+<div class="dd-container">
+  <div class="top">
+    <div class="light-wrap">
+      <div class="dropdown">
+        <a class="dropdown-button" data-dropdown-button href="#">Document</a>
+        <ul class="dropdown-list" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Sort by Content Type</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li>
+            <a href="#">Everything</a>
+          </li>
+          <li>
+            <a href="#">Books</a>
+          </li>
+          <li>
+            <a href="#">Audiobooks</a>
+          </li>
+          <li>
+            <a href="#">News &amp; Magazines</a>
+          </li>
+          <li class="selected disabled">
+            <a href="#">Documents</a>
+          </li>
+          <li>
+            <a href="#">Full Access Only</a>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-list"></i></a>
+        <ul class="dropdown-list" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Create or View Lists</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-plus-circle"></i><span>Create List</span></a>
+          </li>
+          <li>
+            <a href="#">Listy List</a>
+          </li>
+          <li>
+            <a href="#">Harry Potter, Specifically</a>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-list-ul"></i></a>
+        <ul class="dropdown-list wide" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Table of Contents</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="title has-border">
+            Table of Contents
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 1</span><span class="label">Page 5</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 2</span><span class="label">Page 123</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 3</span><span class="label">Page 234</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 4</span><span class="label">Page 345</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 5</span><span class="label">Page 456</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 6</span><span class="label">Page 567</span></a>
+          </li>
+          <li class="has-label left disabled has-border">
+            <a href="#"><span>Chapter 7</span><span class="label">Not available in preview</span></a>
+          </li>
+          <li class="has-label left disabled">
+            <a href="#"><span>Chapter 8</span><span class="label">Not available in preview</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-ellipsis-v"></i></a>
+        <ul class="appears-right dropdown-list" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">More Options</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-plus-circle"></i><span>Add a Bookmark</span></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-pencil"></i><span>Add a Note</span></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-bookmark"></i><span>Save for Later</span></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-book"></i><span>Notebook</span></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-info-circle"></i><span>About Book</span></a>
+          </li>
+          <li class="sub-title">
+            Share This Title
+          </li>
+          <li class="has-icon social">
+            <a class="fa fa-facebook" href="#"></a><a class="fa fa-twitter" href="#"></a><a class="fa fa-pinterest" href="#"></a><a class="fa fa-envelope" href="#"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <a class="dropdown-button" data-dropdown-button href="#"><span class="has-avatar"></span></a>
+        <ul class="dropdown-list" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Hi, George!</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="title has-border">
+            Hi, George!
+          </li>
+          <li>
+            <a href="#">Public Profile</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Account Settings</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Document Uploads</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Read for Free</a>
+          </li>
+          <li>
+            <a href="#">Help</a>
+          </li>
+          <li>
+            <a href="#">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="dark-wrap">
+      <div class="dark dropdown">
+        <a class="dropdown-button" data-dropdown-button href="#">Document</a>
+        <ul class="dropdown-list" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Sort by Content Type</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li>
+            <a href="#">Everything</a>
+          </li>
+          <li>
+            <a href="#">Books</a>
+          </li>
+          <li>
+            <a href="#">Audiobooks</a>
+          </li>
+          <li>
+            <a href="#">News &amp; Magazines</a>
+          </li>
+          <li class="selected disabled">
+            <a href="#">Documents</a>
+          </li>
+          <li>
+            <a href="#">Full Access Only</a>
+          </li>
+        </ul>
+      </div>
+      <div class="dark dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-list"></i></a>
+        <ul class="dropdown-list" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Create or View Lists</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-plus-circle"></i><span>Create List</span></a>
+          </li>
+          <li>
+            <a href="#">Listy List</a>
+          </li>
+          <li>
+            <a href="#">Harry Potter, Specifically</a>
+          </li>
+        </ul>
+      </div>
+      <div class="dark dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-list-ul"></i></a>
+        <ul class="dropdown-list wide" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Table of Contents</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="title has-border">
+            Table of Contents
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 1</span><span class="label">Page 5</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 2</span><span class="label">Page 123</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 3</span><span class="label">Page 234</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 4</span><span class="label">Page 345</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 5</span><span class="label">Page 456</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 6</span><span class="label">Page 567</span></a>
+          </li>
+          <li class="has-label left disabled has-border">
+            <a href="#"><span>Chapter 7</span><span class="label">Not available in preview</span></a>
+          </li>
+          <li class="has-label left disabled">
+            <a href="#"><span>Chapter 8</span><span class="label">Not available in preview</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="dark dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-ellipsis-v"></i></a>
+        <ul class="appears-right dropdown-list" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Book Options</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-plus-circle"></i><span>Add a Bookmark</span></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-pencil"></i><span>Add a Note</span></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-bookmark"></i><span>Save for Later</span></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-book"></i><span>Notebook</span></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-info-circle"></i><span>About Book</span></a>
+          </li>
+          <li class="sub-title">
+            Share This Title
+          </li>
+          <li class="has-icon social">
+            <a class="fa fa-facebook" href="#"></a><a class="fa fa-twitter" href="#"></a><a class="fa fa-pinterest" href="#"></a><a class="fa fa-envelope" href="#"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="dark dropdown">
+        <a class="dropdown-button" data-dropdown-button href="#"><span class="has-avatar"></span></a>
+        <ul class="dropdown-list" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Hi, George!</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="title has-border">
+            Hi, George!
+          </li>
+          <li>
+            <a href="#">Public Profile</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Account Settings</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Document Uploads</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Read for Free</a>
+          </li>
+          <li>
+            <a href="#">Help</a>
+          </li>
+          <li>
+            <a href="#">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="light-wrap">
+      <div class="dropdown">
+        <a class="dropdown-button" data-dropdown-button href="#">Document</a>
+        <ul class="dropdown-list appears-top" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Sort by Content Type</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li>
+            <a href="#">Everything</a>
+          </li>
+          <li>
+            <a href="#">Books</a>
+          </li>
+          <li>
+            <a href="#">Audiobooks</a>
+          </li>
+          <li>
+            <a href="#">News &amp; Magazines</a>
+          </li>
+          <li class="selected disabled">
+            <a href="#">Documents</a>
+          </li>
+          <li>
+            <a href="#">Full Access Only</a>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-list"></i></a>
+        <ul class="dropdown-list appears-top" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Create or View Lists</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-plus-circle"></i><span>Create List</span></a>
+          </li>
+          <li>
+            <a href="#">Listy List</a>
+          </li>
+          <li>
+            <a href="#">Harry Potter, Specifically</a>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-list-ul"></i></a>
+        <ul class="dropdown-list appears-top wide" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Book Overview</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="title has-border">
+            Table of Contents
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 1</span><span class="label">Page 5</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 2</span><span class="label">Page 123</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 3</span><span class="label">Page 234</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 4</span><span class="label">Page 345</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 5</span><span class="label">Page 456</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 6</span><span class="label">Page 567</span></a>
+          </li>
+          <li class="has-label left disabled has-border">
+            <a href="#"><span>Chapter 7</span><span class="label">Not available in preview</span></a>
+          </li>
+          <li class="has-label left disabled">
+            <a href="#"><span>Chapter 8</span><span class="label">Not available in preview</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-ellipsis-v"></i></a>
+        <ul class="dropdown-list appears-right appears-top" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Book Options</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-plus-circle"></i><span>Add a Bookmark</span></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-edit"></i><span>Add a Note</span></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-bookmark"></i><span>Save for Later</span></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-book"></i><span>Notebook</span></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-info-circle"></i><span>About Book</span></a>
+          </li>
+          <li class="sub-title">
+            Share This Title
+          </li>
+          <li class="has-icon social">
+            <a class="fa fa-facebook" href="#"></a><a class="fa fa-twitter" href="#"></a><a class="fa fa-pinterest" href="#"></a><a class="fa fa-envelope" href="#"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <a class="dropdown-button" data-dropdown-button href="#"><span class="has-avatar"></span></a>
+        <ul class="dropdown-list appears-top" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Hi, George!</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="title has-border">
+            Hi, George!
+          </li>
+          <li>
+            <a href="#">Public Profile</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Account Settings</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Document Uploads</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Read for Free</a>
+          </li>
+          <li>
+            <a href="#">Help</a>
+          </li>
+          <li>
+            <a href="#">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="dark-wrap">
+      <div class="dark dropdown">
+        <a class="dropdown-button" data-dropdown-button href="#">Document</a>
+        <ul class="dropdown-list appears-top" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Sort by Content Type</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li>
+            <a href="#">Everything</a>
+          </li>
+          <li>
+            <a href="#">Books</a>
+          </li>
+          <li>
+            <a href="#">Audiobooks</a>
+          </li>
+          <li>
+            <a href="#">News &amp; Magazines</a>
+          </li>
+          <li class="selected disabled">
+            <a href="#">Documents</a>
+          </li>
+          <li>
+            <a href="#">Full Access Only</a>
+          </li>
+        </ul>
+      </div>
+      <div class="dark dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-list"></i></a>
+        <ul class="dropdown-list appears-top" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Create or View Lists</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-plus-circle"></i><span>Create List</span></a>
+          </li>
+          <li>
+            <a href="#">Listy List</a>
+          </li>
+          <li>
+            <a href="#">Harry Potter, Specifically</a>
+          </li>
+        </ul>
+      </div>
+      <div class="dark dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-list-ul"></i></a>
+        <ul class="dropdown-list appears-top wide" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Book Overview</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="title has-border">
+            Table of Contents
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 1</span><span class="label">Page 5</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 2</span><span class="label">Page 123</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 3</span><span class="label">Page 234</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 4</span><span class="label">Page 345</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 5</span><span class="label">Page 456</span></a>
+          </li>
+          <li class="has-label has-border">
+            <a href="#"><span>Chapter 6</span><span class="label">Page 567</span></a>
+          </li>
+          <li class="has-label left disabled has-border">
+            <a href="#"><span>Chapter 7</span><span class="label">Not available in preview</span></a>
+          </li>
+          <li class="has-label left disabled">
+            <a href="#"><span>Chapter 8</span><span class="label">Not available in preview</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="dark dropdown">
+        <a class="dropdown-button has-icon" data-dropdown-button href="#"><i class="fa fa-ellipsis-v"></i></a>
+        <ul class="appears-right appears-top dropdown-list" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Book Options</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-plus-circle"></i><span>Add a Bookmark</span></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-edit"></i><span>Add a Note</span></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-bookmark"></i><span>Save for Later</span></a>
+          </li>
+          <li class="has-icon">
+            <a href="#"><i class="fa fa-book"></i><span>Notebook</span></a>
+          </li>
+          <li class="has-icon has-border">
+            <a href="#"><i class="fa fa-info-circle"></i><span>About Book</span></a>
+          </li>
+          <li class="sub-title">
+            Share This Title
+          </li>
+          <li class="has-icon social">
+            <a class="fa fa-facebook" href="#"></a><a class="fa fa-twitter" href="#"></a><a class="fa fa-pinterest" href="#"></a><a class="fa fa-envelope" href="#"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="dark dropdown">
+        <a class="dropdown-button" data-dropdown-button href="#"><span class="has-avatar"></span></a>
+        <ul class="dropdown-list appears-top" data-dropdown-list>
+          <div class="arrow"></div>
+          <li class="has-border dropdown-close">
+            <span class="title">Hi, George!</span><a class="fa fa-close" data-dropdown-close href="#"></a>
+          </li>
+          <li class="title has-border">
+            Hi, George!
+          </li>
+          <li>
+            <a href="#">Public Profile</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Account Settings</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Document Uploads</a>
+          </li>
+          <li class="has-border">
+            <a href="#">Read for Free</a>
+          </li>
+          <li>
+            <a href="#">Help</a>
+          </li>
+          <li>
+            <a href="#">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://use.fontawesome.com/217a3c1f0b.js'></script>
+<script >// handle dropdowns appearing
+for (var i = 0, dropdownButtons = document.getElementsByClassName('dropdown-button'); i < dropdownButtons.length; i++) {if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;}
+  dropdownButtons[i].onclick = function(e) { 
+    e.preventDefault();
+    const list = this.nextElementSibling,
+          body = document.body;
+
+    if (list.classList.contains('active')) {
+      list.classList.remove('active');
+    } else {
+      list.style.top = null;
+      list.children[1].focus();
+      list.classList.add('active');
+    }
+    
+    if (body.offsetWidth < 400) {
+      list.style.top = window.pageYOffset + 'px';
+      body.classList.add('no-scroll');
+    } else {
+      body.classList.remove('no-scroll');
+    }
+  }
+}
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+
+
+// handle close buttons
+for (var i = 0, closeButtons = document.getElementsByClassName('dropdown-close'); i < closeButtons.length; i++) {if (window.CP.shouldStopExecution(2)){break;}if (window.CP.shouldStopExecution(2)){break;}
+  closeButtons[i].onclick = function(a) {
+    a.preventDefault();
+    let body = document.body;
+    let parent = a.target.parentNode.parentNode;
+    parent.classList.remove('active');
+    body.classList.remove('no-scroll');
+  }
+}
+window.CP.exitedLoop(2);
+
+window.CP.exitedLoop(2);
+
+//# sourceURL=pen.js
+</script>
+</body></html>

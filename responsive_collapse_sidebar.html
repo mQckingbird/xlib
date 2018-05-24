@@ -1,0 +1,268 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/kvzivn/pen/qOprZY?depth=everything&order=popularity&page=10&q=shopping+cart&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  background: #e1e1e1;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #818181;
+}
+.Wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.Sidebar {
+  position: relative;
+  display: table-cell;
+  min-width: 240px;
+  max-width: 240px;
+  min-height: 100%;
+  background-color: #212121;
+  -webkit-transition: max-width 0.4s ease , min-width 0.4s ease;
+  transition: max-width 0.4s ease , min-width 0.4s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.Sidebar.is-collapsed {
+  max-width: 50px;
+  min-width: 50px;
+  -webkit-transition: max-width 0.4s ease , min-width 0.4s ease;
+  transition: max-width 0.4s ease , min-width 0.4s ease;
+}
+.Sidebar.is-collapsed .Sidebar-logo {
+  -webkit-transform: scale(0.625) translate(-64px, -104px);
+          transform: scale(0.625) translate(-64px, -104px);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+.Sidebar.is-collapsed .Sidebar-navItem {
+  padding-left: 17px;
+  -webkit-transition: padding-left 0.4s ease;
+  transition: padding-left 0.4s ease;
+}
+.Sidebar.is-collapsed .Sidebar-navItem a {
+  opacity: 0;
+}
+.Sidebar.is-collapsed .Sidebar-toggleText {
+  display: none;
+}
+.Sidebar.is-collapsed .Sidebar-toggleArrow {
+  left: 17.5px;
+  -webkit-transform: rotate(179deg);
+          transform: rotate(179deg);
+}
+.Sidebar.is-collapsed .Sidebar-footer:hover .Sidebar-toggleArrow {
+  left: 17.5px;
+  -webkit-transition: left 0.4s ease, -webkit-transform 0.4s ease;
+  transition: left 0.4s ease, -webkit-transform 0.4s ease;
+  transition: left 0.4s ease, transform 0.4s ease;
+  transition: left 0.4s ease, transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+@media (max-width: 500px) {
+  .Sidebar {
+    min-width: 50px;
+  }
+}
+.Sidebar-header {
+  position: relative;
+  height: 130px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.Sidebar-logo {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background: #5f9ea0;
+  -webkit-transition: height 0.4s ease, width 0.4s ease, -webkit-transform 0.4s ease;
+  transition: height 0.4s ease, width 0.4s ease, -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease, height 0.4s ease, width 0.4s ease;
+  transition: transform 0.4s ease, height 0.4s ease, width 0.4s ease, -webkit-transform 0.4s ease;
+}
+@media (max-width: ) {
+  .Sidebar-logo {
+    -webkit-transform: translate(-24px, -80px);
+            transform: translate(-24px, -80px);
+    width: 50px;
+    height: 50px;
+  }
+}
+.Sidebar-navItem {
+  padding: 10px 0 10px 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-transition: padding-left 0.4s ease;
+  transition: padding-left 0.4s ease;
+}
+@media (max-width: ) {
+  .Sidebar-navItem {
+    padding-left: 17px;
+  }
+}
+.Sidebar-navItem:hover {
+  background-color: #323232;
+  cursor: pointer;
+}
+.Sidebar-navItem a {
+  opacity: 1;
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+@media (max-width: ) {
+  .Sidebar-navItem a {
+    display: none;
+  }
+}
+.Sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+}
+.Sidebar-footer:hover {
+  background: #1c1c1c;
+  cursor: pointer;
+}
+.Sidebar-footer:hover .Sidebar-toggleArrow {
+  -webkit-transition: left 0.2s ease, rotate 1s ease;
+  transition: left 0.2s ease, rotate 1s ease;
+  left: 70px;
+}
+@media (max-width: 500px) {
+  .Sidebar-footer:hover:hover .Sidebar-toggleArrow {
+    left: 25px;
+  }
+  .Sidebar-footer:hover:hover .Sidebar-toggleText {
+    display: none;
+  }
+}
+.Sidebar-footer:hover .Sidebar-toggleText {
+  opacity: 1;
+  -webkit-animation: fadeIn 0.75s ease;
+          animation: fadeIn 0.75s ease;
+}
+.Sidebar-toggleArrow {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  -webkit-transform: translateX(-7px);
+          transform: translateX(-7px);
+  cursor: pointer;
+  -webkit-transition: left 0.2s ease;
+  transition: left 0.2s ease;
+}
+@media (max-width: 500px) {
+  .Sidebar-toggleArrow {
+    left: 20px;
+    -webkit-transform: rotate(179deg);
+            transform: rotate(179deg);
+  }
+  .Sidebar-toggleArrow:hover {
+    left: 20px;
+  }
+}
+.Sidebar-toggleText {
+  position: absolute;
+  bottom: 22px;
+  left: 85px;
+  opacity: 0;
+  color: #818181;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.Sidebar-menuIcon {
+  color: #818181;
+}
+.Sidebar-menuIcon:not(.Sidebar-toggleArrow) {
+  margin-right: 1rem;
+}
+.Main {
+  display: table-cell;
+  vertical-align: top;
+  width: 100%;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style></head><body>
+<div class="Wrapper" ng-app="myApp">
+    <div class="Sidebar" ng-class="boolie ? 'is-collapsed' : ''">
+        <header class="Sidebar-header">
+            <div class="Sidebar-logo"></div>
+        </header>
+        <nav role="navigation">
+            <ul>
+                <li class="Sidebar-navItem">
+                    <i class="Sidebar-menuIcon fa fa-bar-chart"></i>
+                    <a href="">Performance</a>
+                </li>
+                <li class="Sidebar-navItem">
+                    <i class="Sidebar-menuIcon fa fa-shopping-cart"></i>
+                    <a href="#">Activities</a>
+                </li>
+                <li class="Sidebar-navItem">
+                    <i class="Sidebar-menuIcon fa fa-cog"></i>
+                    <a href="#">Settings</a>
+                </li>
+                <li class="Sidebar-navItem">
+                    <i class="Sidebar-menuIcon fa fa-question-circle"></i>
+                    <a href="#">Help & Support</a>
+                </li>                
+                <li class="Sidebar-navItem">
+                    <i class="Sidebar-menuIcon fa fa-sign-out"></i>
+                    <a href="#">Log out</a>
+                </li>
+            </ul>
+        </nav>
+        <footer class="Sidebar-footer" ng-click="boolie = !boolie">
+            <i class="Sidebar-toggleArrow Sidebar-menuIcon fa fa-arrow-left" ng-class="boolie ? 'rotate' : ''"></i>
+            <span class="Sidebar-toggleText">Minimize menu</span>
+        </footer>
+    </div>
+    <div class="Main"></div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+<script >var app = angular.module('myApp', []);
+//# sourceURL=pen.js
+</script>
+</body></html>

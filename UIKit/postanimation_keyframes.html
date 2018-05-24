@@ -1,0 +1,283 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/dylanatsmith/pen/VjORLo?depth=everything&order=popularity&page=19&q=chat&show_forks=false" />
+
+
+<style class="cp-pen-styles">html {
+  background: #FFFBF4;
+  padding: 8px;
+}
+
+.chat {
+  width: 352px;
+}
+
+.chat__left,
+.chat__right {
+  display: inline-block;
+  vertical-align: top;
+}
+.chat__left div,
+.chat__right div {
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+/* Yellow initial styles */
+.chat__a-icon {
+  margin-right: 4px;
+  width: 40px;
+  height: 40px;
+  background: #FFC566;
+  -webkit-animation: chat__a-icon 2s step-start infinite;
+  animation: chat__a-icon 2s step-start infinite;
+}
+
+.chat__a-name {
+  background: #FFC566;
+  width: 112px;
+  height: 16px;
+  -webkit-animation: chat__a-name 2s step-start infinite;
+  animation: chat__a-name 2s step-start infinite;
+}
+
+.chat__a-line-1 {
+  background: #FFEBCA;
+  width: 304px;
+  height: 16px;
+  -webkit-animation: chat__a-line-1 2s step-start infinite;
+  animation: chat__a-line-1 2s step-start infinite;
+}
+
+.chat__a-line-2 {
+  background: #FFEBCA;
+  width: 160px;
+  height: 16px;
+  -webkit-animation: chat__a-line-2 2s step-start infinite;
+  animation: chat__a-line-2 2s step-start infinite;
+}
+
+/* Yellow animation */
+@-webkit-keyframes chat__a-icon {
+  33% {
+    background: #57D9B9;
+  }
+  66% {
+    background: #6297DA;
+  }
+}
+@-webkit-keyframes chat__a-name {
+  33% {
+    width: 128px;
+    background: #57D9B9;
+  }
+  66% {
+    width: 96px;
+    background: #6297DA;
+  }
+}
+@-webkit-keyframes chat__a-line-1 {
+  33% {
+    background: #BAEADE;
+  }
+  66% {
+    background: #BED1EB;
+  }
+}
+@-webkit-keyframes chat__a-line-2 {
+  33% {
+    background: #BAEADE;
+    width: 256px;
+  }
+  66% {
+    background: #BED1EB;
+    width: 200px;
+  }
+}
+/* Green initial styles */
+.chat__b-icon {
+  margin-right: 4px;
+  width: 40px;
+  height: 40px;
+  background: #57D9B9;
+  -webkit-animation: chat__b-icon 2s step-start infinite;
+  animation: chat__b-icon 2s step-start infinite;
+}
+
+.chat__b-name {
+  background: #57D9B9;
+  width: 128px;
+  height: 16px;
+  -webkit-animation: chat__b-name 2s step-start infinite;
+  animation: chat__b-name 2s step-start infinite;
+}
+
+.chat__b-line-1 {
+  background: #BAEADE;
+  width: 304px;
+  height: 16px;
+  -webkit-animation: chat__b-line-1 2s step-start infinite;
+  animation: chat__b-line-1 2s step-start infinite;
+}
+
+.chat__b-line-2 {
+  background: #BAEADE;
+  width: 256px;
+  height: 16px;
+  -webkit-animation: chat__b-line-2 2s step-start infinite;
+  animation: chat__b-line-2 2s step-start infinite;
+}
+
+/* Green animation */
+@-webkit-keyframes chat__b-icon {
+  33% {
+    background: #6297DA;
+  }
+  66% {
+    background: #FFC566;
+  }
+}
+@-webkit-keyframes chat__b-name {
+  33% {
+    background: #6297DA;
+    width: 96px;
+  }
+  66% {
+    background: #FFC566;
+    width: 112px;
+  }
+}
+@-webkit-keyframes chat__b-line-1 {
+  33% {
+    background: #BED1EB;
+  }
+  66% {
+    background: #FFEBCA;
+  }
+}
+@-webkit-keyframes chat__b-line-2 {
+  33% {
+    background: #BED1EB;
+    width: 200px;
+  }
+  66% {
+    background: #FFEBCA;
+    width: 160px;
+  }
+}
+/* Blue initial styles */
+.chat__c-icon {
+  margin-right: 4px;
+  width: 40px;
+  height: 40px;
+  background: #6297DA;
+  -webkit-animation: chat__c-icon 2s step-start infinite;
+  animation: chat__c-icon 2s step-start infinite;
+}
+
+.chat__c-name {
+  background: #6297DA;
+  width: 96px;
+  height: 16px;
+  -webkit-animation: chat__c-name 2s step-start infinite;
+  animation: chat__c-name 2s step-start infinite;
+}
+
+.chat__c-line-1 {
+  background: #BED1EB;
+  width: 304px;
+  height: 16px;
+  -webkit-animation: chat__c-line-1 2s step-start infinite;
+  animation: chat__c-line-1 2s step-start infinite;
+}
+
+.chat__c-line-2 {
+  background: #BED1EB;
+  width: 200px;
+  height: 16px;
+  -webkit-animation: chat__c-line-2 2s step-start infinite;
+  animation: chat__c-line-2 2s step-start infinite;
+}
+
+/* Blue animation */
+@-webkit-keyframes chat__c-icon {
+  33% {
+    background: #FFC566;
+  }
+  66% {
+    background: #57D9B9;
+  }
+}
+@-webkit-keyframes chat__c-name {
+  33% {
+    background: #FFC566;
+    width: 112px;
+  }
+  66% {
+    background: #57D9B9;
+    width: 128px;
+  }
+}
+@-webkit-keyframes chat__c-line-1 {
+  33% {
+    background: #FFEBCA;
+  }
+  66% {
+    background: #BAEADE;
+  }
+}
+@-webkit-keyframes chat__c-line-2 {
+  33% {
+    background: #FFEBCA;
+    width: 160px;
+  }
+  66% {
+    background: #BAEADE;
+    width: 256px;
+  }
+}
+</style></head><body>
+<div class="chat">
+    <div class="chat__row fade">
+        <div class="chat__left">
+            <div class="chat__a-icon"></div>
+        </div>
+        <div class="chat__right">
+            <div class="chat__a-name"></div>
+            <div class="chat__a-line-1"></div>
+            <div class="chat__a-line-2"></div>
+        </div>
+    </div>
+    <div class="chat__row">
+        <div class="chat__left">
+            <div class="chat__b-icon"></div>
+        </div>
+        <div class="chat__right">
+            <div class="chat__b-name"></div>
+            <div class="chat__b-line-1"></div>
+            <div class="chat__b-line-2"></div>
+        </div>
+    </div>
+    <div class="chat__row">
+        <div class="chat__left">
+            <div class="chat__c-icon"></div>
+        </div>
+        <div class="chat__right">
+            <div class="chat__c-name"></div>
+            <div class="chat__c-line-1"></div>
+            <div class="chat__c-line-2"></div>
+        </div>
+    </div>
+    <div class="chat__row">
+        <div class="chat__left">
+            <div class="chat__a-icon"></div>
+        </div>
+        <div class="chat__right">
+            <div class="chat__a-name"></div>
+            <div class="chat__a-line-1"></div>
+            <div class="chat__a-line-2"></div>
+        </div>
+    </div>
+</div>
+
+</body></html>

@@ -1,0 +1,572 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/Lingyucoder/pen/AsFJh?depth=everything&order=popularity&page=22&q=book&show_forks=false" />
+
+
+<style class="cp-pen-styles">html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #f0f0f0;
+  font-family: ff-tisa-web-pro-1, ff-tisa-web-pro-2, 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'Microsoft YaHei UI', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+  overflow: hidden;
+}
+.stage {
+  position:absolute;
+  width: 600px;
+  height: 600px;
+  left:0;right:0;top:0;bottom:0;
+  margin:auto;
+  -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
+  -o-perspective: 2000px;
+  -ms-perspective: 2000px;
+  perspective: 2000px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.book {
+  position: absolute;
+  left: calc(50% - 600px/2);
+  top: 50px;
+  width: 600px;
+  height: 700px;
+  cursor: pointer;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.book .cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s linear;
+  -moz-transition: -moz-transform 1s linear;
+  -ms-transition: -o-transform 1s linear;
+  -o-transition: -ms-transform 1s linear;
+  transition: transform 1s linear;
+  -webkit-transform: translateZ(15px) rotateY(0deg);
+  -moz-transform: translateZ(15px) rotateY(0deg);
+  -ms-transform: translateZ(15px) rotateY(0deg);
+  -o-transform: translateZ(15px) rotateY(0deg);
+  transform: translateZ(15px) rotateY(0deg);
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
+.book .cover .cover_front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: left;
+  background-size: 600px 700px;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-image: -webkit-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -moz-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -o-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -ms-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-size: 40px;
+}
+.book .cover .cover_front b {
+  font-size: 150%;
+}
+.book .cover .cover_front .title {
+  margin: 0;
+  height: 40%;
+  color: #7fc04c;
+  font-size: 60px;
+  padding-left: 40px;
+  text-align: left;
+  font-weight: bolder;
+  line-height: 300px;
+}
+.book .cover .cover_front .desc {
+  margin: 0;
+  height: 40%;
+  color: #211312;
+  padding-right: 30px;
+  font-size: 80%;
+  text-align: right;
+}
+.book .cover .cover_front .writer {
+  height: 20%;
+  color: #7fc04c;
+  padding-right: 30px;
+  text-align: right;
+  line-height: 20px;
+}
+.book .cover .cover_back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: left;
+  background-size: 240px 700px;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-image: -webkit-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -moz-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -o-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -ms-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.book .cover .cover_back .info {
+  width: 200px;
+  height: 660px;
+  margin: 20px;
+  font-size: 20px;
+  color: white;
+}
+.book .cover .cover_back .info img {
+  width: 80%;
+  margin-left: 10%;
+  border-radius: 20%;
+}
+.book div.cover_turnover {
+  -webkit-transform: translateZ(15px) rotateY(-160deg);
+  -moz-transform: translateZ(15px) rotateY(-160deg);
+  -ms-transform: translateZ(15px) rotateY(-160deg);
+  -o-transform: translateZ(15px) rotateY(-160deg);
+  transform: translateZ(15px) rotateY(-160deg);
+}
+.book .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: left;
+  background-size: 600px 700px;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-image: -webkit-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -moz-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -o-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -ms-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  -webkit-transform: translateZ(-15px) rotateY(180deg);
+  -moz-transform: translateZ(-15px) rotateY(180deg);
+  -ms-transform: translateZ(-15px) rotateY(180deg);
+  -o-transform: translateZ(-15px) rotateY(180deg);
+  transform: translateZ(-15px) rotateY(180deg);
+}
+.book .side {
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  background-position: left;
+  background-size: 30px 700px;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-image: -webkit-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -moz-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -o-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: -ms-linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  background-image: linear-gradient(top, #211312 0%, #211312 60%, #7fc04c 60%, #7fc04c);
+  -webkit-transform: rotateY(-90deg) translateZ(15px);
+  -moz-transform: rotateY(-90deg) translateZ(15px);
+  -ms-transform: rotateY(-90deg) translateZ(15px);
+  -o-transform: rotateY(-90deg) translateZ(15px);
+  transform: rotateY(-90deg) translateZ(15px);
+}
+.book .page {
+  position: absolute;
+  width: 595px;
+  height: 690px;
+  top: 5px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s linear;
+  -moz-transition: -moz-transform 1s linear;
+  -ms-transition: -o-transform 1s linear;
+  -o-transition: -ms-transform 1s linear;
+  transition: transform 1s linear;
+  -webkit-transform: translateZ(14px) rotateY(0deg);
+  -moz-transform: translateZ(14px) rotateY(0deg);
+  -ms-transform: translateZ(14px) rotateY(0deg);
+  -o-transform: translateZ(14px) rotateY(0deg);
+  transform: translateZ(14px) rotateY(0deg);
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
+.book .page .page_content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.book .page .page_content .content {
+  padding: 20px;
+}
+.book .page .page_content .content .title {
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+}
+.book .page .page_content .content .body {
+  font-size: 20px;
+}
+.book .page .page_back {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.book .bodyfront {
+  position: absolute;
+  width: 595px;
+  height: 690px;
+  top: 5px;
+  background-color: white;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(13px) rotateY(0deg);
+  -moz-transform: translateZ(13px) rotateY(0deg);
+  -ms-transform: translateZ(13px) rotateY(0deg);
+  -o-transform: translateZ(13px) rotateY(0deg);
+  transform: translateZ(13px) rotateY(0deg);
+  box-shadow: inset 0px 0px 5px #f0f0f0;
+  z-index: 5;
+}
+.book .bodyback {
+  position: absolute;
+  width: 595px;
+  height: 690px;
+  top: 5px;
+  background-color: white;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(-13px) rotateY(180deg);
+  -moz-transform: translateZ(-13px) rotateY(180deg);
+  -ms-transform: translateZ(-13px) rotateY(180deg);
+  -o-transform: translateZ(-13px) rotateY(180deg);
+  transform: translateZ(-13px) rotateY(180deg);
+  box-shadow: inset 0px 0px 10px #f0f0f0;
+}
+.book .bodyright {
+  position: absolute;
+  width: 30px;
+  height: 690px;
+  top: 5px;
+  background-color: white;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotateY(90deg) translateZ(579px);
+  -moz-transform: rotateY(90deg) translateZ(579px);
+  -ms-transform: rotateY(90deg) translateZ(579px);
+  -o-transform: rotateY(90deg) translateZ(579px);
+  transform: rotateY(90deg) translateZ(579px);
+  box-shadow: inset 0px 0px 10px #f0f0f0;
+  z-index: 5;
+}
+.book .bodyup {
+  position: absolute;
+  width: 595px;
+  height: 30px;
+  background-color: white;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotateX(90deg) translateZ(10px);
+  -moz-transform: rotateX(90deg) translateZ(10px);
+  -ms-transform: rotateX(90deg) translateZ(10px);
+  -o-transform: rotateX(90deg) translateZ(10px);
+  transform: rotateX(90deg) translateZ(10px);
+  box-shadow: inset 0px 0px 10px #f0f0f0;
+}
+.book .bodydown {
+  position: absolute;
+  width: 595px;
+  height: 30px;
+  background-color: white;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotateX(-90deg) translateZ(680px);
+  -moz-transform: rotateX(-90deg) translateZ(680px);
+  -ms-transform: rotateX(-90deg) translateZ(680px);
+  -o-transform: rotateX(-90deg) translateZ(680px);
+  transform: rotateX(-90deg) translateZ(680px);
+  box-shadow: inset 0px 0px 10px #f0f0f0;
+}
+</style></head><body>
+<script id="others_less_130" type="text/javascript" class="library" src="/js/sandbox/other/less-1.3.0.min.js"></script>
+<script id="jquery_183" type="text/javascript" class="library" src="/js/sandbox/jquery/jquery-1.8.3.min.js"></script>
+<div id="stage" class="stage">
+  <div class="container" id="container" style="-webkit-transform: rotateY(-26deg) rotateX(27deg);-moz-transform: rotateY(-26deg) rotateX(27deg);-o-transform: rotateY(-26deg) rotateX(27deg);-ms-transform: rotateY(-26deg) rotateX(27deg);transform: rotateY(-26deg) rotateX(27deg);">
+    <div class="book">
+      <div class="bodyup"></div>
+      <div class="bodydown"></div>
+      <div class="bodyback"></div>
+      <div class="bodyfront"></div>
+      <div class="bodyright"></div>
+      <div class="side"></div>
+      <div class="back"></div>
+
+      <div class="cover" page="0">
+        <div class="cover_back">
+          <div class="info">
+            <p>关于作者</p>
+            <p><img src="https://tp2.sinaimg.cn/1162383197/180/5678204606/1" /></p>
+            <p>BUPT的计算机小硕</p>
+            <p>前端爱好者，喜欢鼓捣css、js</p>
+          </div>
+        </div>
+        <div class="cover_front">
+          <p class="title"><b>天镶</b>の笔记本</p>
+          <p class="writer">作者：天镶</p>
+          <p class="desc">--记录生活的点点滴滴</p>
+        </div>
+      </div>
+
+      <div class="page" page="3">
+        <div class="page_content page_front">
+          <div class="content">
+            <div class="title">
+            </div>
+            <hr>
+            <div class="body">
+            </div>
+          </div>
+        </div>
+        <div class="page_content page_back">
+          <div class="content">
+            <div class="title">
+            </div>
+            <hr>
+            <div class="body">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page" page="2">
+        <div class="page_content page_front">
+          <div class="content">
+            <div class="title">
+              2013年12月17日 周二
+            </div>
+            <hr>
+            <div class="body">
+
+            </div>
+          </div>
+        </div>
+        <div class="page_content page_back">
+          <div class="content">
+            <div class="title">
+              2013年12月18日 周三
+            </div>
+            <hr>
+            <div class="body">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page" page="1">
+        <div class="page_content page_front">
+          <div class="content">
+            <div class="title">
+              2013年12月15日 周日
+            </div>
+            <hr>
+            <div class="body">
+            </div>
+          </div>
+        </div>
+        <div class="page_content page_back">
+          <div class="content">
+            <div class="title">
+              2013年12月16日 周一
+            </div>
+            <hr>
+            <div class="body">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >(function($, window, undefined){
+  var curX;
+  var curY;
+  var startX;
+  var startY;
+  var curXD;
+  var curYD;
+  var container = $("#container");
+  var $doc = $(document);
+  var prefix = ["", "-moz-", "-o-", "-ms-", "-webkit-"];
+  var mouseMove = function(e) {
+    curX = e.pageX;
+    curY = e.pageY;
+    for(var i = prefix.length;i--; ){if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;}
+      container.css(prefix[i] + "transform", "rotateY(" + (curYD + (curX - startX) / 4) + "deg) rotateX(" + (curXD - ((curY - startY) / 4)) + "deg)");
+    }
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+
+    e.stopPropagation();
+    e.preventDefault();
+  };
+  var mouseUp = function(e) {
+    $doc.unbind("mousemove", mouseMove);
+    $doc.unbind("mouseup", mouseUp);
+    e.stopPropagation();
+    e.preventDefault();
+  };
+  var mouseDown = function(e) {
+    var curRotation;
+    var result;
+    $doc.bind("mousemove", mouseMove);
+    $doc.bind("mouseup", mouseUp);
+    startX = curX = e.pageX;
+    startY = curY = e.pageY;
+
+    for(var i = prefix.length;i--;){if (window.CP.shouldStopExecution(2)){break;}if (window.CP.shouldStopExecution(2)){break;}
+      if (container.get()[0].style[prefix[i] + "transform"]) {
+        curRotation = container.get()[0].style[prefix[i] + "transform"];
+      }
+    }
+window.CP.exitedLoop(2);
+
+window.CP.exitedLoop(2);
+
+
+    result = curRotation.match(/-?\d+(\.\d+)?/g);
+    console.log(result);
+    curYD = Number(result[0]);
+    curXD = Number(result[1]);
+    e.stopPropagation();
+    e.preventDefault();
+  };
+  $doc.find('body').bind("mousedown", mouseDown);
+}(jQuery, window));
+
+var book_thick = 30;
+
+var __rotatePage = function($page){
+  var prefix = ["", "-moz-", "-o-", "-ms-", "-webkit-"];
+  var page = Number($page.attr("page"));
+  for(var i = prefix.length;i--;){if (window.CP.shouldStopExecution(3)){break;}if (window.CP.shouldStopExecution(3)){break;}
+    $page.css(prefix[i] + "transform", "translateZ(" + (book_thick/2 - 0.4) + "px) rotateY(-" + (160 - page * 0.1) + "deg)");
+  }
+window.CP.exitedLoop(3);
+
+window.CP.exitedLoop(3);
+
+};
+
+var __unRotatePage = function($page){
+  var prefix = ["", "-moz-", "-o-", "-ms-", "-webkit-"];
+  for(var i = prefix.length;i--;){if (window.CP.shouldStopExecution(4)){break;}if (window.CP.shouldStopExecution(4)){break;}
+    $page.css(prefix[i] + "transform", "translateZ("+ (book_thick/2 - 0.4) + "px) rotateY(0deg)");
+  }
+window.CP.exitedLoop(4);
+
+window.CP.exitedLoop(4);
+
+};
+
+$(".book").data("page", 0).click(function(event) {
+  var $this = $(this);
+  var curPage = $(this).data("page");
+  var nextPage;
+  var next;
+  if (curPage > 0) {
+    if($this.find(".page[page='" + curPage + "']").length > 0) {
+      __rotatePage($this.find(".page[page='" + curPage + "']"));
+      $(this).data("page", curPage + 1);
+    }
+  } else if (curPage === 0) {
+    $this.find(".cover").addClass("cover_turnover");
+    $(this).data("page", 1);
+  } else {}
+}).contextmenu(function(event) {
+  event.stopPropagation();
+  event.preventDefault();
+  var $this = $(this);
+  var curPage = $(this).data("page");
+  var nextPage;
+  var next;
+  if(curPage > 1){
+    if($this.find("page[page='" + (curPage - 1) + "']")) {
+      __unRotatePage($this.find(".page[page='" + (curPage - 1) + "']"));
+      $(this).data("page", curPage - 1);
+    }
+  } else if(curPage === 1){
+    $this.find(".cover").removeClass("cover_turnover");
+    $(this).data("page", 0);
+  }
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

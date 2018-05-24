@@ -1,0 +1,618 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/mikerynart/pen/mJRbGa?depth=everything&order=popularity&page=18&q=popover&show_forks=false" />
+<meta name="twitter:site" content="techcrunch" />
+<meta property="fb:app_id" content="494011480749759" />
+<meta property="og:site_name" content="CMTelecom" />
+<meta property="og:site" content="www.cmtelecom.com" />
+<meta property="og:title" content="cmtelecom" />
+<meta property="og:description" content="CM Telecom, reviewing new Internet products, and breaking tech news." />
+<meta property="og:image" content="https://s0.wp.com/wp-content/themes/vip/techcrunch-2013/assets/images/logo-large.png" />
+<meta property="og:url" content="http://www.cmtelecom.com/" />
+<meta property="og:type" content="website" />
+
+<style class="cp-pen-styles">/*
+ * share-selection: Medium like popover menu to share on Twitter or by email any text selected on the page
+ *
+ * -- Requires jQuery --
+ * -- AMD compatible  --
+ *
+ * Author: Xavier Damman (@xdamman)
+ * GIT: https://github.com/xdamman/share-selection
+ * MIT License
+ */
+@keyframes selectionSharerPopover-animation {
+  0% {
+    transform: matrix(0.97, 0, 0, 1, 0, 12);
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+  20% {
+    transform: matrix(0.99, 0, 0, 1, 0, 2);
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+  }
+  40% {
+    transform: matrix(1, 0, 0, 1, 0, -1);
+    filter: alpha(opacity=100);
+    opacity: 1;
+  }
+  70% {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    filter: alpha(opacity=100);
+    opacity: 1;
+  }
+  100% {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    filter: alpha(opacity=100);
+    opacity: 1;
+  }
+}
+#selectionSharerPopover {
+  display: none;
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  z-index: 1010;
+}
+
+#selectionSharerPopover:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  margin-left: -4px;
+  width: 8px;
+  height: 8px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background: #262625;
+  box-shadow: 0 0 2px #262625;
+}
+
+#selectionSharerPopover.anim {
+  transition: top .075s ease-out;
+  animation: selectionSharerPopover-animation 180ms forwards linear;
+  -webkit-animation: selectionSharerPopover-animation 180ms forwards linear;
+}
+
+#selectionSharerPopover-inner {
+  position: relative;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #262625 #1c1c1b #121211;
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.7), inset 0 0 1px rgba(255, 255, 255, 0.07), inset 0 0 2px rgba(255, 255, 255, 0.15);
+  background-image: linear-gradient(to bottom, rgba(49, 49, 47, 0.97), #262625);
+  background-repeat: repeat-x;
+}
+
+#selectionSharerPopover .selectionSharerPopover-clip {
+  position: absolute;
+  bottom: -11px;
+  display: block;
+  left: 50%;
+  clip: rect(12px 24px 24px 0);
+  margin-left: -12px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}
+
+#selectionSharerPopover .selectionSharerPopover-arrow {
+  display: block;
+  width: 20px;
+  height: 20px;
+  -webkit-transform: rotate(45deg) scale(0.5);
+  transform: rotate(45deg) scale(0.5);
+  background-color: #454543;
+  border: 2px solid #121211;
+  box-sizing: content-box;
+}
+
+.selectionSharer ul {
+  padding: 0;
+  display: inline;
+}
+
+.selectionSharer ul li {
+  float: left;
+  list-style: none;
+  background: none;
+  margin: 0;
+}
+
+.selectionSharer a.action {
+  display: block;
+  text-indent: -200px;
+  margin: 5px 7px;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+.selectionSharer a:hover {
+  color: #ccc;
+}
+
+.selectionSharer a.tweet {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="171" height="139"><g transform="translate(-282.32053,-396.30734)"><path style="fill:white" d="m 453.82593,412.80619 c -6.3097,2.79897 -13.09189,4.68982 -20.20852,5.54049 7.26413,-4.35454 12.84406,-11.24992 15.47067,-19.46675 -6.79934,4.03295 -14.3293,6.96055 -22.34461,8.53841 -6.41775,-6.83879 -15.56243,-11.111 -25.68298,-11.111 -19.43159,0 -35.18696,15.75365 -35.18696,35.18525 0,2.75781 0.31128,5.44359 0.91155,8.01875 -29.24344,-1.46723 -55.16995,-15.47582 -72.52461,-36.76396 -3.02879,5.19662 -4.76443,11.24048 -4.76443,17.6891 0,12.20777 6.21194,22.97747 15.65332,29.28716 -5.76773,-0.18265 -11.19331,-1.76565 -15.93716,-4.40083 -0.004,0.14663 -0.004,0.29412 -0.004,0.44248 0,17.04767 12.12889,31.26806 28.22555,34.50266 -2.95247,0.80436 -6.06101,1.23398 -9.26989,1.23398 -2.2673,0 -4.47114,-0.22124 -6.62011,-0.63114 4.47801,13.97857 17.47214,24.15143 32.86992,24.43441 -12.04227,9.43796 -27.21366,15.06335 -43.69965,15.06335 -2.84014,0 -5.64082,-0.16722 -8.39349,-0.49223 15.57186,9.98421 34.06703,15.8094 53.93768,15.8094 64.72024,0 100.11301,-53.61524 100.11301,-100.11387 0,-1.52554 -0.0343,-3.04251 -0.10204,-4.55261 6.87394,-4.95995 12.83891,-11.15646 17.55618,-18.21305 z" /></g></svg>') no-repeat;
+  background-size: 18px;
+  background-position: 2px 4px;
+}
+
+.selectionSharer a.facebook {
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 33 33" width="25" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path style="fill:white" d="M 17.996,32L 12,32 L 12,16 l-4,0 l0-5.514 l 4-0.002l-0.006-3.248C 11.993,2.737, 13.213,0, 18.512,0l 4.412,0 l0,5.515 l-2.757,0 c-2.063,0-2.163,0.77-2.163,2.209l-0.008,2.76l 4.959,0 l-0.585,5.514L 18,16L 17.996,32z"></path></g></svg>') no-repeat;
+  background-size: 18px;
+  background-position: 0px 2px;
+  display: none;
+}
+
+.selectionSharer a.email {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="94" height="64"><g transform="translate(-10, -10)" fill="transparent"><rect x="0" y="0" width="114" height="114"></rect><path d="M12,12 L102,12 L102,72 L12,72 L12,12 Z M16,12 L53,49 C55.6666667,51 58.3333333,51 61,49 L98,12 L16,12 Z M15,72 L45,42 L15,72 Z M69,42 L99,72 L69,42 Z" stroke="white" stroke-width="5"></path></g></svg>') no-repeat;
+  background-size: 20px;
+  background-position: 0px 4px;
+}
+
+#selectionSharerPopunder.fixed {
+  transition: bottom 0.5s ease-in-out;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: -50px;
+}
+
+.selectionSharer {
+  transition: -webkit-transform 0.6s ease-in-out;
+}
+
+.selectionSharer.moveDown {
+  -webkit-transform: translate3d(0, 60px, 0);
+}
+
+#selectionSharerPopunder {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  transition: height 0.5s ease-in-out;
+  background: #ccc;
+  border: none;
+  box-shadow: inset 0px 10px 5px -10px rgba(0, 0, 0, 0.5), inset 0px -10px 5px -10px rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+#selectionSharerPopunder.show {
+  height: 50px;
+}
+
+.selectionSharerPlaceholder {
+  height: 1em;
+  margin-bottom: -2em;
+  transition: height 0.5s ease-in-out;
+}
+
+.selectionSharerPlaceholder.show {
+  height: 50px !important;
+}
+
+#selectionSharerPopunder-inner ul {
+  overflow: hidden;
+  float: right;
+  margin: 0px;
+}
+
+#selectionSharerPopunder-inner ul li {
+  padding: 5px;
+  overflow: hidden;
+}
+
+#selectionSharerPopunder-inner label {
+  color: white;
+  font-weight: 300;
+  line-height: 50px;
+  margin: 0px 20px 0px 10px;
+}
+
+#selectionSharerPopunder-inner a {
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+}
+
+#selectionSharerPopunder-inner a.tweet {
+  background-position: 0px 2px;
+}
+</style></head><body>
+<h1>Share Selected Text</h1>
+<p>CM Telecom - The Heart of Mobile is one mobile platform for messaging, payments, apps and voice in the heart of the mobile ecosystem.</p>
+
+<p>We are an experienced global mobile services company using platform innovation since 1999 to help companies engage with their consumers. We enable mobile messaging and payment functionality across a range of critical business processes, including customer interaction, marketing campaigns and mobile CRM. Mobile is the most effective ways to engage with customers. We guarantee you’ll reach your audience, whatever the channel.
+
+We provide mobile solutions, easily accessible through web browsers and mobile applications that clients use to increase engagement.</p>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >/*
+ * share-selection: Medium like popover menu to share on Twitter or by email any text selected on the page
+ *
+ * -- Requires jQuery --
+ * -- AMD compatible  --
+ *
+ * Author: Xavier Damman (@xdamman)
+ * GIT: https://github.com/xdamman/share-selection
+ * MIT License
+ */
+
+(function($) {
+
+  var SelectionSharer = function(options) {
+
+    var self = this;
+
+    options = options || {};
+    if(typeof options == 'string')
+        options = { elements: options };
+
+    this.sel = null;
+    this.textSelection='';
+    this.htmlSelection='';
+
+    this.appId = $('meta[property="fb:app_id"]').attr("content") || $('meta[property="fb:app_id"]').attr("value");
+    this.url2share = $('meta[property="og:url"]').attr("content") || $('meta[property="og:url"]').attr("value") || window.location.href;
+
+    this.getSelectionText = function(sel) {
+        var html = "", text = "";
+        var sel = sel || window.getSelection();
+        if (sel.rangeCount) {
+            var container = document.createElement("div");
+            for (var i = 0, len = sel.rangeCount; i < len; ++i) {if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;}
+                container.appendChild(sel.getRangeAt(i).cloneContents());
+            }
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+
+            text = container.textContent;
+            html = container.innerHTML
+        }
+        self.textSelection = text;
+        self.htmlSelection = html || text;
+        return text;
+    };
+
+    this.selectionDirection = function(selection) {
+      var sel = selection || window.getSelection();
+      var range = document.createRange();
+      if(!sel.anchorNode) return 0;
+      range.setStart(sel.anchorNode, sel.anchorOffset);
+      range.setEnd(sel.focusNode, sel.focusOffset);
+      var direction = (range.collapsed) ? "backward" : "forward";
+      range.detach();
+      return direction;
+    };
+
+    this.showPopunder = function() {
+      self.popunder = self.popunder || document.getElementById('selectionSharerPopunder');
+
+      var sel = window.getSelection();
+      var selection = self.getSelectionText(sel);
+
+      if(sel.isCollapsed || selection.length < 10 || !selection.match(/ /))
+        return self.hidePopunder();
+
+      if(self.popunder.classList.contains("fixed"))
+        return self.popunder.style.bottom = 0;
+
+      var range = sel.getRangeAt(0);
+      var node = range.endContainer.parentNode; // The <p> where the selection ends
+
+      // If the popunder is currently displayed
+      if(self.popunder.classList.contains('show')) {
+        // If the popunder is already at the right place, we do nothing
+        if(Math.ceil(self.popunder.getBoundingClientRect().top) == Math.ceil(node.getBoundingClientRect().bottom))
+          return;
+
+        // Otherwise, we first hide it and the we try again
+        return self.hidePopunder(self.showPopunder);
+      }
+
+      if(node.nextElementSibling) {
+        // We need to push down all the following siblings
+        self.pushSiblings(node);
+      }
+      else {
+        // We need to append a new element to push all the content below
+        if(!self.placeholder) {
+          self.placeholder = document.createElement('div');
+          self.placeholder.className = 'selectionSharerPlaceholder';
+        }
+
+        // If we add a div between two <p> that have a 1em margin, the space between them
+        // will become 2x 1em. So we give the placeholder a negative margin to avoid that
+        var margin = window.getComputedStyle(node).marginBottom;
+        self.placeholder.style.height = margin;
+        self.placeholder.style.marginBottom = (-2 * parseInt(margin,10))+'px';
+        node.parentNode.insertBefore(self.placeholder);
+      }
+
+      // scroll offset
+      var offsetTop = window.pageYOffset + node.getBoundingClientRect().bottom;
+      self.popunder.style.top = Math.ceil(offsetTop)+'px';
+
+      setTimeout(function() {
+        if(self.placeholder) self.placeholder.classList.add('show');
+        self.popunder.classList.add('show');
+      },0);
+
+    };
+
+    this.pushSiblings = function(el) {
+      while(el=el.nextElementSibling) {if (window.CP.shouldStopExecution(2)){break;}if (window.CP.shouldStopExecution(2)){break;} el.classList.add('selectionSharer'); el.classList.add('moveDown'); }
+window.CP.exitedLoop(2);
+
+window.CP.exitedLoop(2);
+
+    };
+
+    this.hidePopunder = function(cb) {
+      cb = cb || function() {};
+
+      if(self.popunder == "fixed") {
+        self.popunder.style.bottom = '-50px';
+        return cb();
+      }
+
+      self.popunder.classList.remove('show');
+      if(self.placeholder) self.placeholder.classList.remove('show');
+      // We need to push back up all the siblings
+      var els = document.getElementsByClassName('moveDown');
+      while(el=els[0]) {if (window.CP.shouldStopExecution(3)){break;}if (window.CP.shouldStopExecution(3)){break;}
+          el.classList.remove('moveDown');
+      }
+window.CP.exitedLoop(3);
+
+window.CP.exitedLoop(3);
+
+
+      // CSS3 transition takes 0.6s
+      setTimeout(function() {
+        if(self.placeholder) document.body.insertBefore(self.placeholder);
+        cb();
+      }, 600);
+
+    };
+
+    this.show = function(e) {
+      setTimeout(function() {
+        var sel = window.getSelection();
+        var selection = self.getSelectionText(sel);
+        if(!sel.isCollapsed && selection && selection.length>10 && selection.match(/ /)) {
+          var range = sel.getRangeAt(0);
+          var topOffset = range.getBoundingClientRect().top - 5;
+          var top = topOffset + window.scrollY - self.$popover.height();
+          var left = 0;
+          if(e) {
+            left = e.pageX;
+          }
+          else {
+            var obj = sel.anchorNode.parentNode;
+            left += obj.offsetWidth / 2;
+            do {if (window.CP.shouldStopExecution(4)){break;}if (window.CP.shouldStopExecution(4)){break;}
+              left += obj.offsetLeft;
+            }
+            while(obj = obj.offsetParent);
+window.CP.exitedLoop(4);
+
+window.CP.exitedLoop(4);
+
+          }
+          switch(self.selectionDirection(sel)) {
+            case 'forward':
+              left -= self.$popover.width();
+              break;
+            case 'backward':
+              left += self.$popover.width();
+              break;
+            default:
+              return;
+          }
+          self.$popover.removeClass("anim").css("top", top+10).css("left", left).show();
+          setTimeout(function() {
+            self.$popover.addClass("anim").css("top", top);
+          }, 0);
+        }
+      }, 10);
+    };
+
+    this.hide = function(e) {
+      self.$popover.hide();
+    };
+
+    this.smart_truncate = function(str, n){
+        if (!str || !str.length) return str;
+        var toLong = str.length>n,
+            s_ = toLong ? str.substr(0,n-1) : str;
+        s_ = toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
+        return  toLong ? s_ +'...' : s_;
+    };
+
+    this.getRelatedTwitterAccounts = function() {
+      var usernames = [];
+
+      var creator = $('meta[name="twitter:creator"]').attr("content") || $('meta[name="twitter:creator"]').attr("value");
+      if(creator) usernames.push(creator);
+
+
+      // We scrape the page to find a link to http(s)://twitter.com/username
+      var anchors = document.getElementsByTagName('a');
+      for(var i=0, len=anchors.length;i<len;i++) {if (window.CP.shouldStopExecution(5)){break;}if (window.CP.shouldStopExecution(5)){break;}
+        if(anchors[i].attributes.href && typeof anchors[i].attributes.href.value == 'string') {
+          var matches = anchors[i].attributes.href.value.match(/^https?:\/\/twitter\.com\/([a-z0-9_]{1,20})/i)
+          if(matches && matches.length > 1 && ['widgets','intent'].indexOf(matches[1])==-1)
+            usernames.push(matches[1]);
+        }
+      }
+window.CP.exitedLoop(5);
+
+window.CP.exitedLoop(5);
+
+
+      if(usernames.length > 0)
+        return usernames.join(',');
+      else
+        return '';
+    };
+
+    this.shareTwitter = function(e) {
+      e.preventDefault();
+
+      var text = "“"+self.smart_truncate(self.textSelection.trim(), 114)+"”";
+      var url = 'https://twitter.com/intent/tweet?text='+encodeURIComponent(text)+'&related='+self.relatedTwitterAccounts+'&url='+encodeURIComponent(window.location.href);
+
+      // We only show the via @twitter:site if we have enough room
+      if(self.viaTwitterAccount && text.length < (120-6-self.viaTwitterAccount.length))
+        url += '&via='+self.viaTwitterAccount;
+
+      var w = 640, h=440;
+      var left = (screen.width/2)-(w/2);
+      var top = (screen.height/2)-(h/2)-100;
+      window.open(url, "share_twitter", 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+      self.hide();
+      return false;
+    };
+
+    this.shareFacebook = function(e) {
+      e.preventDefault();
+      var text = self.htmlSelection.replace(/<p[^>]*>/ig,'\n').replace(/<\/p>|  /ig,'').trim();
+
+      var url = 'https://www.facebook.com/dialog/share?' +
+                'app_id='+self.appId +
+                '&display=popup'+
+                '&name='+encodeURIComponent(text)+
+                '&link='+encodeURIComponent(self.url2share)+
+                '&href='+encodeURIComponent(self.url2share)+
+                '&redirect_uri='+encodeURIComponent(self.url2share);
+      var w = 640, h=440;
+      var left = (screen.width/2)-(w/2);
+      var top = (screen.height/2)-(h/2)-100;
+
+      window.open(url, "share_facebook", 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+    };
+
+    this.shareEmail = function(e) {
+      var text = self.htmlSelection.replace(/<p[^>]*>/ig,'\n').replace(/<\/p>|  /ig,'').trim();
+      var email = {};
+      email.subject = encodeURIComponent("Quote from "+document.title);
+      email.body = encodeURIComponent("“"+text+"”")+"%0D%0A%0D%0AFrom: "+document.title+"%0D%0A"+window.location.href;
+      $(this).attr("href","mailto:?subject="+email.subject+"&body="+email.body);
+      self.hide();
+      return true;
+    };
+
+    this.render = function() {
+      var popoverHTML =  '<div class="selectionSharer" id="selectionSharerPopover" style="position:absolute;">'
+                       + '  <div id="selectionSharerPopover-inner">'
+                       + '    <ul>'
+                       + '      <li><a class="action tweet" href="" title="Share this selection on Twitter" target="_blank">Tweet</a></li>'
+                       + '      <li><a class="action facebook" href="" title="Share this selection on Facebook" target="_blank">Facebook</a></li>'
+                       + '      <li><a class="action email" href="" title="Share this selection by email" target="_blank"><svg width="20" height="20"><path stroke="#FFF" stroke-width="6" d="m16,25h82v60H16zl37,37q4,3 8,0l37-37M16,85l30-30m22,0 30,30"/></svg></a></li>'
+                       + '    </ul>'
+                       + '  </div>'
+                       + '  <div class="selectionSharerPopover-clip"><span class="selectionSharerPopover-arrow"></span></div>'
+                       + '</div>';
+
+      var popunderHTML = '<div id="selectionSharerPopunder" class="selectionSharer">'
+                       + '  <div id="selectionSharerPopunder-inner">'
+                       + '    <label>Share this selection</label>'
+                       + '    <ul>'
+                       + '      <li><a class="action tweet" href="" title="Share this selection on Twitter" target="_blank">Tweet</a></li>'
+                       + '      <li><a class="action facebook" href="" title="Share this selection on Facebook" target="_blank">Facebook</a></li>'
+                       + '      <li><a class="action email" href="" title="Share this selection by email" target="_blank"><svg width="20" height="20"><path stroke="#FFF" stroke-width="6" d="m16,25h82v60H16zl37,37q4,3 8,0l37-37M16,85l30-30m22,0 30,30"/></svg></a></li>'
+                       + '    </ul>'
+                       + '  </div>'
+                       + '</div>';
+      self.$popover = $(popoverHTML);
+      self.$popover.find('a.tweet').click(self.shareTwitter);
+      self.$popover.find('a.facebook').click(self.shareFacebook);
+      self.$popover.find('a.email').click(self.shareEmail);
+
+      $('body').append(self.$popover);
+
+      self.$popunder = $(popunderHTML);
+      self.$popunder.find('a.tweet').click(self.shareTwitter);
+      self.$popunder.find('a.facebook').click(self.shareFacebook);
+      self.$popunder.find('a.email').click(self.shareEmail);
+      $('body').append(self.$popunder);
+
+      if (self.appId && self.url2share){
+        $(".selectionSharer a.facebook").css('display','inline-block');
+      }
+    };
+
+    this.setElements = function(elements) {
+      if(typeof elements == 'string') elements = $(elements);
+      self.$elements = elements instanceof $ ? elements : $(elements);
+      self.$elements.mouseup(self.show).mousedown(self.hide).addClass("selectionShareable");
+
+      self.$elements.bind('touchstart', function(e) {
+        self.isMobile = true;
+      });
+
+      document.onselectionchange = self.selectionChanged;
+    };
+
+    this.selectionChanged = function(e) {
+      if(!self.isMobile) return;
+
+      if(self.lastSelectionChanged) {
+        clearTimeout(self.lastSelectionChanged);
+      }
+      self.lastSelectionChanged = setTimeout(function() {
+        self.showPopunder(e);
+      }, 300);
+    };
+
+    this.render();
+
+    if(options.elements) {
+      this.setElements(options.elements);
+    }
+
+  };
+
+  // jQuery plugin
+  // Usage: $( "p" ).selectionSharer();
+  $.fn.selectionSharer = function() {
+    var sharer = new SelectionSharer();
+    sharer.setElements(this);
+    return this;
+  };
+
+  // For AMD / requirejs
+  // Usage: require(["selection-sharer!"]);
+  //     or require(["selection-sharer"], function(selectionSharer) { var sharer = new SelectionSharer('p'); });
+  if(typeof define == 'function') {
+    define(function() {
+      SelectionSharer.load = function (name, req, onLoad, config) {
+        var sharer = new SelectionSharer();
+        sharer.setElements('p');
+        onLoad();
+      };
+      return SelectionSharer;
+    });
+
+  }
+  else {
+    // Registering SelectionSharer as a global
+    // Usage: var sharer = new SelectionSharer('p');
+    window.SelectionSharer = SelectionSharer;
+  }
+
+})(jQuery);
+
+$('p').selectionSharer();
+//# sourceURL=pen.js
+</script>
+</body></html>

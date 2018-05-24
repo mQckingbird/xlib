@@ -1,0 +1,292 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/cobra_winfrey/pen/xpqpXb" />
+<link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">body {
+  width: 100%;
+  height: 100vh;
+  -webkit-perspective: 10000px;
+          perspective: 10000px;
+  background: radial-gradient(circle at center, #222, #000);
+  overflow: hidden;
+  font-family: "Homemade Apple";
+}
+body .wrap {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: calc(50% - 250px);
+  top: calc(50% - 250px);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-animation: float 5s linear infinite;
+          animation: float 5s linear infinite;
+  -webkit-transform: rotateX(60deg) rotate(0deg);
+          transform: rotateX(60deg) rotate(0deg);
+}
+@-webkit-keyframes float {
+  0% {
+    -webkit-transform: rotateX(50deg) rotate(0deg) scale(0.75);
+            transform: rotateX(50deg) rotate(0deg) scale(0.75);
+  }
+  50% {
+    -webkit-transform: rotateX(80deg) rotate(180deg) scale(0.75);
+            transform: rotateX(80deg) rotate(180deg) scale(0.75);
+  }
+  100% {
+    -webkit-transform: rotateX(50deg) rotate(360deg) scale(0.75);
+            transform: rotateX(50deg) rotate(360deg) scale(0.75);
+  }
+}
+@keyframes float {
+  0% {
+    -webkit-transform: rotateX(50deg) rotate(0deg) scale(0.75);
+            transform: rotateX(50deg) rotate(0deg) scale(0.75);
+  }
+  50% {
+    -webkit-transform: rotateX(80deg) rotate(180deg) scale(0.75);
+            transform: rotateX(80deg) rotate(180deg) scale(0.75);
+  }
+  100% {
+    -webkit-transform: rotateX(50deg) rotate(360deg) scale(0.75);
+            transform: rotateX(50deg) rotate(360deg) scale(0.75);
+  }
+}
+body .wrap:before, body .wrap:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  left: 0;
+  top: 0;
+  -webkit-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+  -webkit-clip-path: polygon(50% 80%, 0 50%, 100% 50%);
+          clip-path: polygon(50% 80%, 0 50%, 100% 50%);
+  -webkit-animation: brighten 5s linear infinite;
+          animation: brighten 5s linear infinite;
+}
+body .wrap:after {
+  -webkit-transform: rotateX(-90deg) rotateY(-90deg);
+          transform: rotateX(-90deg) rotateY(-90deg);
+  background: #fff;
+  -webkit-animation-delay: -2.5s;
+          animation-delay: -2.5s;
+}
+body .wrap .face {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  width: 250px;
+  height: 250px;
+  display: inline-block;
+  float: left;
+}
+body .wrap .face:nth-of-type(1) .inner:nth-of-type(even) .inside {
+  -webkit-animation-delay: 1.5384615385s;
+          animation-delay: 1.5384615385s;
+}
+body .wrap .face:nth-of-type(1) .inner:nth-of-type(even) .inside:after {
+  content: "1";
+}
+body .wrap .face:nth-of-type(1) .inner:nth-of-type(odd) .inside {
+  -webkit-animation-delay: -1.5384615385s;
+          animation-delay: -1.5384615385s;
+}
+body .wrap .face:nth-of-type(1) .inner:nth-of-type(odd) .inside:after {
+  content: "5";
+}
+body .wrap .face:nth-of-type(2) .inner:nth-of-type(even) .inside {
+  -webkit-animation-delay: 3.0769230769s;
+          animation-delay: 3.0769230769s;
+}
+body .wrap .face:nth-of-type(2) .inner:nth-of-type(even) .inside:after {
+  content: "2";
+}
+body .wrap .face:nth-of-type(2) .inner:nth-of-type(odd) .inside {
+  -webkit-animation-delay: -3.0769230769s;
+          animation-delay: -3.0769230769s;
+}
+body .wrap .face:nth-of-type(2) .inner:nth-of-type(odd) .inside:after {
+  content: "6";
+}
+body .wrap .face:nth-of-type(3) .inner:nth-of-type(even) .inside {
+  -webkit-animation-delay: 4.6153846154s;
+          animation-delay: 4.6153846154s;
+}
+body .wrap .face:nth-of-type(3) .inner:nth-of-type(even) .inside:after {
+  content: "3";
+}
+body .wrap .face:nth-of-type(3) .inner:nth-of-type(odd) .inside {
+  -webkit-animation-delay: -4.6153846154s;
+          animation-delay: -4.6153846154s;
+}
+body .wrap .face:nth-of-type(3) .inner:nth-of-type(odd) .inside:after {
+  content: "7";
+}
+body .wrap .face:nth-of-type(4) .inner:nth-of-type(even) .inside {
+  -webkit-animation-delay: 6.1538461538s;
+          animation-delay: 6.1538461538s;
+}
+body .wrap .face:nth-of-type(4) .inner:nth-of-type(even) .inside:after {
+  content: "4";
+}
+body .wrap .face:nth-of-type(4) .inner:nth-of-type(odd) .inside {
+  -webkit-animation-delay: -6.1538461538s;
+          animation-delay: -6.1538461538s;
+}
+body .wrap .face:nth-of-type(4) .inner:nth-of-type(odd) .inside:after {
+  content: "8";
+}
+body .wrap .face .inner {
+  content: "";
+  position: absolute;
+  width: 355px;
+  height: 355px;
+  top: -177.5px;
+  left: 72.5px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+body .wrap .face .inner:nth-of-type(2) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: -177.5px;
+  left: 72.5px;
+}
+body .wrap .face .inner .inside {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(50deg, #fff 50%, #ccc 75%);
+  -webkit-clip-path: polygon(50% 28.75%, 0% 100%, 100% 100%);
+          clip-path: polygon(50% 28.75%, 0% 100%, 100% 100%);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotateX(-45deg);
+          transform: rotateX(-45deg);
+  -webkit-box-shadow: inset 0 -3px 100px #ccc;
+          box-shadow: inset 0 -3px 100px #ccc;
+  -webkit-animation: brighten 5s linear infinite;
+          animation: brighten 5s linear infinite;
+}
+body .wrap .face .inner .inside:after {
+  position: absolute;
+  color: #222;
+  font-size: 70px;
+  left: 150px;
+  bottom: 50px;
+}
+@-webkit-keyframes brighten {
+  0% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  50% {
+    -webkit-filter: brightness(0.85);
+            filter: brightness(0.85);
+  }
+  100% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+}
+@keyframes brighten {
+  0% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  50% {
+    -webkit-filter: brightness(0.85);
+            filter: brightness(0.85);
+  }
+  100% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+}
+body .wrap .face .inner .outside {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(80%, #fff), color-stop(120%, #ccc));
+  background: linear-gradient(0deg, #fff 80%, #ccc 120%);
+  -webkit-box-shadow: inset 0 -3px 100px #ccc;
+          box-shadow: inset 0 -3px 100px #ccc;
+  left: 0;
+  top: 0;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: rotateX(45deg);
+          transform: rotateX(45deg);
+  -webkit-clip-path: polygon(50% 71.25%, 0 0, 100% 0);
+          clip-path: polygon(50% 71.25%, 0 0, 100% 0);
+}
+body .wrap .face:nth-of-type(2) {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+body .wrap .face:nth-of-type(3) {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+body .wrap .face:nth-of-type(4) {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+</style></head><body>
+<div class='wrap'>
+  <div class='face'>
+    <div class='inner'>
+      <div class='inside'></div>
+      <div class='outside'></div>
+    </div>
+    <div class='inner'>
+      <div class='inside'></div>
+      <div class='outside'></div>
+    </div>
+  </div>
+  <div class='face'>
+    <div class='inner'>
+      <div class='inside'></div>
+      <div class='outside'></div>
+    </div>
+    <div class='inner'>
+      <div class='inside'></div>
+      <div class='outside'></div>
+    </div>
+  </div>
+  <div class='face'>
+    <div class='inner'>
+      <div class='inside'></div>
+      <div class='outside'></div>
+    </div>
+    <div class='inner'>
+      <div class='inside'></div>
+      <div class='outside'></div>
+    </div>
+  </div>
+  <div class='face'>
+    <div class='inner'>
+      <div class='inside'></div>
+      <div class='outside'></div>
+    </div>
+    <div class='inner'>
+      <div class='inside'></div>
+      <div class='outside'></div>
+    </div>
+  </div>
+</div>
+
+
+</body></html>

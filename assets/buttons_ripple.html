@@ -1,0 +1,152 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/HugsArentGood/pen/ZeNJMR?depth=everything&order=popularity&page=2&q=create+button&show_forks=false" />
+
+
+<style class="cp-pen-styles">@import url('https://fonts.googleapis.com/css?family=Roboto');
+html,body{
+	margin:0;
+	padding:0;
+	background:#333;
+}
+
+.center{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+  text-align:center;
+	height:100vh;
+}
+
+button{
+  position: relative;
+  min-width: 72px;
+  min-height: 48px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding:5px;
+  color: #f3f3f3;
+  cursor: pointer;
+  background: #2196F3;
+	outline:0;
+	border:0;
+	font-family:'Roboto',sans-serif;
+	border-radius:2px;
+  transition:all 0.2s;
+}
+button:hover{
+  background: #41A6FF;
+}
+
+button.dark-paper{
+  background:#DDDDDD;
+  color:#333;
+}
+button.dark-paper:hover{
+  background:#BBBBBB;
+  color:#333;
+}
+
+.material-ripple-container{
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  position:absolute;
+  overflow:hidden;
+}
+.material-ripple{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin-left: -25px;
+  margin-top: -25px;
+  border-radius: 50%;
+  background: #fff;
+  z-index: 1;
+  transform:scale(0);
+  opacity:0.8;
+  transition:all 5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+.dark-paper > .material-ripple-container > .material-ripple{
+  background: #333;
+}</style></head><body>
+<!-- TODO:
+     - [SOLVED?] Prevent the removeChild() call from throwing an error
+          - Solution(?): iterate through children on timeout rather than creating an array before the timeout and removing them when it fires
+     - [SOLVED] Fix the 1px border where the ripple does not appear on buttons barely larger than the specified minimum (visible in the Dark Paper button below)
+          - Solution: put all ripples in a container the same width and height as the button, as the ripple was not overflowing into padding
+     - Prevent the "style of undefined" error
+     - Prevent the ripple element from disappearing prematurely, causing the button to flash from one color to another (rather than fading smoothly)
+-->
+<div class='center'>
+	<div>
+		<button>Paper</button><br><br>
+    <button class='dark-paper'>Dark Paper</button>
+	</div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >var generateId = l => {
+  var a = "abcdefghijklmnopqrstuvwxyz".split(""), o = "";
+  for (var b = 0; b < l; b++) {if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;}
+    o += a[Math.floor(Math.random() * a.length)];
+  }
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+
+  return o;
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+  var buttons = document.querySelectorAll("button");
+  [].forEach.call(buttons, e => {
+    e.innerHTML += '<div class="material-ripple-container"></div>';
+    e.addEventListener("mousedown", ev => {
+      if (!ev.button) {
+        e.dataset.mouse = 1;
+        var elem = document.createElement("div");
+        elem.classList.add("material-ripple");
+        e.dataset.rippleid = elem.id = generateId(10);
+        e.querySelector('.material-ripple-container').appendChild(elem);
+
+        var offsetY = e.offsetTop === undefined ? ev.pageY - ev.layerY : ev.pageY - e.offsetTop;
+        var offsetX = e.offsetLeft === undefined ? ev.pageX - ev.layerX : ev.pageX - e.offsetLeft;
+
+        elem.style.left = offsetX + "px";
+        elem.style.top = offsetY + "px";
+        elem.style.transform = "scale(15)";
+      }
+    });
+    e.addEventListener("mouseup", ev => {
+      e.dataset.mouse = 0;
+      var o = [];
+      [].forEach.call(e.querySelector('.material-ripple-container').children, el => {
+        o.push(el);
+      });
+      o.reverse()[0].style.opacity = 0;
+      setTimeout(() => {
+        [].forEach.call(e.querySelector('.material-ripple-container').children,el => {
+          el.parentNode.removeChild(el);
+        });
+      }, 3000);
+    });
+    e.addEventListener("mouseleave", ev => {
+      var o = [];
+      [].forEach.call(e.querySelector('.material-ripple-container').children, el => {
+        o.push(el);
+      });
+      if(e.dataset.mouse === '1'){
+        o.reverse()[0].style.opacity = 0;
+      }
+      setTimeout(() => {
+        [].forEach.call(e.querySelector('.material-ripple-container').children,el => {
+          el.parentNode.removeChild(el);
+        });
+      }, 3000);
+    });
+  });
+});
+
+//# sourceURL=pen.js
+</script>
+</body></html>

@@ -1,0 +1,400 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/bradfrost/pen/EPQVBp" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+<style class="cp-pen-styles">* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding: 1.2em;
+  background: #f8f4e6;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+}
+
+[contenteditable] {
+  border-bottom: 1px dotted #EF944D;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 2em;
+  color: #d5c9a5;
+}
+
+.b {
+  margin-bottom: 4em;
+}
+
+.b-header {
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.b-size {
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  display: block;
+  padding: 0 0.5rem 3rem 0;
+  border-right: 1px dashed #d5c9a5;
+  font-size: 80%;
+  font-style: normal;
+  font-weight: bold;
+  color: #999;
+}
+
+.b-title {
+  display: inline-block;
+  margin: 0 0.2em;
+  line-height: 1;
+}
+
+.b-budget {
+  background: #eee;
+  background: repeating-linear-gradient(45deg, #e9e9e9, #e9e9e9 10px, #f0f0f0 10px, #f0f0f0 20px);
+  border-radius: 1em;
+  -webkit-box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.08);
+          box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.b-cat-container {
+  min-width: 210px !important;
+  -webkit-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+  position: relative;
+}
+
+.actual-size {
+  position: absolute;
+  top: -1.5rem;
+  right: 0;
+  display: block;
+  padding: 0 0.5rem 1rem 0;
+  border-right: 1px dashed #d5c9a5;
+  font-size: 80%;
+  font-style: normal;
+  font-weight: bold;
+  color: #d5c9a5;
+}
+
+.b-cat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.b-cat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 35px !important;
+  width: 100%;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+}
+.b-cat label {
+  padding-top: 1rem;
+  font-size: 80%;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.b-cat input {
+  display: block;
+  border: 0;
+  background: none;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3em;
+  width: 100%;
+  padding-bottom: 1rem;
+  outline: 0;
+  -webkit-transition: background 0.1s ease-in-out;
+  transition: background 0.1s ease-in-out;
+}
+.b-cat input:focus {
+  background: rgba(0, 0, 0, 0.1);
+}
+.b-cat-html {
+  background: #37393A;
+  color: rgba(255, 255, 255, 0.6);
+}
+.b-cat-html input {
+  color: rgba(255, 255, 255, 0.6);
+}
+.b-cat-css {
+  background: #F9ECC5;
+}
+.b-cat-js {
+  background: #EF944D;
+}
+.b-cat-img {
+  background: #EBC050;
+}
+.b-cat-fonts {
+  background: #598FC2;
+}
+.b-cat-ads {
+  background: #777;
+  color: rgba(255, 255, 255, 0.7);
+}
+.b-cat-ads input {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btn {
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 0;
+  display: block;
+  padding: 2em;
+  margin: 0 auto 4em;
+  background: #ccc;
+  border-radius: 1em;
+  -webkit-box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.08);
+          box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  -webkit-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
+}
+.btn:hover, .btn:focus {
+  background: #bbb;
+}
+
+.has-error {
+  color: #a92101;
+  -webkit-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+.has-error em {
+  color: inherit;
+}
+
+footer {
+  margin-top: 4em;
+  color: #d5c9a5;
+  text-align: center;
+}
+footer a {
+  color: #d5c9a5;
+}
+footer a:hover, footer a:focus {
+  color: #EF944D;
+}
+
+@-webkit-keyframes shake {
+  10%, 90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+  }
+}
+</style></head><body>
+<h1>Let's Make A Performance Budget!</h1>
+
+<div class="b">
+  <div class="b-header">
+    <h2 class="b-title" contenteditable>Template Name</h2>
+    <em class="b-size">Budget: <span contenteditable>800</span>KB</em>
+  </div><!--end b-header-->
+  <div class="b-budget">
+    <div class="b-cat-container">
+      <em class="actual-size">Actual: <span>60</span>KB</em>
+      <ul class="b-cat-list">
+        <li class="b-cat b-cat-html">
+          <label for="html">HTML</label>
+          <input id="html" type="number" pattern="[0-9]*" value="50" />
+        </li>
+        <li class="b-cat b-cat-css">
+          <label for="css">CSS</label>
+          <input id="css" type="number" pattern="[0-9]*" value="100" />
+        </li>
+        <li class="b-cat b-cat-js">
+          <label for="js">JS</label>
+          <input id="js" type="number" pattern="[0-9]*" value="200" />
+        </li>
+        <li class="b-cat b-cat-img">
+          <label for="img">Images</label>
+          <input id="img" type="number" pattern="[0-9]*" value="200" />
+        </li>
+        <li class="b-cat b-cat-fonts">
+          <label for="fonts">Fonts</label>
+          <input id="fonts" type="number" pattern="[0-9]*" value="100" />
+        </li>
+        <li class="b-cat b-cat-ads">
+          <label for="ads">Ads</label>
+          <input id="ads" type="number" pattern="[0-9]*" value="50" />
+        </li>
+      </ul><!--end b-bar-->
+    </div><!--end cat-container-->
+  </div><!--end b-budget-->
+</div><!--end b-->
+<button class="btn">Add new template</button>
+
+<footer role="contentinfo">
+  <a href="http://bradfrost.com/blog/post/performance-budget-builder/" target="_blank">More info on this project</a>. Made by <a href="http://bradfrost.com">Brad Frost</a> (<a href="https://twitter.com/brad_frost">@brad_frost</a>)
+</footer>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >//On input keyup
+$('body').on('keyup', '.b-cat input', function(){
+  var $this = $(this),
+      val = parseInt($this.val());
+  
+  //Set widths of categories
+  setCatWidths($this.parents('.b'));
+  
+  calculateActualSize($(this).parents('.b'));
+});
+
+//Set width of category
+function setCatWidths(scope) {
+  scope.find('.b-cat input').each(function(){
+     var $this = $(this),
+         val = parseInt($this.val());
+    $this.parent().width(calculateCatWidth(scope,val)+'%');
+  });
+}
+
+setCatWidths($('.b'));
+
+//Adjust budget value
+$('body').on('keyup', '.b-size span', function(){
+  
+  //Check if actual size is over/under budget
+  budgetOverUnder($(this).parents('.b')); 
+});
+
+//Calculate Actual Template Size
+function calculateActualSize(scope) {
+  var inputs = $('.b-cat input'),
+      numInputs = inputs.length,
+      totalActualSize = 0;
+  
+  //Calculate total value from each category
+  scope.find('.b-cat input').each(function(){
+     var val = parseInt($(this).val());
+     totalActualSize = totalActualSize + val;
+  });
+  
+  setActualSize(scope,totalActualSize);
+  
+  //Check if actual size is over/under budget
+  budgetOverUnder(scope); 
+}
+
+calculateActualSize($('.b'));
+
+//Calculate width
+function calculateCatWidth(scope,val) {
+  var actualSize = parseInt(scope.find('.actual-size span').text());
+  console.log(actualSize);
+  var categoryWidth = (val/actualSize)*100;
+  return categoryWidth;
+}
+
+//Set Actual Size
+function setActualSize(scope,val) {
+  actualSize = val;
+  scope.find('.actual-size span').text(val);
+}
+
+//Determine if actual size is within budget
+function budgetOverUnder(scope) {
+  var budgetSize = parseInt(scope.find('.b-size span').text());
+  var actualSize = parseInt(scope.find('.actual-size span').text());
+  var totalSize = actualSize/budgetSize;
+  
+  //If actual val is over budget
+  if(totalSize>1) {
+    scope.find('.b-header, .actual-size').addClass('has-error');
+   scope.find('.b-cat-container').width('100%');
+  } else {
+    scope.find('.b-header, .actual-size').removeClass('has-error');
+    scope.find('.b-cat-container').width(totalSize*100+'%');
+  }
+}
+
+budgetOverUnder($('.b'));
+
+//Make new Budget
+$('.btn').on('click', function(){
+  $('.b').last().clone().insertBefore('.btn');
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

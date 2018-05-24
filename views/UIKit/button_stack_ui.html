@@ -1,0 +1,554 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/camskene/pen/vEbvVE?depth=everything&order=popularity&page=3&q=create+button&show_forks=false" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">/*----------------------------------------------------------------
+  button variables
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button mixin
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button color mixin
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button size mixin
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button link mixin
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button disabled mixin
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button colors css output
+----------------------------------------------------------------*/
+.button {
+  appearance: none;
+  border: 0;
+  border-radius: 3px;
+  font-weight: normal;
+  line-height: 1.2;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  outline: 0;
+  background-color: #E0E1E2;
+  color: #333;
+}
+
+.button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.button .icon-left {
+  margin-right: 0.625em;
+}
+
+.button .icon-right {
+  margin-left: 0.625em;
+}
+
+.button:hover, .button:focus {
+  background-color: #d5d7d8;
+}
+
+.button:active, .button.active {
+  background-color: #cbcdce;
+}
+
+.button-basic {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.button-basic:hover, .button-basic:focus {
+  background-color: whitesmoke;
+}
+
+.button-basic:active, .button-basic.active {
+  background-color: #ebebeb;
+}
+
+.button-primary {
+  background-color: #337ab7;
+  color: #fff;
+}
+
+.button-primary:hover, .button-primary:focus {
+  background-color: #2f6fa7;
+}
+
+.button-primary:active, .button-primary.active {
+  background-color: #2a6597;
+}
+
+.button-success {
+  background-color: #38b733;
+  color: #fff;
+}
+
+.button-success:hover, .button-success:focus {
+  background-color: #33a72f;
+}
+
+.button-success:active, .button-success.active {
+  background-color: #2e972a;
+}
+
+.button-warning {
+  background-color: #d00;
+  color: #fff;
+}
+
+.button-warning:hover, .button-warning:focus {
+  background-color: #c90000;
+}
+
+.button-warning:active, .button-warning.active {
+  background-color: #b40000;
+}
+
+/*----------------------------------------------------------------
+  button disabled css output
+----------------------------------------------------------------*/
+.button:disabled {
+  opacity: 0.65;
+  border-color: transparent;
+  background: #e7e7e7;
+  color: #666;
+}
+
+/*----------------------------------------------------------------
+  button link css output
+----------------------------------------------------------------*/
+.button-link {
+  color: #07D;
+}
+
+.button-link, .button-link:hover, .button-link:focus, .button-link:active, .button-link.active, .button-link:disabled {
+  border-color: transparent;
+  background: none;
+}
+
+.button-link:hover, .button-link:focus, .button-link:active, .button-link.active {
+  color: #059;
+  text-decoration: underline;
+}
+
+.button-link:disabled {
+  color: #999;
+}
+
+.button-link:focus {
+  outline: 1px dotted;
+}
+
+/*----------------------------------------------------------------
+  button sizes css output
+----------------------------------------------------------------*/
+.button {
+  padding: 0.75em 1.25em;
+  font-size: 0.938rem;
+}
+
+.button-small {
+  padding: 0.75em 1.25em;
+  font-size: 0.563rem;
+}
+
+.button-medium {
+  padding: 0.75em 1.25em;
+  font-size: 0.75rem;
+}
+
+.button-large {
+  padding: 0.75em 1.25em;
+  font-size: 1.125rem;
+}
+
+.button-huge {
+  padding: 0.75em 1.25em;
+  font-size: 1.313rem;
+}
+
+.button-expand {
+  display: block;
+  width: 100%;
+}
+
+/*----------------------------------------------------------------
+  button group mixin
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button group divider mixin
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button group border mixin
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button stack mixin
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button stack divider color mixin
+----------------------------------------------------------------*/
+/*----------------------------------------------------------------
+  button group css output
+----------------------------------------------------------------*/
+.button-group {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  border-radius: 3px;
+}
+
+.button-group .button {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: rgba(0, 0, 0, 0.14);
+}
+
+.button-group .button:last-child {
+  border-right-width: 0;
+}
+
+.button-group .button {
+  border-top-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-radius: 0;
+}
+
+.button-group .button:first-child {
+  border-radius: 3px 0 0 3px;
+}
+
+.button-group .button:last-child {
+  border-radius: 0 3px 3px 0;
+}
+
+.button-group-expand {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  border-radius: 3px;
+  display: flex;
+}
+
+.button-group-expand .button {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: rgba(0, 0, 0, 0.14);
+}
+
+.button-group-expand .button:last-child {
+  border-right-width: 0;
+}
+
+.button-group-expand .button {
+  border-top-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-radius: 0;
+}
+
+.button-group-expand .button:first-child {
+  border-radius: 3px 0 0 3px;
+}
+
+.button-group-expand .button:last-child {
+  border-radius: 0 3px 3px 0;
+}
+
+.button-group-expand .button {
+  flex: 1;
+}
+
+/*----------------------------------------------------------------
+  button stack css output
+----------------------------------------------------------------*/
+.button-stack {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  border-radius: 3px;
+}
+
+.button-stack .button {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.14);
+}
+
+.button-stack .button:last-child {
+  border-bottom-width: 0;
+}
+
+.button-stack .button {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-radius: 0;
+}
+
+.button-stack .button:first-child {
+  border-radius: 3px 3px 0 0;
+}
+
+.button-stack .button:last-child {
+  border-radius: 0 0 3px 3px;
+}
+
+.button-stack-expand {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  border-radius: 3px;
+  display: flex;
+}
+
+.button-stack-expand .button {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.14);
+}
+
+.button-stack-expand .button:last-child {
+  border-bottom-width: 0;
+}
+
+.button-stack-expand .button {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-radius: 0;
+}
+
+.button-stack-expand .button:first-child {
+  border-radius: 3px 3px 0 0;
+}
+
+.button-stack-expand .button:last-child {
+  border-radius: 0 0 3px 3px;
+}
+
+/*----------------------------------------------------------------
+  codepen demo styles
+----------------------------------------------------------------*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px/1.5 'helvetica neue', arial;
+}
+
+.container {
+  max-width: 800px;
+  padding: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+hr {
+  margin: 3rem 0;
+  height: 0;
+  border: 0;
+  border-top: 1px solid #f1f1f1;
+}
+
+h3, p {
+  color: #999;
+  font-weight: normal;
+}
+
+.example-group-has-border {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+.example-group-divider-color {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.example-group-divider-color .button {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: white;
+}
+
+.example-group-divider-color .button:last-child {
+  border-right-width: 0;
+}
+
+.button-stack-examples {
+  display: flex;
+  justify-content: space-between;
+}
+
+.example-stack-divider-1 {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+.example-stack-divider-2 {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.example-stack-divider-2 .button {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: white;
+}
+
+.example-stack-divider-2 .button:last-child {
+  border-bottom-width: 0;
+}
+</style></head><body>
+<div class="container">
+  <h1>Buttons</h1>
+  <p>Mixins and variables for buttons. </p>
+  <hr />
+  <h2>Elements</h2>
+  <button class="button">Button</button>
+  <a href="" class="button">Anchor</a>
+  <input type="submit" value="Submit" class="button" />
+  <input type="reset" value="Reset" class="button" />
+
+  <hr />
+
+  <h2>Sizes</h2>
+  <button class="button button-default button-small">Small</button>
+  <button class="button button-default button-medium">Medium</button>
+  <button class="button button-default ">Default</button>
+  <button class="button button-default button-large">Large</button>
+  <button class="button button-default button-huge">Huge</button>
+
+  <hr />
+
+  <h2>Colors</h2>
+  <button class="button button-default button-link">Link</button>
+  <button class="button">Default</button>
+  <button class="button button-basic">Basic</button>
+  <button class="button button-primary">Primary</button>
+  <button class="button button-success">Success</button>
+  <button class="button button-warning">Warning</button>
+  <button class="button" disabled>Disabled</button>
+
+  <hr />
+
+  <h2>Icons</h2>
+  <button class="button"><i class="icon icon-left fa fa-star"></i>Default</button>
+  <button class="button button-basic">Basic<i class="icon icon-right fa fa-code"></i></button>
+  <button class="button button-primary"><i class="icon icon-left fa fa-cloud"></i>Primary</button>
+  <button class="button button-success">Success<i class="icon icon-right fa fa-check"></i></button>
+  <button class="button button-warning">Warning<i class="icon icon-right fa fa-bolt"></i></button>
+  <button class="button" disabled>Disabled<i class="icon icon-right fa fa-meh-o"></i></button>
+
+  <hr />
+
+  <h2>Groups</h2>
+  <h3>Button Group</h3>
+
+   <div class="button-group ">
+    <button class="button">Button 1</button>
+    <button class="button">Button 2</button>
+    <button class="button">Button 3</button>
+    <button class="button">Button 4</button>
+    <button class="button">Button 5</button>
+    <button class="button">Button 6</button>
+  </div>
+
+  <hr />
+
+  <div class="button-group example-group-has-border">
+    <button class="button button-basic">Button 1</button>
+    <button class="button button-basic">Button 2</button>
+    <button class="button button-basic">Button 3</button>
+    <button class="button button-basic">Button 4</button>
+    <button class="button button-basic">Button 5</button>
+    <button class="button button-basic">Button 6</button>
+  </div>
+
+  <hr />
+
+  <div class="button-group example-group-divider-color">
+    <button class="button button-primary">Button 1</button>
+    <button class="button button-primary">Button 2</button>
+    <button class="button button-primary">Button 3</button>
+    <button class="button button-primary">Button 4</button>
+    <button class="button button-primary">Button 5</button>
+    <button class="button button-primary">Button 6</button>
+  </div>
+
+  <hr />
+
+  <h3>Button Group Expand</h3>
+  <div class="button-group-expand">
+    <button class="button">Button 1</button>
+    <button class="button">Button 2</button>
+    <button class="button">Button 3</button>
+    <button class="button">Button 4</button>
+    <button class="button">Button 5</button>
+    <button class="button">Button 6</button>
+  </div>
+
+  <hr />
+
+  <h2>Stacks</h2>
+
+  <h3>Button Stack</h3>
+  <div class="button-stack-examples">
+    <div class="button-stack">
+      <button class="button">Button 1</button>
+      <button class="button">Button 2</button>
+      <button class="button">Button 3</button>
+      <button class="button">Button 4</button>
+      <button class="button">Button 5</button>
+      <button class="button">a longer button name</button>
+    </div>
+
+    <div class="button-stack example-stack-divider-1">
+      <button class="button button-basic">Button 1</button>
+      <button class="button button-basic">Button 2</button>
+      <button class="button button-basic">Button 3</button>
+      <button class="button button-basic">Button 4</button>
+      <button class="button button-basic">Button 5</button>
+      <button class="button button-basic">a longer button name</button>
+    </div>
+
+    <div class="button-stack example-stack-divider-2">
+      <button class="button">Default</button>
+      <button class="button button-basic">Basic</button>
+      <button class="button button-primary">Primary</button>
+      <button class="button button-success">Success</button>
+      <button class="button button-warning">Warning</button>
+      <button class="button" disabled>Disabled</button>
+    </div>
+  </div>
+
+  <hr />
+</div>
+
+
+</body></html>

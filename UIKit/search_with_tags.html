@@ -1,0 +1,305 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/muhanad40/pen/WoadvQ?depth=everything&order=popularity&page=2&q=two+way+binding&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<style class="cp-pen-styles">body * {
+  box-sizing: border-box;
+  font-family: arial;
+  font-size: 16px;
+}
+
+.search {
+  width: 80%;
+  margin: 2rem auto;
+  position: relative;
+}
+.search::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 139 139' fill='gray' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M127.558 111.96l-27.31-27.31c4.64-7.387 7.334-16.118 7.334-25.488 0-26.51-21.49-47.996-47.998-47.996S11.588 32.653 11.588 59.162c0 26.51 21.487 47.995 47.996 47.995 10.197 0 19.642-3.188 27.414-8.605l26.984 26.986c1.875 1.873 4.333 2.806 6.788 2.806 2.458 0 4.913-.933 6.79-2.806 3.748-3.75 3.748-9.827-.002-13.577zM59.584 91.608c-17.917 0-32.443-14.525-32.443-32.443S41.668 26.72 59.585 26.72c17.918 0 32.443 14.526 32.443 32.444S77.502 91.607 59.584 91.607z'/%3E %3C/svg%3E");
+  background-size: 20px, 20px;
+  background-repeat: no-repeat;
+  content: '';
+  height: 20px;
+  width: 20px;
+  background-size: 20px 20px;
+  position: absolute;
+  top: 0;
+  left: 13px;
+  bottom: 0;
+  margin: auto;
+  opacity: .5;
+}
+.is-not-empty .search__close-icon {
+  display: block;
+}
+.search__input {
+  display: none;
+  border: 0;
+  background: none;
+  margin-top: .3rem;
+  outline: none;
+  width: 100%;
+  color: gray;
+}
+.search.is-focused .keyword {
+  display: none;
+}
+.search.is-focused .search__input {
+  display: block;
+}
+.search__close-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill='gray' d='M437.5 386.6L306.9 256l130.6-130.6c14.1-14.1 14.1-36.8 0-50.9-14.1-14.1-36.8-14.1-50.9 0L256 205.1 125.4 74.5c-14.1-14.1-36.8-14.1-50.9 0-14.1 14.1-14.1 36.8 0 50.9L205.1 256 74.5 386.6c-14.1 14.1-14.1 36.8 0 50.9 14.1 14.1 36.8 14.1 50.9 0L256 306.9l130.6 130.6c14.1 14.1 36.8 14.1 50.9 0 14-14.1 14-36.9 0-50.9z'/%3E %3C/svg%3E");
+  background-size: 17px, 17px;
+  background-repeat: no-repeat;
+  height: 17px;
+  width: 17px;
+  background-size: 17px 17px;
+  position: absolute;
+  top: 0;
+  right: 13px;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+  opacity: .5;
+  display: none;
+}
+.search__close-icon:hover {
+  opacity: 1;
+}
+.search__input-box {
+  width: 100%;
+  height: 45px;
+  border-radius: 4px;
+  outline: none;
+  background: #efefef;
+  font-size: 1rem;
+  color: #343434;
+}
+.search__keywords-wrapper {
+  margin-left: 2.8rem;
+  padding-top: .55rem;
+  margin-right: 2.7rem;
+  overflow-x: hidden;
+  height: 36px;
+}
+
+.keyword {
+  background: skyblue;
+  margin-right: .3rem;
+  border-radius: 6px;
+  color: white;
+  height: 27px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.keyword__label {
+  padding: .3125rem .5rem;
+  display: inline-block;
+  font-size: .9rem;
+}
+
+.icon-close {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill='white' d='M437.5 386.6L306.9 256l130.6-130.6c14.1-14.1 14.1-36.8 0-50.9-14.1-14.1-36.8-14.1-50.9 0L256 205.1 125.4 74.5c-14.1-14.1-36.8-14.1-50.9 0-14.1 14.1-14.1 36.8 0 50.9L205.1 256 74.5 386.6c-14.1 14.1-14.1 36.8 0 50.9 14.1 14.1 36.8 14.1 50.9 0L256 306.9l130.6 130.6c14.1 14.1 36.8 14.1 50.9 0 14-14.1 14-36.9 0-50.9z'/%3E %3C/svg%3E");
+  background-size: 10px, 10px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 20px;
+  height: 100%;
+  display: inline-block;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  margin-right: 2px;
+}
+</style></head><body>
+<form class="search" method="get">
+  <div class="search__input-box">
+    <div class="search__keywords-wrapper">
+      <input type="text" value="" class="search__input" />
+    </div>
+  </div>
+  
+  <span class="search__close-icon"></span>
+</form>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >'use strict';
+
+var keywordsWrapper = document.querySelector('.search__keywords-wrapper'),
+    inputEl = document.querySelector('.search__input'),
+    searchEl = document.querySelector('.search'),
+    closeIcon = document.querySelector('.search__close-icon'),
+    state = {
+  keywords: ['business', 'cards']
+};
+
+/*
+* Utility functions
+*/
+// Generate a random in a given range
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Generate a random RBG CSS colour
+function generateRandomRGBColour() {
+  var colourValues = [];
+
+  for (var i = 1; i <= 3; i++) {if (window.CP.shouldStopExecution(1)){break;}
+    colourValues.push(generateRandomNumber(0, 255));
+  }
+window.CP.exitedLoop(1);
+
+
+  return 'rgb(' + colourValues + ')';
+}
+
+// Generate the keyword element
+function generateKeywordEl() {
+  var keyword = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+
+  if (!keyword) {
+    return;
+  }
+
+  var wrapperEl = document.createElement('span'),
+      labelEl = document.createElement('span'),
+      closeEl = document.createElement('a');
+
+  wrapperEl.setAttribute('class', 'keyword');
+  wrapperEl.style.background = generateRandomRGBColour();
+  labelEl.setAttribute('class', 'keyword__label');
+  labelEl.textContent = keyword;
+  closeEl.setAttribute('class', 'icon-close');
+  closeEl.setAttribute('href', '#');
+
+  wrapperEl.appendChild(labelEl);
+  wrapperEl.appendChild(closeEl);
+
+  return wrapperEl;
+}
+
+// Format keywords
+function formatKeywords() {
+  var keywords = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+
+  if (!keywords) {
+    return;
+  }
+
+  var formattedKeywords = [];
+  keywords.forEach(function (keyword) {
+    if (keyword) {
+      formattedKeywords.push(keyword);
+    }
+  });
+
+  return formattedKeywords;
+}
+
+// Generate keyword labels
+function refreshKeywordLabels() {
+  // TODO: Only refresh when keywords have changed
+  var keywordsArr = formatKeywords(state.keywords);
+
+  keywordsWrapper.querySelectorAll('.keyword').forEach(function (node) {
+    node.parentNode.removeChild(node);
+  });
+
+  if (state.keywords.length == 0) {
+    return;
+  }
+
+  var keywordNodes = keywordsArr.map(generateKeywordEl);
+
+  keywordNodes.forEach(function (keywordEl) {
+    keywordsWrapper.appendChild(keywordEl);
+  });
+}
+
+// Clear the keywords from store and input
+function clearKeywords() {
+  state.keywords = [];
+  refreshKeywordLabels();
+  inputEl.value = '';
+}
+
+// Convert input string to keywords and blur input element
+function onInputDone() {
+  var e = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+  if (e) {
+    e.preventDefault();
+  }
+  searchEl.classList.remove('is-focused');
+  refreshKeywordLabels();
+}
+
+// On initial load
+inputEl.value = state.keywords.join(' ');
+refreshKeywordLabels();
+if (state.keywords.length > 0) {
+  searchEl.classList.add('is-not-empty');
+}
+
+inputEl.addEventListener('focus', function onInputFocus(e) {
+  e.target.value = state.keywords.join(' ');
+});
+
+// Show/hide the close icon if text is entered/cleared
+inputEl.addEventListener('input', function onInputChange(e) {
+  var inputValue = e.target.value;
+
+  state.keywords = inputValue.split(' ');
+
+  if (inputValue != '') {
+    searchEl.classList.add('is-not-empty');
+  } else {
+    searchEl.classList.remove('is-not-empty');
+  }
+});
+
+inputEl.addEventListener('blur', onInputDone);
+
+searchEl.addEventListener('submit', onInputDone);
+
+// Show input, hide the keywords and focus the input element
+keywordsWrapper.addEventListener('click', function onKeywordsWrapperClick(e) {
+  var isCloseIcon = e.target.classList.contains('icon-close');
+
+  // Remove selected keyword if 'x' icon is clicked
+  if (isCloseIcon) {
+    (function () {
+      var keywordEl = e.target.parentNode;
+
+      document.querySelectorAll('.keyword').forEach(function (el, i) {
+        if (el == keywordEl) {
+          state.keywords.splice(i, 1);
+          keywordEl.parentNode.removeChild(keywordEl);
+          if (state.keywords.length == 0) {
+            searchEl.classList.remove('is-not-empty');
+          }
+        } else {
+          return;
+        }
+      });
+    })();
+  } else if (isCloseIcon) {} else {
+    searchEl.classList.add('is-focused');
+    inputEl.focus();
+  }
+});
+
+// Clear all keywords when 'X' is clicked
+closeIcon.addEventListener('click', function onClearIconClick() {
+  clearKeywords();
+  searchEl.classList.remove('is-not-empty');
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

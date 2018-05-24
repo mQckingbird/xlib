@@ -1,0 +1,74 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/ap13p/pen/RrzjEj?q=videocall" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'><link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+<style class="cp-pen-styles">body {
+  background: #333;
+}
+
+nav.video-control {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 0.1;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+nav.video-control:hover {
+  opacity: 1;
+}
+nav.video-control button {
+  background: #030303;
+  color: #EDEDED;
+  border: 0.2rem solid #030303;
+  padding: 0.5rem 1rem;
+  float: left;
+  height: 3rem;
+}
+nav.video-control button:hover {
+  background: #59C58D;
+}
+nav.video-control button:active {
+  background: #92d9b4;
+}
+nav.video-control button.active {
+  background: #f00000;
+}
+nav.video-control button:first-child {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+nav.video-control button:last-child {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+nav.video-control #btnEnd:hover {
+  background: #FF3D3D;
+}
+nav.video-control #btnEnd:active {
+  background: #f00000;
+}
+nav.video-control:first-child {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+nav.video-control:last-child,
+nav.video-control input:last-child {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+</style></head><body>
+
+<nav class="video-control">
+  <button class="btn video" id="btnVideo" title="Toggle video camera"><i class="material-icons">videocam</i></button>
+  <button class="btn audio" id="btnAudio" title="Toggle microphone"><i class="material-icons">mic</i></button>
+  <button id="btnEnd" title="End videocall session"><i class="material-icons">call_end</i></button>
+  <button id="btnInvite" title="Invite another person"><i class="material-icons">person_add</i></button>
+  <button id="btnExitFullscreen" title="Toggle Fullscreen"><i class="material-icons">fullscreen</i></button>
+</nav>
+
+</body></html>

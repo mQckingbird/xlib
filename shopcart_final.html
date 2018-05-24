@@ -1,0 +1,410 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/lukashavenga/pen/JJBxwx?depth=everything&order=popularity&page=9&q=shopping+cart&show_forks=false" />
+
+
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/22px "Lato", Arial, sans-serif;
+  background: #e3e3e3;
+}
+
+.lighter-text {
+  color: #ABB0BE;
+}
+
+.main-color-text {
+  color: #6394F8;
+}
+
+nav {
+  padding: 20px 0 40px 0;
+  background: #F8F8F8;
+  font-size: 16px;
+}
+nav .navbar-left {
+  float: left;
+}
+nav .navbar-right {
+  float: right;
+}
+nav ul li {
+  display: inline;
+  padding-left: 20px;
+}
+nav ul li a {
+  color: #777777;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  color: black;
+}
+
+.container {
+  margin: auto;
+  width: 80%;
+}
+
+.badge {
+  background-color: #6394F8;
+  border-radius: 10px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  padding: 3px 7px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.shopping-cart {
+  margin: 20px 0;
+  float: right;
+  background: #e8e8e8;
+  width: 320px;
+  position: absolute;
+  border-radius: 3px;
+  padding: 20px;
+  right: 7.5%;
+  display: none;
+  box-shadow: 2px 1px 1px 1px #aaa;
+}
+.shopping-cart .shopping-cart-header {
+  border-bottom: 1px solid #E8E8E8;
+  padding-bottom: 15px;
+}
+.shopping-cart .shopping-cart-header .shopping-cart-total {
+  float: right;
+}
+.shopping-cart .shopping-cart-items {
+  padding-top: 20px;
+}
+.shopping-cart .shopping-cart-items li {
+  margin-bottom: 18px;
+}
+.shopping-cart .shopping-cart-items img {
+  float: left;
+  margin-right: 12px;
+}
+.shopping-cart .shopping-cart-items .item-name {
+  display: block;
+  padding-top: 10px;
+  font-size: 16px;
+}
+.shopping-cart .shopping-cart-items .item-price {
+  color: #6394F8;
+  margin-right: 8px;
+}
+.shopping-cart .shopping-cart-items .item-quantity {
+  color: #ABB0BE;
+}
+
+.shopping-cart:after {
+  bottom: 100%;
+  left: 89%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #e8e8e8;
+  border-width: 8px;
+  margin-left: -8px;
+}
+
+.cart-icon {
+  color: #515783;
+  font-size: 24px;
+  margin-right: 7px;
+  float: left;
+}
+.shopping-cart-items li{
+  list-style: none;
+}
+.update-qty {
+    color: rgb(109, 109, 109);
+    cursor: pointer;
+    margin: 0 5px 0 5px;
+}
+.update-qty:hover{
+  color: #464646;
+}
+.my-cart-remove-container{
+     margin-right: 50px;
+     align-self: center;
+}
+.my-cart-remove{
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(109, 109, 109);
+}
+.my-cart-remove:hover{
+  color: #464646;
+}
+.button {
+  background: #6394F8;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+  font-size: 16px;
+  margin: 25px 0 15px 0;
+}
+.button:hover {
+  background: #729ef9;
+}
+.clearfix{
+ display: flex;
+  justify-content: space-between;
+}
+.nav{
+  text-align: right;
+}
+.cart-icon{
+  margin: 50px;
+}
+.products{
+  width: 80%;
+  height: 600px;
+  margin: 0 auto;
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  justify-content: space-around;
+  box-shadow: 2px 2px 2px 2px #aaa;
+}
+.product{
+  min-width: 80px;
+}</style></head><body>
+<!-- Based on Pen by  Andre Madarang https://codepen.io/drehimself/pen/VvYLmV -->
+<div class='content'>
+  <nav>
+    <div class="container">
+      <ul class="navbar-left">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+      </ul> <!--end navbar-left -->
+
+      <ul class="navbar-right">
+        <li>
+          <a href="#" class="my-cart-icon">
+            <i class="fa fa-shopping-cart"></i>
+            Cart 
+            <span class="badge my-cart-counter">0</span>
+          </a>
+        </li>
+      </ul> <!--end navbar-right -->
+    </div> <!--end container -->
+  </nav>
+
+  <div class="container my-cart-popup">
+   <div class="shopping-cart">
+      <div class="shopping-cart-header">
+        <div class="shopping-cart-total">
+          <span class="lighter-text">Total:</span>
+          <span class="main-color-text my-cart-total"></span>
+        </div>
+      </div> <!--end shopping-cart-header -->
+
+      <ul class="shopping-cart-items">
+          No Items yet
+      </ul>
+
+      <a href="#" class="button my-cart-checkout">Checkout</a>
+    </div> <!--end shopping-cart -->
+  </div> <!--end container -->
+
+  <div class='products'>
+    <div>
+      <div id='product1' class='my-cart-name product my-cart-id'>Product 1</div>
+      <div><span>R</span><span class='price my-cart-price'>500</span></div>
+      <button class='my-cart-add'>Add to Cart</button>
+    </div>
+   
+    <div>
+      <div id='product2' class='my-cart-name product my-cart-id'>Product 2</div>
+      <div><span>R</span><span class='price my-cart-price'>460</span></div>
+      <button class='my-cart-add'>Add to Cart</button>
+    </div>
+    
+    <div>
+      <div id='product3' class='my-cart-name product my-cart-id'>Product 3</div>
+      <div><span>R</span><span class='price my-cart-price'>212.23</span></div>
+      <button class='my-cart-add'>Add to Cart</button>
+    </div>
+   
+  </div>
+</div>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+
+<script >(function(){
+  
+  var cart = {items:[],total:''};
+  
+  //Add to cart
+  var addToCart = function(product,qty){
+    qty = qty || 1;
+    var cart = getCart();
+    var indexOfId = cart.items.findIndex(x => x.id == product.id);
+
+    if(indexOfId === -1){
+      cart.items.push(
+        {
+          id: product.id,
+          name:product.name,
+          price:product.price,
+          qty: qty
+        });      
+    }else{
+      cart.items[indexOfId].qty++;
+    }
+    
+    //Update popup cart
+    updateCart(cart);
+  }
+  
+  var getProductValues = function(element){
+    var productId = $(element).parent().find('.my-cart-id').attr('id');
+    var productName = $(element).parent().find('.my-cart-name').html();
+    var productPrice = $(element).parent().find('.my-cart-price').html();
+    return {id:productId,name:productName,price:productPrice};
+  }
+  
+  $('.my-cart-add').on('click',function(){
+    var product = getProductValues(this);
+    addToCart({id:product.id,name:product.name,price:product.price});
+  });
+  
+  //Update cart html to reflect changes
+  var updateCart = function(cart){
+     var totalCost = 0;
+     var totalCount = 0;
+    
+     //Add to shopping cart dropdown
+     $('.shopping-cart-items').html('');
+     for(var i =0; i < cart.items.length; i++){
+       totalCost += (cart.items[i].qty * parseFloat(cart.items[i].price));
+       totalCount += cart.items[i].qty;
+
+       $('.shopping-cart-items').append(
+         '<li class="clearfix">'+
+         '<div class="my-cart-item">'+
+         '<div><span>Name: </span>'+cart.items[i].name+'</div>'+
+         '<div><span>Price: </span> R '+cart.items[i].price+'</div>'+
+         '<div>Qty: </span>'+
+         '<i id="subtract-qty'+i+'" class="fa fa-minus-square update-qty subtract-qty" aria-hidden="true"></i><span> '+
+         cart.items[i].qty+
+         ' <i id="add-qty'+i+'" class="fa fa-plus-square update-qty add-qty" aria-hidden="true"></i></div>'+
+         '</div>'+
+         '<div class="my-cart-remove-container">'+
+         '<i id="my-cart-remove'+i+'" class="fa fa-times my-cart-remove" aria-hidden="true">'+
+         '</div>'+
+         '</i>'
+       );
+
+       (function(){
+         var currentIndex = i;
+         $('#add-qty'+currentIndex).on('click',function(){
+           updateQuantity(cart.items[currentIndex].id,++cart.items[currentIndex].qty);
+         })
+       })();
+
+       (function(){
+         var currentIndex = i;
+         $('#subtract-qty'+currentIndex).on('click',function(){
+           if(cart.items[currentIndex].qty != 1){           
+             updateQuantity(cart.items[currentIndex].id,--cart.items[currentIndex].qty); 
+           }
+         });
+       })();
+       
+       (function(){
+         var currentIndex = i;
+         $('#my-cart-remove'+currentIndex).on('click',function(){
+           removeFromCart(cart.items[currentIndex].id);
+         });
+       })();
+      }
+    
+      //Update Counter
+      updateCounter(totalCount);
+
+      //Update Total
+      updateTotal(totalCost);
+    }
+  
+  //Update cart quantity by id
+  var updateQuantity = function(id,qty){
+    var cart = getCart();
+    var cartIndex = cart.items.findIndex(x => x.id == id);
+    cart.items[cartIndex].qty = qty;
+    //Update popup cart
+    updateCart(cart);
+  };
+  
+  //Remove from cart on id
+  var removeFromCart = function(id){
+    var cart = getCart();
+    var cartIndex = cart.items.findIndex(x => x.id == id);
+    
+    cart.items.splice(cartIndex,1);
+    //Update popup cart
+    updateCart(cart);
+  };
+  
+  //Get Cart
+  var getCart = function(){
+    var myCart = cart;
+      return myCart;
+  }
+  
+  //Update counter 
+  var updateCounter = function(val){
+    $('.my-cart-counter').html(val);
+  }
+  
+  //Update total
+  var updateTotal = function(val){
+    $('.my-cart-total').html('R '+val.toFixed(2));
+  }
+  
+  //Checkout to sandbox payment gateway
+  var checkout = function(){
+    
+  };
+ 
+  //Listeners
+  //Close popup on body click
+  $('body').click(function(e){
+     e.preventDefault();
+     $(".shopping-cart").fadeOut( "fast");  
+  });
+  
+  
+  //Toggle cart on icon click
+  $(".my-cart-icon").on("click", function(e) {
+    e.stopPropagation();
+    $(".shopping-cart").fadeToggle( "fast"); 
+  });
+  
+  //Prevent close on popup click
+  $('.my-cart-popup').on('click', function(e){
+     e.stopPropagation();
+  });  
+})();
+//# sourceURL=pen.js
+</script>
+</body></html>

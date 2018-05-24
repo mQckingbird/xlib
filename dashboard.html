@@ -1,0 +1,1081 @@
+
+
+<head>
+<style class="cp-pen-styles">/** MAIN CSS **/
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.clear-all {
+  clear: both;
+}
+
+.clear-left {
+  clear: left;
+}
+
+.clear-right {
+  clear: right;
+}
+
+.user-banner {
+  width: 180px;
+  padding: 1px 0px 1px 0px;
+  background: #337ab7;
+  text-align: center;
+}
+.user-banner img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 5px;
+  width: 50px;
+  margin-right: 5px;
+  border-radius: 100%;
+}
+.user-banner .username {
+  /*font-weight: bold;*/
+  color: #b4d6f3;
+}
+
+/** IMPORT HELPER CSS **/
+/** IMPORT BASE CSS **/
+html, body {
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font: 14px/20px "Proxima Nova", "Helvetica Neue", arial, sans-serif;
+  color: #676e74;
+  background: #E9EEF1;
+}
+
+h1, h2, h3, h5, h6 {
+  color: #1F2123;
+}
+h4 {
+  color: #cccccc;
+}
+
+h1, h2 {
+  color: #4f5459;
+  margin: 5px 0 20px 0;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.light {
+  color: #b6babe;
+}
+
+#nav {
+  position: fixed;
+  top: 65px;
+  bottom: 0;
+  width: 180px;
+  color: #fff;
+  background: #1F2123;
+  z-index: 1;
+}
+#nav a {
+  color: #737E89;
+  text-decoration: none;
+}
+#nav ul {
+  list-style-type: none;
+  padding: 12px;
+  margin: 0;
+  font-weight: 600;
+}
+#nav ul li.head {
+  color: #50585f;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+}
+#nav ul li a {
+  display: block;
+  padding: 6px 12px;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+#nav ul li a i {
+  margin-right: 8px;
+}
+#nav ul li a:hover {
+  background: #2b2e31;
+}
+#nav ul li.active a {
+  color: #fff;
+  background: #2DA5EE;
+}
+
+#main {
+  margin-left: 180px;
+}
+
+#main #content {
+  position: relative;
+  top: 0px;
+  padding: 0;
+}
+#main .property-glance i {
+  margin-right: 5px;
+}
+#main .property-glance .progress {
+  float:left;
+  width: 100%;
+  height: 18px;
+  margin-top: 2px;
+}
+#main .property-glance .progress .progress-bar {
+  font-size: 75%;
+}
+#main .property-glance .widget {
+  text-align: center;
+  margin-top: 47px;
+
+  padding: 10px;
+  background: rgba(23, 105, 130, 0.33);
+  color: #fff;
+  font-size: 15px;
+}
+#main .property-glance .widget:first-child {
+border-top-left-radius: 4px;
+border-bottom-left-radius: 4px;
+}
+#main .property-glance .widget:last-child {
+border-top-right-radius: 4px;
+border-bottom-right-radius: 4px;
+}
+#main .property-glance .widget:hover {
+  background: #fa4b4b;
+}
+#main .timeline {
+  position: relative;
+  padding-left: 80px;
+}
+#main .timeline:before {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  left: 40px;
+  content: "";
+  background: #cbd4db;
+}
+#main .timeline .item {
+  position: relative;
+}
+#main .timeline .item .circle {
+  position: absolute;
+  top: 20px;
+  left: -42px;
+  background: #acbbc7;
+  border: 1px solid #ccc;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+#main .timeline .item .message {
+  position: relative;
+  z-index: 2;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+#main .timeline .item .message:before {
+  position: absolute;
+  z-index: 0;
+  content: "";
+  top: 25px;
+  left: -6px;
+  box-sizing: border-box;
+  border: 5px solid transparent;
+  border-top-color: #fff;
+  border-bottom-color: transparent;
+  border-left-color: #fff;
+  border-right-color: transparent;
+  filter: drop-shadow(-1px 0 1px rgba(0, 0, 0, 0.08));
+  transform-origin: 0 0;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 767px) {
+  .user-banner {
+    width: 66px;
+    padding: 1px 0px 1px 0px;
+    background: #2DCC70;
+    text-align: center;
+  }
+  .user-banner img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 5px;
+    width: 50px;
+    margin-right: 5px;
+    border-radius: 100%;
+  }
+  .user-banner .username {
+    font-size: 75%;
+    font-weight: bold;
+  }
+
+  #nav {
+    z-index: 1;
+    width: 66px;
+  }
+  #nav li.head,
+  #nav li span {
+    display: none;
+  }
+
+  #main {
+    margin-left: 66px;
+  }
+
+  .post .avatar {
+    width: 50px;
+  }
+}
+@media (max-width: 320px) {
+  .user-banner {
+    width: 100%;
+    padding: 1px 0px 1px 0px;
+    background: #2DCC70;
+    text-align: center;
+  }
+  .user-banner img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    margin-right: 5px;
+    border-radius: 100%;
+  }
+  .user-banner .username {
+    display: inline;
+    font-weight: bold;
+  }
+
+  #nav {
+    z-index: 1;
+    width: 100%;
+    bottom: auto;
+  }
+  #nav li.head,
+  #nav li span {
+    display: none;
+  }
+  #nav ul {
+    padding: 3px 5px;
+  }
+  #nav li {
+    display: inline-block;
+  }
+  #nav li a {
+    padding: 6px 5px;
+  }
+  #nav li a i {
+    margin: 0 !important;
+  }
+
+  #main {
+    padding: 50px 0 0 0;
+    margin: 0;
+  }
+}
+.box {
+  position: relative;
+  background: rgba(0,0,0,.8);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  height:100%;
+}
+.box h4 {
+  margin: 0 0 0 0;
+}
+.box .header {
+  padding: 20px 20px 0;
+}
+.box .body {
+  padding: 16px 16px 0px;
+}
+.box .titlebody {
+  padding-bottom:8px !important;
+}
+.box .footer {
+  padding: 10px 20px;
+  border-top: 1px solid #E9EEF1;
+}
+
+.post .avatar {
+  float: left;
+  width: 60px;
+}
+.post .message {
+  margin-left: 80px;
+}
+.post .box {
+  border: 1px solid #CAD5E0;
+}
+.post .box::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 21px;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-left: 1px solid #CAD5E0;
+  border-top: 1px solid #CAD5E0;
+  transform: rotate(-45deg);
+}
+
+.love {
+  text-align: center;
+  color: #80878e;
+  padding: 20px 0;
+}
+.love .fa-heart {
+  margin: 0 6px;
+  font-size: 16px;
+}
+.button {
+  width: 130px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #69b1e0;
+  color: white;
+  font-weight: 300;
+  cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.25);
+}
+
+.stage-1, .stage-2, .stage-3 {
+  font-size: 14px;
+  text-align: center;
+  height: 14px;
+  letter-spacing: 1px;
+}
+
+
+.stage-2 .text {
+  height: 18px;
+  padding-bottom: 9px;
+  padding-top: 10px;
+}
+
+.stage-2, .stage-3 {
+  display: none; 
+}
+
+.button.progress-bar {
+  width: 5%;
+  height: 3px;
+  background-color: #5d9acf;
+}
+
+</style></head>
+
+<div id="nav">
+  <div class="user-banner"><img src="assets/avatar.png"/>
+    <h5 class="username">Mati</h5>
+  </div>
+  <ul>
+    <li class="head">Navegación</li>
+    <li class="active"><a href="#"><i class="fa fa-fw fa-dashboard"></i><span>Dashboard</span></a></li>
+    <li><a href="#"><i class="fa fa-fw fa-inbox"></i><span class="swatch light-grey">Notificaciones</span></a></li>
+    <li><a href="#"><i class="fa fa-fw fa-user"></i><span>Mensajes</span></a></li>
+    <li><a href="#"><i class="fa fa-fw fa-money"></i><span>Transacciones</span></a></li>
+    <li><a href="#"><i class="fa fa-fw fa-cog"></i><span>Preferencias</span></a></li>
+  </ul>
+</div>
+<div id="main">
+
+  <div id="content">
+          <div class="button pull-right">
+          <div class="stage-1">
+            Nuevo
+          </div>
+          <div class="stage-2">
+            <div class="text">
+              Creando
+            </div>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="stage-3">
+            Listo
+          </div>
+        </div>
+     <!-- <button class="fill pull-right" onclick="nuevacampaña()">Nuevo</button> -->
+   <div style="padding: 15px;"> <h1>Dashboard</h1>
+      <div class="body titlebody">
+        <p>Una vista de tus campañas, donde puedes crear, editar, ver, y administrar.</p>
+      </div>
+</div>
+
+
+<style class="cp-pen-styles">.carouselOfImages
+{
+  max-width:100%;
+  margin:auto;
+  overflow:visible;
+}
+.carouselImage {
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+  margin-top:100px;
+  margin-bottom:100px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+  transition: transform 0.5s;
+  transform: scale(1);
+}
+.carouselImage.is-selected {
+  background:green;
+  z-index:10;
+  transform: scale(1.5);
+}
+.carouselImage.nextToSelected {
+  background:orange;
+  transform: scale(1.25);
+  z-index:5;
+}
+
+/*! Flickity v2.0.5
+https://flickity.metafizzy.co
+---------------------------------------------- */
+
+.flickity-enabled {
+  position: relative;
+}
+
+.flickity-enabled:focus { outline: none; }
+
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* draggable */
+
+.flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+          tap-highlight-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* ---- previous/next buttons ---- */
+
+.flickity-prev-next-button {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  background: hsla(0, 0%, 100%, 0.75);
+  cursor: pointer;
+  /* vertically center */
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.flickity-prev-next-button:hover { background: white; }
+
+.flickity-prev-next-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #09F;
+}
+
+.flickity-prev-next-button:active {
+  opacity: 0.6;
+}
+
+.flickity-prev-next-button.previous { left: 10px; }
+.flickity-prev-next-button.next { right: 10px; }
+/* right to left */
+.flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px;
+}
+.flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px;
+}
+
+.flickity-prev-next-button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+}
+
+.flickity-prev-next-button svg {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+.flickity-prev-next-button .arrow {
+  fill: #333;
+}
+
+/* ---- page dots ---- */
+
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-rtl .flickity-page-dots { direction: rtl; }
+
+.flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: #333;
+  border-radius: 50%;
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 1;
+}</style>
+<div class="carouselOfImages">
+  <div class="carouselImage" style="background:url(http://placekitten.com/300/350); background-size:cover;">
+
+        <div class="box property-glance">
+          <div class="header">
+            <h4 class="pull-left">Libro #1</h4>
+            <div class="progress clear-right">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%">20% financiado<span class="sr-only">20% financiado</span></div>
+            </div>
+        
+          </div>
+          <div class="body">
+
+           
+              <div class="col-sm-3 col-xs-6 widget" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"><i class="fa fa-keyboard-o"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-line-chart"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-money"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-users"></i></div>
+           
+          </div>
+        </div>
+
+  </div>
+
+  <div class="carouselImage" style="background:url(http://placekitten.com/301/351); background-size:cover;">
+            <div class="box property-glance">
+          <div class="header">
+            <h4 class="pull-left">Libro #1</h4>
+            <div class="progress clear-right">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%">20% financiado<span class="sr-only">20% financiado</span></div>
+            </div>
+        
+          </div>
+          <div class="body">
+
+       
+              <div class="col-sm-3 col-xs-6 widget" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"><i class="fa fa-keyboard-o"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-line-chart"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-money"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-users"></i></div>
+            </div>
+          
+        </div>
+  </div>
+  <div class="carouselImage" style="background:url(http://placekitten.com/302/352); background-size:cover;">
+    
+            <div class="box property-glance">
+          <div class="header">
+            <h4 class="pull-left">Libro #1</h4>
+            <div class="progress clear-right">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%">20% financiado<span class="sr-only">20% financiado</span></div>
+            </div>
+        
+          </div>
+          <div class="body">
+
+         
+              <div class="col-sm-3 col-xs-6 widget" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"><i class="fa fa-keyboard-o"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-line-chart"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-money"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-users"></i></div>
+            </div>
+        
+        </div>
+
+  </div>
+  <div class="carouselImage" style="background:url(http://placekitten.com/303/353); background-size:cover;">
+    
+            <div class="box property-glance">
+          <div class="header">
+            <h4 class="pull-left">Libro #1</h4>
+            <div class="progress clear-right">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%">20% financiado<span class="sr-only">20% financiado</span></div>
+            </div>
+        
+          </div>
+          <div class="body">
+
+      
+              <div class="col-sm-3 col-xs-6 widget" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"><i class="fa fa-keyboard-o"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-line-chart"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-money"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-users"></i></div>
+            </div>
+        
+        </div>
+
+  </div>
+  <div class="carouselImage" style="background:url(http://placekitten.com/304/354); background-size:cover;">
+    
+            <div class="box property-glance">
+          <div class="header">
+            <h4 class="pull-left">Libro #1</h4>
+            <div class="progress clear-right">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%">20% financiado<span class="sr-only">20% financiado</span></div>
+            </div>
+        
+          </div>
+          <div class="body">
+
+         
+              <div class="col-sm-3 col-xs-6 widget" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"><i class="fa fa-keyboard-o"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-line-chart"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-money"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-users"></i></div>
+         
+          </div>
+        </div>
+
+  </div>
+  <div class="carouselImage" style="background:url(http://placekitten.com/304/354); background-size:cover;">
+    
+            <div class="box property-glance">
+          <div class="header">
+            <h4 class="pull-left">Libro #1</h4>
+            <div class="progress clear-right">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%">20% financiado<span class="sr-only">20% financiado</span></div>
+            </div>
+        
+          </div>
+          <div class="body">
+
+         
+              <div class="col-sm-3 col-xs-6 widget" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"><i class="fa fa-keyboard-o"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-line-chart"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-money"></i></div>
+              <div class="col-sm-3 col-xs-6 widget"><i class="fa fa-users"></i></div>
+           
+          </div>
+        </div>
+
+  </div>
+</div>
+<script >var $imagesCarousel = $('.carouselOfImages').flickity({
+  // options
+  contain: true,
+  autoPlay: true,
+  wrapAround: true,
+  friction: 0.3
+});
+
+function resizeCells() {
+  
+  var flkty = $imagesCarousel.data('flickity');
+  var $current = flkty.selectedIndex
+  var $length = flkty.cells.length
+  if ($length <='5') {
+    $imagesCarousel.flickity('destroy');
+  }
+  $('.carouselOfImages .carouselImage').removeClass("nextToSelected");
+  $('.carouselOfImages .carouselImage').eq($current-1).addClass("nextToSelected");
+  if ($current+1 == $length) {
+    var $endCell = "0"
+  } else {
+    var $endCell = $current+1
+  }
+   $('.carouselOfImages .carouselImage').eq($endCell).addClass("nextToSelected");
+  };
+
+resizeCells();
+
+$imagesCarousel.on( 'scroll.flickity', function() {
+    resizeCells();
+  });
+
+</script>
+
+    <div class="row" style="margin-top: 100px;">
+      <div class="col-sm-6">
+        <h1>Preguntas</h1>
+        <div class="box" style="margin-top: 20px">
+          <div class="body titlebody">
+            <p>Una mirada rápida a las preguntas y necesidades del cliente.</p>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="item">
+            <div class="circle"></div>
+            <div class="message">
+              <Here>me llega a mi casa? @ en <strong>Libro 1</strong></Here>
+            </div>
+          </div>
+          <div class="item">
+            <div class="circle"></div>
+            <div class="message">
+              <Here>me acaba de llegar el libro. felicidades por llegar a la financiación! @ en <strong>Libro 3</strong></Here>
+            </div>
+          </div>
+          <div class="item">
+            <div class="circle"></div>
+            <div class="message">
+              <Here>no puedo esperar a que salga! ya hice la precompra!</Here>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">   
+        <h1>Transacciones</h1>
+        <div class="box" style="margin-top: 20px">
+          <div class="body titlebody">
+            <p>Aprueba, cancela o reembolsa pagos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script >
+/*
+
+Upload Button
+============
+
+A simple upload button for the Pattern Rodeo here at Codepen.
+
+Based off of a Dribble shot I had made before. 
+
+http://dribbble.com/shots/893134-Upload-Button
+
+*/
+
+// Button Animation
+
+$('.button').click(function(){
+  
+  // Reset progess bar width
+  $('.button.progress-bar').css({width: '5%'});
+  
+  // Reset Previous Stages
+  $('.stage-2').stop().hide();
+  $('.stage-3').stop().hide();
+  
+  // Stage 1
+  
+  $('.stage-1').stop().show().fadeOut();
+  
+  // Stage 2
+  $('.stage-2').delay(400).fadeIn();
+  $('.button.progress-bar').delay(800).animate({width: '100%'}, 1600);
+  setTimeout(function() {
+    $('.stage-2').fadeOut();
+  }, 2400);
+  
+  // Stage 3
+  $('.stage-3').delay(3200).fadeIn().delay(2000).fadeOut();
+  $('document').ready(function(){
+    nuevacampana();
+    /*
+  setTimeout(function() {
+     $('.modal').addClass('modal-is-active');
+     $('.webblur').addClass('webblur-is-blurred');
+   }, 3800);
+   */
+
+    $('.closemodal').on('click', function(){
+        if($('.modal').hasClass('modal-is-active'))
+        {
+         $('.modal').removeClass('modal-is-active');
+         $('.webblur').removeClass('webblur-is-blurred');
+        }
+    });    
+});
+  // Return to beginning
+  $('.stage-1').delay(5600).fadeIn();
+  
+});
+
+$('nav a, .nav2 a').on('click', function() {
+  $(this).addClass('active');  $(this).parents('li').siblings().children('a').removeClass('active');
+});
+
+$(document).ready(function () {
+     if ($("[rel=tooltip]").length) {
+     $("[rel=tooltip]").tooltip();
+     }
+   });
+// Get Color Attribute
+// Set the background book color
+$("li.book-item").each(function() {
+  var $this = $(this);
+
+  $this.find(".bk-front > div").css('background-color', $(this).data("color"));
+  $this.find(".bk-left").css('background-color', $(this).data("color"));
+  $this.find(".back-color").css('background-color', $(this).data("color"));
+
+  $this.find(".item-details a.button").on('click', function() {
+    displayBookDetails($this);
+  });
+});
+
+function displayBookDetails(el) {
+  var $this = $(el);
+  $('.main-container').addClass('prevent-scroll');
+  $('.main-overlay').fadeIn();
+
+  $this.find('.overlay-details').clone().prependTo('.main-overlay');
+
+  $('a.close-overlay-btn').on('click', function(e) {
+    e.preventDefault();
+    $('.main-container').removeClass('prevent-scroll');
+    $('.main-overlay').fadeOut();
+    $('.main-overlay').find('.overlay-details').remove();
+  });
+
+  $('.main-overlay a.preview').on('click', function() {
+    $('.main-overlay .overlay-desc').toggleClass('activated');
+    $('.main-overlay .overlay-preview').toggleClass('activated');
+  });
+
+  $('.main-overlay a.back-preview-btn').on('click', function() {
+    $('.main-overlay .overlay-desc').toggleClass('activated');
+    $('.main-overlay .overlay-preview').toggleClass('activated');
+  });
+}
+
+
+
+/*
+ *  Shuffle.js for Search, Catagory filter and Sort
+ */
+
+// Initiate Shuffle.js
+var Shuffle = window.shuffle;
+
+var bookList = function(element) {
+  this.element = element;
+
+  this.shuffle = new Shuffle(element, {
+    itemSelector: '.book-item',
+  });
+
+  this._activeFilters = [];
+  this.addFilterButtons();
+  this.addSorting();
+  this.addSearchFilter();
+  this.mode = 'exclusive';
+};
+
+bookList.prototype.toArray = function(arrayLike) {
+  return Array.prototype.slice.call(arrayLike);
+};
+
+// Catagory Filter Functions
+// Toggle mode for the Catagory filters
+bookList.prototype.toggleMode = function() {
+  if (this.mode === 'additive') {
+    this.mode = 'exclusive';
+  } else {
+    this.mode = 'additive';
+  }
+};
+
+// Filter buttons eventlisteners
+bookList.prototype.addFilterButtons = function() {
+  var options = document.querySelector('.filter-options');
+  if (!options) {
+    return;
+  }
+  var filterButtons = this.toArray(options.children);
+
+  filterButtons.forEach(function(button) {
+    button.addEventListener('click', this._handleFilterClick.bind(this), false);
+  }, this);
+};
+
+// Function for the Catagory Filter
+bookList.prototype._handleFilterClick = function(evt) {
+  var btn = evt.currentTarget;
+  var isActive = btn.classList.contains('active');
+  var btnGroup = btn.getAttribute('data-group');
+
+  if (this.mode === 'additive') {
+    if (isActive) {
+      this._activeFilters.splice(this._activeFilters.indexOf(btnGroup));
+    } else {
+      this._activeFilters.push(btnGroup);
+    }
+
+    btn.classList.toggle('active');
+    this.shuffle.filter(this._activeFilters);
+
+  } else {
+    this._removeActiveClassFromChildren(btn.parentNode);
+
+    var filterGroup;
+    if (isActive) {
+      btn.classList.remove('active');
+      filterGroup = Shuffle.ALL_ITEMS;
+    } else {
+      btn.classList.add('active');
+      filterGroup = btnGroup;
+    }
+
+    this.shuffle.filter(filterGroup);
+  }
+};
+
+// Remove classes for active states
+bookList.prototype._removeActiveClassFromChildren = function(parent) {
+  var children = parent.children;
+  for (var i = children.length - 1; i >= 0; i--) {
+    children[i].classList.remove('active');
+  }
+
+
+};
+
+// Sort By
+// Watching for the select box to change to run
+bookList.prototype.addSorting = function() {
+  var menu = document.querySelector('.sort-options');
+  if (!menu) {
+    return;
+  }
+  menu.addEventListener('change', this._handleSortChange.bind(this));
+};
+
+// Sort By function Handler runs on change
+bookList.prototype._handleSortChange = function(evt) {
+  var value = evt.target.value;
+  var options = {};
+
+  function sortByDate(element) {
+    return element.getAttribute('data-created');
+  }
+
+  function sortByTitle(element) {
+    return element.getAttribute('data-title').toLowerCase();
+  }
+
+  if (value === 'date-created') {
+    options = {
+      reverse: true,
+      by: sortByDate,
+    };
+  } else if (value === 'title') {
+    options = {
+      by: sortByTitle,
+    };
+  }
+
+  this.shuffle.sort(options);
+};
+
+// Searching the Data-attribute Title
+// Advanced filtering
+// Waiting for input into the search field
+bookList.prototype.addSearchFilter = function() {
+  var searchInput = document.querySelector('.shuffle-search');
+  if (!searchInput) {
+    return;
+  }
+  searchInput.addEventListener('keyup', this._handleSearchKeyup.bind(this));
+};
+
+// Search function Handler to search list
+bookList.prototype._handleSearchKeyup = function(evt) {
+  var searchInput = document.querySelector('.shuffle-search');
+  var searchText = evt.target.value.toLowerCase();
+
+  // Check if Search input has value to toggle class
+  if (searchInput && searchInput.value) {
+    $('.catalog-search').addClass('input--filled');
+  } else {
+    $('.catalog-search').removeClass('input--filled');
+  }
+
+  this.shuffle.filter(function(element, shuffle) {
+
+    // If there is a current filter applied, ignore elements that don't match it.
+    if (shuffle.group !== Shuffle.ALL_ITEMS) {
+      // Get the item's groups.
+      var groups = JSON.parse(element.getAttribute('data-groups'));
+      var isElementInCurrentGroup = groups.indexOf(shuffle.group) !== -1;
+
+      // Only search elements in the current group
+      if (!isElementInCurrentGroup) {
+        return false;
+      }
+    }
+
+    var titleElement = element.querySelector('.book-item_title');
+    var titleText = titleElement.textContent.toLowerCase().trim();
+
+    return titleText.indexOf(searchText) !== -1;
+  });
+};
+
+</script>

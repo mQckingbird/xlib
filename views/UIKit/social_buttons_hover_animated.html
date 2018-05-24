@@ -1,0 +1,158 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/hoahuongduongdh08dt/pen/gwvVYa?depth=everything&order=popularity&page=7&q=create+button&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">@import 'https://fonts.googleapis.com/css?family=Roboto:300';
+.btn-facebook, .btn-twitter, .btn-googleplus, .btn-github, .btn-git {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin: 8px;
+  padding: 10px 15px;
+  font-size: 22px;
+  border-radius: 3px;
+  background-color: transparent;
+  border: 2px solid #bbb;
+  color: #999;
+  text-transform: capitalize;
+}
+
+.btn-facebook:before, .btn-twitter:before, .btn-googleplus:before, .btn-github:before, .btn-git:before, .btn-facebook:after, .btn-twitter:after, .btn-googleplus:after, .btn-github:after, .btn-git:after {
+  content: '';
+  border-style: solid;
+  position: absolute;
+  z-index: 5;
+  border-radius: 3px;
+  box-sizing: content-box;
+  transition: all 0.3s;
+}
+
+.btn-facebook:before, .btn-twitter:before, .btn-googleplus:before, .btn-github:before, .btn-git:before {
+  width: 0;
+  height: 100%;
+  border-width: 2px 0 2px 0;
+  top: -2px;
+  left: 0;
+  transition-delay: 0.05s;
+}
+
+.btn-facebook:after, .btn-twitter:after, .btn-googleplus:after, .btn-github:after, .btn-git:after {
+  width: 100%;
+  height: 0;
+  border-width: 0 2px 0 2px;
+  top: 0;
+  left: -2px;
+}
+
+.btn-facebook:hover:before, .btn-twitter:hover:before, .btn-googleplus:hover:before, .btn-github:hover:before, .btn-git:hover:before {
+  width: 100%;
+}
+
+.btn-facebook:hover:after, .btn-twitter:hover:after, .btn-googleplus:hover:after, .btn-github:hover:after, .btn-git:hover:after {
+  height: 100%;
+}
+
+.btn-facebook:before, .btn-facebook:after {
+  border-color: #3b5998;
+}
+
+.btn-facebook:hover {
+  color: #3b5998;
+}
+
+.btn-facebook .fa {
+  margin-right: 10px;
+  float: left;
+  position: relative;
+  top: 3px;
+  font-size: 24px;
+}
+
+.btn-twitter:before, .btn-twitter:after {
+  border-color: #1da1f2;
+}
+
+.btn-twitter:hover {
+  color: #1da1f2;
+}
+
+.btn-twitter .fa {
+  margin-right: 10px;
+  float: left;
+  position: relative;
+  top: 3px;
+  font-size: 24px;
+}
+
+.btn-googleplus:before, .btn-googleplus:after {
+  border-color: #dd4b39;
+}
+
+.btn-googleplus:hover {
+  color: #dd4b39;
+}
+
+.btn-googleplus .fa {
+  margin-right: 10px;
+  float: left;
+  position: relative;
+  top: 3px;
+  font-size: 24px;
+}
+
+.btn-github:before, .btn-github:after {
+  border-color: #333;
+}
+
+.btn-github:hover {
+  color: #333;
+}
+
+.btn-github .fa {
+  margin-right: 10px;
+  float: left;
+  position: relative;
+  top: 3px;
+  font-size: 24px;
+}
+
+.btn-git:before, .btn-git:after {
+  border-color: #f54d27;
+}
+
+.btn-git:hover {
+  color: #f54d27;
+}
+
+.btn-git .fa {
+  margin-right: 10px;
+  float: left;
+  position: relative;
+  top: 3px;
+  font-size: 24px;
+}
+
+.btn-social-gr {
+  font-family: 'Roboto', sans-serif;
+  height: 100px;
+  margin: auto;
+  font-size: 0;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+</style></head><body>
+
+<div class="btn-social-gr">
+  <button class="btn-facebook"><i class="fa fa-facebook"></i>facebook</button>
+  <button class="btn-twitter"><i class="fa fa-twitter"></i>twitter</button>
+  <button class="btn-googleplus"><i class="fa fa-googleplus"></i>googleplus</button>
+  <button class="btn-github"><i class="fa fa-github"></i>github</button>
+  <button class="btn-git"><i class="fa fa-git"></i>git</button>
+</div>
+
+</body></html>

@@ -1,0 +1,205 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/ampedpixel/pen/xbcei?limit=all&page=6&q=progress" />
+
+
+<style class="cp-pen-styles">body {
+  background: #fff;
+}
+#circular3dG{
+	background: url("http://ampedpixel.com/codepen/treehouse-logo.svg") no-repeat top;
+  background-size: 110px 110px;
+	margin:100px auto 0px auto;
+	position:relative;
+	width:123px;
+	height:123px;
+}
+
+.circular3dG{
+position:absolute;
+background-color:#fff;
+width:20px;
+height:20px;
+-moz-border-radius:37px;
+-moz-animation-name:bounce_circular3dG;
+-moz-animation-duration:1.04s;
+-moz-animation-iteration-count:infinite;
+-moz-animation-direction:linear;
+-webkit-border-radius:37px;
+-webkit-animation-name:bounce_circular3dG;
+-webkit-animation-duration:1.04s;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-direction:linear;
+-ms-border-radius:37px;
+-ms-animation-name:bounce_circular3dG;
+-ms-animation-duration:1.04s;
+-ms-animation-iteration-count:infinite;
+-ms-animation-direction:linear;
+-o-border-radius:37px;
+-o-animation-name:bounce_circular3dG;
+-o-animation-duration:1.04s;
+-o-animation-iteration-count:infinite;
+-o-animation-direction:linear;
+border-radius:37px;
+animation-name:bounce_circular3dG;
+animation-duration:1.04s;
+animation-iteration-count:infinite;
+animation-direction:linear;
+}
+
+
+
+#circular3d_4G{
+left:76px;
+top:58px;
+-moz-animation-delay:0.78s;
+-webkit-animation-delay:0.78s;
+-ms-animation-delay:0.78s;
+-o-animation-delay:0.78s;
+animation-delay:0.78s;
+}
+
+#circular3d_5G{
+left:48px;
+top:72px;
+-moz-animation-delay:0.65s;
+-webkit-animation-delay:0.65s;
+-ms-animation-delay:0.65s;
+-o-animation-delay:0.65s;
+animation-delay:0.65s;
+}
+
+#circular3d_6G{
+left:30px;
+top:53px;
+-moz-animation-delay:0.52s;
+-webkit-animation-delay:0.52s;
+-ms-animation-delay:0.52s;
+-o-animation-delay:0.52s;
+animation-delay:0.52s;
+}
+
+#circular3d_7G{
+left:29px;
+top:33px;
+-moz-animation-delay:0.39s;
+-webkit-animation-delay:0.39s;
+-ms-animation-delay:0.39s;
+-o-animation-delay:0.39s;
+animation-delay:0.39s;
+}
+
+
+@-moz-keyframes bounce_circular3dG{
+0%{
+-moz-transform:scale(1)}
+
+100%{
+-moz-transform:scale(.3)}
+
+}
+
+@-webkit-keyframes bounce_circular3dG{
+0%{
+-webkit-transform:scale(1)}
+
+100%{
+-webkit-transform:scale(.3)}
+
+}
+
+@-ms-keyframes bounce_circular3dG{
+0%{
+-ms-transform:scale(1)}
+
+100%{
+-ms-transform:scale(.3)}
+
+}
+
+@-o-keyframes bounce_circular3dG{
+0%{
+-o-transform:scale(1)}
+
+100%{
+-o-transform:scale(.3)}
+
+}
+
+@keyframes bounce_circular3dG{
+0%{
+transform:scale(1)}
+
+100%{
+transform:scale(.3)}
+
+}
+
+progress {
+-webkit-appearance: progress-bar;
+box-sizing: border-box;
+display: none;
+}
+ .progress-wrapper{
+width: 90px;
+margin:0 auto;
+text-align: center;
+}
+.progress-value  {   
+font-family: "Helvetica Neue", sans-serif;
+font-weight: 100;
+font-size: 2rem;
+line-height: 1;
+color: #aaa;
+}</style></head><body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://ampedpixel.com/codepen/modernizr.js" type="text/javascript"></script>
+
+<div id="circular3dG">
+
+<div id="circular3d_4G" class="circular3dG">
+</div>
+<div id="circular3d_5G" class="circular3dG">
+</div>
+<div id="circular3d_6G" class="circular3dG">
+</div>
+<div id="circular3d_7G" class="circular3dG">
+</div>
+
+</div> 
+
+<div class="progress-wrapper">
+		  <progress id="progressbar" value="0" max="100"></progress>
+			<span class="progress-value">0%</span>
+</div>
+
+
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >$(document).ready(function() {
+			if(!Modernizr.meter){
+				alert('Sorry your brower does not support HTML5 progress bar');
+			} else {
+				var progressbar = $('#progressbar'),
+					max = progressbar.attr('max'),
+					time = (1000/max)*5,	
+			        value = progressbar.val();
+
+			    var loading = function() {
+			        value += 1;
+			        addValue = progressbar.val(value);
+			        
+			        $('.progress-value').html(value + '%');
+
+			        if (value == max) {
+			            clearInterval(animate);			           
+			        }
+			    };
+
+			    var animate = setInterval(function() {
+			        loading();
+			    }, time);
+			};
+		});
+//# sourceURL=pen.js
+</script>
+</body></html>

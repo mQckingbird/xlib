@@ -1,0 +1,2009 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/paradigma/pen/BNMVqB?depth=everything&order=popularity&page=8&q=icon&show_forks=false" />
+
+
+<style class="cp-pen-styles">/********
+Author: Paradigma
+        Jaime Fernandez
+URI:    paradigmatecnologico.com
+*********/
+/***
+    STYLES ONLY FOR DEMO
+    ***/
+body {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+h1, h2 {
+  text-align: center;
+  display: block;
+  clear: both;
+}
+
+.svgAnimPanel {
+  width: 33.33%;
+  float: left;
+}
+.svgAnimPanel:hover {
+  -webkit-box-shadow: inset 0 0 0 1px #ccc;
+          box-shadow: inset 0 0 0 1px #ccc;
+}
+.svgAnimPanel svg {
+  margin: 20px;
+}
+
+/***
+    Prevent animnation on Explorer
+    ***/
+.isIE .svgAnimPanel:hover .svg-icon, .isIE .svgAnimPanel:hover .svg-icon * {
+  -webkit-animation-name: none !important;
+          animation-name: none !important;
+}
+
+.icon-agile-software #seconds {
+  -webkit-transform: rotateZ(0deg);
+  -webkit-transform-origin: center left;
+  transform: rotateZ(0deg);
+  transform-origin: center left;
+}
+.icon-agile-software #fill_circle {
+  -webkit-transform: rotateZ(0deg);
+  -webkit-transform-origin: 48px 54px;
+  transform: rotateZ(0deg);
+  transform-origin: 48px 54px;
+}
+.icon-agile-software #fill_circle_mask {
+  -webkit-transform: rotateZ(0deg);
+  -webkit-transform-origin: 48px 54px;
+  transform: rotateZ(0deg);
+  transform-origin: 48px 54px;
+}
+
+.svgAnimPanel:hover .icon-agile-software #start_button {
+  -webkit-animation: clock_start 0.2s linear, clock_start 0.2s linear 1.4s;
+  animation: clock_start 0.2s linear, clock_start 0.2s linear 1.4s;
+}
+.svgAnimPanel:hover .icon-agile-software #seconds {
+  -webkit-animation: clock_rotate 0.75s 2 linear 0.1s;
+  animation: clock_rotate 0.75s 2 linear 0.1s;
+}
+.svgAnimPanel:hover .icon-agile-software #fill_circle {
+  -webkit-animation: clock_rotate_fill 1.5s linear 0.1s;
+  animation: clock_rotate_fill 1.5s linear 0.1s;
+}
+.svgAnimPanel:hover .icon-agile-software #fill_circle_mask {
+  -webkit-animation: clock_rotate_mask 1.5s linear 0.1s;
+  animation: clock_rotate_mask 1.5s linear 0.1s;
+}
+.svgAnimPanel:hover .icon-agile-software #main_circle {
+  -webkit-animation: clock_main_circle 1.5s linear 0.1s;
+  animation: clock_main_circle 1.5s linear 0.1s;
+}
+
+@-webkit-keyframes clock_start {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-3px, 3px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes clock_rotate {
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes clock_main_circle {
+  0% {
+    fill: #12C4E8;
+  }
+  37.5% {
+    fill: #12C4E8;
+  }
+  37.51% {
+    fill: #ff550e;
+  }
+  87.5% {
+    fill: #ff550e;
+  }
+  87.51% {
+    fill: #12C4E8;
+  }
+  100% {
+    fill: #12C4E8;
+  }
+}
+@-webkit-keyframes clock_rotate_fill {
+  0% {
+    fill: #ff550e;
+  }
+  50% {
+    -webkit-transform: rotateZ(360deg);
+  }
+  37.5% {
+    fill: #ff550e;
+  }
+  37.51% {
+    fill: #12C4E8;
+  }
+  50.01% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  87.5% {
+    fill: #12C4E8;
+  }
+  87.51% {
+    fill: #ff550e;
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+    fill: #ff550e;
+  }
+}
+@-webkit-keyframes clock_rotate_mask {
+  12.5% {
+    -webkit-transform: rotateZ(0deg);
+    fill: #12C4E8;
+  }
+  12.51% {
+    -webkit-transform: rotateZ(180deg);
+    fill: #ff550e;
+  }
+  37.5% {
+    -webkit-transform: rotateZ(180deg);
+    fill: #ff550e;
+  }
+  37.51% {
+    -webkit-transform: rotateZ(0deg);
+    fill: #ff550e;
+  }
+  50% {
+    -webkit-transform: rotateZ(0deg);
+    fill: #ff550e;
+  }
+  50.01% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  62.5% {
+    -webkit-transform: rotateZ(0deg);
+    fill: #ff550e;
+  }
+  62.51% {
+    -webkit-transform: rotateZ(180deg);
+    fill: #12C4E8;
+  }
+  87.5% {
+    -webkit-transform: rotateZ(180deg);
+  }
+  87.51% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(0deg);
+    fill: #12C4E8;
+  }
+}
+@keyframes clock_start {
+  50% {
+    -webkit-transform: translate(-3px, 3px);
+            transform: translate(-3px, 3px);
+  }
+}
+@keyframes clock_rotate {
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+@keyframes clock_main_circle {
+  0% {
+    fill: #12C4E8;
+  }
+  37.5% {
+    fill: #12C4E8;
+  }
+  37.51% {
+    fill: #ff550e;
+  }
+  87.5% {
+    fill: #ff550e;
+  }
+  87.51% {
+    fill: #12C4E8;
+  }
+  100% {
+    fill: #12C4E8;
+  }
+}
+@keyframes clock_rotate_fill {
+  0% {
+    fill: #ff550e;
+  }
+  50% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+  37.5% {
+    fill: #ff550e;
+  }
+  37.51% {
+    fill: #12C4E8;
+  }
+  50.01% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  87.5% {
+    fill: #12C4E8;
+  }
+  87.51% {
+    fill: #ff550e;
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+    fill: #ff550e;
+  }
+}
+@keyframes clock_rotate_mask {
+  12.5% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+    fill: #12C4E8;
+  }
+  12.51% {
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg);
+    fill: #ff550e;
+  }
+  37.5% {
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg);
+    fill: #ff550e;
+  }
+  37.51% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+    fill: #ff550e;
+  }
+  50% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+    fill: #ff550e;
+  }
+  50.01% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  62.5% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+    fill: #ff550e;
+  }
+  62.51% {
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg);
+    fill: #12C4E8;
+  }
+  87.5% {
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg);
+  }
+  87.51% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+    fill: #12C4E8;
+  }
+}
+.icon-user-experience #icon-ux_zoom {
+  -webkit-transform-origin: 90px 83px;
+  transform-origin: 90px 83px;
+}
+.icon-user-experience #icon-ux_zoom_circle_check {
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+.icon-user-experience #icon-ux_hand {
+  -webkit-transform-origin: 0px -20px;
+  transform-origin: 0px -20px;
+}
+.icon-user-experience #icon-ux_zoom, .icon-user-experience #icon-ux_zoom_circle_check {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+.icon-user-experience #icon-ux_img_block-vertical {
+  opacity: 0;
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.icon-user-experience #icon-ux_hand {
+  opacity: 0;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+}
+
+.svgAnimPanel:hover .icon-user-experience #icon-ux_zoom {
+  -webkit-animation: ux_zoom 2s forwards;
+  animation: ux_zoom 2s forwards;
+}
+.svgAnimPanel:hover .icon-user-experience #icon-ux_zoom_circle_check {
+  -webkit-animation: ux_zoom_check 2s forwards;
+  animation: ux_zoom_check 2s forwards;
+}
+.svgAnimPanel:hover .icon-user-experience #icon-ux_zoom_circle_bg {
+  -webkit-animation: ux_zoom_bg 2s forwards;
+  animation: ux_zoom_bg 2s forwards;
+}
+.svgAnimPanel:hover .icon-user-experience #icon-ux_panel_highlight {
+  -webkit-animation: panel_highlight 2s linear;
+  animation: panel_highlight 2s linear;
+}
+.svgAnimPanel:hover .icon-user-experience #icon-ux_hand {
+  -webkit-animation: ux_cursor_move 2s linear;
+  animation: ux_cursor_move 2s linear;
+}
+.svgAnimPanel:hover .icon-user-experience #icon-ux_hand_open {
+  -webkit-animation: ux_cursor_open 2s linear;
+  animation: ux_cursor_open 2s linear;
+}
+.svgAnimPanel:hover .icon-user-experience #icon-ux_img_block {
+  -webkit-animation: ux_panel_move 2s linear;
+  animation: ux_panel_move 2s linear;
+}
+
+@-webkit-keyframes ux_zoom {
+  40% {
+    -webkit-transform: rotateZ(0deg) translateX(0);
+  }
+  60% {
+    -webkit-transform: rotateZ(-10deg) translateX(-10px);
+  }
+  80% {
+    -webkit-transform: rotateZ(10deg) translateX(0);
+  }
+}
+@-webkit-keyframes ux_zoom_check {
+  10% {
+    -webkit-transform: scale(1);
+  }
+  30% {
+    -webkit-transform: scale(0.2);
+    opacity: 0;
+  }
+  79% {
+    -webkit-transform: scale(0.2);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+  90% {
+    -webkit-transform: scale(4);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+@-webkit-keyframes ux_zoom_bg {
+  10% {
+    fill: #12C4E8;
+  }
+  30% {
+    fill: #93DCEC;
+  }
+  80% {
+    fill: #93DCEC;
+  }
+  90% {
+    fill: #12C4E8;
+  }
+}
+@-webkit-keyframes ux_cursor_move {
+  0% {
+    -webkit-transform: scale(0.4) translate(31px, 180px);
+    opacity: 0;
+  }
+  7% {
+    opacity: 1;
+  }
+  10% {
+    -webkit-transform: scale(0.4) translate(31px, 180px);
+  }
+  30% {
+    -webkit-transform: scale(0.4) translate(81px, 180px);
+  }
+  50% {
+    -webkit-transform: scale(0.4) translate(31px, 180px);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0.4) translate(31px, 180px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes ux_cursor_open {
+  0%, 5% {
+    opacity: 1;
+  }
+  5.01% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  50.01%, 100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes ux_panel_move {
+  10% {
+    -webkit-transform: translate(0, 0);
+  }
+  30% {
+    -webkit-transform: translate(20px, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+@keyframes ux_zoom {
+  40% {
+    -webkit-transform: rotateZ(0deg) translateX(0);
+            transform: rotateZ(0deg) translateX(0);
+  }
+  60% {
+    -webkit-transform: rotateZ(-10deg) translateX(-10px);
+            transform: rotateZ(-10deg) translateX(-10px);
+  }
+  80% {
+    -webkit-transform: rotateZ(10deg) translateX(0);
+            transform: rotateZ(10deg) translateX(0);
+  }
+}
+@keyframes ux_zoom_check {
+  10% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  30% {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+    opacity: 0;
+  }
+  79% {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  90% {
+    -webkit-transform: scale(4);
+            transform: scale(4);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes ux_zoom_bg {
+  10% {
+    fill: #12C4E8;
+  }
+  30% {
+    fill: #93DCEC;
+  }
+  80% {
+    fill: #93DCEC;
+  }
+  90% {
+    fill: #12C4E8;
+  }
+}
+@keyframes ux_cursor_move {
+  0% {
+    -webkit-transform: scale(0.4) translate(31px, 180px);
+            transform: scale(0.4) translate(31px, 180px);
+    opacity: 0;
+  }
+  7% {
+    opacity: 1;
+  }
+  10% {
+    -webkit-transform: scale(0.4) translate(31px, 180px);
+            transform: scale(0.4) translate(31px, 180px);
+  }
+  30% {
+    -webkit-transform: scale(0.4) translate(81px, 180px);
+            transform: scale(0.4) translate(81px, 180px);
+  }
+  50% {
+    -webkit-transform: scale(0.4) translate(31px, 180px);
+            transform: scale(0.4) translate(31px, 180px);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0.4) translate(31px, 180px);
+            transform: scale(0.4) translate(31px, 180px);
+    opacity: 0;
+  }
+}
+@keyframes ux_cursor_open {
+  0%, 5% {
+    opacity: 1;
+  }
+  5.01% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  50.01%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes ux_panel_move {
+  10% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  30% {
+    -webkit-transform: translate(20px, 0);
+            transform: translate(20px, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+.icon-business-and-strategy #icon-board_paper, .icon-business-and-strategy #icon-board_staple {
+  -webkit-transform-origin: 0 0%;
+  transform-origin: 0 0%;
+}
+.icon-business-and-strategy #icon-board_paper {
+  -webkit-transform: rotateZ(0) rotateX(0) translate(0, 0) scale(1);
+  transform: rotateZ(0) rotateX(0) translate(0, 0) scale(1);
+}
+.icon-business-and-strategy #icon-board_circle,
+.icon-business-and-strategy #icon-board_cross,
+.icon-business-and-strategy #icon-board_arrow,
+.icon-business-and-strategy #icon-board_arrow-line path,
+.icon-business-and-strategy #icon-board_arrow-end {
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_staple {
+  -webkit-animation: strategy_staple 0.45s ease-in forwards;
+  animation: strategy_staple 0.45s ease-in forwards;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_paper {
+  -webkit-animation: strategy_delete_paper 0.45s ease-in forwards;
+  animation: strategy_delete_paper 0.45s ease-in forwards;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_circle {
+  -webkit-animation: strategy_draw_circle 0.75s ease-in 0.45s forwards;
+  animation: strategy_draw_circle 0.75s ease-in 0.45s forwards;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_cross {
+  -webkit-animation: strategy_draw_cross 0.75s ease-in 0.45s forwards;
+  animation: strategy_draw_cross 0.75s ease-in 0.45s forwards;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_arrow-line path {
+  -webkit-animation: strategy_draw_arrow_line 1.5s ease-in 0.45s forwards;
+  animation: strategy_draw_arrow_line 1.5s ease-in 0.45s forwards;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_arrow-line #icon-board_arrow-line-b {
+  -webkit-animation-name: strategy_draw_arrow_line-b;
+  animation-name: strategy_draw_arrow_line-b;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_arrow-line #icon-board_arrow-line-c {
+  -webkit-animation-name: strategy_draw_arrow_line-c;
+  animation-name: strategy_draw_arrow_line-c;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_arrow-line #icon-board_arrow-line-d {
+  -webkit-animation-name: strategy_draw_arrow_line-d;
+  animation-name: strategy_draw_arrow_line-d;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_arrow-line #icon-board_arrow-line-e {
+  -webkit-animation-name: strategy_draw_arrow_line-e;
+  animation-name: strategy_draw_arrow_line-e;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_arrow-line #icon-board_arrow-line-f {
+  -webkit-animation-name: strategy_draw_arrow_line-f;
+  animation-name: strategy_draw_arrow_line-f;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_arrow-line #icon-board_arrow-line-g {
+  -webkit-animation-name: strategy_draw_arrow_line-g;
+  animation-name: strategy_draw_arrow_line-g;
+}
+.svgAnimPanel:hover .icon-business-and-strategy #icon-board_arrow-end {
+  -webkit-animation: strategy_draw_arrow_line-end 1.5s ease-in 0.45s forwards;
+  animation: strategy_draw_arrow_line-end 1.5s ease-in 0.45s forwards;
+}
+
+@-webkit-keyframes strategy_delete_paper {
+  60% {
+    -webkit-transform: rotateZ(-10deg) translate(5px, 15px);
+  }
+  99% {
+    -webkit-transform: rotateZ(10deg) rotateX(-50deg) translate(50px, 100px) scale(0.8);
+  }
+  100% {
+    -webkit-transform: rotateZ(0) rotateX(0) translate(0, 0) scale(1);
+  }
+}
+@-webkit-keyframes strategy_staple {
+  0% {
+    -webkit-transform: rotateX(0);
+  }
+  20% {
+    -webkit-transform: rotateX(50deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+  }
+}
+@-webkit-keyframes strategy_draw_circle {
+  0% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes strategy_draw_cross {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes strategy_draw_arrow_line {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes strategy_draw_arrow_line-b {
+  0% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes strategy_draw_arrow_line-c {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes strategy_draw_arrow_line-d {
+  0% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes strategy_draw_arrow_line-e {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes strategy_draw_arrow_line-f {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes strategy_draw_arrow_line-g {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes strategy_draw_arrow_line-end {
+  0% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+}
+@keyframes strategy_delete_paper {
+  60% {
+    opacity: 1;
+    -webkit-transform: rotateZ(-10deg) translate(5px, 15px);
+            transform: rotateZ(-10deg) translate(5px, 15px);
+  }
+  99% {
+    -webkit-transform: rotateZ(10deg) rotateX(-50deg) translate(50px, 100px) scale(0.8);
+            transform: rotateZ(10deg) rotateX(-50deg) translate(50px, 100px) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateZ(0) rotateX(0) translate(0, 0) scale(1);
+            transform: rotateZ(0) rotateX(0) translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes strategy_staple {
+  0% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+  }
+  20% {
+    -webkit-transform: rotateX(50deg);
+            transform: rotateX(50deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+  }
+}
+@keyframes strategy_draw_circle {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(10);
+            transform: scale(10);
+  }
+  65% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes strategy_draw_cross {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(10);
+            transform: scale(10);
+  }
+  60% {
+    opacity: 0;
+    -webkit-transform: scale(10);
+            transform: scale(10);
+  }
+  85% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes strategy_draw_arrow_line {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+@keyframes strategy_draw_arrow_line-b {
+  0% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+@keyframes strategy_draw_arrow_line-c {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+}
+@keyframes strategy_draw_arrow_line-d {
+  0% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+}
+@keyframes strategy_draw_arrow_line-e {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+@keyframes strategy_draw_arrow_line-f {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+}
+@keyframes strategy_draw_arrow_line-g {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+}
+@keyframes strategy_draw_arrow_line-end {
+  0% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+}
+.icon-cloud .ball {
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  opacity: 0;
+  -webkit-transform: translate(0, 0) scale(0);
+  transform: translate(0, 0) scale(0);
+}
+.icon-cloud .arrow {
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  opacity: 1;
+  -webkit-transform: translate(0, 0) scale(1);
+  transform: translate(0, 0) scale(1);
+}
+.icon-cloud #icon-cloud_reflection {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform-origin: 41.5px 30.5px;
+  transform-origin: 41.5px 30.5px;
+}
+
+.svgAnimPanel .icon-cloud .ball {
+  opacity: 1;
+  -webkit-animation: cloud_ball 2s ease-in-out infinite;
+  animation: cloud_ball 2s ease-in-out infinite;
+}
+.svgAnimPanel .icon-cloud #ball2 {
+  -webkit-animation: cloud_ball 2s ease-in-out 0.0133333333s infinite;
+  animation: cloud_ball 2s ease-in-out 0.0133333333s infinite;
+}
+.svgAnimPanel .icon-cloud #ball3 {
+  -webkit-animation: cloud_ball 2s ease-in-out 0.0266666667s infinite;
+  animation: cloud_ball 2s ease-in-out 0.0266666667s infinite;
+}
+.svgAnimPanel .icon-cloud #ball4 {
+  -webkit-animation: cloud_ball 2s ease-in-out 0.04s infinite;
+  animation: cloud_ball 2s ease-in-out 0.04s infinite;
+}
+.svgAnimPanel .icon-cloud #ball5 {
+  -webkit-animation: cloud_ball 2s ease-in-out 0.0533333333s infinite;
+  animation: cloud_ball 2s ease-in-out 0.0533333333s infinite;
+}
+.svgAnimPanel .icon-cloud #ball6 {
+  -webkit-animation: cloud_ball 2s ease-in-out 0.0666666667s infinite;
+  animation: cloud_ball 2s ease-in-out 0.0666666667s infinite;
+}
+.svgAnimPanel .icon-cloud #ball7 {
+  -webkit-animation: cloud_ball 2s ease-in-out 0.08s infinite;
+  animation: cloud_ball 2s ease-in-out 0.08s infinite;
+}
+.svgAnimPanel .icon-cloud #ball8 {
+  -webkit-animation: cloud_ball 2s ease-in-out 0.0933333333s infinite;
+  animation: cloud_ball 2s ease-in-out 0.0933333333s infinite;
+}
+.svgAnimPanel .icon-cloud #ball9 {
+  -webkit-animation: cloud_ball 2s ease-in-out 0.1066666667s infinite;
+  animation: cloud_ball 2s ease-in-out 0.1066666667s infinite;
+}
+.svgAnimPanel .arrow {
+  -webkit-animation: cloud_arrow 2s infinite;
+  animation: cloud_arrow 2s infinite;
+}
+.svgAnimPanel #icon-cloud_arrow_bottom {
+  -webkit-animation: cloud_arrow_down 2s infinite;
+  animation: cloud_arrow_down 2s infinite;
+}
+.svgAnimPanel #icon-cloud_reflection {
+  -webkit-animation: cloud_reflection 1s linear infinite;
+  animation: cloud_reflection 1s linear infinite;
+}
+
+@-webkit-keyframes cloud_arrow {
+  0% {
+    -webkit-transform: translate(0, 0) scale(1);
+  }
+  50% {
+    -webkit-transform: translate(0, -2px) scale(1.2);
+  }
+  100% {
+    -webkit-transform: translate(0, 0) scale(1);
+  }
+}
+@-webkit-keyframes cloud_arrow_down {
+  0% {
+    -webkit-transform: translate(0, 0) scale(1);
+  }
+  50% {
+    -webkit-transform: translate(0, 2px) scale(1.2);
+  }
+  100% {
+    -webkit-transform: translate(0, 0) scale(1);
+  }
+}
+@-webkit-keyframes cloud_reflection {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes cloud_ball {
+  0% {
+    -webkit-transform: translate(0, 0) scale(0);
+  }
+  4% {
+    -webkit-transform: translate(0px, -17px) scale(1);
+  }
+  5% {
+    -webkit-transform: translate(5px, -22px);
+  }
+  12% {
+    -webkit-transform: translate(29px, -22px);
+  }
+  14% {
+    -webkit-transform: translate(37px, -29px);
+  }
+  16% {
+    -webkit-transform: translate(40px, -37px);
+  }
+  20% {
+    -webkit-transform: translate(37px, -48px);
+  }
+  24% {
+    -webkit-transform: translate(27px, -52px);
+  }
+  26% {
+    -webkit-transform: translate(23px, -62px);
+  }
+  30% {
+    -webkit-transform: translate(14px, -65px);
+  }
+  32% {
+    -webkit-transform: translate(6px, -73px);
+  }
+  36% {
+    -webkit-transform: translate(-4px, -75px);
+  }
+  40% {
+    -webkit-transform: translate(-17px, -72px);
+  }
+  43% {
+    -webkit-transform: translate(-24px, -64px);
+  }
+  46% {
+    -webkit-transform: translate(-27px, -55px);
+  }
+  50% {
+    -webkit-transform: translate(-37px, -49px);
+  }
+  53% {
+    -webkit-transform: translate(-42px, -40px);
+  }
+  56% {
+    -webkit-transform: translate(-39px, -29px);
+  }
+  59% {
+    -webkit-transform: translate(-30px, -23px);
+  }
+  66% {
+    -webkit-transform: translate(-7px, -23px);
+  }
+  69% {
+    -webkit-transform: translate(-2px, -29px) scale(1);
+  }
+  72% {
+    -webkit-transform: translate(0px, -36px) scale(0.2);
+  }
+  80% {
+    -webkit-transform: translate(0px, -52px) scale(0);
+  }
+  100% {
+    -webkit-transform: translate(0px, -52px) scale(0);
+  }
+}
+@keyframes cloud_arrow {
+  0% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: translate(0, -2px) scale(1.2);
+            transform: translate(0, -2px) scale(1.2);
+    opacity: .75;
+  }
+  100% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes cloud_arrow_down {
+  0% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: translate(0, 2px) scale(1.2);
+            transform: translate(0, 2px) scale(1.2);
+    opacity: .75;
+  }
+  100% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes cloud_reflection {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+    opacity: .5;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+@keyframes cloud_ball {
+  0% {
+    -webkit-transform: translate(0, 0) scale(0);
+            transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+  4% {
+    -webkit-transform: translate(0px, -17px) scale(1);
+            transform: translate(0px, -17px) scale(1);
+  }
+  5% {
+    -webkit-transform: translate(5px, -22px);
+            transform: translate(5px, -22px);
+  }
+  12% {
+    -webkit-transform: translate(29px, -22px);
+            transform: translate(29px, -22px);
+  }
+  /* long */
+  14% {
+    -webkit-transform: translate(37px, -29px);
+            transform: translate(37px, -29px);
+  }
+  16% {
+    -webkit-transform: translate(40px, -37px);
+            transform: translate(40px, -37px);
+  }
+  20% {
+    -webkit-transform: translate(37px, -48px);
+            transform: translate(37px, -48px);
+  }
+  24% {
+    -webkit-transform: translate(27px, -52px);
+            transform: translate(27px, -52px);
+  }
+  26% {
+    -webkit-transform: translate(23px, -62px);
+            transform: translate(23px, -62px);
+  }
+  30% {
+    -webkit-transform: translate(14px, -65px);
+            transform: translate(14px, -65px);
+  }
+  32% {
+    -webkit-transform: translate(6px, -73px);
+            transform: translate(6px, -73px);
+  }
+  36% {
+    -webkit-transform: translate(-4px, -75px);
+            transform: translate(-4px, -75px);
+  }
+  40% {
+    -webkit-transform: translate(-17px, -72px);
+            transform: translate(-17px, -72px);
+  }
+  43% {
+    -webkit-transform: translate(-24px, -64px);
+            transform: translate(-24px, -64px);
+  }
+  46% {
+    -webkit-transform: translate(-27px, -55px);
+            transform: translate(-27px, -55px);
+  }
+  50% {
+    -webkit-transform: translate(-37px, -49px);
+            transform: translate(-37px, -49px);
+  }
+  53% {
+    -webkit-transform: translate(-42px, -40px);
+            transform: translate(-42px, -40px);
+  }
+  56% {
+    -webkit-transform: translate(-39px, -29px);
+            transform: translate(-39px, -29px);
+  }
+  59% {
+    -webkit-transform: translate(-30px, -23px);
+            transform: translate(-30px, -23px);
+  }
+  66% {
+    -webkit-transform: translate(-7px, -23px);
+            transform: translate(-7px, -23px);
+  }
+  /* long */
+  69% {
+    -webkit-transform: translate(-2px, -29px) scale(1);
+            transform: translate(-2px, -29px) scale(1);
+    opacity: 1;
+  }
+  72% {
+    -webkit-transform: translate(0px, -36px) scale(0.2);
+            transform: translate(0px, -36px) scale(0.2);
+    opacity: .5;
+  }
+  80% {
+    -webkit-transform: translate(0px, -52px) scale(0);
+            transform: translate(0px, -52px) scale(0);
+  }
+  100% {
+    -webkit-transform: translate(0px, -52px) scale(0);
+            transform: translate(0px, -52px) scale(0);
+    opacity: 0;
+  }
+}
+.icon-big-data #icon-laptop_line_3_circle {
+  opacity: 1;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+
+.svgAnimPanel .icon-big-data #icon-laptop_line_3_circle {
+  -webkit-animation: big-data-ball 3s linear infinite;
+  animation: big-data-ball 3s linear infinite;
+}
+
+@-webkit-keyframes big-data-ball {
+  0% {
+    -webkit-transform: translate(0, 0) scale(1);
+  }
+  5% {
+    -webkit-transform: translate(14px, 0) scale(1);
+  }
+  /* line 4 */
+  5.01% {
+    -webkit-transform: translate(-24px, 44px) scale(0.3);
+  }
+  7% {
+    -webkit-transform: translate(-24px, 44px) scale(0.6);
+  }
+  13% {
+    -webkit-transform: translate(-24px, -8px) scale(0.6);
+  }
+  20% {
+    -webkit-transform: translate(-56px, -8px) scale(1);
+  }
+  25% {
+    -webkit-transform: translate(-72px, -8px) scale(1);
+  }
+  /* line 5 */
+  25.01% {
+    -webkit-transform: translate(-19px, 44px) scale(0.3);
+  }
+  27% {
+    -webkit-transform: translate(-19px, 44px) scale(0.6);
+  }
+  33% {
+    -webkit-transform: translate(-19px, 23px) scale(0.6);
+  }
+  40% {
+    -webkit-transform: translate(-10px, 23px) scale(1);
+  }
+  45% {
+    -webkit-transform: translate(14px, 23px) scale(1);
+  }
+  /* line 1 */
+  45.01% {
+    -webkit-transform: translate(-40px, 44px) scale(0.3);
+  }
+  47% {
+    -webkit-transform: translate(-40px, 44px) scale(0.6);
+  }
+  53% {
+    -webkit-transform: translate(-40px, 23px) scale(0.6);
+  }
+  60% {
+    -webkit-transform: translate(-49px, 23px) scale(1);
+  }
+  65% {
+    -webkit-transform: translate(-72px, 23px) scale(1);
+  }
+  /* line 2 */
+  65.01% {
+    -webkit-transform: translate(-35px, 44px) scale(0.3);
+  }
+  67% {
+    -webkit-transform: translate(-35px, 44px) scale(0.6);
+  }
+  73% {
+    -webkit-transform: translate(-35px, -15px) scale(0.6);
+  }
+  80% {
+    -webkit-transform: translate(-2px, -15px) scale(1);
+  }
+  85% {
+    -webkit-transform: translate(14px, -15px) scale(1);
+  }
+  /* line 3 */
+  85.01% {
+    -webkit-transform: translate(-30px, 44px) scale(0.3);
+  }
+  87% {
+    -webkit-transform: translate(-30px, 44px) scale(0.6);
+  }
+  93% {
+    -webkit-transform: translate(-30px, 0) scale(0.6);
+  }
+  100% {
+    -webkit-transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes big-data-ball {
+  0% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  5% {
+    -webkit-transform: translate(14px, 0) scale(1);
+            transform: translate(14px, 0) scale(1);
+    opacity: 0;
+  }
+  /* line 4 */
+  5.01% {
+    -webkit-transform: translate(-24px, 44px) scale(0.3);
+            transform: translate(-24px, 44px) scale(0.3);
+    opacity: 0;
+  }
+  7% {
+    -webkit-transform: translate(-24px, 44px) scale(0.6);
+            transform: translate(-24px, 44px) scale(0.6);
+    opacity: 1;
+  }
+  13% {
+    -webkit-transform: translate(-24px, -8px) scale(0.6);
+            transform: translate(-24px, -8px) scale(0.6);
+  }
+  20% {
+    -webkit-transform: translate(-56px, -8px) scale(1);
+            transform: translate(-56px, -8px) scale(1);
+    opacity: 1;
+  }
+  25% {
+    -webkit-transform: translate(-72px, -8px) scale(1);
+            transform: translate(-72px, -8px) scale(1);
+    opacity: 0;
+  }
+  /* line 5 */
+  25.01% {
+    -webkit-transform: translate(-19px, 44px) scale(0.3);
+            transform: translate(-19px, 44px) scale(0.3);
+    opacity: 0;
+  }
+  27% {
+    -webkit-transform: translate(-19px, 44px) scale(0.6);
+            transform: translate(-19px, 44px) scale(0.6);
+    opacity: 1;
+  }
+  33% {
+    -webkit-transform: translate(-19px, 23px) scale(0.6);
+            transform: translate(-19px, 23px) scale(0.6);
+  }
+  40% {
+    -webkit-transform: translate(-10px, 23px) scale(1);
+            transform: translate(-10px, 23px) scale(1);
+    opacity: 1;
+  }
+  45% {
+    -webkit-transform: translate(14px, 23px) scale(1);
+            transform: translate(14px, 23px) scale(1);
+    opacity: 0;
+  }
+  /* line 1 */
+  45.01% {
+    -webkit-transform: translate(-40px, 44px) scale(0.3);
+            transform: translate(-40px, 44px) scale(0.3);
+    opacity: 0;
+  }
+  47% {
+    -webkit-transform: translate(-40px, 44px) scale(0.6);
+            transform: translate(-40px, 44px) scale(0.6);
+    opacity: 1;
+  }
+  53% {
+    -webkit-transform: translate(-40px, 23px) scale(0.6);
+            transform: translate(-40px, 23px) scale(0.6);
+  }
+  60% {
+    -webkit-transform: translate(-49px, 23px) scale(1);
+            transform: translate(-49px, 23px) scale(1);
+    opacity: 1;
+  }
+  65% {
+    -webkit-transform: translate(-72px, 23px) scale(1);
+            transform: translate(-72px, 23px) scale(1);
+    opacity: 0;
+  }
+  /* line 2 */
+  65.01% {
+    -webkit-transform: translate(-35px, 44px) scale(0.3);
+            transform: translate(-35px, 44px) scale(0.3);
+    opacity: 0;
+  }
+  67% {
+    -webkit-transform: translate(-35px, 44px) scale(0.6);
+            transform: translate(-35px, 44px) scale(0.6);
+    opacity: 1;
+  }
+  73% {
+    -webkit-transform: translate(-35px, -15px) scale(0.6);
+            transform: translate(-35px, -15px) scale(0.6);
+  }
+  80% {
+    -webkit-transform: translate(-2px, -15px) scale(1);
+            transform: translate(-2px, -15px) scale(1);
+    opacity: 1;
+  }
+  85% {
+    -webkit-transform: translate(14px, -15px) scale(1);
+            transform: translate(14px, -15px) scale(1);
+    opacity: 0;
+  }
+  /* line 3 */
+  85.01% {
+    -webkit-transform: translate(-30px, 44px) scale(0.3);
+            transform: translate(-30px, 44px) scale(0.3);
+    opacity: 0;
+  }
+  87% {
+    -webkit-transform: translate(-30px, 44px) scale(0.6);
+            transform: translate(-30px, 44px) scale(0.6);
+    opacity: 1;
+  }
+  93% {
+    -webkit-transform: translate(-30px, 0) scale(0.6);
+            transform: translate(-30px, 0) scale(0.6);
+  }
+  100% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+.icon-nosql .water, .icon-nosql #disk_border_top {
+  opacity: 1;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.svgAnimPanel .icon-nosql #fill_wall_top {
+  -webkit-animation: empty-water-top 2s linear alternate infinite;
+  animation: empty-water-top 2s linear alternate infinite;
+}
+.svgAnimPanel .icon-nosql #fill_ceiling_top {
+  -webkit-animation: empty-water-top-ceiling 2s linear alternate infinite;
+  animation: empty-water-top-ceiling 2s linear alternate infinite;
+}
+.svgAnimPanel .icon-nosql #fill_wall_middle {
+  -webkit-animation: empty-water-middle 2s linear alternate infinite;
+  animation: empty-water-middle 2s linear alternate infinite;
+}
+.svgAnimPanel .icon-nosql #fill_ceiling_middle {
+  -webkit-animation: empty-water-middle-ceiling 2s linear alternate infinite;
+  animation: empty-water-middle-ceiling 2s linear alternate infinite;
+}
+.svgAnimPanel .icon-nosql #fill_wall_bottom {
+  -webkit-animation: empty-water-bottom 2s linear alternate infinite;
+  animation: empty-water-bottom 2s linear alternate infinite;
+}
+.svgAnimPanel .icon-nosql #fill_ceiling_bottom {
+  -webkit-animation: empty-water-bottom-ceiling 2s linear alternate infinite;
+  animation: empty-water-bottom-ceiling 2s linear alternate infinite;
+}
+.svgAnimPanel .icon-nosql #disk_border_top {
+  -webkit-animation: wall-fall 2s linear alternate infinite;
+  animation: wall-fall 2s linear alternate infinite;
+}
+.svgAnimPanel .icon-nosql #disk_border_middle {
+  -webkit-animation: disk_border_middle 2s linear alternate infinite;
+  animation: disk_border_middle 2s linear alternate infinite;
+}
+
+@-webkit-keyframes empty-water-top {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  35% {
+    -webkit-transform: translate(0, 14px);
+    opacity: 1;
+  }
+  36% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 14px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes empty-water-top-ceiling {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  1% {
+    -webkit-transform: translate(0, 3px);
+  }
+  35% {
+    -webkit-transform: translate(0, 17px);
+    opacity: 1;
+  }
+  36% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 16px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes empty-water-middle {
+  0%, 40% {
+    -webkit-transform: translate(0, 0);
+  }
+  75% {
+    -webkit-transform: translate(0, 14px);
+    opacity: 1;
+  }
+  76% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 14px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes empty-water-middle-ceiling {
+  0%, 40% {
+    -webkit-transform: translate(0, 0);
+  }
+  41% {
+    -webkit-transform: translate(0, 3px);
+  }
+  75% {
+    -webkit-transform: translate(0, 16px);
+    opacity: 1;
+  }
+  76% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 16px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes empty-water-bottom {
+  0%, 80% {
+    -webkit-transform: translate(0, 0);
+  }
+  90% {
+    -webkit-transform: translate(0, 3px);
+  }
+  100% {
+    -webkit-transform: translate(0, 6px);
+  }
+}
+@-webkit-keyframes empty-water-bottom-ceiling {
+  0%, 80% {
+    -webkit-transform: translate(0, 0);
+  }
+  80.1% {
+    -webkit-transform: translate(0, 4px);
+  }
+  90% {
+    -webkit-transform: translate(0, 7px);
+  }
+  100% {
+    -webkit-transform: translate(0, 10px);
+  }
+}
+@-webkit-keyframes wall-fall {
+  0%, 30% {
+    -webkit-transform: translate(0, 0);
+  }
+  36% {
+    -webkit-transform: translate(0, 16px);
+  }
+  38% {
+    -webkit-transform: translate(0, 12px);
+  }
+  40%, 70% {
+    -webkit-transform: translate(0, 16px);
+  }
+  76% {
+    -webkit-transform: translate(0, 32px);
+  }
+  78% {
+    -webkit-transform: translate(0, 28px);
+  }
+  80%, 100% {
+    -webkit-transform: translate(0, 32px);
+  }
+}
+@-webkit-keyframes disk_border_middle {
+  0%, 40% {
+    opacity: 1;
+  }
+  45%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes empty-water-top {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  35% {
+    -webkit-transform: translate(0, 14px);
+            transform: translate(0, 14px);
+    opacity: 1;
+  }
+  36% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 14px);
+            transform: translate(0, 14px);
+    opacity: 0;
+  }
+}
+@keyframes empty-water-top-ceiling {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  1% {
+    -webkit-transform: translate(0, 3px);
+            transform: translate(0, 3px);
+  }
+  35% {
+    -webkit-transform: translate(0, 17px);
+            transform: translate(0, 17px);
+    opacity: 1;
+  }
+  36% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 16px);
+            transform: translate(0, 16px);
+    opacity: 0;
+  }
+}
+@keyframes empty-water-middle {
+  0%, 40% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  75% {
+    -webkit-transform: translate(0, 14px);
+            transform: translate(0, 14px);
+    opacity: 1;
+  }
+  76% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 14px);
+            transform: translate(0, 14px);
+    opacity: 0;
+  }
+}
+@keyframes empty-water-middle-ceiling {
+  0%, 40% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  41% {
+    -webkit-transform: translate(0, 3px);
+            transform: translate(0, 3px);
+  }
+  75% {
+    -webkit-transform: translate(0, 16px);
+            transform: translate(0, 16px);
+    opacity: 1;
+  }
+  76% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 16px);
+            transform: translate(0, 16px);
+    opacity: 0;
+  }
+}
+@keyframes empty-water-bottom {
+  0%, 80% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  90% {
+    -webkit-transform: translate(0, 3px);
+            transform: translate(0, 3px);
+  }
+  100% {
+    -webkit-transform: translate(0, 6px);
+            transform: translate(0, 6px);
+  }
+}
+@keyframes empty-water-bottom-ceiling {
+  0%, 80% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  80.1% {
+    -webkit-transform: translate(0, 4px);
+            transform: translate(0, 4px);
+  }
+  90% {
+    -webkit-transform: translate(0, 7px);
+            transform: translate(0, 7px);
+  }
+  100% {
+    -webkit-transform: translate(0, 10px);
+            transform: translate(0, 10px);
+  }
+}
+@keyframes wall-fall {
+  0%, 30% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  36% {
+    -webkit-transform: translate(0, 16px);
+            transform: translate(0, 16px);
+  }
+  38% {
+    -webkit-transform: translate(0, 12px);
+            transform: translate(0, 12px);
+  }
+  40%, 70% {
+    -webkit-transform: translate(0, 16px);
+            transform: translate(0, 16px);
+  }
+  76% {
+    -webkit-transform: translate(0, 32px);
+            transform: translate(0, 32px);
+  }
+  78% {
+    -webkit-transform: translate(0, 28px);
+            transform: translate(0, 28px);
+  }
+  80%, 100% {
+    -webkit-transform: translate(0, 32px);
+            transform: translate(0, 32px);
+  }
+}
+@keyframes disk_border_middle {
+  0%, 40% {
+    opacity: 1;
+  }
+  45%, 100% {
+    opacity: 0;
+  }
+}
+</style></head><body>
+<h2>SVG Icons -> Animation on loop</h2>
+<div class="svgAnimPanel">
+    <svg viewBox="0 0 96 96" class="svg-icon icon-cloud">
+        <path id="icon-cloud_border" fill="#4D5152" d="M47.9 82.3l-0.2-7.5c0-0.1-0.5-4.6 2.3-7.7 1.7-1.9 4.3-2.9 7.6-2.9h17.3c3.8 0 14.1-3.5 14.1-14.7 0-12.9-12.2-13.7-12.7-13.7 -0.5 0-1-0.5-1-1 0-0.1 0.2-5.6-3.3-8.9 -2.1-2-5.2-2.9-9.2-2.5 -0.4 0-0.8-0.2-1-0.6 -0.2-0.4-5.2-10.8-18-10.3 -18 0.7-20.5 17.1-20.8 20.4 0 0.5-0.4 0.9-0.9 0.9C21.5 33.9 7 35.3 7 50c0 8.6 8.1 13.5 12.4 14.2 2.6 0.4 16 0.4 19.4 0.2 2.7-0.2 4.8-1.1 6.2-2.9 3.4-4 2.7-10.9 2.6-11l-0.1-1 2-0.2 0.1 1c0 0.3 0.8 7.8-3.1 12.5 -1.9 2.2-4.4 3.4-7.7 3.6 -3.6 0.2-17.1 0.2-19.9-0.2C13.2 65.1 5 59 5 50c0-14.4 12.7-17.5 16.1-18 1.2-9.7 7.8-20.8 22.6-21.5C56.2 10 62 18.8 63.3 21.3c4.3-0.2 7.7 0.8 10.1 3.2 3.2 3.1 3.8 7.5 3.9 9.5C82.5 34.6 91 38.4 91 49.6c0 12.7-11.8 16.7-16.1 16.7H57.6c-2.7 0-4.7 0.8-6.1 2.2 -2.2 2.5-1.8 6.2-1.8 6.2l0.2 7.6L47.9 82.3z" />
+        <g>
+            <circle id="ball2" class="ball" r="3.5" cy="87.290741" cx="48.762711" fill="#FF550E" />
+            <circle id="ball3" class="ball" r="3" cy="87.290741" cx="48.762711" fill="#FF550E" />
+            <circle id="ball4" class="ball" r="2.5" cy="87.290741" cx="48.762711" fill="#FF550E" />
+            <circle id="ball5" class="ball" r="2.2" cy="87.290741" cx="48.762711" fill="#FF550E" />
+            <circle id="ball6" class="ball" r="2" cy="87.290741" cx="48.762711" fill="#FF550E" />
+            <circle id="ball7" class="ball" r="1.8" cy="87.290741" cx="48.762711" fill="#FF550E" />
+            <circle id="ball8" class="ball" r="1.4" cy="87.290741" cx="48.762711" fill="#FF550E" />
+            <circle id="ball9" class="ball" r="1" cy="87.290741" cx="48.762711" fill="#FF550E" />
+        </g>
+        <g>
+            <polygon id="icon-cloud_arrow_top" class="arrow" fill="#FF550E" points="41.7 54.2 48.7 47.6 55.7 54.2 54.2 55.6 48.7 50.3 43.2 55.6 " />
+            <polygon id="icon-cloud_arrow_bottom" class="arrow" fill="#FF550E" points="55.7 76.8 48.7 83.4 41.7 76.8 43.2 75.4 48.7 80.7 54.2 75.4 " />
+        </g>
+        <g>
+            <path id="icon-cloud_reflection" fill="#12C4E8" d="m 30.178658,31.155089 c -0.383147,0 -0.766295,-0.306518 -0.766295,-0.766295 0,-0.07663 0,-10.651504 11.417799,-11.494429 0.459777,0 0.766295,0.306518 0.842925,0.689666 0,0.459777 -0.306518,0.766295 -0.689666,0.842925 -9.961838,0.766295 -10.038467,9.57869 -10.038467,9.961838 0,0.383147 -0.306518,0.689665 -0.766296,0.766295 0,0 0,0 0,0 z" />
+        </g>
+    </svg>
+</div>
+<div class="svgAnimPanel">
+    <svg viewBox="0 0 96 96" class="svg-icon icon-big-data">
+        <polygon id="icon-laptop_touchpad_bg" fill="#12C4E8" points="42 82 39 79 57 79 54 82 " />
+        <rect id="icon-laptop_screen_bg" x="20" y="40" fill="none" stroke="#12C4E8" stroke-width="2" stroke-miterlimit="10" width="56" height="34" />
+        <path id="icon-laptop_screen_border" fill="#4D5152" d="M78 36c2.2 0 3 1.9 3 4.1V78H15V40.1c0-2.2 1.9-4.1 4.1-4.1H78M78 34H19.1c-3.3 0-6.1 2.8-6.1 6.1V78v2h2 66 2v-2V40.1C83 36.4 81 34 78 34L78 34z" />
+        <path id="icon-laptop_keyboard_border" fill="#4D5152" d="M88 80v3l-5 6H12l-4-6v-3h30l3 4h14l3-4H88M90 78h-2H58h-1l-0.6 0.8L54 82H42l-2.4-3.2L39 78h-1H8 6v2 3 0.6l0.3 0.5 4 6 0.6 0.9H12h71 0.9l0.6-0.7 5-6 0.5-0.6V83v-3V78L90 78z" />
+        <rect id="icon-laptop_line_1_dot" x="36" y="68" fill="#FF550E" width="2" height="2" />
+        <rect id="icon-laptop_line_2_dot" x="41" y="68" fill="#FF550E" width="2" height="2" />
+        <rect id="icon-laptop_line_3_dot" x="46" y="68" fill="#FF550E" width="2" height="2" />
+        <rect id="icon-laptop_line_4_dot" x="51" y="68" fill="#FF550E" width="2" height="2" />
+        <rect id="icon-laptop_line_5_dot" x="56" y="68" fill="#FF550E" width="2" height="2" />
+        <polyline id="icon-laptop_line_1" fill="none" stroke="#FF550E" stroke-width="2" stroke-miterlimit="10" points="25 47 37 47 37 66 " />
+        <line id="icon-laptop_line_2" fill="none" stroke="#FF550E" stroke-width="2" stroke-miterlimit="10" x1="42" y1="22" x2="42" y2="66" />
+        <polyline id="icon-laptop_line_2_top" fill="none" stroke="#FF550E" stroke-width="2" stroke-miterlimit="10" points="42 14 42 10 72 10 " />
+        <polyline id="icon-laptop_line_3" fill="none" stroke="#FF550E" stroke-width="2" stroke-miterlimit="10" points="47 66 47 25 77 25 " />
+        <line id="icon-laptop_line_4" fill="none" stroke="#FF550E" stroke-width="2" stroke-miterlimit="10" x1="52" y1="28" x2="52" y2="66" />
+        <polyline id="icon-laptop_line_4_top" fill="none" stroke="#FF550E" stroke-width="2" stroke-miterlimit="10" points="24 17 53 17 53 22 " />
+        <polyline id="icon-laptop_line_5" fill="none" stroke="#FF550E" stroke-width="2" stroke-miterlimit="10" points="66 48 57 48 57 66 " />
+        <rect id="icon-laptop_line_4_dot_end_1" x="20" y="16" fill="#FF550E" width="2" height="2" />
+        <rect id="icon-laptop_line_4_dot_end_2" x="16" y="16" fill="#FF550E" width="2" height="2" />
+        <rect id="icon-laptop_line_2_dot_end_1" x="74" y="9" fill="#FF550E" width="2" height="2" />
+        <rect id="icon-laptop_line_2_dot_end_2" x="78" y="9" fill="#FF550E" width="2" height="2" />
+        <g>
+            <circle id="icon-laptop_line_3_circle" fill="#12C4E8" cx="77" cy="25" r="5" />
+        </g>
+    </svg>
+</div>
+<div class="svgAnimPanel">
+    <svg viewBox="0 0 96 96" class="svg-icon icon-nosql">
+        <g>
+            <path id="fill_ceiling_bottom" fill="#a6ebf8" class="water" d="m47.80955 39.25221c-13.20002 0-22 4.699999-22 9 0 4.3 8.79998 9.000001 22 9 13.2 0 22-4.699999 22-9 0-4.3-8.8-9-22-9z" />
+            <path id="fill_ceiling_middle" fill="#ffd0bc" class="water" d="m47.98632 23.183613c-13.20002 0-22 4.7-22 9.000001 0 4.3 8.79998 9.000001 22 9 13.2 0 22-4.699999 22-9 0-4.3-8.8-9.000001-22-9.000001z" />
+            <path id="fill_wall_top" fill="#12c4e8" class="water" d="m26.010233 20.917518 0 11.792969 0.0195 0c0.40238 4.214359 9.09135 8.695312 21.98047 8.695312 12.8891 0 21.57808-4.480953 21.98046-8.695312l0.0195 0 0-11.792969c-3.66012 3.884914-12.00105 6.521485-22 6.521485-9.99895 0-18.33989-2.636571-22-6.521485zm-2 9.751953c-0.014 0.157642-0.0332 0.315031-0.0332 0.47461 0 0.201746 0.0112 0.400945 0.0332 0.599609l0-1.074219z" />
+            <path id="fill_ceiling_top" fill="#a6ebf8" class="water" d="m48.012853 7.4555382c-13.20002 0-22 4.6999988-22 8.9999998 0 4.3 8.79998 9.000001 22 9 13.2 0 22-4.699999 22-9 0-4.3-8.8-8.9999998-22-8.9999998z" />
+            <path id="disk_border_top" fill="#4d5152" d="m47.99996 5.40625c-12.97809 0-23.17754 4.437715-23.94726 10.289063l-0.0527 0 0 0.710937 0 16.271485 0.0156 0c0.33923 6.051146 10.70742 10.695312 23.98437 10.695312 13.27694 0 23.64514-4.644166 23.98437-10.695312l0.0156 0 0-16.271485 0-0.710937-0.0527 0C71.17749 9.843965 60.97803 5.40625 47.99996 5.40625Zm0 2c13.2 0 22 4.7 22 9 0 4.300001-8.8 9-22 9-13.20002 0.000001-22-4.7-22-9 0-4.300001 8.79998-9 22-9zm-22 13.478516c3.66011 3.884914 12.00105 6.521484 22 6.521484 9.99895 0.000001 18.33988-2.63657 22-6.521484l0 11.792969-0.0195 0c-0.40238 4.214359-9.09137 8.695312-21.98047 8.695312-12.88912 0-21.57809-4.480953-21.98047-8.695312l-0.0195 0 0-11.792969z" />
+            <path id="disk_border_middle" fill="#4d5152" d="m24.00001 32.406266 0 0.09961 0 15.917969 0.0156 0c0.33921 6.051146 10.70741 10.695312 23.98436 10.695312 13.27694 0 23.64517-4.644166 23.98437-10.695312l0.0156 0 0-15.917969 0-0.09961-2.0293 0c-0.0181 0.198144-0.0456 0.396901-0.0977 0.595703-0.008 0.03457-0.0138 0.06894-0.0234 0.103516-1.17625 4.012769-9.62012 8.046875-21.84961 8.046874-12.2295 0.000001-20.67334-4.034105-21.8496-8.046874-0.01-0.03457-0.0149-0.06895-0.0234-0.103516-0.052-0.198802-0.0796-0.397559-0.0977-0.595703l-2.0293 0zm2 4.277343C29.65922 40.56772 38.00296 43.201188 48 43.201188c9.99704 0 18.34079-2.633467 22-6.517579l0 11.740235-0.0195 0c-0.40237 4.214359-9.09137 8.695312-21.98047 8.695312-12.88911 0-21.57808-4.480953-21.98046-8.695312l-0.0195 0 0-11.740235z" />
+            <path id="fill_wall_middle" fill="#ff550e" class="water" d="m26.01941 36.682021 0 11.792969 0.0195 0c0.40238 4.214359 9.09135 8.695312 21.98047 8.695312 12.8891 0 21.57808-4.480953 21.98046-8.695312l0.0195 0 0-11.792969c-3.66012 3.884914-12.00105 6.521485-22 6.521485-9.99895 0-18.33989-2.636571-22-6.521485zm-2 9.751953c-0.014 0.157642-0.0332 0.315031-0.0332 0.47461 0 0.201746 0.0112 0.400945 0.0332 0.599609l0-1.074219z" />
+            <path id="fill_wall_bottom" fill="#12c4e8" class="water" d="m26.039235 52.654424 0 11.792969 0.0195 0c0.40238 4.214359 9.09135 8.695312 21.98047 8.695312 12.8891 0 21.57808-4.480953 21.98046-8.695312l0.0195 0 0-11.792969c-3.66012 3.884914-12.00105 6.521485-22 6.521485-9.99895 0-18.33989-2.636571-22-6.521485zm-2 9.751953c-0.014 0.157642-0.0332 0.315031-0.0332 0.47461 0 0.201746 0.0112 0.400945 0.0332 0.599609l0-1.074219z" />
+            <path id="disk_border_bottom" fill="#4d5152" d="m24 48.406101 0 0.09961 0 15.917969 0.0156 0c0.33921 6.051146 10.70742 10.695312 23.98437 10.695312 13.27694 0 23.64517-4.644166 23.98437-10.695312l0.0156 0 0-15.917969 0-0.09961-2.0293 0c-0.0181 0.198144-0.0456 0.396901-0.0977 0.595703-0.008 0.03457-0.0138 0.06894-0.0234 0.103516-1.17625 4.012769-9.62012 8.046875-21.84961 8.046874-12.2295 0.000001-20.67335-4.034105-21.84961-8.046874-0.01-0.03457-0.0149-0.06895-0.0234-0.103516-0.052-0.198802-0.0796-0.397559-0.0977-0.595703l-2.0293 0zm2 4.277343c3.65921 3.884111 12.00295 6.517579 22 6.517579 9.99704 0 18.34079-2.633467 22-6.517579l0 11.740235-0.0195 0c-0.40237 4.214359-9.09137 8.695312-21.98047 8.695312-12.88911 0-21.57809-4.480953-21.98047-8.695312l-0.0195 0 0-11.740235z" />
+            <path id="bottom_mask" fill="#fff" d="m23.86523 64.033203 0 21.59375 48.26954 0 0-21.59375-0.13477 0 0 0.271485-0.0156 0C71.64517 70.355835 61.27694 75 48 75 34.72305 75 24.35484 70.355835 24.01563 64.304688l-0.0156 0 0-0.271485-0.13477 0z" />
+            <path id="bottom_lines" fill="#4d5152" d="M47 74L47 79.091797C44.498822 79.516936 42.516936 81.498822 42.091797 84L16 84 16 86 42.091797 86C42.57237 88.827306 45.041286 91 48 91 50.958714 91 53.42763 88.827306 53.908203 86L80 86 80 84 53.908203 84C53.483064 81.498822 51.501178 79.516936 49 79.091797L49 74 47 74zM48 81C50.2 81 52 82.8 52 85 52 87.2 50.2 89 48 89 45.8 89 44 87.2 44 85 44 82.8 45.8 81 48 81z" />
+        </g>
+    </svg>
+</div>
+<h2>SVG Icons -> Animation on hover</h2>
+<div class="svgAnimPanel">
+    <svg viewBox="0 0 96 96" class="svg-icon icon-agile-software">
+        <polygon id="start_button" points="78.8 23.4 80.5 25.2 81.9 23.8 80.2 22 78.8 20.6 77 18.8 75.6 20.2 77.3 22 74.5 24.8 75.9 26.2 " fill="#4d5152" />
+        <polygon id="stop_button" points="20.1 26.2 21.5 24.8 18.7 22 20.4 20.2 19 18.8 17.2 20.6 15.8 22 14.1 23.8 15.5 25.2 17.2 23.4 " fill="#4d5152" />
+        <circle id="circle_bg" r="39" cy="54" cx="48" fill="#FFFFFF" />
+        <path id="external_circle" d="M48 94C25.9 94 8 76.1 8 54s17.9-40 40-40 40 17.9 40 40S70.1 94 48 94zM48 16c-21 0-38 17-38 38s17 38 38 38 38-17 38-38S69 16 48 16z" fill="#4D5152" />
+        <rect id="top_center_line" height="9" width="2" fill="#4D5152" y="11" x="47" />
+        <circle id="main_circle" r="27" cy="54" cx="48" fill="#12C4E8" />
+        <g>
+            <path id="fill_circle" fill="#ff550e" d="m75 53.914029a27 27 0 0 0-27-27 27 27 0 0 0-27 27l54 0z" />
+            <path id="fill_circle_mask" fill="#12C4E8" d="m48 26.914029a27 27 0 0 0-27 27 27 27 0 0 0 27 27l0-54z" />
+        </g>
+        <circle r="7" cy="54" cx="48" fill="#FFFFFF" id="small_circle_1" />
+        <circle r="2.5" cy="54" cx="48" fill="#4D5152" id="small_circle_2" />
+        <rect height="2" width="4" fill="#4D5152" y="53" x="10" id="left_mark" />
+        <rect height="2" width="4" fill="#4D5152" y="53" x="82" id="right_mark" />
+        <g>
+            <rect height="2" width="27" fill="#4D5152" y="53" x="48" id="seconds" />
+        </g>
+        <rect height="4" width="2" fill="#4D5152" y="88" x="47" id="bottom_mark" />
+        <path d="M48 16c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7S51.9 16 48 16zM48 4c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5S50.8 4 48 4z" fill="#4D5152" id="small_top_circle" /> </svg>
+</div>
+<div class="svgAnimPanel">
+    <svg viewBox="0 0 96 96" class="svg-icon icon-user-experience">
+        <rect id="icon-ux_screen_bg" x="5" fill="#FFFFFF" width="78" height="78" />
+        <path id="icon-ux_screen_border" fill="#4D5152" d="M5 0v78h78V0H5zM7 2h24v12H7V2zM81 76H7V16h74V76zM81 14H33V2h48V14z" />
+        <rect id="icon-ux_panel_highlight" x="11" y="20" fill="#FF550E" width="62" height="14" />
+        <g id="icon-ux_parragraph">
+            <rect id="icon-ux_parragraph_line1" x="11" y="66" fill="#5B5B5B" width="34" height="2" />
+            <rect id="icon-ux_parragraph_line2_a" x="11" y="70" fill="#5B5B5B" width="12" height="2" />
+            <rect id="icon-ux_parragraph_line2_b" x="27" y="70" fill="#5B5B5B" width="12" height="2" />
+        </g>
+        <g id="icon-ux_dot_lines">
+            <rect id="icon-ux_dot_line_top" x="39" y="48" fill="#4D5152" width="2" height="2" />
+            <rect id="icon-ux_dot_line_middleTop" x="43" y="48" fill="#4D5152" width="2" height="2" />
+            <rect id="icon-ux_dot_line_middle" x="43" y="52" fill="#4D5152" width="2" height="2" />
+            <rect id="icon-ux_dot_line_middleBottom" x="43" y="56" fill="#4D5152" width="2" height="2" />
+            <rect id="icon-ux_dot_line_bottom" x="43" y="60" fill="#4D5152" width="2" height="2" />
+        </g>
+        <g id="icon-ux_logo_dots">
+            <rect id="icon-ux_logo_dot_left" x="12" y="7" fill="#12C4E8" width="2" height="2" />
+            <rect id="icon-ux_logo_dot_center" x="18" y="7" fill="#12C4E8" width="2" height="2" />
+            <rect id="icon-ux_logo_dot_right" x="24" y="7" fill="#12C4E8" width="2" height="2" />
+        </g>
+        <rect id="icon-ux_claim" x="37" y="7" fill="#4D5152" width="40" height="2" />
+        <g id="icon-ux_img_block">
+            <rect id="icon-ux_img_block_bg" y="38" fill="#FFFFFF" width="37" height="24" />
+            <path id="icon-ux_img_block_border" fill="#4D5152" d="M0 38v24h37V38H0zM16.7 49.9L2 59.4V40.6L16.7 49.9zM4.9 40h27.3l-13.6 8.8L4.9 40zM18.6 51.1L32.5 60H4.8L18.6 51.1zM20.5 49.9L35 40.6v18.6L20.5 49.9z" />
+        </g>
+        <g id="icon-ux_hand">
+            <g id="icon-ux_hand_close" transform="translate(47.460048,-6.648933)">
+                <path id="path4236-3" d="m -43.160444,-19.477185 c -3.58,0 -6.492,2.944 -6.492,6.563 l 0,0.425 -0.021,0 c -3.857,0.003 -6.997,3.095 -6.997,6.891 l 0.003,13.557 c 0,3.42 2.919,6.789 6.009,10.356 1.391,1.604 3.707,4.279 3.93,5.274 l 0,2.938 3,0 19.96,0 3,0 0,-3 c 0,-1.14 1.193,-3.418 2.246,-5.429 1.809,-3.453 3.859,-7.367 3.859,-11.569 0,-6.292 -0.018,-12.067 -0.018,-12.067 0,-3.274 -2.688,-5.946 -5.99,-5.946 -0.391,0 -0.771,0.037 -1.143,0.108 -1.254,-1.868 -3.412,-3.104 -5.857,-3.104 -0.709,0 -1.393,0.104 -2.037,0.296 -1.23,-1.973 -3.445,-3.292 -5.966,-3.292 -0.859,0 -1.684,0.153 -2.445,0.434 -1.19,-1.486 -3.007,-2.435 -5.041,-2.435 z" style="fill:#ffffff;fill-opacity:1" />
+                <path id="path4236" d="m -43.160444,-16.477185 c 1.928,0 3.492,1.596 3.492,3.563 l 0,2.313 c 0,-2.141 1.787,-3.877 3.994,-3.877 2.205,0 3.994,1.736 3.994,3.877 l 0,2.998 c 0,-2.143 1.795,-3.879 4.01,-3.879 2.215,0 4.01,1.736 4.01,3.879 l 0,2.062 c 0.006,-1.627 1.342,-2.945 2.99,-2.945 1.65,0 2.99,1.322 2.99,2.955 0,0 0.018,5.771 0.018,12.059 0,6.289 -6.105,12.816 -6.105,16.998 -5.189,0 -16.437,0 -19.96,0 0,-3.746 -9.939,-11.148 -9.939,-15.568 0,-0.053 -0.002,-13.557 -0.002,-13.557 0,-2.146 1.789,-3.889 3.998,-3.891 l 0,7.824 c 0,0.66 0.676,1.197 1.51,1.197 0.834,0 1.51,-0.537 1.51,-1.197 l 0,-11.247 c -0.002,-1.968 1.563,-3.564 3.49,-3.564 m 0,-3 c -3.58,0 -6.492,2.944 -6.492,6.563 l 0,0.425 -0.021,0 c -3.857,0.003 -6.997,3.095 -6.997,6.891 l 0.003,13.557 c 0,3.42 2.919,6.789 6.009,10.356 1.391,1.604 3.707,4.279 3.93,5.274 l 0,2.938 3,0 19.96,0 3,0 0,-3 c 0,-1.14 1.193,-3.418 2.246,-5.429 1.809,-3.453 3.859,-7.367 3.859,-11.569 0,-6.292 -0.018,-12.067 -0.018,-12.067 0,-3.274 -2.688,-5.946 -5.99,-5.946 -0.391,0 -0.771,0.037 -1.143,0.108 -1.254,-1.868 -3.412,-3.104 -5.857,-3.104 -0.709,0 -1.393,0.104 -2.037,0.296 -1.23,-1.973 -3.445,-3.292 -5.966,-3.292 -0.859,0 -1.684,0.153 -2.445,0.434 -1.19,-1.486 -3.007,-2.435 -5.041,-2.435 l 0,0 z" style="fill:#4d5152" />
+            </g>
+            <g id="icon-ux_hand_open" transform="translate(-38,-63)" style="opacity:0;">
+                <path id="path4250-6" d="m 42.505,16.998 c -3.578,0 -6.49,2.944 -6.49,6.564 l 0,12.639 0,7.785 -0.023,0 c -3.856,0.005 -6.995,3.097 -6.995,6.892 l 0.005,13.266 c 0,0.042 0.001,0.083 0.002,0.122 C 29.001,64.319 29,64.375 29,64.434 c 0,3.421 2.919,6.791 6.009,10.358 1.391,1.604 3.706,4.277 3.928,5.272 l 0,2.938 3,0 19.961,0 3,0 0,-3 c 0,-1.14 1.193,-3.418 2.246,-5.428 1.81,-3.453 3.859,-7.367 3.859,-11.569 l 0,-8.097 0,-0.278 -0.016,-0.089 0,-3.596 c 0,-3.283 -2.688,-5.955 -5.992,-5.955 -0.39,0 -0.771,0.037 -1.141,0.108 -1.256,-1.868 -3.412,-3.104 -5.859,-3.104 -0.707,0 -1.393,0.104 -2.037,0.296 -1.23,-1.973 -3.445,-3.292 -5.967,-3.292 -0.337,0 -0.669,0.023 -0.994,0.069 l 0,-15.505 c 0,-3.62 -2.912,-6.564 -6.492,-6.564 z" style="fill:#ffffff;fill-opacity:1" />
+                <path id="path4250-9" d="m 42.505,16.998 c -3.578,0 -6.49,2.944 -6.49,6.564 l 0,12.639 0,7.785 -0.023,0 c -3.856,0.005 -6.995,3.097 -6.995,6.892 l 0.005,13.266 c 0,0.042 0.001,0.083 0.002,0.122 C 29.001,64.319 29,64.375 29,64.434 c 0,3.421 2.919,6.791 6.009,10.358 1.391,1.604 3.706,4.277 3.928,5.272 l 0,2.938 3,0 19.961,0 3,0 0,-3 c 0,-1.14 1.193,-3.418 2.246,-5.428 1.81,-3.453 3.859,-7.367 3.859,-11.569 l 0,-8.097 0,-0.278 -0.016,-0.089 0,-3.596 c 0,-3.283 -2.688,-5.955 -5.992,-5.955 -0.39,0 -0.771,0.037 -1.141,0.108 -1.256,-1.868 -3.412,-3.104 -5.859,-3.104 -0.707,0 -1.393,0.104 -2.037,0.296 -1.23,-1.973 -3.445,-3.292 -5.967,-3.292 -0.337,0 -0.669,0.023 -0.994,0.069 l 0,-15.505 c 0,-3.62 -2.912,-6.564 -6.492,-6.564 z" style="fill:#4d5152;fill-opacity:0" />
+                <path id="path4250" d="m 42.505,19.998 c 1.93,0 3.492,1.596 3.492,3.564 l 0,22.313 c 0,-2.142 1.789,-3.878 3.994,-3.878 2.207,0 3.994,1.736 3.994,3.878 l 0,2.997 c 0,-2.143 1.795,-3.879 4.01,-3.879 2.215,0 4.01,1.736 4.01,3.879 l 0,2.062 c 0.006,-1.627 1.342,-2.945 2.99,-2.945 1.652,0 2.992,1.323 2.992,2.955 l 0,3.887 c 0.01,0.046 0.016,0.076 0.016,0.076 0,0 0,1.809 0,8.097 0,6.288 -6.105,12.816 -6.105,16.997 -5.188,0 -16.438,0 -19.961,0 0,-3.745 -9.938,-11.147 -9.938,-15.568 0,-0.053 0.016,-0.093 0.018,-0.144 -0.002,-0.05 -0.016,-0.097 -0.016,-0.147 L 31.997,50.877 c 0,-2.147 1.789,-3.889 3.998,-3.892 l 0,9.824 c 0,0.661 0.676,1.197 1.51,1.197 0.834,0 1.51,-0.536 1.51,-1.197 l 0,-20.604 c 0,-10e-4 0,-0.003 0,-0.004 l 0,-12.639 c 0,-1.968 1.562,-3.564 3.49,-3.564 m 0,-3 c -3.578,0 -6.49,2.944 -6.49,6.564 l 0,12.639 0,7.785 -0.023,0 c -3.856,0.005 -6.995,3.097 -6.995,6.892 l 0.005,13.266 c 0,0.042 0.001,0.083 0.002,0.122 C 29.001,64.319 29,64.375 29,64.434 c 0,3.421 2.919,6.791 6.009,10.358 1.391,1.604 3.706,4.277 3.928,5.272 l 0,2.938 3,0 19.961,0 3,0 0,-3 c 0,-1.14 1.193,-3.418 2.246,-5.428 1.81,-3.453 3.859,-7.367 3.859,-11.569 l 0,-8.097 0,-0.278 -0.016,-0.089 0,-3.596 c 0,-3.283 -2.688,-5.955 -5.992,-5.955 -0.39,0 -0.771,0.037 -1.141,0.108 -1.256,-1.868 -3.412,-3.104 -5.859,-3.104 -0.707,0 -1.393,0.104 -2.037,0.296 -1.23,-1.973 -3.445,-3.292 -5.967,-3.292 -0.337,0 -0.669,0.023 -0.994,0.069 l 0,-15.505 c 0,-3.62 -2.912,-6.564 -6.492,-6.564 l 0,0 z" style="fill:#4d5152" />
+            </g>
+        </g>
+        <g>
+            <g id="icon-ux_zoom">
+                <g id="icon-ux_zoom_stick">
+                    <path id="icon-ux_zoom_stick_bg" fill="#FF550E" d="M68.5 84h-1c-2.8 0-5-2.3-5-5V57c0-2.8 2.3-5 5-5h1c2.8 0 5 2.3 5 5v22C73.5 81.7 71.2 84 68.5 84z" />
+                    <path id="icon-ux_zoom_stick_border" fill="#4D5152" d="M68.5 85h-1.1c-3.6 0-6.5-2.7-6.5-6V57c0-3.3 2.9-6 6.5-6h1.1c3.6 0 6.5 2.7 6.5 6v22C75 82.3 72.1 85 68.5 85zM67.5 53c-2.4 0-4.3 1.8-4.3 4v22c0 2.2 1.9 4 4.3 4h1.1c2.4 0 4.3-1.8 4.3-4V57c0-2.2-1.9-4-4.3-4H67.5z" />
+                    <rect id="icon-ux_zoom_stick_point_bottom" x="67" y="77" fill="#FFFFFF" width="2" height="2" />
+                    <rect id="icon-ux_zoom_stick_point_top" x="67" y="73" fill="#FFFFFF" width="2" height="2" />
+                </g>
+                <g id="icon-ux_zoom_circle">
+                    <circle id="icon-ux_zoom_circle_bg" fill="#12C4E8" cx="68" cy="39" r="19" />
+                    <path id="icon-ux_zoom_circle_border" fill="#4D5152" d="M68 59c-11 0-20-9-20-20s9-20 20-20 20 9 20 20S79 59 68 59zM68 21c-9.9 0-18 8.1-18 18s8.1 18 18 18 18-8.1 18-18S77.9 21 68 21z" />
+                    <polygon id="icon-ux_zoom_circle_check" fill="#FFFFFF" points="66 45 60.5 39.7 63.4 36.9 66 39.5 72.6 33 75.5 35.8 " />
+                </g>
+            </g>
+        </g>
+    </svg>
+</div>
+<div class="svgAnimPanel">
+    <svg viewBox="0 0 96 96" class="svg-icon icon-business-and-strategy">
+        <path id="icon-board_bg" fill="#FF550E" d="M76 89H20c-1.1 0-2-0.9-2-2V15c0-1.1 0.9-2 2-2h56c1.1 0 2 0.9 2 2v72C78 88.1 77.1 89 76 89z" />
+        <path id="icon-board_border" fill="#4D5152" d="M76 90H20c-1.7 0-3-1.3-3-3V15c0-1.7 1.3-3 3-3h56c1.7 0 3 1.3 3 3v72C79 88.7 77.7 90 76 90zM20 14c-0.6 0-1 0.4-1 1v72c0 0.6 0.4 1 1 1h56c0.6 0 1-0.4 1-1V15c0-0.6-0.4-1-1-1H20z" />
+        <g id="icon-board_paper_under">
+            <path id="icon-board_paper_under_bg" d="m 71,84 -46,0 c -1.1,0 -2,-0.9 -2,-2 l 0,-63 c 0,-1.1 0.9,-2 2,-2 l 46,0 c 1.1,0 2,0.9 2,2 l 0,63 c 0,1.1 -0.9,2 -2,2 z" fill="#fff" />
+            <path id="icon-board_paper_under_border" d="m 71,85 -46,0 c -1.7,0 -3,-1.3 -3,-3 l 0,-63 c 0,-1.7 1.3,-3 3,-3 l 46,0 c 1.7,0 3,1.3 3,3 l 0,63 c 0,1.7 -1.3,3 -3,3 z M 25,18 c -0.6,0 -1,0.4 -1,1 l 0,63 c 0,0.6 0.4,1 1,1 l 46,0 c 0.6,0 1,-0.4 1,-1 l 0,-63 c 0,-0.6 -0.4,-1 -1,-1 l -46,0 z" fill="#4d5152" />
+        </g>
+        <g id="icon-board_paper">
+            <path id="icon-board_paper_bg" fill="#FFFFFF" d="M71 84H25c-1.1 0-2-0.9-2-2V19c0-1.1 0.9-2 2-2h46c1.1 0 2 0.9 2 2v63C73 83.1 72.1 84 71 84z" />
+            <path id="icon-board_paper_border" fill="#4D5152" d="M71 85H25c-1.7 0-3-1.3-3-3V19c0-1.7 1.3-3 3-3h46c1.7 0 3 1.3 3 3v63C74 83.7 72.7 85 71 85zM25 18c-0.6 0-1 0.4-1 1v63c0 0.6 0.4 1 1 1h46c0.6 0 1-0.4 1-1V19c0-0.6-0.4-1-1-1H25z" />
+            <!--path id="icon-board_arrow" fill="#4D5152" d="M57.7 34l-1.5 2.3 5.2 3.6C44.5 40.9 31 55.4 31 73h2.7c0-16.4 12.7-29.7 28.5-30.4l-3.7 5.6 2.3 1.5 6.2-9.5L57.7 34z"/-->
+            <circle id="icon-board_circle" fill="#12C4E8" cx="35" cy="36" r="6" />
+            <polygon id="icon-board_cross" fill="#12C4E8" points="67 61.1 64.9 59 60 63.9 55.1 59 53 61.1 57.9 66 53 70.9 55.1 73 60 68.1 64.9 73 67 70.9 62.1 66 " />
+            <g id="icon-board_arrow" fill="#4D5152">
+                <g id="icon-board_arrow-line">
+                    <path id="icon-board_arrow-line-a" d="m 30.201849,72.467726 2.78648,0.161796 0.287637,-4.674096 -2.804458,-0.161796 z" />
+                    <path id="icon-board_arrow-line-b" d="m 35.073695,61.303828 -2.750526,-0.683137 -1.06066,4.566232 2.660639,0.66516 z" />
+                    <path id="icon-board_arrow-line-c" d="m 33.707421,57.744325 2.444911,1.312342 2.265139,-4.062868 -2.498843,-1.348297 z" />
+                    <path id="icon-board_arrow-line-d" d="m 37.752311,51.578114 2.157275,1.707842 2.912321,-3.613435 -2.193229,-1.743797 z" />
+                    <path id="icon-board_arrow-line-e" d="m 42.749998,46.005153 1.599979,2.301094 3.865118,-2.552776 -1.599979,-2.337047 z" />
+                    <path id="icon-board_arrow-line-f" d="m 49.275755,42.229922 0.916842,2.624685 4.422413,-1.52807 -0.898864,-2.606707 z" />
+                    <path id="icon-board_arrow-line-g" d="m 56.232967,40.036693 0.287636,2.804457 4.602187,-0.431455 -0.233705,-2.732548 z" />
+                </g>
+                <path d="m 60.392578,33.474609 -2.042969,2.113282 5.839844,5.648437 -5.583984,5.773438 2.113281,2.042968 7.587891,-7.845703 -0.107422,-0.103515 z" id="icon-board_arrow-end" />
+            </g>
+        </g>
+        <g id="icon-board_staple">
+            <path id="icon-board_staple_bg" fill="#F6F6F6" d="M62 19H34c-1.1 0-2-0.9-2-2V9c0-1.1 0.9-2 2-2h28c1.1 0 2 0.9 2 2v8C64 18.1 63.1 19 62 19z" />
+            <path id="icon-board_staple_border" fill="#4D5152" d="M62 20H34c-1.7 0-3-1.3-3-3V9c0-1.7 1.3-3 3-3h28c1.7 0 3 1.3 3 3v8C65 18.7 63.7 20 62 20zM34 8c-0.6 0-1 0.4-1 1v8c0 0.6 0.4 1 1 1h28c0.6 0 1-0.4 1-1V9c0-0.6-0.4-1-1-1H34z" />
+            <rect id="icon-board_staple_line" x="36" y="12" fill="#4D5152" width="24" height="2" />
+        </g>
+    </svg>
+</div>
+<script>
+if (navigator.userAgent.match(/Trident/)) {
+    // Prevent animnation on Explorer. Most of aniomation are not supported by IE
+    document.body.className += " isIE";
+}
+</script>
+
+
+</body></html>

@@ -1,0 +1,99 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/khaag/pen/wotBH?depth=everything&order=popularity&page=9&q=icon&show_forks=false" />
+
+
+<style class="cp-pen-styles">body{background:#01bce1;}
+
+#mouse-icon{
+	width:17px; height:25px;
+	display:block;
+	margin:-20px 0 0 -7px;
+	border:3px solid #fff;
+	position:absolute;
+	z-index:700;
+	opacity:0.5;
+	top:50%; left:50%;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	-o-border-radius:10px;
+	border-radius:10px;
+	-moz-transition: all 0.25s ease-in-out;
+	-webkit-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+}
+
+#mouse-icon::before{
+	content:'SCROLL';
+	width:60px;
+	display:block;
+	margin:0 0 0 -30px;
+	position:absolute;
+	left:50%;
+	text-align:center;
+	font:1em 'Dosis', sans-serif;
+	color:#fff;
+	font-weight:700;
+	opacity:0;
+	-webkit-transform: scaleX(0);
+ 	-moz-transform: scaleX(0);
+ 	-o-transform: scaleX(0);
+ 	transform: scaleX(0);
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+#mouse-icon:hover{
+	opacity:1;
+  cursor:pointer;
+}
+
+#mouse-icon:hover:before{
+	margin-top:-30px;
+	opacity:1;
+	-webkit-transform: scaleX(1);
+ 	-moz-transform: scaleX(1);
+ 	-o-transform: scaleX(1);
+ 	transform: scaleX(1);
+}
+
+#scroll-wheel{
+  	width:5px;
+  	height:6px;
+  	display:block;
+  	position:absolute;
+  	top:5px;
+  	left:6px;
+  	background:#fff;
+  	-webkit-border-radius:3px;
+  	-moz-border-radius:3px;
+  	-o-border-radius:3px;
+  	border-radius:3px;
+  	-webkit-animation: scrollWheel 1s linear infinite;
+	-moz-animation: scrollWheel 1s linear infinite;
+	-o-animation: scrollWheel 1s linear infinite;
+	animation: scrollWheel 1s linear infinite;
+}
+
+@-webkit-keyframes scrollWheel {
+	0%   { top:5px; opacity:1; }
+	100% { top:20px; opacity:0; }
+}
+
+@-moz-keyframes scrollWheel {
+	0%   { top:5px; opacity:1; }
+	100% { top:20px; opacity:0; }
+}
+
+@-o-keyframes scrollWheel {
+	0%   { top:5px; opacity:1; }
+	100% { top:20px; opacity:0; }
+}</style></head><body>
+<link href='https://fonts.googleapis.com/css?family=Dosis:700' rel='stylesheet' type='text/css'>
+
+<div id="mouse-icon">
+  <div id="scroll-wheel"></div>
+</div>
+
+</body></html>

@@ -1,0 +1,156 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/thebabydino/pen/BJwzGE" />
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script>
+<style class="cp-pen-styles">*, :after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  --s: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font: 1.25em/2 comic sans ms, sans-serif;
+}
+
+input {
+  margin: 0 calc(2vw + .25em);
+  padding: 0;
+  width: 12.5em;
+  height: 1.5em;
+  background: transparent;
+}
+input, input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input::-webkit-slider-runnable-track {
+  box-sizing: border-box;
+  border: none;
+  width: 12.5em;
+  height: 0.25em;
+  background: #ccc;
+}
+input::-moz-range-track {
+  box-sizing: border-box;
+  border: none;
+  width: 12.5em;
+  height: 0.25em;
+  background: #ccc;
+}
+input::-ms-track {
+  box-sizing: border-box;
+  border: none;
+  width: 12.5em;
+  height: 0.25em;
+  background: #ccc;
+}
+input::-webkit-slider-thumb {
+  margin-top: -0.625em;
+  box-sizing: border-box;
+  border: none;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: #f90;
+}
+input::-moz-range-thumb {
+  box-sizing: border-box;
+  border: none;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: #f90;
+}
+input::-ms-thumb {
+  margin-top: 0;
+  box-sizing: border-box;
+  border: none;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: #f90;
+}
+
+label, p, div {
+  padding: 0.5em calc(2vw + .25em);
+  width: 100vw;
+}
+
+label {
+  order: -1;
+}
+label:after {
+  content: ":";
+}
+
+code, button:after {
+  font-family: consolas, monaco, monospace;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 3px;
+  width: calc(.97*(100vw - 2*calc(2vw + .25em))/(var(--max) + 1));
+  height: calc(.97*(100vw - 2*calc(2vw + .25em))/(var(--max) + 1));
+  min-width: 4em;
+  min-height: 4em;
+  border-radius: 50%;
+  background: hsl(37, calc(var(--s)*100%), 50%) content-box;
+  cursor: pointer;
+}
+</style></head><body>
+
+<style>:root { --min: 0; --val: 3; --max: 9 }</style>
+<input id="a" type="range" min="0" max="9" value="3"/>
+<label for="a">The value for <code>a</code> in the <code>:nth-child(-n + a)</code> selector</label>
+<output for="a"><code>:nth-child(-n + <span>3</span>)</code></output>
+<p>What gets selected:</p>
+<ul>
+  <li>idx: <code>1</code></li>
+  <li>idx: <code>2</code></li>
+  <li>idx: <code>3</code></li>
+  <li>idx: <code>4</code></li>
+  <li>idx: <code>5</code></li>
+  <li>idx: <code>6</code></li>
+  <li>idx: <code>7</code></li>
+  <li>idx: <code>8</code></li>
+  <li>idx: <code>9</code></li>
+  <li>idx: <code>10</code></li>
+</ul>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >var _A = document.getElementById('a'),
+    _O = document.querySelector('output[for=\'a\'] span'),
+    _S = document.createElement('style');
+
+var a = null;
+
+function update() {
+	if (a !== +_A.value) {
+		_O.textContent = a = +_A.value;
+		document.body.style.setProperty('--val', a);
+		_S.textContent = 'li:nth-child(-n + ' + a + ') { --s: 1 }';
+	}
+}
+
+update();
+document.body.appendChild(_S);
+
+addEventListener('input', update, false);
+addEventListener('change', update, false);
+//# sourceURL=pen.js
+</script>
+</body></html>

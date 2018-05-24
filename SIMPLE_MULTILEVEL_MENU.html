@@ -1,0 +1,466 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/serg1k/pen/zwxpNx?limit=all&page=3&q=back+icon" />
+<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+<link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat:500" rel="stylesheet">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body, html, .container, .container__push, .container__content-wrapper, .content {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Merriweather", serif;
+}
+
+.content {
+  padding: 3em 1em;
+}
+.content img {
+  max-width: 100%;
+  margin: 2em auto;
+  display: block;
+}
+.content p {
+  line-height: 1.8;
+}
+.content h1 {
+  text-align: center;
+}
+.content hr {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+.container__push {
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.container__push_pushed .container__content-wrapper {
+  overflow-y: hidden;
+}
+.container__content-wrapper {
+  overflow-y: scroll;
+}
+
+.side-nav__menu:after, .container__push:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  height: 0;
+  opacity: 0;
+  z-index: 4;
+  -webkit-transition: opacity 0.5s ease, height 0s 0.5s ease;
+  transition: opacity 0.5s ease, height 0s 0.5s ease;
+}
+
+.container__push_pushed:after, .side-nav__menu_overlayed:after {
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  opacity: 0.4;
+  height: 100%;
+}
+
+.side-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  z-index: 10;
+}
+.side-nav__toggle-menu {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  right: -50px;
+  border: none;
+  background: #336ca6;
+  color: #fff;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.side-nav__toggle-menu:focus {
+  outline: none;
+}
+.side-nav__menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #336ca6;
+  z-index: 5;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+.side-nav__menu_open {
+  -webkit-transform: none;
+          transform: none;
+}
+.side-nav__title {
+  font-weight: 300;
+  text-align: center;
+  font-size: 1.8em;
+  opacity: 0.2;
+}
+.side-nav__button-back {
+  display: block;
+  padding: 1em;
+  font-size: 0.8em;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+}
+.side-nav__button-back:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: transparent;
+}
+.side-nav__button-back-icon {
+  display: inline-block;
+  float: right;
+  color: #000;
+  opacity: 0.9;
+  font-size: 1.2em;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu__link {
+  display: block;
+  position: relative;
+  font-size: 1.3em;
+  text-transform: capitalize;
+  padding: 0.7em 1.5em 0.7em 1.5em;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+.menu__link_first {
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+}
+.menu__link:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: transparent;
+}
+.menu__link-icon {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-right: 0.2em;
+}
+.menu__link-icon_next {
+  position: absolute;
+  left: 0.5em;
+  color: #000;
+  opacity: 0.9;
+  top: 50%;
+  margin-top: -0.5em;
+  font-size: 0.7em;
+}
+</style></head><body>
+<div class="container">
+	<div class="container__push">
+		<div class="side-nav">
+			<button class="side-nav__toggle-menu"><i class="lnr lnr-menu"></i></button>
+			<div class="side-nav__menu side-nav__menu_open">
+				<h3 class="side-nav__title">Main menu</h3>
+				<ul class="menu">
+					<li class="menu__item">
+						<a href="#" class="menu__link menu__link_first">
+							<i class="menu__link-icon lnr lnr-text-align-left"></i>
+							News
+						</a>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link">
+							<i class="menu__link-icon lnr lnr-envelope"></i>
+							Contacts
+						</a>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link menu__link_dropdown">
+							<i class="menu__link-icon menu__link-icon_next lnr lnr-chevron-left"></i> 
+							<i class="menu__link-icon lnr lnr-cloud"></i> 
+							Weather
+						</a>
+						<div class="side-nav__menu">
+							<h3 class="side-nav__title">Weather</h3>
+							<a href="#" class="side-nav__button-back">back 
+								<i class="side-nav__button-back-icon lnr lnr-chevron-right-circle"></i>
+							</a>
+							<ul class="menu">
+								<li class="menu__item"><a href="#" class="menu__link">Today forecast</a></li>
+								<li class="menu__item"><a href="#" class="menu__link">Tommorow forecast</a></li>
+								<li class="menu__item"><a href="#" class="menu__link">5 Day forecast</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link  menu__link_dropdown">
+							<i class="menu__link-icon menu__link-icon_next lnr lnr-chevron-left"></i> 
+							<i class="menu__link-icon lnr lnr-store"></i> 
+							Store
+						</a>
+						<div class="side-nav__menu">
+							<h3 class="side-nav__title">Store</h3>
+							<a href="#" class="side-nav__button-back">back 
+								<i class="side-nav__button-back-icon lnr lnr-chevron-right-circle"></i>
+							</a>
+							<ul class="menu">
+								<li class="menu__item">
+									<a href="#" class="menu__link menu__link_dropdown">
+										<i class="menu__link-icon menu__link-icon_next lnr lnr-chevron-left"></i> 
+										<i class="menu__link-icon lnr lnr-shirt"></i> 
+										Clothes
+									</a>
+									<div class="side-nav__menu">
+										<h3 class="side-nav__title">Clothes</h3>
+										<a href="#" class="side-nav__button-back">back 
+											<i class="side-nav__button-back-icon lnr lnr-chevron-right-circle"></i>
+										</a>
+										<ul class="menu">
+											<li class="menu__item"><a href="#" class="menu__link">Tops</a></li>
+											<li class="menu__item"><a href="#" class="menu__link">Shirts</a></li>
+											<li class="menu__item"><a href="#" class="menu__link">Shoes</a></li>
+											<li class="menu__item"><a href="#" class="menu__link">Dresses</a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										<i class="menu__link-icon lnr lnr-dinner"></i> 
+										Food
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										<i class="menu__link-icon lnr lnr-music-note"></i> 
+										Music
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link menu__link_dropdown">
+							<i class="menu__link-icon menu__link-icon_next lnr lnr-chevron-left"></i>
+							<i class="menu__link-icon lnr lnr-cog"></i>
+							Settings
+						</a>
+						<div class="side-nav__menu">
+							<h3 class="side-nav__title">Settings</h3>
+							<a href="#" class="side-nav__button-back">back 
+								<i class="side-nav__button-back-icon lnr lnr-chevron-right-circle"></i>
+							</a>
+							<ul class="menu">
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										<i class="menu__link-icon lnr lnr-user"></i>
+										Edit profile
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										<i class="menu__link-icon lnr lnr-alarm"></i>
+										Notifications
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										<i class="menu__link-icon lnr lnr-pencil"></i>
+										Change password
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										<i class="menu__link-icon lnr lnr-exit"></i>
+										Logout
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="container__content-wrapper">
+			<div class="content">
+				<h1>Content here</h1>
+				<hr />
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente aperiam voluptatum dolores nobis, pariatur, animi quisquam fuga iusto laboriosam itaque rem, harum recusandae explicabo molestias! Aliquid nam maiores rem ipsa.</p>
+				<p>Saepe aliquam quasi impedit voluptatibus totam aperiam alias atque, architecto libero ratione ex qui unde quaerat ab consequuntur veniam velit sint ipsam nisi. Incidunt ipsum culpa autem dolores assumenda, quod.</p>
+				<p>Voluptate ex voluptas eum, dolore quod, distinctio soluta aliquid ratione, vero est praesentium esse nostrum quidem? Modi unde optio iste praesentium esse eius deleniti temporibus pariatur, adipisci itaque voluptatem cum.</p>
+				<p>Natus velit, eius. Voluptatibus sed temporibus, numquam magni, alias itaque iusto natus, enim sunt autem amet ab tenetur reiciendis molestiae optio reprehenderit, eum nulla quasi rerum pariatur. Magni, aperiam, quae!</p>
+				<img src="https://placehold.it/600x400" alt="" />
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores ipsum reiciendis, magnam veritatis, accusantium libero fugit temporibus nemo, aliquam ad tempore numquam eos earum tenetur, assumenda explicabo. Commodi, facilis, distinctio.</p>
+				<p>Sint asperiores laboriosam exercitationem non officiis blanditiis odio dolorum. Quia commodi quaerat eaque odit facilis. Pariatur, vel soluta eaque amet doloremque tempora voluptas fugit minima facere, in quo omnis praesentium!</p>
+			</div>
+		</div>
+	</div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) {if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;} var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); }
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+ } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var PushMenu = function () {
+	function PushMenu(cont) {
+		_classCallCheck(this, PushMenu);
+
+		this.container = cont;
+		this.dropdownButtons = this.container.querySelectorAll(".menu__link_dropdown");
+		this.backButtons = this.container.querySelectorAll(".side-nav__button-back");
+		this.openedMenus = [];
+		this.bindEvents();
+	}
+
+	_createClass(PushMenu, [{
+		key: "bindEvents",
+		value: function bindEvents() {
+			for (var i = this.dropdownButtons.length; i--;) {if (window.CP.shouldStopExecution(2)){break;}if (window.CP.shouldStopExecution(2)){break;}
+				this.dropdownButtons[i].addEventListener("mousedown", this.openSubMenu.bind(this));
+			}
+window.CP.exitedLoop(2);
+
+window.CP.exitedLoop(2);
+
+
+			for (var _i = this.backButtons.length; _i--;) {if (window.CP.shouldStopExecution(3)){break;}if (window.CP.shouldStopExecution(3)){break;}
+				this.backButtons[_i].addEventListener("mousedown", this.closeMenu.bind(this));
+			}
+window.CP.exitedLoop(3);
+
+window.CP.exitedLoop(3);
+
+		}
+	}, {
+		key: "openSubMenu",
+		value: function openSubMenu(e) {
+			var target = e.currentTarget;
+			var parent = this.closest(target, ".side-nav__menu");
+			var submenu = target.nextElementSibling;
+
+			if (submenu === null) return;
+
+			parent.classList.add("side-nav__menu_overlayed");
+			submenu.classList.add("side-nav__menu_open");
+			this.openedMenus.push(submenu);
+			e.preventDefault();
+		}
+	}, {
+		key: "closeMenu",
+		value: function closeMenu() {
+			var submenu = this.openedMenus.pop();
+			var parent = this.closest(submenu, ".side-nav__menu_overlayed");
+
+			parent.classList.remove("side-nav__menu_overlayed");
+			submenu.classList.remove("side-nav__menu_open");
+		}
+	}, {
+		key: "closeAllMenu",
+		value: function closeAllMenu() {
+			var l = this.openedMenus.length;
+			if (!l) return;
+			while (l--) {if (window.CP.shouldStopExecution(4)){break;}if (window.CP.shouldStopExecution(4)){break;}
+				this.closeMenu();
+			}
+window.CP.exitedLoop(4);
+
+window.CP.exitedLoop(4);
+
+		}
+	}, {
+		key: "closest",
+		value: function closest(el, selector) {
+			if (!Element.prototype.closest) {
+				Element.prototype.closest = function (sel) {
+					var node = this;
+					while (node) {if (window.CP.shouldStopExecution(5)){break;}if (window.CP.shouldStopExecution(5)){break;}
+						if (node.matches(sel)) return node;
+						node = node.parentElement;
+					}
+window.CP.exitedLoop(5);
+
+window.CP.exitedLoop(5);
+
+
+					return null;
+				};
+			}
+
+			return el.closest(selector);
+		}
+	}]);
+
+	return PushMenu;
+}();
+
+var sideNav = document.querySelector(".side-nav");
+var pushContainer = document.querySelector(".container__push");
+var btn = document.querySelector(".side-nav__toggle-menu");
+var pushed = false;
+
+var menu = new PushMenu(sideNav);
+
+btn.addEventListener("mousedown", function (e) {
+	togglePushContainer();
+	e.stopPropagation();
+});
+
+pushContainer.addEventListener("mousedown", function (e) {
+	if (!this.classList.contains("container__push_pushed") || sideNav.contains(e.target)) return;
+	togglePushContainer();
+});
+
+function togglePushContainer() {
+	var width = sideNav.offsetWidth;
+	if (!pushed) {
+		pushContainer.style.transform = "translateX(" + width + "px)";
+	} else {
+		pushContainer.style.transform = "";
+		menu.closeAllMenu();
+	}
+	pushContainer.classList.toggle("container__push_pushed", pushed = !pushed);
+}
+//# sourceURL=pen.js
+</script>
+</body></html>

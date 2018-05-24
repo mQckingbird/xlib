@@ -1,0 +1,842 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/rkchauhan/pen/NNKgJY" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ravikumar Chauhan">
+
+  <!-- Meta and Opengraph tags -->
+  <meta name="description" content="Material Design Buttons | by Ravikumar Chauhan">
+  <meta name="keywords" content="material design, button, material button, css3, html5">
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:300'>
+<style class="cp-pen-styles">/* -----------------------------------------------------
+  Material Design Buttons
+  https://codepen.io/rkchauhan/pen/NNKgJY
+  By: Ravikumar Chauhan
+  Find me on -
+  Twitter: https://twitter.com/rkchauhan01
+  Facebook: https://www.facebook.com/ravi032chauhan
+  GitHub: https://github.com/rkchauhan
+  CodePen: https://codepen.io/rkchauhan
+-------------------------------------------------------- */
+/* -----------------------------------------------------
+  Body
+-------------------------------------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  color: #646360;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #eee;
+}
+
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  color: #03a9f4;
+  outline: none;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* -----------------------------------------------------
+    Main
+-------------------------------------------------------- */
+main {
+  width: 100%;
+  max-width: 940px;
+  margin: 1.4rem auto;
+}
+main section {
+  display: block;
+  margin-bottom: 1.4rem;
+  padding: 1.2rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.157);
+          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.157);
+}
+main section:last-child {
+  margin-bottom: 0;
+}
+main section .heading {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+}
+main section .wrap {
+  overflow: hidden;
+  display: block;
+  margin: 1rem 0 0.8rem;
+  text-align: center;
+}
+main section .wrap .holder {
+  float: left;
+  text-align: center;
+  background-color: #f2f2f2;
+}
+main section .wrap .holder:last-child {
+  margin-right: 0;
+}
+main section .wrap .holder.col-3 {
+  width: 32.6666666667%;
+}
+main section .wrap .holder.col-3:nth-child(n) {
+  margin-right: 1%;
+  margin-bottom: 1%;
+}
+main section .wrap .holder.col-3:nth-child(3n) {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+main section .wrap .holder.col-4 {
+  width: 24.25%;
+}
+main section .wrap .holder.col-4:nth-child(n) {
+  margin-right: 1%;
+  margin-bottom: 1%;
+}
+main section .wrap .holder.col-4:nth-child(4n) {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+main section .wrap .holder .demo {
+  min-height: 120px;
+  padding: 2em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+main section .wrap .holder .captions {
+  padding: 8px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 13px;
+  font-weight: bold;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+@media only screen and (max-width: 860px) {
+  main section .wrap .holder.col-4 {
+    width: 32.6666666667%;
+  }
+  main section .wrap .holder.col-4:nth-child(n) {
+    margin-right: 1%;
+    margin-bottom: 1%;
+  }
+  main section .wrap .holder.col-4:nth-child(3n) {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}
+@media only screen and (max-width: 640px) {
+  main section .wrap .holder {
+    float: none;
+  }
+  main section .wrap .holder.col-3, main section .wrap .holder.col-4 {
+    display: block;
+    width: 100%;
+  }
+  main section .wrap .holder.col-3:nth-child(n), main section .wrap .holder.col-4:nth-child(n) {
+    margin: 0;
+    margin-bottom: 14px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  main {
+    padding: 0 1.5%;
+  }
+}
+
+/* -----------------------------------------------------
+   Header
+-------------------------------------------------------- */
+header {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  background-color: #FFF;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+header h2 {
+  margin: 0;
+  padding: 25px 0;
+  font-size: 2em;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* -----------------------------------------------------
+    Footer
+-------------------------------------------------------- */
+footer {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  min-height: 80px;
+  background-color: #FFF;
+  border-top: 1px solid #EEE;
+}
+footer .row {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+footer .footer-content {
+  margin: 0 8px;
+  padding: 25px 0 18px;
+  text-align: center;
+}
+footer .footer-content span {
+  color: rgba(0, 0, 0, 0.525);
+  font-size: 0.857em;
+  margin-right: 5px;
+}
+@media only screen and (max-width: 768px) {
+  footer span {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+
+/* ----------------------------------------------------------------------
+  Material Design Raised Buttons - by Ravikumar Chauhan
+------------------------------------------------------------------------- */
+.rkmd-btn {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 1.5rem;
+  color: #424242;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: .8px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 2px;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+}
+.rkmd-btn:hover {
+  text-decoration: none;
+  -webkit-box-shadow: 0 4px 10px 0px rgba(0, 0, 0, 0.225);
+          box-shadow: 0 4px 10px 0px rgba(0, 0, 0, 0.225);
+}
+
+/* ----------------------------------------------------------------------
+  Material Design Fab Buttons - by Ravikumar Chauhan
+------------------------------------------------------------------------- */
+.rkmd-btn.btn-fab, .rkmd-btn.btn-fab-mini {
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  padding: 0;
+  line-height: normal;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+}
+.rkmd-btn.btn-fab:hover, .rkmd-btn.btn-fab-mini:hover {
+  -webkit-box-shadow: 0 4px 11px 0px rgba(0, 0, 0, 0.375);
+          box-shadow: 0 4px 11px 0px rgba(0, 0, 0, 0.375);
+}
+.rkmd-btn.btn-fab i, .rkmd-btn.btn-fab-mini i {
+  display: inline-block;
+  float: none;
+  width: inherit;
+  margin: 0;
+  font-size: inherit;
+  text-align: center;
+  line-height: none;
+  vertical-align: middle;
+}
+.rkmd-btn.btn-fab {
+  width: 56px;
+  height: 56px;
+  font-size: 28px;
+}
+.rkmd-btn.btn-fab-mini {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+}
+
+/* Buttons Color */
+.rkmd-btn.btn-lightBlue {
+  color: #FFF;
+  background-color: #03a9f4;
+}
+.rkmd-btn.btn-lightBlue:hover {
+  background-color: #23b9fc;
+}
+.rkmd-btn.btn-white {
+  color: #444;
+  background-color: #FFF;
+}
+.rkmd-btn.btn-white:hover {
+  background-color: #fafafa;
+}
+.rkmd-btn.btn-black {
+  color: #bdbdbd;
+  background-color: #111;
+}
+.rkmd-btn.btn-black:hover {
+  background-color: #252525;
+}
+.rkmd-btn.btn-grey {
+  color: #757575;
+  background-color: #f5f5f5;
+}
+.rkmd-btn.btn-grey:hover {
+  background-color: #ebebeb;
+}
+.rkmd-btn.btn-orange {
+  color: #FFF;
+  background-color: #ff9800;
+}
+.rkmd-btn.btn-orange:hover {
+  background-color: #ffa829;
+}
+.rkmd-btn.btn-amber {
+  color: #FFF;
+  background-color: #ffc107;
+}
+.rkmd-btn.btn-amber:hover {
+  background-color: #ffcb30;
+}
+.rkmd-btn.btn-green {
+  color: #FFF;
+  background-color: #4caf50;
+}
+.rkmd-btn.btn-green:hover {
+  background-color: #67bd6a;
+}
+.rkmd-btn.btn-teal {
+  color: #FFF;
+  background-color: #009688;
+}
+.rkmd-btn.btn-teal:hover {
+  background-color: #00bfad;
+}
+.rkmd-btn.btn-cyan {
+  color: #FFF;
+  background-color: #00bcd4;
+}
+.rkmd-btn.btn-cyan:hover {
+  background-color: #00e0fd;
+}
+.rkmd-btn.btn-indigo {
+  color: #FFF;
+  background-color: #3f51b5;
+}
+.rkmd-btn.btn-indigo:hover {
+  background-color: #5869c5;
+}
+.rkmd-btn.btn-deepPurple {
+  color: #FFF;
+  background-color: #673ab7;
+}
+.rkmd-btn.btn-deepPurple:hover {
+  background-color: #7c52c8;
+}
+.rkmd-btn.btn-pink {
+  color: #FFF;
+  background-color: #e91e63;
+}
+.rkmd-btn.btn-pink:hover {
+  background-color: #ed437d;
+}
+.rkmd-btn.btn-red {
+  color: #FFF;
+  background-color: #f44336;
+}
+.rkmd-btn.btn-red:hover {
+  background-color: #f6675d;
+}
+.rkmd-btn.btn-yellow {
+  color: #FFF;
+  background-color: #ffeb3b;
+}
+.rkmd-btn.btn-yellow:hover {
+  background-color: #f8de00;
+}
+.rkmd-btn.btn-lime {
+  color: #FFF;
+  background-color: #cddc39;
+}
+.rkmd-btn.btn-lime:hover {
+  background-color: #bac923;
+}
+.rkmd-btn.btn-brown {
+  color: #FFF;
+  background-color: #795548;
+}
+.rkmd-btn.btn-brown:hover {
+  background-color: #936757;
+}
+
+/* Raised Buttons Size (Not work in Fab Buttons) */
+.rkmd-btn.btn-lg {
+  height: 48px;
+  line-height: 48px;
+}
+.rkmd-btn.btn-sm {
+  height: 30px;
+  padding: 0 1rem;
+  line-height: 30px;
+  font-size: 12px;
+}
+.rkmd-btn.btn-xs {
+  height: 24px;
+  padding: 0 .4rem;
+  line-height: 24px;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: .2px;
+}
+
+/* Raised Buttons Types */
+.rkmd-btn.disabled, .rkmd-btn[disabled] {
+  cursor: default !important;
+  color: #9e9e9e !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+.rkmd-btn.disabled:not(.btn-flat), .rkmd-btn[disabled]:not(.btn-flat) {
+  background-color: #cdcdcd !important;
+}
+.rkmd-btn.disabled:not(.btn-flat):hover, .rkmd-btn[disabled]:not(.btn-flat):hover {
+  background-color: #cdcdcd !important;
+}
+.rkmd-btn.btn-flat {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  background-color: transparent !important;
+}
+.rkmd-btn.btn-flat:hover {
+  background-color: #cecece !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+.rkmd-btn.btn-flat.disabled:hover, .rkmd-btn.btn-flat[disabled]:hover {
+  background-color: transparent !important;
+}
+.rkmd-btn.btn-link {
+  color: #3949ab !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  background-color: transparent !important;
+}
+.rkmd-btn.btn-link:hover {
+  text-decoration: underline !important;
+  background-color: transparent !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+.rkmd-btn.btn-link.disabled, .rkmd-btn.btn-link[disabled] {
+  color: #9fa8da !important;
+  text-decoration: underline !important;
+  background-color: transparent !important;
+}
+.rkmd-btn.btn-link.disabled:hover, .rkmd-btn.btn-link[disabled]:hover {
+  background-color: transparent !important;
+}
+.rkmd-btn i {
+  float: left;
+  width: auto;
+  height: auto;
+  margin-right: 10px;
+  font-size: 1.3rem;
+  line-height: inherit;
+}
+.rkmd-btn i.right {
+  float: right !important;
+  margin: 0;
+  margin-left: 10px;
+}
+
+/* ----------------------------------------------------------------------
+  Material Design Ripple Effect - by Ravikumar Chauhan
+------------------------------------------------------------------------- */
+.ripple-effect {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 1;
+}
+.ripple-effect .ripple {
+  display: block;
+  position: absolute;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  pointer-events: none;
+}
+.ripple-effect.ripple-dark .ripple {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+.ripple-effect.ripple-red .ripple {
+  background: rgba(244, 67, 54, 0.725) !important;
+}
+.ripple-effect.ripple-orange .ripple {
+  background: rgba(255, 152, 0, 0.725) !important;
+}
+.ripple-effect.ripple-yellow .ripple {
+  background: rgba(255, 235, 59, 0.725) !important;
+}
+.ripple-effect.ripple-green .ripple {
+  background: rgba(76, 175, 80, 0.725) !important;
+}
+.ripple-effect.ripple-purple .ripple {
+  background: rgba(156, 39, 176, 0.725) !important;
+}
+.ripple-effect.ripple-teal .ripple {
+  background: rgba(0, 150, 136, 0.725) !important;
+}
+.ripple-effect.ripple-pink .ripple {
+  background: rgba(233, 30, 99, 0.725) !important;
+}
+.ripple-effect .animated {
+  -webkit-animation: ripple 0.6s linear;
+          animation: ripple 0.6s linear;
+}
+@-webkit-keyframes ripple {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+            transform: scale(2.5);
+  }
+}
+@keyframes ripple {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+            transform: scale(2.5);
+  }
+}
+</style></head><body>
+<!-- header -->
+<header>
+  <h2>Material Design Buttons</h2>
+</header><!-- @end header -->
+
+<!-- Main content -->
+<main role="main">
+  <section>
+    <h3 class="heading">Fab Buttons</h3>
+    <div class="wrap">
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-fab btn-lightBlue ripple-effect"><i class="material-icons">attach_file</i></button></div>
+        <div class="captions">Normal Button</div>
+      </div>
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-fab-mini btn-pink ripple-effect"><i class="material-icons">favorite_border</i></button></div>
+        <div class="captions">Mini Button</div>
+      </div>
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-fab-mini btn-lightBlue" disabled><i class="material-icons">cloud_upload</i></button></div>
+        <div class="captions">Disabled Button</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading">Raised Buttons</h3>
+    <div class="wrap">
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-lightBlue">Button</button></div>
+        <div class="captions">Normal Button</div>
+      </div>
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-lightBlue ripple-effect">Button</button></div>
+        <div class="captions">Ripple Effect</div>
+      </div>
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-lightBlue" disabled>Button</button></div>
+        <div class="captions">Disabled Button</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading">Buttons With Icon</h3>
+    <div class="wrap">
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-lightBlue"><i class="material-icons">cloud_upload</i>Button</button></div>
+        <div class="captions">Icon Left</div>
+      </div>
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-lightBlue ripple-effect"><i class="material-icons right">cloud_upload</i>Button</button></div>
+        <div class="captions">Icon Right</div>
+      </div>
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-lightBlue" disabled><i class="material-icons">cloud_upload</i>Button</button></div>
+        <div class="captions">Disabled Button</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading">Flat Buttons</h3>
+    <div class="wrap">
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-flat">Button</button></div>
+        <div class="captions">Flat Button</div>
+      </div>
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-flat ripple-effect"><i class="material-icons">favorite_border</i>Button</button></div>
+        <div class="captions">Ripple Effect</div>
+      </div>
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-flat" disabled>Button</button></div>
+        <div class="captions">Disabled Button</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading">Link Buttons</h3>
+    <div class="wrap">
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-link">Button</button></div>
+        <div class="captions">Link Button</div>
+      </div>
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-link ripple-effect"><i class="material-icons">favorite_border</i>Button</button></div>
+        <div class="captions">Ripple Effect</div>
+      </div>
+      <div class="holder col-3">
+        <div class="demo"><button class="rkmd-btn btn-link" disabled>Button</button></div>
+        <div class="captions">Disabled Button</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading">Raised Buttons in Different Sizes</h3>
+    <div class="wrap">
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-lg btn-lightBlue ripple-effect">Button</button></div>
+        <div class="captions">Large Button</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-lightBlue ripple-effect">Button</button></div>
+        <div class="captions">Medium Button</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-sm btn-lightBlue ripple-effect">Button</button></div>
+        <div class="captions">Small Button</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-xs btn-lightBlue ripple-effect">Button</button></div>
+        <div class="captions">Extra Small Button</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading">Ripple Effect in Different Colors</h3>
+    <div class="wrap">
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-lightBlue ripple-effect"><i class="material-icons right">send</i>Submit</button></div>
+        <div class="captions">Default Ripple</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-white ripple-effect ripple-dark"><i class="material-icons right">send</i>Submit</button></div>
+        <div class="captions">Ripple Dark</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-white ripple-effect ripple-red"><i class="material-icons right">send</i>Submit</button></div>
+        <div class="captions">Ripple Red</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-white ripple-effect ripple-orange"><i class="material-icons right">send</i>Submit</button></div>
+        <div class="captions">Ripple Orange</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-white ripple-effect ripple-yellow"><i class="material-icons right">send</i>Submit</button></div>
+        <div class="captions">Ripple Yellow</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-white ripple-effect ripple-green"><i class="material-icons right">send</i>Submit</button></div>
+        <div class="captions">Ripple Green</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-white ripple-effect ripple-purple"><i class="material-icons right">send</i>Submit</button></div>
+        <div class="captions">Ripple Purple</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-white ripple-effect ripple-teal"><i class="material-icons right">send</i>Submit</button></div>
+        <div class="captions">Ripple Teal</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-white ripple-effect ripple-pink"><i class="material-icons right">send</i>Submit</button></div>
+        <div class="captions">Ripple Pink</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading">Buttons in Different Colors</h3>
+    <div class="wrap">
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-white ripple-effect ripple-dark"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">White</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-black ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Black</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-grey ripple-effect ripple-dark"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Grey</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-lightBlue ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Light Blue</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-orange ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Orange</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-amber ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Amber</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-green ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Green</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-teal ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Teal</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-cyan ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Cyan</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-indigo ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Indigo</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-deepPurple ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Deep Purple</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-pink ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Pink</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-red ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Red</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-yellow ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Yellow</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-lime ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Lime</div>
+      </div>
+      <div class="holder col-4">
+        <div class="demo"><button class="rkmd-btn btn-brown ripple-effect"><i class="material-icons">file_download</i>Download</button></div>
+        <div class="captions">Brown</div>
+      </div>
+    </div>
+  </section>
+</main><!-- @end main -->
+
+<!-- Footer -->
+<footer>
+  <div class="row">
+    <div class="footer-content">
+      <span><strong>Made in India</strong>,</span>
+      <span>by <a href="https://twitter.com/rkchauhan01" target="_blank">Ravikumar Chauhan</a>.</span>
+      <span><a href="https://github.com/rkchauhan" target="_blank">GitHub</a></span>
+      <span><a href="https://codepen.io/rkchauhan" target="_blank">CodePen</a></span>
+    </div>
+  </div>
+</footer><!-- @end footer -->
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >/* -----------------------------------------------------
+  Material Design Buttons
+  https://codepen.io/rkchauhan/pen/NNKgJY
+  By: Ravikumar Chauhan
+  Find me on -
+  Twitter: https://twitter.com/rkchauhan01
+  Facebook: https://www.facebook.com/ravi032chauhan
+  GitHub: https://github.com/rkchauhan
+  CodePen: https://codepen.io/rkchauhan
+-------------------------------------------------------- */
+$(document).ready(function() {
+  $('.ripple-effect').rkmd_rippleEffect();
+});
+
+(function($) {
+  $.fn.rkmd_rippleEffect = function() {
+    var btn, self, ripple, size, rippleX, rippleY, eWidth, eHeight;
+
+    btn = $(this).not('[disabled], .disabled');
+
+    btn.on('mousedown', function(e) {
+      self = $(this);
+
+      // Disable right click
+      if(e.button === 2) {
+        return false;
+      }
+
+      if(self.find('.ripple').length === 0) {
+        self.prepend('<span class="ripple"></span>');
+      }
+      ripple = self.find('.ripple');
+      ripple.removeClass('animated');
+
+      eWidth = self.outerWidth();
+      eHeight = self.outerHeight();
+      size = Math.max(eWidth, eHeight);
+      ripple.css({'width': size, 'height': size});
+
+      rippleX = parseInt(e.pageX - self.offset().left) - (size / 2);
+      rippleY = parseInt(e.pageY - self.offset().top) - (size / 2);
+
+      ripple.css({ 'top': rippleY +'px', 'left': rippleX +'px' }).addClass('animated');
+
+      setTimeout(function() {
+        ripple.remove();
+      }, 800);
+
+    });
+  };
+}(jQuery));
+//# sourceURL=pen.js
+</script>
+</body></html>

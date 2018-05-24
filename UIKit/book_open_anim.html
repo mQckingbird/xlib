@@ -1,0 +1,160 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/wwwebneko/pen/XjOZZK?depth=everything&order=popularity&page=2&q=book&show_forks=false" />
+
+
+<style class="cp-pen-styles">body {
+  background-color: #4F4E68;
+}
+.book {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 18.5rem;
+  height: 12.5rem;
+  -webkit-perspective: 70rem;
+          perspective: 70rem;
+}
+.cover {
+  background-color: #36354e;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  width: 9.25rem;
+  height: 12.5rem;
+}
+.page {
+  top: 0.25rem;
+  left: 0.25rem;
+  background-color: #e9e6c4;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  width: 9rem;
+  height: 12rem;
+  text-align: right;
+  font-size: 8px;
+  color: #777;
+  font-family: monospace;
+}
+.page::before, .page::after {
+  display: block;
+  border-top: 1px dashed rgba(0, 0, 0, 0.3);
+  content: "";
+  padding-bottom: 1rem;
+}
+.cover, .page {
+  position: absolute;
+  padding: 1rem;
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+  border-radius: 5px 0 0 5px;
+  -webkit-box-shadow: inset 3px 0px 20px rgba(0, 0, 0, 0.2),
+    0px 0px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 3px 0px 20px rgba(0, 0, 0, 0.2),
+    0px 0px 15px rgba(0, 0, 0, 0.1);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.cover.turn {
+  -webkit-animation: bookCover 3s forwards;
+          animation: bookCover 3s forwards;
+}
+.page.turn {
+  -webkit-animation: bookOpen 3s forwards;
+          animation: bookOpen 3s forwards;
+}
+.page:nth-of-type(1) {
+  -webkit-animation-delay: 0.05s;
+          animation-delay: 0.05s;
+}
+.page:nth-of-type(2) {
+  -webkit-animation-delay: 0.33s;
+          animation-delay: 0.33s
+}
+.page:nth-of-type(3) {
+  -webkit-animation-delay: 0.66s;
+          animation-delay: 0.66s;
+}
+.page:nth-of-type(4) {
+  -webkit-animation: bookOpen150deg 3s forwards;
+          animation: bookOpen150deg 3s forwards;
+  -webkit-animation-delay: 0.99s;
+          animation-delay: 0.99s;
+}
+.page:nth-of-type(5) {
+  -webkit-animation: bookOpen30deg 3s forwards;
+          animation: bookOpen30deg 3s forwards;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+.page:nth-of-type(6) {
+  -webkit-animation: bookOpen55deg 3s forwards;
+          animation: bookOpen55deg 3s forwards;
+  -webkit-animation-delay: 1.25s;
+          animation-delay: 1.25s;
+}
+@-webkit-keyframes bookOpen {
+  30% { z-index: 999 }
+  100% {  -webkit-transform: rotateY(180deg);  transform: rotateY(180deg);
+    z-index: 999;}
+}
+@keyframes bookOpen {
+  30% { z-index: 999 }
+  100% {  -webkit-transform: rotateY(180deg);  transform: rotateY(180deg);
+    z-index: 999;}
+}
+@-webkit-keyframes bookCover {
+  30% { z-index: 999 }
+  100% {  -webkit-transform: rotateY(180deg);  transform: rotateY(180deg);
+    z-index: 1;}
+}
+@keyframes bookCover {
+  30% { z-index: 999 }
+  100% {  -webkit-transform: rotateY(180deg);  transform: rotateY(180deg);
+    z-index: 1;}
+}
+@-webkit-keyframes bookOpen150deg {
+  30% { z-index: 999 }
+  100% {  -webkit-transform: rotateY(150deg);  transform: rotateY(150deg);
+    z-index: 999;}
+}
+@keyframes bookOpen150deg {
+  30% { z-index: 999 }
+  100% {  -webkit-transform: rotateY(150deg);  transform: rotateY(150deg);
+    z-index: 999;}
+}
+@-webkit-keyframes bookOpen55deg {
+  30% { z-index: 999 }
+  100% {  -webkit-transform: rotateY(55deg);  transform: rotateY(55deg);
+    z-index: 999;}
+}
+@keyframes bookOpen55deg {
+  30% { z-index: 999 }
+  100% {  -webkit-transform: rotateY(55deg);  transform: rotateY(55deg);
+    z-index: 999;}
+}
+@-webkit-keyframes bookOpen30deg {
+  50% { z-index: 999 }
+  100% {  -webkit-transform: rotateY(30deg);  transform: rotateY(30deg);
+    z-index: 999;}
+}
+@keyframes bookOpen30deg {
+  50% { z-index: 999 }
+  100% {  -webkit-transform: rotateY(30deg);  transform: rotateY(30deg);
+    z-index: 999;}
+}</style></head><body>
+<div class="book">
+  <span class="page turn"></span>
+  <span class="page turn"></span>
+  <span class="page turn"></span>
+  <span class="page turn"></span>
+  <span class="page turn"></span>
+  <span class="page turn"></span>
+  <span class="cover"></span>
+  <span class="page"></span>
+  <span class="cover turn"></span>
+</div>
+
+</body></html>

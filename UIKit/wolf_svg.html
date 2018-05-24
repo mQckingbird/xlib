@@ -1,0 +1,251 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/BlackStar1991/pen/opYedo" />
+<link href="https://fonts.googleapis.com/css?family=New+Rocker|Roboto" rel="stylesheet">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">body {
+  position: relative;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.northern-lights {
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  animation: northern 10s linear infinite alternate;
+  background: linear-gradient(10deg, #a1d9b4 20%, #32988a 40%, #000e3c 70%);
+}
+
+h1 {
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  font-family: 'New Rocker', cursive;
+  font-weight: 100;
+  text-align: center;
+  font-size: 5vw;
+  color: #3366b2;
+  text-shadow: #fff 2px 2px 0, #fff -2px -2px 0,
+  #fff -2px 2px 0, #fff 2px -2px 0;
+
+}
+
+#wolfHead {
+  display: block;
+  position: absolute;
+  top: 50vh;
+  left: 30%;
+  width: 35vw;
+  height: 35vw;
+  transform: translate(0, -50%) rotate(45deg);
+  transition: .3s ease-in;
+  z-index: 2;
+}
+
+body:hover #wolfHead {
+  transform: translate(0, -50%) rotate(0deg);
+  transition: .3s ease-in;
+}
+
+.st0 {
+  fill: #3481C3;
+}
+
+.st1 {
+  fill: #2574B7;
+}
+
+.st2 {
+  fill: #2C5DA6;
+}
+
+.st3 {
+  fill: #244892;
+}
+
+.st4 {
+  fill: #3169AC;
+}
+
+.st5 {
+  fill: #3182C4;
+}
+
+.st6 {
+  fill: #2674B8;
+}
+
+.st7 {
+  fill: #3490CE;
+}
+
+.st8 {
+  fill: #8ABAE4;
+}
+
+.st9 {
+  fill: #B0CEE9;
+}
+
+.st10 {
+  fill: #9CC2E7;
+}
+
+.st11 {
+  fill: #7CB4E1;
+}
+
+.st12 {
+  fill: #2E3E7A;
+}
+
+.st13 {
+  fill: #3B88C8;
+}
+
+.st14 {
+  fill: #1B3551;
+}
+
+.st15 {
+  fill: #3667AF;
+}
+
+.st16 {
+  fill: #2757A2;
+}
+
+.st17 {
+  fill: #296AB2;
+}
+
+.st18 {
+  fill: #2C77BA;
+}
+
+.st19 {
+  fill: #4389C8;
+}
+
+.st20 {
+  fill: #2F61AA;
+}
+
+.st21 {
+  fill: #FCF7F7;
+}
+
+.st22 {
+  fill: #2F7ABC;
+}
+
+.st23 {
+  fill: #1D4382;
+}
+
+.st24 {
+  fill: #61A6DA;
+}
+
+.st25 {
+  fill: #499BD5;
+}
+
+.st26 {
+  fill: #214164;
+}
+
+.st27 {
+  fill: #6EACDE;
+}
+
+.st28 {
+  fill: #3283C5;
+}
+
+.st29 {
+  fill: #2F94CE;
+}
+
+.st30 {
+  fill: #7FB2E0;
+}
+
+@keyframes northern {
+  0%   {  transform: translate(5%, -2%);}
+  25%  {  transform: translate(10%, 7%);}
+  40%  {  transform: rotate(-10deg);}
+  60%  {  transform: translate(7%, -2%);}
+  85%  {  transform: translate(6%, 3%) rotate(12deg);}
+  100% {  transform: none;}
+}
+.aboutMe a {
+  display: block;
+  width: 30%;
+  position: fixed;
+  bottom: .1%;
+  left: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.5em;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none
+}</style></head><body>
+<div class="container">
+    <div class="northern-lights"></div>
+    <h1>PowerWolf</h1>
+</div>
+<svg version="1.1" id="wolfHead" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+    <polyline id="tr1" class="st0" points="299,220 387,405 299,327 	"/>
+    <polygon id="tr2" class="st1" points="299,220 300.8,328 211,404 	"/>
+    <polygon id="tr3" class="st2" points="299,220 211,404 211,288 	"/>
+    <polygon id="tr4" class="st3" points="299,220 211,288.3 103,288 	"/>
+    <polyline id="tr5" class="st4" points="299.1,220 261.1,233.2 286.1,208 	"/>
+    <polyline id="tr6" class="st5" points="299,220 300,165.9 265.8,189.2 	"/>
+    <polygon id="tr7" class="st6" points="299,220 300,165.9 387,134 	"/>
+    <polygon id="tr8" class="st7" points="299,220 387,134 445.4,133.4 	"/>
+    <polygon id="tr9" class="st8" points="299,220 445.4,133.4 412,221 	"/>
+    <polygon id="tr10" class="st9" points="411.1,220 395,261 299,220 	"/>
+    <polygon id="tr11" class="st10" points="299,220 395,261 427,342 	"/>
+    <polygon id="tr12" class="st11" points="299,220 390,307 387,405 	"/>
+    <polyline id="tr13_1_" class="st12" points="103.3,287.9 179,219 232.6,243.1 	"/>
+    <polyline id="tr14" class="st13" points="152.6,208.3 189.6,208.3 232.3,243.1 	"/>
+    <polygon id="tr15" class="st14" points="286.1,208 261.1,233.2 232.3,243.1 189,208 	"/>
+    <polygon id="tr16" class="st15" points="286,208 152,208 114,191 	"/>
+    <polygon id="tr17" class="st16" points="114,191 266,189 286.1,208 	"/>
+    <polyline id="tr18" class="st17" points="114,191 232,161 266,189 	"/>
+    <polygon id="tr19" class="st18" points="266,189 232,161 300,165.9 	"/>
+    <polygon id="tr20" class="st6" points="300,165.9 232,161 319,118 	"/>
+    <polygon id="tr21" class="st19" points="232,161 305,96 364,96 	"/>
+    <polygon id="tr22" class="st20" points="300,165.9 319,118 364,96 387,134 	"/>
+    <polygon id="eye23" class="st21" points="325,143 333,124 358,113 357,128 	"/>
+    <polyline id="tr24nose" class="st22" points="364,96 426,33 460,39 387,134 	"/>
+    <path id="tr25nose" class="st23" d="M425.3,33.5l19.9-19.6c0.9-0.9,2.5-0.6,3.1,0.5L459.5,39L425.3,33.5z"/>
+    <polygon id="tr26mouth" class="st24" points="387,134 460,39 474,72 	"/>
+    <path id="tr27mouth" class="st25" d="M387,134l87-62l-28.8,61.4L387,134L387,134z"/>
+    <path id="tr28mouth" class="st26" d="M474,72l-4.7,57.5l-24.1,4C445,133.5,474,72,474,72z"/>
+    <path id="tr29mouth" class="st27" d="M445,133.4l51.6-8.6c0,0-101.6,136.4-101.6,136.2l50.2-127.6H445z"/>
+    <polygon id="tr30mouth" class="st28" points="496.6,124.8 508,146 428,246 	"/>
+    <polygon id="tr31mouth" class="st29" points="496.6,124.8 428,246 395,261 	"/>
+    <polygon id="tr32mouth" class="st30" points="428,246 428,344 395,261 	"/>
+</svg>
+<div class="aboutMe">
+    <a href="https://codepen.io/BlackStar1991/pens/public/" target="_new">
+        <i class='fa fa-codepen'></i> my other Pens</a>
+</div>
+
+
+</body></html>

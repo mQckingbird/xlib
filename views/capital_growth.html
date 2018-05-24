@@ -1,0 +1,527 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/aimei/pen/ZaYpBX?limit=all&page=4&q=buy+price" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style class="cp-pen-styles">.stat-wrapper {
+  padding: 18px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.stat {
+  text-align: center;
+  padding: 0 30px;
+}
+.stat-amount {
+  margin-bottom: 18px;
+}
+.stat-amount .figure {
+  font-size: 32px;
+}
+.stat-rise {
+  color: #44d371;
+}
+.stat-rise .increase {
+  font-size: 18px;
+  font-weight: 700;
+}
+.stat-rise .increase i {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .stat-wrapper {
+    flex-direction: column;
+    max-width: 560px;
+    margin: auto;
+  }
+
+  .stat {
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: #eee;
+    padding: 15px;
+    display: flex;
+  }
+  .stat:last-child {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #eee;
+  }
+  .stat .stat-amount {
+    margin-bottom: 0;
+    text-align: left;
+    flex: 0 0 50%;
+  }
+  .stat .stat-amount .figure {
+    font-size: 20px;
+  }
+  .stat .stat-amount .stat-title {
+    font-size: 14px;
+  }
+  .stat .stat-rise {
+    text-align: right;
+    flex: 0 0 50%;
+    align-self: center;
+  }
+  .stat .stat-rise .increase {
+    font-size: 18px;
+  }
+  .stat .stat-rise .increase-title {
+    font-size: 12px;
+  }
+}
+.section-return .title {
+  font-size: 24px;
+  text-align: center;
+  margin: 36px 0;
+}
+
+.return-wrapper {
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+.return-box {
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.return-inner {
+  width: 235px;
+  padding: 28px;
+  background: linear-gradient(90deg, #2aaef5 0%, #0c87da 100%);
+  text-align: center;
+  color: white;
+  flex: 2 0 40%;
+}
+.return-inner.gain {
+  background: linear-gradient(90deg, #44d371 0%, #2cc05b 100%);
+}
+.return-value {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 9px;
+}
+.return-contain {
+  margin-bottom: 3px;
+  font-size: 14px;
+  text-align: center;
+}
+.return-contain .title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.plus-symbol {
+  padding: 0 28px;
+  color: #9ca4aa;
+  font-size: 50px;
+  font-weight: 700;
+  justify-content: center;
+  align-self: center;
+}
+
+@media (max-width: 618px) {
+  .return-wrapper {
+    flex-direction: column;
+  }
+
+  .return-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .return-contain {
+    text-align: left;
+    margin: 0;
+  }
+
+  .return-value {
+    margin: 0 18px 0 0;
+  }
+}
+.risk {
+  max-width: 560px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #3498db;
+}
+.risk .elaborate {
+  color: #9ca4aa;
+  margin: 9px 0 50px 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+}
+.risk i {
+  vertical-align: middle;
+  font-size: 14px;
+  transform: rotate(0deg);
+  transition: all .2s ease-in-out;
+}
+.risk.open .elaborate {
+  max-height: 200px;
+  transition: all .3s ease-in-out;
+}
+.risk.open i {
+  transform: rotate(90deg);
+  transition: all .2s ease-in-out;
+}
+
+@media (max-width: 618px) {
+  .risk {
+    text-align: center;
+  }
+}
+.define {
+  text-align: center;
+  font-size: 10px;
+  color: #9ca4aa;
+}
+
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+
+.projects {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.projects .p-box {
+  flex: 0 0 33.333333%;
+}
+.projects .p-card {
+  border: 1px solid #eee;
+  margin: 0 12px;
+}
+.projects .p-card-header {
+  padding: 12px 9px;
+}
+.projects .p-card-header .address-full {
+  display: inline-block;
+  padding-left: 18px;
+}
+.projects .p-card-header .tenure {
+  display: inline-block;
+}
+.projects .p-card-header .tenure:before {
+  content: '|';
+  padding-right: 5px;
+}
+.projects .p-card-header .location {
+  color: #3498DB;
+}
+.projects .p-card-header .location:before {
+  content: '\E0C8';
+  font-family: "Material Icons";
+  padding-right: 4px;
+}
+.projects .p-card-image {
+  position: relative;
+}
+.projects .p-card-image img {
+  width: 100%;
+  display: block;
+}
+.projects .p-card-image .hoverboard {
+  display: flex;
+  background: rgba(12, 29, 49, 0.8);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+.projects .p-card-image button {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 42px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 2px;
+  align-self: center;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+.projects .p-card-info {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0 9px;
+}
+.projects .p-card-info .detail {
+  flex: 0 0 50%;
+  padding: 12px 0;
+}
+.projects .p-card-info .detail.filled {
+  flex: 0 0 100%;
+  text-align: center;
+}
+.projects .p-card-info .detail .label {
+  font-size: 14px;
+  color: #666A71;
+}
+
+.p-card:hover {
+  cursor: pointer;
+}
+.p-card:hover .hoverboard {
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
+}
+.p-card:hover button {
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
+}
+
+.section {
+  padding: 12px 24px;
+}
+.section.section-portfolio .title {
+  color: #2C3E50;
+  text-align: center;
+  font-size: 32px;
+}
+.section.section-portfolio p {
+  color: #7F8080;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 0 24px 0;
+}
+
+hr.divider {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 0 auto;
+}
+hr.divider.w60 {
+  width: 60%;
+}
+
+@media (max-width: 768px) {
+  hr.divider.w60 {
+    display: none;
+  }
+}
+@media (max-width: 991px) {
+  .projects .p-box {
+    flex: 0 0 50%;
+    margin-bottom: 18px;
+  }
+}
+@media (max-width: 768px) {
+  .projects .p-box {
+    flex: 0 0 100%;
+  }
+}
+</style></head><body>
+
+<div class="section section-return">
+  <div class="title">Our current estimated return</div>
+  <div class="return-wrapper">
+    <div class="return-box">
+      <div class="return-inner">
+        <div class="return-value">5.0%</div>
+        <div class="return-contain">
+          <div class="title">Enhanced Rental Income</div>
+          <div class="body">Available on all new residential properties for 2 years**</div>
+        </div>
+      </div>
+    </div>
+    <div class="return-box">
+      <div class="plus-symbol">+</div>
+    </div>
+    <div class="return-box">
+      <div class="return-inner gain">
+        <div class="return-value">4.3%</div>
+        <div class="return-contain">
+          <div class="title">Average Capital Growth</div>
+          <div class="body">Qualifies for the £11,300 UK tax-free capital gains allowance*</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="risk"><i class="material-icons">keyboard_arrow_right</i> What are the risks?
+    <div class="elaborate">Capital at risk. The value of your investment can go down as well as up. Forecasts are not a reliable indicator of future performance. Gross rent and dividends may be lower than estimated. 5 yearly exit protection or exit on platform subject to price & demand.</div>
+  </div>
+  <hr class="divider w60"/>
+  <div class="stat-wrapper">
+    <div class="stat">
+      <div class="stat-amount">
+        <div class="figure">RM88.8m</div>
+        <div class="stat-title">Assets Under Management</div>
+      </div>
+      <div class="stat-rise">
+        <div class="increase"><i class="material-icons">arrow_upward</i><span>48.3%</span></div>
+        <div class="increase-title">Since 1st Jan 2017</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-amount">
+        <div class="figure">RM18.8m</div>
+        <div class="stat-title">Capital returned to investors</div>
+      </div>
+      <div class="stat-rise">     
+        <div class="increase"> <i class="material-icons">arrow_upward</i><span>51.1%</span></div>
+        <div class="increase-title">Since 1st Jan 2017</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-amount">
+        <div class="figure">RM28.0m</div>
+        <div class="stat-title">Rental income returned to investors</div>
+      </div>
+      <div class="stat-rise">
+        <div class="increase"><i class="material-icons">arrow_upward</i><span>110.0%</span></div>
+        <div class="increase-title">Since 1st Jan 2017</div>
+      </div>
+    </div>
+  </div>
+  <div class="define">Figures in green represent a net change in the displayed figures up to 30th September 2017.</div>
+</div>
+<div class="section section-portfolio">
+  <div class="title">Build your portfolio</div>
+  <p>Start with one - you could have properties everywhere</p>
+  <div class="projects">
+    <div class="p-box">
+      <div class="p-card">
+        <div class="p-card-header">
+          <div class="address">           
+            <div class="location">Damansara, Selangor</div>
+            <div class="address-full">No 88, Jalan 318 </div>
+            <div class="tenure">Freehold</div>
+          </div>
+        </div>
+        <div class="p-card-image"><img class="img" src="https://placehold.it/800x600/00e4c9/fff" />
+          <div class="hoverboard">
+            <button>View Property</button>
+          </div>
+        </div>
+        <div class="p-card-info">
+          <div class="detail">
+            <div class="figure">RM388,000</div>
+            <div class="label">Latest Valuation</div>
+          </div>
+          <div class="detail text-right">
+            <div class="figure">3.48%</div>
+            <div class="label">Dividend Yield</div>
+          </div>
+          <hr class="divider"/>
+          <div class="detail filled">
+            <div class="figure">22.8%</div>
+            <div class="label">5 Years HPI</div>
+          </div>
+          <hr class="divider"/>
+          <div class="detail text-center">
+            <div class="label">Buy Price <span>36p</span></div>
+          </div>
+          <div class="detail text-center">
+            <div class="label">Sell Price <span>34p</span>          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-box">
+      <div class="p-card">
+        <div class="p-card-header">
+          <div class="address">
+            <div class="location">Damansara, Selangor.</div>
+            <div class="address-full">No 88, Jalan 318.</div>
+            <div class="tenure">Freehold</div>
+          </div>
+        </div>
+        <div class="p-card-image"><img class="img" src="https://placehold.it/1060x795/68ffa7/fff" />
+          <div class="hoverboard">
+            <button>View Property</button>
+          </div>
+        </div>
+        <div class="p-card-info">
+          <div class="detail">
+            <div class="figure">RM388,000</div>
+            <div class="label">Latest Valuation</div>
+          </div>
+          <div class="detail text-right">
+            <div class="figure">3.48%</div>
+            <div class="label">Dividend Yield</div>
+          </div>
+          <hr class="divider"/>
+          <div class="detail filled">
+            <div class="figure">22.8%</div>
+            <div class="label">5 Years HPI</div>
+          </div>
+          <hr class="divider"/>
+          <div class="detail text-center">
+            <div class="label">Buy Price <span>36p</span></div>
+          </div>
+          <div class="detail text-center">
+            <div class="label">Sell Price <span>34p</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-box">
+      <div class="p-card">
+        <div class="p-card-header">
+          <div class="address">
+            <div class="location">Damansara, Selangor.</div>
+            <div class="address-full">No 88, Jalan 318.</div>
+            <div class="tenure">Freehold</div>
+          </div>
+        </div>
+        <div class="p-card-image"><img class="img" src="https://placehold.it/300x225/a47fff/fff" />
+          <div class="hoverboard">
+            <button>View Property</button>
+          </div>
+        </div>
+        <div class="p-card-info">
+          <div class="detail">
+            <div class="figure">RM388,000</div>
+            <div class="label">Latest Valuation</div>
+          </div>
+          <div class="detail text-right">
+            <div class="figure">3.48%</div>
+            <div class="label">Dividend Yield</div>
+          </div>
+          <hr class="divider"/>
+          <div class="detail filled">
+            <div class="figure">22.8%</div>
+            <div class="label">5 Years HPI</div>
+          </div>
+          <hr class="divider"/>
+          <div class="detail text-center">
+            <div class="label">Buy Price <span>36p</span></div>
+          </div>
+          <div class="detail text-center">
+            <div class="label">Sell Price <span>34p</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script >jQuery(function($) { 
+    $(".risk").click(function () {
+        $(this).toggleClass("open");
+    });
+
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

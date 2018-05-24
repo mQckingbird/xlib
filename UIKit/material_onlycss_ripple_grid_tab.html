@@ -1,0 +1,469 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/koenigsegg1/pen/wMQqar?limit=all&page=4&q=tags" />
+<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<style class="cp-pen-styles">*,
+:before,
+:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  font-family: Roboto;
+  overflow: hidden;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.overlay.active {
+  visibility: visible;
+  z-index: 75;
+}
+
+.header {
+  background: #FFF;
+  height: 56px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-transition: -webkit-box-shadow .2s;
+  transition: -webkit-box-shadow .2s;
+  transition: box-shadow .2s;
+  transition: box-shadow .2s, -webkit-box-shadow .2s;
+}
+.header.shadow {
+  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+}
+.header .slider {
+  background: dodgerblue;
+  height: 5px;
+  width: calc(50vw - 28px);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+  will-change: transform;
+}
+.header .slider.right {
+  -webkit-transform: translateX(calc(50vw - 28px));
+          transform: translateX(calc(50vw - 28px));
+}
+.header .tab {
+  height: 100%;
+  width: calc(50vw - 28px);
+  padding: 20px 0;
+  color: dodgerblue;
+  font: 400 16px/16px Roboto;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: default;
+}
+.header .more {
+  background: #FFF url("https://cbwconline.com/IMG/Codepen/More.svg") center no-repeat;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}
+.header .more:hover {
+  background-color: #EEE;
+}
+
+.menu {
+  -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  display: inline-block;
+  background: #EEE;
+  position: fixed;
+  top: 28px;
+  right: 35px;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  -webkit-transition: .15s;
+  transition: .15s;
+}
+.menu.active {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.menu li {
+  padding: 12px 16px;
+  list-style: none;
+  font: 300 16px Roboto;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+.menu li:hover {
+  background: #e1e1e1;
+}
+
+.page {
+  min-height: calc(100vh - 56px);
+  max-height: calc(100vh - 56px);
+  width: 100%;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  background: #E4E4E4;
+  will-change: transform;
+  -webkit-overflow-scrolling: touch;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-Y: scroll;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+}
+.main.disabled {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.card {
+  -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  background: dodgerblue;
+  height: 256px;
+  width: 200px;
+  min-width: 175px;
+  max-width: 225px;
+  margin: 10px;
+  position: relative;
+  -webkit-transition: -webkit-box-shadow .2s;
+  transition: -webkit-box-shadow .2s;
+  transition: box-shadow .2s;
+  transition: box-shadow .2s, -webkit-box-shadow .2s;
+}
+.card:nth-child(1) {
+  background-color: #F44336;
+}
+.card:nth-child(2) {
+  background-color: #E91E63;
+}
+.card:nth-child(3) {
+  background-color: #9C27B0;
+}
+.card:nth-child(4) {
+  background-color: #673AB7;
+}
+.card:nth-child(5) {
+  background-color: #3F51B5;
+}
+.card:nth-child(6) {
+  background-color: #2196F3;
+}
+.card:nth-child(7) {
+  background-color: #03A9F4;
+}
+.card:nth-child(8) {
+  background-color: #00BCD4;
+}
+.card:nth-child(9) {
+  background-color: #009688;
+}
+.card:nth-child(10) {
+  background-color: #4CAF50;
+}
+.card:nth-child(11) {
+  background-color: #8BC34A;
+}
+.card:nth-child(12) {
+  background-color: #FFEB3B;
+}
+.card:nth-child(13) {
+  background-color: #FFC107;
+}
+.card:nth-child(14) {
+  background-color: #FF9800;
+}
+.card:nth-child(15) {
+  background-color: #FF5722;
+}
+.card:nth-child(16) {
+  background-color: #795548;
+}
+.card:hover {
+  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+}
+.card:after {
+  content: 'Lorem Ipsum...';
+  background: #FFF;
+  height: 56px;
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.card img {
+  width: 100%;
+}
+
+.tags {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 0;
+  -webkit-transition: opacity 0s, .3s;
+  transition: opacity 0s, .3s;
+}
+.tags.active {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: opacity 0s .3s, .3s;
+  transition: opacity 0s .3s, .3s;
+}
+.tags h3 {
+  padding-top: 56px;
+  color: #666;
+  font: 500 22px Roboto;
+  text-align: center;
+}
+.tags .tag {
+  height: 70px;
+  width: 70px;
+  background: url("https://cbwconline.com/IMG/Codepen/Tag.png") center/contain no-repeat;
+  margin: 28px auto;
+}
+.tags p {
+  color: #666;
+  text-align: center;
+  font: 500 16px Roboto;
+}
+
+.ghost {
+  height: 0 !important;
+  margin: 0 10px !important;
+}
+.ghost:after {
+  display: none;
+}
+
+.ripple {
+  overflow: hidden;
+  position: relative;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+.ripple .rippling {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #000;
+  pointer-events: none;
+  padding: 0;
+  margin: 0;
+  opacity: .2;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  will-change: width, height;
+}
+
+@media (max-width: 756px) {
+  .bottom {
+    display: block;
+    height: 20px;
+    width: 100%;
+  }
+
+  .card {
+    width: 25vw;
+    min-width: 100px;
+    max-width: 28vw;
+  }
+}
+@media (max-width: 480px) {
+  .card {
+    width: 35vw;
+    min-width: 80px;
+    max-width: 45vw;
+  }
+}
+</style></head><body>
+
+<div class="overlay"></div>
+<div class="menu">
+  <ul>
+    <li class="ripple">Select...</li>
+    <li class="ripple">Switch account</li>
+    <li class="ripple">Send feedback</li>
+    <li class="ripple">Help</li>
+  </ul>
+</div>
+<div class="header">
+  <div class="slider"></div>
+  <div class="tab one ripple">saved items</div>
+  <div class="tab two ripple">tags</div>
+  <div class="more"></div>
+</div>
+<div class="page main">
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ripple"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="card ghost"></div>
+  <div class="bottom"></div>
+</div>
+<div class="page tags">
+  <h3>Add saved images to a tag</h3>
+  <div class="tag"></div>
+  <p>Tags are where you add and organize your saved images</p>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >// Menu
+
+$(".more, .overlay").on('click', function() {
+  $(".menu, .overlay").toggleClass("active");
+});
+
+// Tabs & Windows
+
+$(".tab.one").on('click', function() {
+  $(".slider").removeClass("right");
+  $(".tags").removeClass("active");
+  $(".main").removeClass("disabled")
+});
+
+$(".tab.two").on('click', function() {
+  $(".slider").addClass("right");
+  $(".tags").addClass("active");
+  $(".main").addClass("disabled")
+  $(".main").removeClass("current")
+});
+
+// Card Height
+
+$(window).resize(function() {
+  $('.card').each(function() {
+    $(this).height($(this).width() + 56);
+  });
+}).resize();
+
+// Header Shadow
+
+$(".main").scroll(function() {
+  if ($(this).scrollTop() >= 10) {
+    $(".header").addClass("shadow");
+  } else {
+    $(".header").removeClass("shadow");
+  }
+});
+
+// Ripple Effect
+
+$(document).on('click', '.ripple', function(e) {
+  
+  var $ripple = $('<span class="rippling" />'),
+      $button = $(this),
+      btnOffset = $button.offset(),
+      xPos = e.pageX - btnOffset.left,
+      yPos = e.pageY - btnOffset.top,
+      size = 0,
+      animateSize = parseInt(Math.max($button.width(), $button.height()) * Math.PI);
+
+  $ripple.css({
+      top: yPos,
+      left: xPos,
+      width: size,
+      height: size,
+      backgroundColor: $button.attr("ripple-color")
+    })
+    .appendTo($button)
+    .animate({
+      width: animateSize,
+      height: animateSize,
+      opacity: 0
+    }, 500, function() {
+      $(this).remove();
+    });
+});
+
+// Scroll to top when 'Home' key is pressed
+
+$(window).keyup(function (e) {
+  if (e.keyCode == 36) {
+    $('.page').animate({ scrollTop: 0 }, 0);
+  }
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

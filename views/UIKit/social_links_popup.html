@@ -1,0 +1,130 @@
+
+<!DOCTYPE html><html lang='en' class='source-sans-pro'>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/WhiteWolfWizard/pen/ByYLXZ?depth=everything&order=popularity&page=6&q=create+button&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<style class="cp-pen-styles">*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+ul {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: cetnter;
+      align-content: cetnter;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+ul li {
+  margin: 2px;
+}
+
+ul li a {
+  min-width: 25px;
+  height: 25px;
+  border-radius: 3px;
+  display: block;
+  overflow: hidden;
+  font-size: 9pt;
+  color: #fff;
+  font-weight: 600;
+  line-height: 25px;
+  text-align: center;
+  text-decoration: none;
+}
+
+ul li a span {
+  float: left;
+  padding: 0 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+ul li a i.fa {
+  float: left;
+  width: 25px;
+  height: 25px;
+  font-size: 10pt;
+  line-height: 25px;
+}
+
+ul li a:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+</style></head><body>
+<ul>
+  <li><a class="share-facebook popout" href="#">
+    <i class="fa fa-facebook"></i><span>Share</span>
+  </a></li>
+  <li><a class="share-twitter popout" href="#">
+    <i class="fa fa-twitter"></i><span>Tweet</span>
+  </a></li>
+  <li><a class="share-google popout" href="#">
+    <i class="fa fa-google-plus"></i><span>Share</span>
+  </a></li>
+  <li><a class="share-linkedin popout" href="#">
+    <i class="fa fa-linkedin"></i><span>Share</span>
+  </a></li>
+  <li><a class="share-tumblr popout" href="#">
+    <i class="fa fa-tumblr"></i><span>Post</span>
+  </a></li>
+  <li><a class="share-pinterest popout" href="#">
+    <i class="fa fa-pinterest-p"></i><span>Pin</span>
+  </a></li>
+  <li><a class="share-email" href="#">
+    <i class="fa fa-envelope"></i><span>Email</span>
+  </a></li>
+</ul>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script src='https://goo.gl/aKZw83'></script>
+<script >$('<meta name="description" content="Description placeholder"/>').prependTo('head');
+$(document).ready(function () {
+  var path = window.location,
+      title = $(document).find('title').text(),
+      desc = $('meta[name=description]').attr("content");
+  $('a[class*="share-"]').each(function () {
+    if ($(this).is('[class*="-facebook"]')) { // FACEBOOK
+      $(this).attr('href','https://www.facebook.com/sharer/sharer.php?u=' + path).css('backgroundColor', '#3b5998');
+    } else if ($(this).is('[class*="-twitter"]')) { // TWITTER
+      $(this).attr('href','https://twitter.com/intent/tweet?text=' + title + ' - ' + desc + '&url=' + path).css('backgroundColor','#55acee');
+    } else if ($(this).is('[class*="-google"]')) { // GOOGLE
+      $(this).attr('href','https://plus.google.com/share?url=' + path).css('backgroundColor','#dd4b39');
+    } else if ($(this).is('[class*="-linkedin"]')) { // LINKEDIN
+      $(this).attr('href','https://www.linkedin.com/shareArticle?mini=true&url=' + path + '&title=' + title + '&summary=' + desc + '&source=' + path).css('backgroundColor','#0976b4');
+    } else if ($(this).is('[class*="-tumblr"]')) { // TUMBLR
+      $(this).attr('href','https://www.tumblr.com/share/link?url=' + path + '&name=' + title + '&description=' + desc).css('backgroundColor','#35465c');
+    } else if ($(this).is('[class*="-pinterest"]')) { // PINTEREST
+      $(this).attr('href','https://pinterest.com/pin/create/button/?url=' + path + '&description=' + title + ' - ' + desc + '&media=REPLACE-WITH-IMAGE-URL').css('backgroundColor','#cc2127');
+    } else if ($(this).is('[class*="-email"]')) { // EMAIL
+      $(this).attr('href','mailto:?subject=' + title + '&body=' + path + ' - ' + desc).css('backgroundColor','#ffc740');
+    }
+  }).click(function () {
+    if ($(this).hasClass('popout')) {
+      var url = this.href, w = 575, h = 525, y = ($(window).width() - w) / 2, x = ($(window).height() - h) / 2;
+      window.open(url, '_blank', 'toolbar=0,scrollbars=1,resize=1,status=0,width=' + w + ',height=' + h + ',top=' + x + ',left=' + y);
+      return false;
+    }
+  });
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

@@ -1,0 +1,439 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/z-/pen/QdbZjy?depth=everything&order=popularity&page=14&q=book&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/1.1.0.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">/*
+
+The noted out stuff is for the SVGs that I'm no longer using but still want the 10 minutes I put into them to be appreciated.
+
+*/
+body {
+  background-color: #ECEFF1;
+}
+body .do-ripple {
+  overflow: hidden;
+}
+body .do-ripple .ripple {
+  position: absolute;
+  -webkit-animation: ripple 0.3s linear;
+          animation: ripple 0.3s linear;
+  background-color: #ccc;
+  border-radius: 100%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+body .do-ripple > *:not(.ripple) {
+  z-index: 2;
+}
+body .header {
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 100px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 -6px 8px 4px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 -6px 8px 4px rgba(0, 0, 0, 0.3);
+  /*>* {
+     position: relative;
+     .bulge {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 100%;
+        height: 100px;
+        width: 8.8px;
+     }
+  }*/
+}
+body .header .back {
+  background-color: #144ACC;
+  z-index: 3;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 50px;
+  height: 400px;
+  padding-left: 350px;
+  margin-right: -365px;
+  border-radius: 100%;
+  -webkit-transform: translate(-87.5%, -50%) translateY(50px);
+          transform: translate(-87.5%, -50%) translateY(50px);
+  -webkit-box-shadow: 1px 2px 8px -1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 2px 8px -1px rgba(0, 0, 0, 0.1);
+  /*svg {
+     display:none;
+     left:50px;
+     transition:10.3s;
+     path {
+        fill:#144ACC;
+     }
+  }*/
+  /*&:hover {
+     background-color:#1348C4;
+     svg {
+        path {
+           fill:#1348C4;
+        }
+     }
+  }
+  &:active {
+     background-color:#1243B7;
+     svg {
+        path {
+           fill:#1243B7;
+        }
+     }
+  }*/
+}
+body .header .back .arrow {
+  position: relative;
+  width: 17px;
+  height: 2px;
+  margin-left: 3px;
+  background-color: #ffffff;
+  pointer-events: none;
+}
+body .header .back .arrow:before, body .header .back .arrow:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg) translate(-2px, 7px);
+          transform: translate(-50%, -50%) rotate(45deg) translate(-2px, 7px);
+  width: 12px;
+  height: 2px;
+  background-color: #ffffff;
+}
+body .header .back .arrow:after {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg) translate(-2px, -7px);
+          transform: translate(-50%, -50%) rotate(-45deg) translate(-2px, -7px);
+}
+body .header .back.hide {
+  margin-left: -50px;
+  border-radius: 0%;
+  /*svg {
+     width:0px;
+     left:0px;
+     height:100px;
+  }
+  .arrow {
+     opacity:0;
+     transition-delay:0s 0.5s;
+  }*/
+}
+body .header .place {
+  background-color: #2F73E9;
+  width: 100px;
+  height: 400px;
+  padding-left: 250px;
+  margin-right: -365px;
+  border-radius: 100%;
+  -webkit-transform: translate(-65%, -50%) translateY(50px);
+          transform: translate(-65%, -50%) translateY(50px);
+  z-index: 2;
+  /*svg {
+     path {
+        fill:#2F73E9;
+     }
+  }*/
+}
+body .header .place .icons {
+  position: absolute;
+  top: 50%;
+  left: calc(75% + 31px);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 32px;
+  line-height: 66px;
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
+}
+body .header .place .icons.home {
+  top: calc(50% + 66px);
+}
+body .header .place .icons.next {
+  top: calc(50% - 66px);
+}
+body .header .place .icons.noanimation {
+  -webkit-transition: top 0s ease;
+  transition: top 0s ease;
+}
+body .capture {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+body .capture.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+body .nav {
+  position: fixed;
+  height: 40px;
+  width: 40px;
+  top: 30px;
+  left: 135px;
+  background-color: #4395FA;
+  border-radius: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-box-shadow: 1px 2px 8px -1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 2px 8px -1px rgba(0, 0, 0, 0.1);
+}
+body .nav.home {
+  left: 85px;
+}
+body .nav .item {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 20px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+body .nav .item .ripple {
+  display: none;
+  background-color: #ECEFF1;
+}
+body .nav .item:nth-child(1) {
+  top: 35%;
+  left: 35%;
+}
+body .nav .item:nth-child(2) {
+  top: 65%;
+  left: 35%;
+}
+body .nav .item:nth-child(3) {
+  top: 35%;
+  left: 65%;
+}
+body .nav .item:nth-child(4) {
+  top: 65%;
+  left: 65%;
+}
+body .nav .item i {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #144ACC;
+  opacity: 0;
+}
+body .nav.open {
+  width: 156px;
+}
+body .nav.open .item {
+  top: 50%;
+  width: 32px;
+  height: 32px;
+}
+body .nav.open .item:nth-child(1) {
+  left: 14%;
+}
+body .nav.open .item:nth-child(2) {
+  left: 38%;
+}
+body .nav.open .item:nth-child(3) {
+  left: 62%;
+}
+body .nav.open .item:nth-child(4) {
+  left: 86%;
+}
+body .nav.open .item:active {
+  -webkit-transform: translate(-50%, -50%) scale(0.9);
+          transform: translate(-50%, -50%) scale(0.9);
+}
+body .nav.open .item i {
+  opacity: 1;
+}
+body .nav.open .item .ripple {
+  display: block;
+}
+
+@-webkit-keyframes ripple {
+  0%,
+   100% {
+    display: block;
+  }
+  0% {
+    opacity: 0.3;
+    width: 0px;
+    height: 0px;
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes ripple {
+  0%,
+   100% {
+    display: block;
+  }
+  0% {
+    opacity: 0.3;
+    width: 0px;
+    height: 0px;
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+</style></head><body>
+<!--
+
+Honestly I'm not a fan of material design, but this was fun (this is being featured on material.uplabs.com and I'm not removing my statement).
+
+Originally used SVGs for the curved edges but with the material ripple - it just didn't work well so I used 400px × 400px circles and make them square when pushing them off the screen (#back).
+
+~~I saw something similar to this earlier and can't track it down - it isn't exactly the same but the static look is inspired.~~
+I found the post I saw: https://material.uplabs.com/posts/google-docs-redesign-concept
+
+-->
+
+<div class="header --flex-row">
+   <div id="back" class="back --flex-column-j!c-ai!c do-ripple" ripple-size="200">
+      <div class="arrow"></div>
+      <!--<svg class="bulge" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 181.5" enable-background="new 0 0 16 181.5" xml:space="preserve">
+         <path d="M0,0v181.5C13.25,147,16,116,16,90.75S13.25,34.5,0,0z"/>2
+      </svg>--> 
+   </div>
+   <div class="place" ripple-size="200">
+      <div class="icons">
+         <div class="home"><i class="fa fa-home" aria-hidden="true"></i></div>
+         <div class="now"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+         <div class="next"><i class="fa fa-question" aria-hidden="true"></i></div>
+      </div>
+      <!--<svg class="bulge" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 181.5" enable-background="new 0 0 16 181.5" xml:space="preserve">
+         <path d="M0,0v181.5C13.25,147,16,116,16,90.75S13.25,34.5,0,0z"/>
+      </svg>-->
+   </div>
+</div>
+<div class="nav do-ripple" ripple-size="80">
+   <div class="item do-ripple" ripple-size="64" tab-id="write"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+   <div class="item do-ripple" ripple-size="64" tab-id="history"><i class="fa fa-book" aria-hidden="true"></i></div>
+   <div class="item do-ripple" ripple-size="64" tab-id="loved"><i class="fa fa-heart" aria-hidden="true"></i></div>
+   <div class="item do-ripple" ripple-size="64" tab-id="settings"><i class="fa fa-cog" aria-hidden="true"></i></div>
+</div>
+<div class="capture hide"></div>
+
+<!--
+I even tried a mask and messed up - if someone can show me how to do it I will be very grateful.
+-->
+<!--<svg class="svg-defs">
+   <defs>
+      <clipPath id="bulge_back" x="0px" y="0px" width="66" height="100" viewBox="0 0 66 100">
+         <path d="M50,0H0v100h50c7.3-19.008,8.815-36.088,8.815-50S57.301,19.008,50,0z"/>
+      </clipPath>
+      <clipPath id="bulge_location" x="0px" y="0px" width="66" height="100" viewBox="0 0 66 100">
+         <path d="M100,0H0v100h100c7.3-19.008,8.815-36.088,8.815-50S107.3,19.008,100,0z"/>
+      </clipPath>
+   </defs>
+</svg>-->
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script><script src='https://codepen.io/OfficialAntarctica/pen/2677821722cd9e02c2c882a17c5b2072.js?2'></script>
+<script >color(0); //For the name only - bottom right.
+
+var pages = { // ¯\_(ツ)_/¯ slightly more useful than pointless
+   "current": "write",
+   "index": {
+      "write": {
+         "id": "write",
+         "name": "Home",
+         "icon": "fa-pencil"
+      },
+      "history": {
+         "id": "history",
+         "name": "Home",
+         "icon": "fa-book"
+      },
+      "loved": {
+         "id": "loved",
+         "name": "Home",
+         "icon": "fa-heart"
+      },
+      "settings": {
+         "id": "settings",
+         "name": "Home",
+         "icon": "fa-cog"
+      }
+   }
+};
+
+$(document).ready(function () {
+   $(document).on("click", ".do-ripple", function (e) {
+      // I don't like material design but I like this effect
+      var x = e.pageX - $(this).offset().left;
+      var y = e.pageY - $(this).offset().top;
+      var s = $(this).attr("ripple-size");
+      //var s = Math.max($(this).width(), $(this).height())*2; //<- if you want to take this effect (feel free), replace the above line with this. ripple-size is something I used because the elements are huge.
+      $(this).append("<div class=\"ripple\" style=\"width:" + s + "px; height:" + s + "px; top:" + y + "px; left:" + x + "px\"></div>"); //Shout out to Chris Coyier for showing me inline variables with Babel
+   });
+   $(document).on("click", "#back", function (e) {
+      $(this).addClass("hide");
+      $(".icons").addClass("home");
+      $(".nav").addClass("home");
+      pages["current"] = "home";
+   });
+   $(document).on("click", ".capture", function (e) {
+      $(".nav").removeClass("open");
+      $(".capture").addClass("hide");
+   });
+   $(document).on("click", ".nav:not(.open)", function (e) {
+      $(this).addClass("open");
+      $(".capture").removeClass("hide");
+   });
+   $(document).on("click", ".nav.open .item", function (e) {
+      var id = $(this).attr("tab-id");
+      if (pages["current"] == "home") {
+         $(".place .icons .now i").removeClass().addClass("fa").addClass(pages["index"][id]["icon"]);
+      } else {
+         $(".place .icons .next i").removeClass().addClass("fa").addClass(pages["index"][id]["icon"]);
+         $(".place .icons").addClass("next");
+         setTimeout(function () {
+            $(".place .icons").addClass("noanimation");
+            $(".place .icons .now i").removeClass().addClass("fa").addClass(pages["index"][id]["icon"]);
+            $(".place .icons").removeClass("next");
+            setTimeout(function () {
+               $(".place .icons").removeClass("noanimation");
+            }, 10);
+         }, 500);
+      }
+      pages["current"] = id;
+      $("#back").removeClass("hide");
+      $(".icons").removeClass("home");
+      $(".nav").removeClass("home").removeClass("open");
+      $(".capture").addClass("hide");
+   });
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

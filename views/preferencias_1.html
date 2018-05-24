@@ -1,0 +1,312 @@
+
+<style class="cp-pen-styles">.frame-flip-wrap {
+  position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  margin-bottom: 1rem;
+}
+.frame-flip-wrap label {
+  margin-bottom: .2rem;
+}
+.frame-flip-wrap dd {
+  margin-bottom: 2.2rem;
+}
+.frame-flip-wrap .frame {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 300ms ease-out;
+  transition: -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out;
+  transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+}
+.frame-flip-wrap .frame:not(.frame-height-determiner) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.no-preserve3d .frame-flip-wrap .frame {
+  -webkit-transition-duration: 0s;
+          transition-duration: 0s;
+}
+.frame-flip-wrap.flipped .frame:not(.frame-backface) {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+.frame-flip-wrap:not(.flipped) .frame-backface {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+
+body {
+  background-color: #eaedf0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+dt {
+  font-weight: 500;
+}
+
+.frame {
+  border-radius: .25rem;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+  background-color: white;
+  box-shadow: 0px 3px 8px -3px rgba(0, 0, 0, 0.4);
+}
+
+.frame-header {
+  padding: .75rem 1rem;
+  border-bottom: 1px solid #c4cbd4;
+}
+.frame-header.has-dropdown {
+  position: relative;
+}
+.frame-header.has-dropdown .dropdown {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border-left: 1px solid #c4cbd4;
+}
+.frame-header.has-dropdown .dropdown button {
+  height: 100%;
+  padding: 0 1rem;
+}
+.frame-header.has-dropdown .dropdown button::after {
+  content: none;
+}
+
+.frame-title {
+  margin-bottom: 0;
+}
+
+.frame-body {
+  padding: .75rem 1rem;
+}
+.frame-body .frame-title {
+  margin-bottom: .75rem;
+}
+
+.frame-footer {
+  padding: 0 1rem .75rem;
+  margin-top: auto;
+}
+
+.wall {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+}
+.wall > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+}
+@media (min-width: 768px) {
+  .wall > div {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+  }
+}
+@media (min-width: 768px) {
+  .wall > div {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .wall-md-2col > div {
+    width: calc(50% - 2rem);
+  }
+}
+
+.frame-max-width-400 {
+  max-width: 400px;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+.icon-text {
+  vertical-align: middle;
+}
+
+.icon-size-1-1 {
+  font-size: 1.1rem;
+}
+.icon-size-1-2 {
+  font-size: 1.2rem;
+}
+.icon-size-1-3 {
+  font-size: 1.3rem;
+}
+.icon-size-1-4 {
+  font-size: 1.4rem;
+}
+.icon-size-1-5 {
+  font-size: 1.5rem;
+}
+.icon-size-1-6 {
+  font-size: 1.6rem;
+}
+.icon-size-1-7 {
+  font-size: 1.7rem;
+}
+.icon-size-1-8 {
+  font-size: 1.8rem;
+}
+.icon-size-1-9 {
+  font-size: 1.9rem;
+}
+.icon-size-2 {
+  font-size: 2rem;
+}
+
+.btn-icon {
+  background: none;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  opacity: .8;
+  cursor: pointer;
+}
+.btn-icon:active {
+  box-shadow: none;
+}
+.btn-icon:hover, .btn-icon:focus {
+  outline: 0;
+  opacity: 1;
+}
+</style></head><body>
+<section class="container pt-5 pb-3">
+    <div class="wall wall-md-2col">
+        <div class="frame-flip-wrap">
+            <div class="frame">
+                <div class="frame-header has-dropdown">
+                    <h4 class="frame-title h5">Profile</h4>
+                    <div class="dropdown">
+                        <button class="btn-icon dropdown-toggle text-muted" type="button" data-toggle="dropdown">
+                            <svg class="icon icon-size-1-3" viewBox="0 0 24 24" id="icon-more" width="100%" height="100%"><title>more</title>  <path d="M12 8.982c1.614 0 3.018 1.404 3.018 3.018s-1.404 3.018-3.018 3.018-3.018-1.404-3.018-3.018 1.404-3.018 3.018-3.018zM20.982 8.982c1.614 0 3.018 1.404 3.018 3.018s-1.404 3.018-3.018 3.018-3.018-1.404-3.018-3.018 1.404-3.018 3.018-3.018zM3.018 8.982c1.614 0 3.018 1.404 3.018 3.018s-1.404 3.018-3.018 3.018-3.018-1.404-3.018-3.018 1.404-3.018 3.018-3.018z"></path> </svg>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="edit-frame dropdown-item" type="button">Edit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="frame-body">
+                    <dl>
+                        <dt>Name</dt>
+                        <dd>John Smith</dd>
+                        <dt>Occupation</dt>
+                        <dd>Handyman</dd>
+                        <dt>Location of Service</dt>
+                        <dd>San Diego, CA</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="frame frame-backface frame-height-determiner">
+                <div class="frame-header">
+                    <h4 class="frame-title h5">Edit Profile</h4>
+                </div>
+                <div class="frame-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" value="John Smith">
+                    </div>
+                    <div class="form-group">
+                        <label>Occupation</label>
+                        <input type="text" class="form-control" value="Handyman">
+                    </div>
+                    <div class="form-group mb-0">
+                        <label>Location of Service</label>
+                        <input type="text" class="form-control" value="San Diego, CA">
+                    </div>
+                </div>
+                <div class="frame-footer">
+                    <button class="save-frame btn btn-success float-right" type="button">Save</button>
+                    <button class="save-frame btn btn-link text-danger float-right" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div class="frame-flip-wrap">
+            <div class="frame">
+                <div class="frame-header has-dropdown">
+                    <h4 class="frame-title h5">Account Settings</h4>
+                    <div class="dropdown">
+                        <button class="btn-icon dropdown-toggle text-muted" type="button" data-toggle="dropdown">
+                            <svg class="icon icon-size-1-3" viewBox="0 0 24 24" id="icon-more" width="100%" height="100%"><title>more</title>  <path d="M12 8.982c1.614 0 3.018 1.404 3.018 3.018s-1.404 3.018-3.018 3.018-3.018-1.404-3.018-3.018 1.404-3.018 3.018-3.018zM20.982 8.982c1.614 0 3.018 1.404 3.018 3.018s-1.404 3.018-3.018 3.018-3.018-1.404-3.018-3.018 1.404-3.018 3.018-3.018zM3.018 8.982c1.614 0 3.018 1.404 3.018 3.018s-1.404 3.018-3.018 3.018-3.018-1.404-3.018-3.018 1.404-3.018 3.018-3.018z"></path> </svg>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="edit-frame dropdown-item" type="button">Edit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="frame-body">
+                    <dl>
+                        <dt>Account Type</dt>
+                        <dd>Service Individual</dd>
+                        <dt>Email</dt>
+                        <dd>john.smith@example.com</dd>
+                        <dt>Password</dt>
+                        <dd>********</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="frame frame-backface frame-height-determiner">
+                <div class="frame-header">
+                    <h4 class="frame-title h5">Edit Account Settings</h4>
+                </div>
+                <div class="frame-body">
+                    <div class="form-group">
+                        <label>Account Type</label>
+                        <input type="text" class="form-control" value="Service Individual">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" value="john.smith@example.com">
+                    </div>
+                    <div class="form-group mb-0">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="Leave blank to keep password">
+                    </div>
+                </div>
+                <div class="frame-footer">
+                    <button class="save-frame btn btn-success float-right" type="button">Save</button>
+                    <button class="save-frame btn btn-link text-danger float-right" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script >"use strict";
+$(".edit-frame, .save-frame").click(FlipMe);
+function FlipMe() {
+    $(this).closest(".frame-flip-wrap").toggleClass("flipped");
+}
+
+//# sourceURL=pen.js
+</script>

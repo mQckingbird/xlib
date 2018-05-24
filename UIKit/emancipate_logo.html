@@ -1,0 +1,183 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/meodai/pen/RRzNAg?limit=all&page=13&q=logo" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">@import "https://fonts.googleapis.com/css?family=Space+Mono:700";
+body {
+  font-family: 'Space Mono', monospace;
+  font-size: 6vw;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+input {
+  position: absolute;
+  left: 50%;
+  top: 2rem;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.bg {
+  width: 25vw;
+  height: 25vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.scene {
+  -webkit-perspective: 1600;
+          perspective: 1600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-20vw, -10vw);
+          transform: translate(-20vw, -10vw);
+}
+
+.logo__inner {
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: translate3d(0, 10vw, -1000px) rotateX(-5deg);
+          transform: translate3d(0, 10vw, -1000px) rotateX(-5deg);
+}
+
+.side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  height: 10vw;
+  width: 20vw;
+  -webkit-transform-origin: 3px 50% 0;
+          transform-origin: 3px 50% 0;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  border: solid currentColor;
+  border-width: 6px 0;
+  margin-top: -6px;
+  border-left: 6px dashed currentColor;
+  background: white;
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.25, 0.25, 0.525, 1.365);
+  transition: -webkit-transform 200ms cubic-bezier(0.25, 0.25, 0.525, 1.365);
+  transition: transform 200ms cubic-bezier(0.25, 0.25, 0.525, 1.365);
+  transition: transform 200ms cubic-bezier(0.25, 0.25, 0.525, 1.365), -webkit-transform 200ms cubic-bezier(0.25, 0.25, 0.525, 1.365);
+}
+.side.y {
+  -webkit-transition-delay: 200ms;
+          transition-delay: 200ms;
+}
+.side.m {
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
+}
+.side.k {
+  -webkit-transition-delay: 400ms;
+          transition-delay: 400ms;
+}
+.side:after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  bottom: -6px;
+  border-left: 6px dashed currentColor;
+}
+.side.c {
+  left: 0;
+  -webkit-transform-origin: 100% 50% 0;
+          transform-origin: 100% 50% 0;
+  border-left: 6px solid currentColor;
+}
+.side.k {
+  border-right: 6px solid currentColor;
+}
+.side.k:after {
+  display: none;
+}
+.side strong {
+  -webkit-transform-style: flat;
+          transform-style: flat;
+}
+</style></head><body>
+
+<div class="logo">
+  <input type="color" v-bind:value="color" @change="setColor"/>
+  <div class="scene">
+    <div class="logo__inner">
+      <div class="side c" v-bind:style="styleC"> 
+        <stonrg>c</stonrg>
+        <div class="side y" v-bind:style="styleY">
+          <stonrg>y</stonrg>
+          <div class="side m" v-bind:style="styleM">
+            <stonrg>m</stonrg>
+            <div class="side k" v-bind:style="styleK">
+              <stonrg>k</stonrg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.1.1/chroma.min.js'></script>
+<script >function translate(value, low1, high1, low2, high2) {
+  return low2 + (high2 - low2) * ((value - low1) / (high1 - low1));
+}
+var logo = new Vue({
+  el: '.logo',
+  data: {
+    color: '#5c203e'
+  },
+  computed: {
+    cmyk: function cmyk() {
+      return chroma(this.color).cmyk();
+    },
+    styleC: function styleC() {
+      return this.getStyle('c');
+    },
+    styleY: function styleY() {
+      return this.getStyle('y');
+    },
+    styleM: function styleM() {
+      return this.getStyle('m');
+    },
+    styleK: function styleK() {
+      return this.getStyle('k');
+    }
+  },
+  methods: {
+    setColor: function setColor(e) {
+      this.color = e.target.value;
+    },
+    getCMYK: function getCMYK(component) {
+      var index = 'cmyk'.split('').indexOf(component);
+      return { val: this.cmyk[index], i: index };
+    },
+    getRotationFromComponent: function getRotationFromComponent(component) {
+      var cmyk = this.getCMYK(component);
+      var rotation = translate(cmyk.val, 0, 1, -300, 300);
+      return rotation + 'deg';
+    },
+    getStyle: function getStyle(component) {
+      return { color: this.color, transform: 'rotateY(' + this.getRotationFromComponent(component) + ')' };
+    }
+  }
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

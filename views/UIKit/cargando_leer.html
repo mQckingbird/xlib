@@ -1,0 +1,167 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head>
+<title>Cargando libro para leer</title>
+<style class="cp-pen-styles">@-webkit-keyframes rotatingAnimation {
+  0% {
+    -webkit-transform: rotateX(16deg) translate3d(0, 0, 0px) rotateY(0deg);
+            transform: rotateX(16deg) translate3d(0, 0, 0px) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(16deg) translate3d(0, 0, 0px) rotateY(360deg);
+            transform: rotateX(16deg) translate3d(0, 0, 0px) rotateY(360deg);
+  }
+}
+
+@keyframes rotatingAnimation {
+  0% {
+    -webkit-transform: rotateX(16deg) translate3d(0, 0, 0px) rotateY(0deg);
+            transform: rotateX(16deg) translate3d(0, 0, 0px) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(16deg) translate3d(0, 0, 0px) rotateY(360deg);
+            transform: rotateX(16deg) translate3d(0, 0, 0px) rotateY(360deg);
+  }
+}
+
+.bg {
+  position: absolute;
+  background: url(https://s3-ap-southeast-2.amazonaws.com/mephystoprojects/alice/alice-back.jpg) no-repeat;
+  background-size: cover;
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  background: #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  -webkit-perspective: 1200px;
+          perspective: 1200px;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 75%) center center;
+  backgroun-size: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/*
+  For sanity reasons, try to view this element as 
+  a "platter" where you put all your "things" in 3d-space.
+*/
+.box-holder {
+  -webkit-transform: rotateY(10deg);
+          transform: rotateY(10deg);
+  -webkit-animation: 10000ms rotatingAnimation linear infinite;
+          animation: 10000ms rotatingAnimation linear infinite;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.box-holder > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+/* 
+  a note on the transforms. we first offset all planes so
+  it sits in the middle of the platter. Then next we apply
+  another offset where it sits from the 'middle'. e.g.:
+  the 'platter' container is 100x100px; then:
+  transform: translate3d(-50px, -50px ,0) translate3d(1337px, 80085px,0)
+*/
+.box--front {
+  width: 200px;
+  height: 300px;
+  background: url(https://s3-ap-southeast-2.amazonaws.com/mephystoprojects/alice/alice-cover.jpg) no-repeat center right;
+  background-size: auto 100%;
+  -webkit-transform: translate3d(-100px, -150px, 0) translate3d(0, 0, 0) rotateY(0deg);
+          transform: translate3d(-100px, -150px, 0) translate3d(0, 0, 0) rotateY(0deg);
+}
+
+.box--back {
+  width: 200px;
+  height: 300px;
+  background: url(https://s3-ap-southeast-2.amazonaws.com/mephystoprojects/alice/alice-cover.jpg) no-repeat center left;
+  background-size: auto 100%;
+  -webkit-transform: translate3d(-100px, -150px, 0) translate3d(0, 0, -16px) rotateY(180deg);
+          transform: translate3d(-100px, -150px, 0) translate3d(0, 0, -16px) rotateY(180deg);
+}
+
+.box--side-left {
+  width: 16px;
+  height: 300px;
+  background: #f0f;
+  background: url(https://s3-ap-southeast-2.amazonaws.com/mephystoprojects/alice/alice-cover.jpg) no-repeat center center;
+  background-size: auto 100%;
+  -webkit-transform: translate3d(-100px, -150px, 0) translate3d(-8px, 0, -8px) rotateY(-90deg);
+          transform: translate3d(-100px, -150px, 0) translate3d(-8px, 0, -8px) rotateY(-90deg);
+}
+
+.box--side-right {
+  width: 16px;
+  height: 300px;
+  background: url(https://s3-ap-southeast-2.amazonaws.com/mephystoprojects/alice/paper.jpg) no-repeat center center;
+  background-size: cover;
+  -webkit-transform: translate3d(-100px, -150px, 0) translate3d(192px, 0px, -8px) rotateY(90deg);
+          transform: translate3d(-100px, -150px, 0) translate3d(192px, 0px, -8px) rotateY(90deg);
+}
+
+.box--top {
+  width: 200px;
+  height: 16px;
+  background: #00f;
+  background: url(https://s3-ap-southeast-2.amazonaws.com/mephystoprojects/alice/paper-horizontal.jpg) no-repeat center center;
+  background-size: cover;
+  -webkit-transform: translate3d(-100px, -150px, 0) translate3d(0px, -8px, 8px) rotateX(90deg);
+          transform: translate3d(-100px, -150px, 0) translate3d(0px, -8px, 8px) rotateX(90deg);
+}
+
+.box--bottom {
+  width: 200px;
+  height: 16px;
+  background: #000;
+  background: url(https://s3-ap-southeast-2.amazonaws.com/mephystoprojects/alice/paper-horizontal.jpg) no-repeat center center;
+  background-size: cover;
+  -webkit-transform: translate3d(-100px, -150px, 0) translate3d(0px, 292px, -8px) rotateX(-90deg);
+          transform: translate3d(-100px, -150px, 0) translate3d(0px, 292px, -8px) rotateX(-90deg);
+}
+</style></head><body>
+
+<div class="bg"></div>
+<div class="container">
+  <div class="box-holder" style="animation-play-state: running !important;">
+    <div class="box--front"></div>
+    <div class="box--side-left"></div>
+    <div class="box--side-right"></div>
+    <div class="box--top"></div>
+    <div class="box--bottom"></div>
+    <div class="box--back"></div>
+  </div>
+</div>
+
+</body></html>

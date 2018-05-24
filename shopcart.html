@@ -1,0 +1,359 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/marcoroganovic/pen/EgjRVG?depth=everything&order=popularity&page=3&q=shopping+cart&show_forks=false" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+<style class="cp-pen-styles">* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  background: cornsilk;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  background: steelblue;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  overflow: hidden;
+  height: 65px;
+}
+
+.header a {
+  color: inherit;
+}
+
+.header a:hover {
+  font-weight: bold;
+}
+
+.header-logo {
+  float: left;
+}
+
+.header-nav {
+  float: right;
+}
+
+.header-nav ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 310px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background: azure;
+}
+
+
+.product span {
+  font-weight: bold;
+}
+
+.product-image img {
+  display: block;
+  max-width: 228px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.
+.row .product:last-child {
+  margin-right: 0;
+}
+
+.product-add-to-cart {
+  overflow: hidden;
+  clear: both;
+  margin-top: 10px;
+}
+
+.see-more {
+  float: left;
+  background: indianred;
+}
+
+.add-to-cart {
+  float: right;
+}
+
+.shopping-cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  min-heigh: 300px;
+  margin-right: 20px;
+  margin-top: 10px;
+  padding: 20px;
+  background: wheat;
+}
+
+.shopping-cart-head {
+  background: steelblue;
+  color: white;
+  padding: 5px;
+}
+
+.shopping-cart,
+.shopping-cart-head {
+  border-radius: 5px;
+}
+
+.empty-cart-btn,
+.cart-checkout {
+  display: none;
+  
+}
+
+.empty-cart-btn {
+  margin-bottom: 5px;
+}
+
+.cart-checkout {
+  background: limegreen;
+}</style></head><body>
+<body>
+  <div class="container">
+    <header class="header">
+      <h3 class="header-logo">Simple Store</h3>
+      
+      <nav class="header-nav">
+        <ul>
+          <li><a href="#0">Home</a></li>
+          <li><a href="#0">Products</a></li>
+          <li><a href="#0">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <div class="products">
+      
+   
+      
+    </div><!-- products -->
+    
+    <div class="shopping-cart">
+      <div class="shopping-cart-head">
+        <span class="product-quantity">0</span> Product(s) in Cart
+      </div>
+      <ul class="shopping-cart-list">
+      </ul>
+      <div class="cart-buttons">
+        <a href="#0" class="button empty-cart-btn">Empty</a>
+        <a href="#0" class="button cart-checkout">Checkout - <span class="total-price">$0</span></a>
+      </div>
+    </div>
+  </div><!-- container -->
+</body>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script >var ShoppingCart = (function($) {
+  "use strict";
+  
+  // Cahce necesarry DOM Elements
+  var productsEl = document.querySelector(".products"),
+      cartEl =     document.querySelector(".shopping-cart-list"),
+      productQuantityEl = document.querySelector(".product-quantity"),
+      emptyCartEl = document.querySelector(".empty-cart-btn"),
+      cartCheckoutEl = document.querySelector(".cart-checkout"),
+      totalPriceEl = document.querySelector(".total-price");
+  
+  // Fake JSON data array here should be API call
+  var products = [
+    {
+      id: 0,
+      name: "iPhone 6S",
+      description: "Kogi skateboard tattooed, whatever portland fingerstache coloring book mlkshk leggings flannel dreamcatcher.",
+      imageUrl: "http://www.icentar.me/phone/6s/images/goldbig.jpg",
+      price: 799
+    },
+    {
+      id: 1,
+      name: "iPhone 5S",
+      description: "Kogi skateboard tattooed, whatever portland fingerstache coloring book mlkshk leggings flannel dreamcatcher.",
+      imageUrl: "http://www.icentar.me/phone/5s/images/silverbig.png",
+      price: 349,
+    },
+    {
+      id: 2,
+      name: "Macbook",
+      description: "Kogi skateboard tattooed, whatever portland fingerstache coloring book mlkshk leggings flannel dreamcatcher.",
+      imageUrl: "http://www.icentar.me/mac/macbook/images/pro.jpg",
+      price: 1499
+    },
+    {
+      id: 3,
+      name: "Macbook Air",
+      description: "Kogi skateboard tattooed, whatever portland fingerstache coloring book mlkshk leggings flannel dreamcatcher.",
+      imageUrl: "http://www.icentar.me/mac/mbair/images/air.jpg",
+      price: 999
+    },
+    {
+      id: 4,
+      name: "Macbook Air 2013",
+      description: "Kogi skateboard tattooed, whatever portland fingerstache coloring book mlkshk leggings flannel dreamcatcher.",
+      imageUrl: "http://www.icentar.me/mac/mbair/images/air.jpg",
+      price: 599
+    },
+    {
+      id: 5,
+      name: "Macbook Air 2012",
+      description: "Kogi skateboard tattooed, whatever portland fingerstache coloring book mlkshk leggings flannel dreamcatcher.",
+      imageUrl: "http://www.icentar.me/mac/mbair/images/air.jpg",
+      price: 499
+    }
+  ],
+      productsInCart = [];
+  
+  // Pretty much self explanatory function. NOTE: Here I have used template strings (ES6 Feature)
+  var generateProductList = function() {
+    products.forEach(function(item) {
+      var productEl = document.createElement("div");
+      productEl.className = "product";
+      productEl.innerHTML = `<div class="product-image">
+                                <img src="${item.imageUrl}" alt="${item.name}">
+                             </div>
+                             <div class="product-name"><span>Product:</span> ${item.name}</div>
+                             <div class="product-description"><span>Description:</span> ${item.description}</div>
+                             <div class="product-price"><span>Price:</span> ${item.price} $</div>
+                             <div class="product-add-to-cart">
+                               <a href="#0" class="button see-more">More Details</a>
+                               <a href="#0" class="button add-to-cart" data-id=${item.id}>Add to Cart</a>
+                             </div>
+                          </div>
+`;
+                             
+productsEl.appendChild(productEl);
+    });
+  }
+  
+  // Like one before and I have also used ES6 template strings
+  var generateCartList = function() {
+    
+    cartEl.innerHTML = "";
+    
+    productsInCart.forEach(function(item) {
+      var li = document.createElement("li");
+      li.innerHTML = `${item.quantity} ${item.product.name} - $${item.product.price * item.quantity}`;
+      cartEl.appendChild(li);
+    });
+    
+    productQuantityEl.innerHTML = productsInCart.length;
+    
+    generateCartButtons()
+  }
+  
+  
+  // Function that generates Empty Cart and Checkout buttons based on condition that checks if productsInCart array is empty
+  var generateCartButtons = function() {
+    if(productsInCart.length > 0) {
+      emptyCartEl.style.display = "block";
+      cartCheckoutEl.style.display = "block"
+      totalPriceEl.innerHTML = "$ " + calculateTotalPrice();
+    } else {
+      emptyCartEl.style.display = "none";
+      cartCheckoutEl.style.display = "none";
+    }
+  }
+  
+  // Setting up listeners for click event on all products and Empty Cart button as well
+  var setupListeners = function() {
+    productsEl.addEventListener("click", function(event) {
+      var el = event.target;
+      if(el.classList.contains("add-to-cart")) {
+       var elId = el.dataset.id;
+       addToCart(elId);
+      }
+    });
+    
+    emptyCartEl.addEventListener("click", function(event) {
+      if(confirm("Are you sure?")) {
+        productsInCart = [];
+      }
+      generateCartList();
+    });
+  }
+  
+  // Adds new items or updates existing one in productsInCart array
+  var addToCart = function(id) {
+    var obj = products[id];
+    if(productsInCart.length === 0 || productFound(obj.id) === undefined) {
+      productsInCart.push({product: obj, quantity: 1});
+    } else {
+      productsInCart.forEach(function(item) {
+        if(item.product.id === obj.id) {
+          item.quantity++;
+        }
+      });
+    }
+    generateCartList();
+  }
+  
+  
+  // This function checks if project is already in productsInCart array
+  var productFound = function(productId) {
+    return productsInCart.find(function(item) {
+      return item.product.id === productId;
+    });
+  }
+
+  var calculateTotalPrice = function() {
+    return productsInCart.reduce(function(total, item) {
+      return total + (item.product.price *  item.quantity);
+    }, 0);
+  }
+  
+  // This functon starts the whole application
+  var init = function() {
+    generateProductList();
+    setupListeners();
+  }
+  
+  // Exposes just init function to public, everything else is private
+  return {
+    init: init
+  };
+  
+  // I have included jQuery although I haven't used it
+})(jQuery);
+
+ShoppingCart.init();
+//# sourceURL=pen.js
+</script>
+</body></html>

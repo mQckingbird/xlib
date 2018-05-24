@@ -1,0 +1,414 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/ajaymugil/pen/ZKeeOg?limit=all&page=12&q=buy+button" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">body {
+  background: #eee;
+  padding: 30px 0;
+}
+
+.n-packages {
+  max-width: 1170px;
+  margin: 0 auto;
+  font-family: "Helvetica", Arial, sans-serif;
+}
+.n-packages * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.n-packages .package {
+  width: 23%;
+  padding: 15px;
+  background: white;
+  float: left;
+  margin: 0 10px;
+  position: relative;
+  -webkit-box-shadow: 0 0 15px #cac6c6;
+          box-shadow: 0 0 15px #cac6c6;
+}
+.n-packages .package:before, .n-packages .package:after {
+  position: absolute;
+  top: -15px;
+  content: '';
+}
+.n-packages .package:before {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 15px 15px;
+  left: 0px;
+  top: -15px;
+}
+.n-packages .package:after {
+  right: 0px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 0 0 15px;
+}
+.n-packages .package .title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 26px;
+  padding: 20px 0 10px;
+  position: relative;
+  color: white;
+  height: 59px;
+}
+.n-packages .package .title:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  width: 100%;
+  height: 30px;
+  left: 0;
+}
+.n-packages .package .title:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -64%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 38px 120px 0 120px;
+}
+.n-packages .package .price {
+  margin-top: 25%;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+.n-packages .package .divider {
+  border-top: 1px solid rgba(75, 164, 182, 0.2);
+  margin-top: 20px;
+  padding-top: 20px;
+}
+.n-packages .package .features ul {
+  padding: 0;
+  margin: 0;
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+.n-packages .package .features ul li {
+  list-style-type: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+.n-packages .package .features ul li:before {
+  content: "\f058";
+  font-family: FontAwesome;
+  position: absolute;
+  left: 0;
+  width: 15px;
+  height: 100%;
+}
+.n-packages .package .buy-button {
+  background: #4ba4b6;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 5px;
+  border-bottom: 5px solid #3b8493;
+  font-size: 20px;
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.triangle-down {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  width: 50%;
+  height: 0;
+  padding-left: 50%;
+  padding-top: 5%;
+  overflow: hidden;
+}
+
+.triangle-down .emptydiv {
+  width: 0;
+  height: 0;
+  margin-left: -1000px;
+  margin-top: -100px;
+  border-left: 1000px solid transparent;
+  border-right: 1000px solid transparent;
+  border-top: 100px solid #9387c6;
+}
+
+@media screen and (max-width: 640px) {
+  .n-package {
+    width: 100% !important;
+  }
+
+  .package {
+    width: 75% !important;
+    float: none !important;
+    margin-bottom: 30px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .n-packages .package .title {
+    padding-bottom: 30px;
+    height: auto;
+  }
+
+  .title:after {
+    display: none;
+  }
+
+  .n-packages .package .price {
+    margin-top: 20px !important;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 641px) {
+  .n-package {
+    width: 100% !important;
+    min-width: 450px !important;
+  }
+
+  .package {
+    width: 50% !important;
+    float: none !important;
+    margin-bottom: 30px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .n-packages .package .title {
+    padding-bottom: 30px;
+    height: auto;
+  }
+
+  .title:after {
+    display: none !important;
+  }
+
+  .n-packages .package .price {
+    margin-top: 20px !important;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .n-package {
+    width: 100% !important;
+    min-width: 450px !important;
+  }
+
+  .package {
+    width: 45% !important;
+    margin-bottom: 30px !important;
+  }
+
+  .n-packages .package .title {
+    padding-bottom: 30px;
+    height: auto;
+  }
+
+  .title:after {
+    display: none !important;
+  }
+
+  .n-packages .package .price {
+    margin-top: 20px !important;
+  }
+}
+.package.one:before {
+  border-color: transparent transparent #3b8493 transparent;
+}
+.package.one:after {
+  border-color: transparent transparent transparent #3b8493;
+}
+.package.one .title:before {
+  background: #4ba4b6;
+}
+.package.one .title:after {
+  border-color: #4ba4b6 transparent transparent transparent;
+}
+.package.one .divider {
+  border-top: 1px solid rgba(75, 164, 182, 0.2);
+}
+.package.one .features ul li {
+  color: #4ba4b6;
+}
+.package.one .price {
+  color: #4ba4b6;
+}
+.package.one .buy-button {
+  background: #4ba4b6;
+  border-bottom: 5px solid #3b8493;
+}
+.package.one .title {
+  background: #4ba4b6;
+}
+
+.package.two:before {
+  border-color: transparent transparent #9c5936 transparent;
+}
+.package.two:after {
+  border-color: transparent transparent transparent #9c5936;
+}
+.package.two .title {
+  background: #bf7046;
+}
+.package.two .title:before {
+  background: #bf7046;
+}
+.package.two .title:after {
+  border-color: #bf7046 transparent transparent transparent;
+}
+.package.two .divider {
+  border-top: 1px solid rgba(191, 112, 70, 0.2);
+}
+.package.two .features ul li {
+  color: #bf7046;
+}
+.package.two .price {
+  color: #bf7046;
+}
+.package.two .buy-button {
+  background: #bf7046;
+  border-bottom: 5px solid #9c5936;
+}
+
+.package.three .title {
+  background: #83a630;
+}
+.package.three:before {
+  border-color: transparent transparent #647e25 transparent;
+}
+.package.three:after {
+  border-color: transparent transparent transparent #647e25;
+}
+.package.three .title:before {
+  background: #83a630;
+}
+.package.three .title:after {
+  border-color: #83a630 transparent transparent transparent;
+}
+.package.three .divider {
+  border-top: 1px solid rgba(131, 166, 48, 0.2);
+}
+.package.three .features ul li {
+  color: #83a630;
+}
+.package.three .price {
+  color: #83a630;
+}
+.package.three .buy-button {
+  background: #83a630;
+  border-bottom: 5px solid #647e25;
+}
+
+.package.four .title {
+  background: #e5b546;
+}
+.package.four:before {
+  border-color: transparent transparent #d9a11f transparent;
+}
+.package.four:after {
+  border-color: transparent transparent transparent #d9a11f;
+}
+.package.four .title:before {
+  background: #e5b546;
+}
+.package.four .title:after {
+  border-color: #e5b546 transparent transparent transparent;
+}
+.package.four .divider {
+  border-top: 1px solid rgba(229, 181, 70, 0.2);
+}
+.package.four .features ul li {
+  color: #e5b546;
+}
+.package.four .price {
+  color: #e5b546;
+}
+.package.four .buy-button {
+  background: #e5b546;
+  border-bottom: 5px solid #d9a11f;
+}
+</style></head><body>
+<div class="n-packages">
+
+  <div class="package one">
+    <div class="title">Free</div>
+    
+    <div class="price"> Rs. 150 </div>
+    <div class="divider"></div>
+    <div class="features">
+      <ul>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li><li>Package Features 01</li>
+      </ul>
+    </div>
+    <div class="divider"></div>
+    <a class="buy-button">
+      Buy
+    </a>
+  </div>
+  
+   <div class="package two">
+    <div class="title">Bronze</div>
+    <div class="price"> Rs. 150 </div>
+    <div class="divider"></div>
+    <div class="features">
+      <ul>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li>
+      </ul>
+    </div>
+    <div class="divider"></div>
+    <div class="buy-button">
+      Buy
+    </div>
+  </div>
+  
+   <div class="package three">
+    <div class="title">Silver</div>
+    <div class="price"> Rs. 150 </div>
+    <div class="divider"></div>
+    <div class="features">
+      <ul>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li>
+      </ul>
+    </div>
+    <div class="divider"></div>
+    <div class="buy-button">
+      Buy
+    </div>
+  </div>
+  
+   <div class="package four">
+    <div class="title">Gold</div>
+    <div class="price"> Rs. 150 </div>
+    <div class="divider"></div>
+    <div class="features">
+      <ul>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li>
+        <li>Package Features 01</li>
+      </ul>
+    </div>
+    <div class="divider"></div>
+    <div class="buy-button">
+      Buy
+    </div>
+  </div>
+  <div style='clear:both'></div>
+</div>
+<script src='https://use.fontawesome.com/ecfd7e72be.js'></script>
+</body></html>

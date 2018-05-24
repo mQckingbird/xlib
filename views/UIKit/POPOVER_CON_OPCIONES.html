@@ -1,0 +1,124 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/grgaortiz/pen/NPyPap?q=popover&order=popularity&depth=everything&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'><link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">body {
+	background: rgba(110, 121, 50, 0.1);
+}
+.container {
+  width:400px;
+  height:200px;
+  margin:50px auto;
+}
+.trigger {
+  color:#777;
+}
+.popoverContentContainer {
+  position:relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 130px;
+}
+#optionMenu,
+.optionView {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#optionMenu button,
+#optionMenu a {
+  width:100%;
+  margin:5px 0;
+}
+.optionView button {
+  float:left;
+}
+.optionView p {
+  color:#777;
+  float:left;
+  width:100%;
+  padding:10px 0 0 0;
+}
+.optionView a {
+  float:left;
+}
+.popover {
+  width:400px;
+}
+.popover-inner {
+  position:relative;
+}
+.popover-title {
+  text-align:center;
+  color:#555;
+}</style></head><body>
+<div class="container">
+  <div class="popover-markup" style="display:inline;"> 
+    <a href="#" class="trigger btn btn-sm btn-default">
+      <i class="fa fa-angle-down"></i>
+    </a> 
+    <div class="head hide">Options</div>
+    <div class="content hide">
+      <div class="popoverContentContainer">
+        <div id="optionMenu">
+          <button id="option" data-option="1" class="btn btn-default">Option 1</button>
+          <button id="option" data-option="2" class="btn btn-default">Option 2</button>
+          <button id="option" data-option="3" class="btn btn-default">Option 3</button>
+        </div>
+        <div id="optionView1" class="optionView">
+          <button id="option" data-option="1" class="btn btn-sm btn-default">
+            <i class="fa fa-angle-left"></i>
+          </button>
+          <p>Option 1 - You can anything in this space, including forms.</p>
+          <a class="btn btn-primary btn-sm">Update</a>
+        </div>
+        <div id="optionView2" class="optionView">
+          <button id="option" data-option="2" class="btn btn-sm btn-default">
+          <i class="fa fa-angle-left"></i>
+          </button>
+          <p>Option 2 - You can anything in this space, including forms.</p>
+          <a class="btn btn-primary btn-sm">Send</a>
+        </div>
+        <div id="optionView3" class="optionView">
+          <button id="option" data-option="3" class="btn btn-sm btn-default">
+          <i class="fa fa-angle-left"></i>
+          </button>
+          <p>Option 3 - You can anything in this space, including forms.</p>
+          <a class="btn btn-primary btn-sm">Update</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js'></script>
+<script >// Initiate
+$('.optionView').hide();
+
+// Slide
+$(document).on('click', '#option', function (evt) {
+  var optionID = $(this).data('option');  
+  $('#optionMenu').toggle('slide', {direction: 'left'});
+  $('#optionView'+optionID).toggle('slide', {direction: 'right'});
+});
+
+// Popover
+$(function(){
+  $('.popover-markup > .trigger').popover({
+        html: true,
+        placement: "bottom",
+        title: function () {
+            return $(this).parent().find('.head').html();
+        },
+        content: function () {
+            return $(this).parent().find('.content').html();
+        },
+        template: '<div class="popover dashboardPopover"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"></div></div></div>'
+    });
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

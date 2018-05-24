@@ -1,0 +1,111 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/knyttneve/pen/qpEZKx" />
+<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
+<style class="cp-pen-styles">html,
+body {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  font-family: "Work Sans", sans-serif;
+  justify-content: center;
+}
+
+.exp-container {
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  max-width: 600px;
+}
+
+.exp {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  margin-bottom: 30px;
+  position: relative;
+  flex-wrap: wrap;
+}
+.exp__label {
+  transition: 0.3s;
+  margin-bottom: 5px;
+}
+.exp__label:before {
+  content: attr(data-icon);
+  font-weight: normal;
+  font-family: "Ionicons";
+  font-size: 24px;
+  position: absolute;
+  left: 0;
+  transform: rotateY(90deg);
+  bottom: 0;
+  height: 52px;
+  background: transparent;
+  color: #000;
+  transform-origin: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color .3s 0s ease, transform .3s 0s ease;
+  width: 42px;
+}
+.exp__input {
+  border: 1px solid #ddd;
+  padding: 0 10px;
+  width: 100%;
+  height: 52px;
+  transition: 0.3s;
+  font-weight: normal;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+  outline: none;
+}
+.exp__input:focus {
+  padding-left: 42px;
+  border-color: #bbb;
+}
+.exp__input:focus + label:before {
+  transform: rotateY(0deg);
+}
+.exp__input:valid {
+  padding-left: 42px;
+  border-color: green;
+}
+.exp__input:valid + label {
+  color: green;
+}
+.exp__input:valid + label:before {
+  transform: rotateY(0deg);
+  color: green;
+  font-size: 34px;
+  content: attr(data-icon-ok);
+}
+.exp-title {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+.exp-title span {
+  display: inline-block;
+  padding: 5px;
+  font-size: 22px;
+  background: #feffd4;
+}
+</style></head><body>
+<div class="exp-container">
+  <h2 class="exp-title">Using  <span>:valid</span> selector in CSS</h2>
+  <div class="exp">
+    <input type="text" class="exp__input" id="example" name="test" placeholder="Full Name" required>
+    <label class="exp__label" for="example" data-icon="&#xf47d;" data-icon-ok="&#xf3fd;">Full Name</label>
+  </div>
+  <div class="exp">
+    <input type="email" class="exp__input" id="example2" name="test" placeholder="Email" required>
+    <label class="exp__label" for="example2" data-icon="&#xf422;" data-icon-ok="&#xf3fd;">Email</label>
+  </div>
+</div>
+
+</body></html>

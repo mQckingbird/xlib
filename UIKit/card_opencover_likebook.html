@@ -1,0 +1,1063 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/chasingafterdear/pen/JOOzwQ" />
+
+
+<style class="cp-pen-styles">/*Background scenery */
+
+html{
+  height: 100vh;
+  background: #283044 url('https://netvu.informz.net/netvu/data/images/Christmas%202017/background.png') repeat-x;
+  background-position: 1% 500px; 
+  
+}
+
+/* Snow Animation - Credit: https://codepen.io/NickyCDK*/
+#snow{
+	background: none;
+	font-family: Androgyne;
+	background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png'), url('http://www.wearewebstars.dk/codepen/img//s2.png'), url('http://www.wearewebstars.dk/codepen/img//s3.png');
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+  min-height:900px;
+  height:1200px;
+	z-index:1;
+	-webkit-animation: snow 10s linear infinite;
+	-moz-animation: snow 10s linear infinite;
+	-ms-animation: snow 10s linear infinite;
+	animation: snow 10s linear infinite;
+}
+@keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-moz-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+}
+@-webkit-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-ms-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}	
+
+/*Happy Holidays title and text box at top of the page */
+.box {
+  width: 50%;
+  margin: 0 auto;
+  padding: 3px;
+  background-clip: padding-box;
+  text-align: center;
+  color:#fff;
+  font-family:Helvetica, Arial, sans-serif;
+  line-height:1.8em;
+  font-size:.9em;
+}
+
+/* Holiday Card */
+h2.from-line{
+  height:100px;
+  margin-top:0px;
+  margin-bottom:0px;
+  font-size:13px;
+  padding-bottom:0px;
+/*text-transform:Uppercase;*/
+}
+.banner-text{
+  height:50px;
+  margin-top:0px;
+  padding-top:0px;
+  margin-bottom:40px;
+  padding-bottom:10px;
+  font-size:20px;
+  font-weight:100;
+  line-height:29px;
+}
+/* Container for scaling browser sizes */
+.container {
+  position: relative;
+  float:left;
+  max-width: 100vh;
+  max-height: 50%;
+  overflow: hidden;
+  &:before {
+    content: "";
+    display: block;
+    margin-top: 100vh;
+  }
+}
+/* Boy */
+#boy{
+		position:absolute;
+  	z-index:-1;
+		left:45px;
+		top:905px;
+	}
+	
+	#arm{
+		position:absolute;
+		z-index:-2;
+		left:0px;
+		top:1020px;
+animation:wave 4s infinite;
+-webkit-animation:wave 4s infinite;}
+
+#pup{
+		position:absolute;
+		z-index:1;
+		left:294px;
+		top:1078px;
+	}
+
+	
+	#tail{
+		position:absolute;
+		z-index:-1;
+		left:305px;
+		top:1095px;
+  animation:wag 2s infinite;
+-webkit-animation:wag 2s infinite;
+/*animation:wag 4s infinite;
+webkit-animation:wag 4s infinite;}*/
+	}
+
+
+/*Hand Animation*/
+@-webkit-keyframes wave{
+	0%  {-webkit-transform:rotate(-5deg)}
+	50% {-webkit-transform:rotate(15deg)}
+	100%{-webkit-transform:rotate(-5deg)}
+}
+@keyframes wave{
+	0%  {transform:rotate(-5deg);-ms-transform:rotate(-5deg)}
+	50% {transform:rotate(15deg);-ms-transform:rotate(15deg)}
+	100%{transform:rotate(-5deg);-ms-transform:rotate(-5deg)}
+}
+
+/*wag Animation*/
+@-webkit-keyframes wag{
+	0%  {-webkit-transform:rotate(0deg)}
+	50% {-webkit-transform:rotate(15deg)}
+	100%{-webkit-transform:rotate(0deg)}
+}
+@keyframes wag{
+	0%  {transform:rotate(0deg);-ms-transform:rotate(0deg)}
+	50% {transform:rotate(15deg);-ms-transform:rotate(15deg)}
+	100%{transform:rotate(0deg);-ms-transform:rotate(0deg)}
+}
+/* Inside Popup */
+
+/* Header iCon*/
+img.header-icon{
+  width:65px;
+  height:auto;
+  padding:15px;
+ display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Advent Doors */
+main {
+    text-align: center;
+ padding:20px 10px 10px 20px;
+  
+  }
+
+  .door,
+  .present {
+    width: 100%;
+    height: 100%;
+  }
+
+  .day {
+    display: inline-block;
+    width: 9em;
+    height: 9em;
+    margin: 5px;
+    -webkit-perspective: 850px;
+            perspective: 850px;
+    z-index:1;
+  }
+
+  .door {
+    position: relative;
+    background: #92d050;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transform-origin: 0;
+            transform-origin: 0;
+    -webkit-perspective: 850px;
+            perspective: 850px;
+    text-align: center;
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    z-index:2000;
+  }
+  .door h2 {
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0.5em;
+    font-size: 2em;
+    line-height: 3em;
+    color: white;
+    border-radius: 50%;
+  }
+
+  .day:hover .door,
+  .day:focus .door,
+  .day:active .door {
+    background: #92d050;
+    -webkit-transform: rotateY(-97deg);
+            transform: rotateY(-97deg);
+    -webkit-perspective-origin: 0;
+            perspective-origin: 0;
+    -webkit-transition: all .4s ease-in;
+    transition: all .4s ease-in;
+  }
+  .day:hover .door h2,
+  .day:focus .door h2,
+  .day:active .door h2 {
+
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+  .day:hover .bauble,
+  .day:focus .bauble,
+  .day:active .bauble {
+    display: inline-block;
+    -webkit-animation: shake 1s;
+            animation: shake 1s;
+    -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+  }
+
+  .present1 {
+        background-image: url('https://netvu.informz.net/netvu/data/images/Christmas%202017/11.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+  /*  background: #221;*/
+    /* background: url('https://netvu.informz.net/netvu/data/images/Christmas%202017/11.png');*/
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15), inset 0 0 30px 20px rgba(0, 0, 0, 0.4);
+    z-index: -1;
+  }
+.present {
+  background:#fff;
+      /*  background-image: url('https://netvu.informz.net/netvu/data/images/Christmas%202017/11.png');*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15), inset 0 0 30px 20px rgba(0, 0, 0, 0.1);
+}
+
+  .bauble {
+    margin-top:20px;
+    position: relative;
+    width: 100px;
+    height: 110px;
+  }
+
+
+  @keyframes shake {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    20% {
+      -webkit-transform: rotate(-20deg);
+              transform: rotate(-20deg);
+    }
+    40% {
+      -webkit-transform: rotate(20deg);
+              transform: rotate(20deg);
+    }
+    60% {
+      -webkit-transform: rotate(-10deg);
+              transform: rotate(-10deg);
+    }
+    80% {
+      -webkit-transform: rotate(10deg);
+              transform: rotate(10deg);
+    }
+    100% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+  }
+  @-webkit-keyframes shake {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    20% {
+      -webkit-transform: rotate(-20deg);
+              transform: rotate(-20deg);
+    }
+    40% {
+      -webkit-transform: rotate(20deg);
+              transform: rotate(20deg);
+    }
+    60% {
+      -webkit-transform: rotate(-10deg);
+              transform: rotate(-10deg);
+    }
+    80% {
+      -webkit-transform: rotate(10deg);
+              transform: rotate(10deg);
+    }
+    100% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+  }
+@media only screen and (min-width: 1200px) {
+    /* styles for wide screens */
+}
+@media only screen and (max-width: 830px) {
+    /* styles for wide screens */
+    #boy,#pup,#pup2,#arm,#tail{z-index:-1;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  html{
+    background-position:bottom 100%;
+    margin-top:220vh;
+  }
+  #boy,#pup,#pup2,#arm,#tail{z-index:-1;
+  }
+    #container{
+      position:relative;
+    height:auto;
+  }
+  .demo-holder{width:70%;
+  margin:0px auto;}
+}
+
+/*Lightbox */
+.lightbox {
+  background-color: fade(black, 80%);  
+  overflow: scroll;
+  position: fixed;
+  display: none;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index:2;
+  &-container {
+    position: relative;
+    max-width: 960px;
+    margin: 7% auto;
+    display: block;    
+    padding: 0 3%;
+    height: auto;
+    z-index: 10;
+    
+    // Increasing top margin for mobile
+    @media screen and (max-width: 768px) { margin-top: 10%; }
+    @media screen and (max-width: 414px) { margin-top: 13%; }
+  }
+    
+  &-content {
+    box-shadow: 0 1px 6px fade(black, 70%);
+  }
+  
+  &-close {
+    text-transform: uppercase;    
+    background: transparent;
+    position: absolute; 
+    font-weight: 300;      
+    font-size: 12px;
+    display: block;
+    border: none;
+    color: white;
+    top: -22px;
+    right: 3%;
+  }
+}
+
+.video-container {  
+    padding-bottom: 56.25%;
+    position: relative;  
+    padding-top: 30px; 
+    overflow: hidden;
+    height: 0; 
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    height: 100%;  
+    width: 100%;  
+    left: 0;  
+    top: 0;
+}
+
+</style></head><body>
+<div id="snow">
+ <!-- Holiday Music -- Removed because it was too heavy. . .<audio controls="controls">
+  <source src="track.ogg" type="audio/ogg" />
+  <source src="http://www.amclassical.com/mp3/amclassical_jingle_bells.mp3" type="audio/mpeg" />
+Your browser does not support the audio element.
+</audio> -->
+      <!-- Jingle Sound -->
+	<!--<audio class="jingle-bells" style="display:none;" controls="controls" preload="auto">
+				<source src="https://jenny-smith-dyhg.squarespace.com/s/jingling-bells.mp3"></source>
+  		<source src="audio/beep.ogg"></source>
+				Your browser isn't invited for super fun time.
+			</audio>-->
+     <!-- / End of Jingle Sound -->
+    <div class="box">
+      <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/happy-holiday.png" width="65%" height="auto" alt="happy holidays" />
+      <h2 class="from-line">from <a href="http://netvu.org/" target="blank"><img src="https://netvu.informz.net/netvu/data/images/netvu-logo-250.png" alt="NetVU" /></a></h2>
+      <p class="banner-text">
+      This holiday season, we want to take the time to look back on a year of NetVU membership and thank you for being part of it! Open each of the 25 doors to see what we've accomplished this year with your help. </p>
+</div>
+
+<!-- Popup Door 1 -->
+<div id="video" class="lightbox video" onclick="hideVideo('video','youtube')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video','youtube')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/cI8rlUV48Ek?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 2 -->
+<div id="video2" class="lightbox video" onclick="hideVideo('video2','youtube2')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video2','youtube2')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube2" width="960" height="540" src="https://www.youtube.com/embed/-1LWp1J3STY?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 3 -->
+<div id="video3" class="lightbox video" onclick="hideVideo('video3','youtube3')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video3','youtube3')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube3" width="960" height="540" src="https://www.youtube.com/embed/xMrLZzBVQD8?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+<!-- Popup Door 4 -->
+<div id="video4" class="lightbox video" onclick="hideVideo('video4','youtube4')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video4','youtube4')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube4" width="960" height="540" src="https://www.youtube.com/embed/fRKh3JaB5Ec?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+<!-- Popup Door 5 -->
+<div id="video5" class="lightbox video" onclick="hideVideo('video5','youtube5')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video5','youtube5')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube5" width="960" height="540" src="https://www.youtube.com/embed/g_r5pULUMsk?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 6 -->
+<div id="video6" class="lightbox video" onclick="hideVideo('video6','youtube6')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video6','youtube6')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube6" width="960" height="540" src="https://www.youtube.com/embed/B-SEdufYAZ4?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+<!-- Popup Door 7 -->
+<div id="video7" class="lightbox video" onclick="hideVideo('video7','youtube7')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video7','youtube7')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube7" width="960" height="540" src="https://www.youtube.com/embed/2fseqLm3uQA?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 8 -->
+<div id="video8" class="lightbox video" onclick="hideVideo('video8','youtube8')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video8','youtube8')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube8" width="960" height="540" src="https://www.youtube.com/embed/5UJ2iVMnHHw?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+<!-- Popup Door 9 -->
+<div id="video9" class="lightbox video" onclick="hideVideo('video9','youtube9')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video9','youtube9')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube9" width="960" height="540" src="https://www.youtube.com/embed/lP1OveB-bCA?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+<!-- Popup Door 10 -->
+<div id="video10" class="lightbox video" onclick="hideVideo('video10','youtube10')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video10','youtube10')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube10" width="960" height="540" src="https://www.youtube.com/embed/LKRbx1WRTgU?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 11 -->
+<div id="video11" class="lightbox video" onclick="hideVideo('video11','youtube11')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video11','youtube11')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube11" width="960" height="540" src="https://www.youtube.com/embed/AWKiQH9PVio?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+<!-- Popup Door 12 -->
+<div id="video12" class="lightbox video" onclick="hideVideo('video12','youtube12')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video12','youtube12')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube12" width="960" height="540" src="https://www.youtube.com/embed/3-Y85996Xq4?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 13 -->
+<div id="video13" class="lightbox video" onclick="hideVideo('video13','youtube13')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video13','youtube13')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube13" width="960" height="540" src="https://www.youtube.com/embed/OMvJc_50A2Q?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 14 -->
+<div id="video14" class="lightbox video" onclick="hideVideo('video14','youtube14')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video14','youtube14')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube14" width="960" height="540" src="https://www.youtube.com/embed/d6-FC2LTu9w?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 15 -->
+<div id="video15" class="lightbox video" onclick="hideVideo('video15','youtube15')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video15','youtube15')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube15" width="960" height="540" src="https://www.youtube.com/embed/DvlsQ390eL4?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 16 -->
+<div id="video16" class="lightbox video" onclick="hideVideo('video16','youtube16')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video16','youtube16')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube16" width="960" height="540" src="https://www.youtube.com/embed/dJMEgQgszGc?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Popup Door 17 -->
+<div id="video17" class="lightbox video" onclick="hideVideo('video17','youtube17')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video17','youtube17')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube17" width="960" height="540" src="https://www.youtube.com/embed/H3YAmoKWOD4?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 18 -->
+<div id="video18" class="lightbox video" onclick="hideVideo('video18','youtube18')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video18','youtube18')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube18" width="960" height="540" src="https://www.youtube.com/embed/2Duj0bzMRZM?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 19 -->
+<div id="video19" class="lightbox video" onclick="hideVideo('video19','youtube19')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video19','youtube19')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube19" width="960" height="540" src="https://www.youtube.com/embed/YpNSfkii31s?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Popup Door 20 -->
+<div id="video20" class="lightbox video" onclick="hideVideo('video20','youtube20')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video20','youtube20')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube20" width="960" height="540" src="https://www.youtube.com/embed/tXbk_it4vSM?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 21 -->
+<div id="video21" class="lightbox video" onclick="hideVideo('video21','youtube21')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video21','youtube21')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube21" width="960" height="540" src="https://www.youtube.com/embed/FV_RI82EeLM?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Popup Door 22 -->
+<div id="video22" class="lightbox video" onclick="hideVideo('video22','youtube22')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video22','youtube22')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube22" width="960" height="540" src="https://www.youtube.com/embed/YQbiEnMNVEA?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Popup Door 23 -->
+<div id="video23" class="lightbox video" onclick="hideVideo('video23','youtube23')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video23','youtube23')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube23" width="960" height="540" src="https://www.youtube.com/embed/rK1FPmjOHeM?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Popup Door 24 -->
+<div id="video24" class="lightbox video" onclick="hideVideo('video24','youtube24')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video24','youtube24')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube24" width="960" height="540" src="https://www.youtube.com/embed/39b3FgH2Okg?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+<!-- Popup Door 25 -->
+<div id="video25" class="lightbox video" onclick="hideVideo('video25','youtube25')">
+  <div class="lightbox-container">  
+    <div class="lightbox-content">
+      <button onclick="hideVideo('video25','youtube25')" class="lightbox-close">
+        Close | ✕
+      </button>
+      <div class="video-container">
+        <iframe id="youtube25" width="960" height="540" src="https://www.youtube.com/embed/YaxXTgVtENk?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>      
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="demo-holder animated fadeInUp">
+  <main>
+    <!-- Door 1 -->
+    <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>1</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup1" onclick="revealVideo('video','youtube')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/1.png" width="100%" height="auto" alt="Happy Holidays - Door 1" /></a></div>
+      </div>
+    </div>
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>2</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup2" onclick="revealVideo('video2','youtube2')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/2.png" width="100%" height="auto" alt="Happy Holidays - Door 2" /></a></div>
+      </div>
+    </div>
+    <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>3</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup3" onclick="revealVideo('video3','youtube3')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/3.png" width="100%" height="auto" alt="Happy Holidays - Door 3" /></a></div>
+      </div>
+    </div>
+    <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>4</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup4" onclick="revealVideo('video4','youtube4')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/4.png" width="100%" height="auto" alt="Happy Holidays - Door 4" /></a></div>
+      </div>
+    </div>
+    <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>5</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup5" onclick="revealVideo('video5','youtube5')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/5.png" width="100%" height="auto" alt="Happy Holidays - Door 5" /></a></div>
+      </div>
+    </div>
+    <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>6</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup6" onclick="revealVideo('video6','youtube6')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/6.png" width="100%" height="auto" alt="Happy Holidays - Door 6" /></a></div>
+      </div>
+    </div>
+    <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>7</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup7" onclick="revealVideo('video7','youtube7')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/7.png" width="100%" height="auto" alt="Happy Holidays - Door 7" /></a></div>
+      </div>
+    </div>
+    <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>8</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup8" onclick="revealVideo('video8','youtube8')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/8.png" width="100%" height="auto" alt="Happy Holidays - Door 8" /></a></div>
+      </div>
+    </div>
+    <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>9</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup9" onclick="revealVideo('video9','youtube9')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/9.png" width="100%" height="auto" alt="Happy Holidays - Door 9" /></a></div>
+      </div>
+    </div>
+    <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>10</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup10" onclick="revealVideo('video10','youtube10')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/10.png" width="100%" height="auto" alt="Happy Holidays - Door 10" /></a></div>
+      </div>
+    </div>
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>11</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup11" onclick="revealVideo('video11','youtube11')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/11.png" width="100%" height="auto" alt="Happy Holidays - Door 11" /></a></div>
+      </div>
+    </div>
+    
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>12</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup12" onclick="revealVideo('video12','youtube12')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/12.png" width="100%" height="auto" alt="Happy Holidays - Door 12" /></a></div>
+      </div>
+    </div>
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>13</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup13" onclick="revealVideo('video13','youtube13')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/13.png" width="100%" height="auto" alt="Happy Holidays - Door 13" /></a></div>
+      </div>
+    </div>
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>14</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup14" onclick="revealVideo('video14','youtube14')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/14.png" width="100%" height="auto" alt="Happy Holidays - Door 14" /></a></div>
+      </div>
+    </div>
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>15</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup15" onclick="revealVideo('video15','youtube15')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/15.png" width="100%" height="auto" alt="Happy Holidays - Door 15" /></a></div>
+      </div>
+    </div>
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>16</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup16" onclick="revealVideo('video16','youtube16')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/16.png" width="100%" height="auto" alt="Happy Holidays - Door 16" /></a></div>
+      </div>
+    </div>
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>17</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup17" onclick="revealVideo('video17','youtube17')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/17.png" width="100%" height="auto" alt="Happy Holidays - Door 17" /></a></div>
+      </div>
+    </div>
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>18</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup18" onclick="revealVideo('video18','youtube18')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/18.png" width="100%" height="auto" alt="Happy Holidays - Door 18" /></a></div>
+      </div>
+    </div>
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>19</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup19" onclick="revealVideo('video19','youtube19')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/19.png" width="100%" height="auto" alt="Happy Holidays - Door 19" /></a></div>
+      </div>
+    </div>
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>20</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup20" onclick="revealVideo('video20','youtube20')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/20.png" width="100%" height="auto" alt="Happy Holidays - Door 20" /></a></div>
+      </div>
+    </div>
+    
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>21</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup21" onclick="revealVideo('video21','youtube21')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/21.png" width="100%" height="auto" alt="Happy Holidays - Door 21" /></a></div>
+      </div>
+    </div>
+    
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>22</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup22" onclick="revealVideo('video22','youtube22')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/22.png" width="100%" height="auto" alt="Happy Holidays - Door 22" /></a></div>
+      </div>
+    </div>
+    
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>23</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup23" onclick="revealVideo('video23','youtube23')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/23.png" width="100%" height="auto" alt="Happy Holidays - Door 23" /></a></div>
+      </div>
+    </div>
+    
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>24</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup24" onclick="revealVideo('video24','youtube24')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/24.png" width="100%" height="auto" alt="Happy Holidays - Door 24" /></a></div>
+      </div>
+    </div>
+    
+     <div class="day" onclick="void(0)">
+      <div class="door">
+        <h2>25</h2>
+      </div>
+      <div class="present">
+        <div class="bauble"><a href="#popup25" onclick="revealVideo('video25','youtube25')"> <img src="https://netvu.informz.net/netvu/data/images/Christmas%202017/25.png" width="100%" height="auto" alt="Happy Holidays - Door 25" /></a></div>
+      </div>
+    </div>
+     <div id="container">
+  <!--Pup and tail -->
+       <img id="pup" class="jingle-sound" src="https://netvu.informz.net/netvu/data/images/Christmas%202017/pup.png" alt="little pup"/><img id="tail" class="wag" src="https://netvu.informz.net/netvu/data/images/Christmas%202017/tail.png" alt="little pup tail"/>
+    <!-- Boy -->
+    <div="container"> <img id="boy" class="wave" src="https://netvu.informz.net/netvu/data/images/Christmas%202017/boy.png" alt="little boy"/><img id="arm" class="wave" src="https://netvu.informz.net/netvu/data/images/Christmas%202017/arm.png" alt="little boy"/>
+    </div>
+    </div>
+  </main>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >// Function to reveal lightbox and adding YouTube autoplay
+function revealVideo(div,video_id) {
+  var video = document.getElementById(video_id).src;
+  //document.getElementById(video_id).src = video+'&autoplay=1'; // adding autoplay to the URL
+  document.getElementById(div).style.display = 'block';
+}
+
+// Hiding the lightbox and removing YouTube autoplay
+function hideVideo(div,video_id) {
+  var video = document.getElementById(video_id).src;
+  var cleaned = //video.replace('&autoplay=1',''); // removing autoplay form url
+  document.getElementById(video_id).src = cleaned;
+  document.getElementById(div).style.display = 'none';
+}
+//# sourceURL=pen.js
+</script>
+</body></html>

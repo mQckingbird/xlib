@@ -1,0 +1,610 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/tmrDevelops/pen/WrEgJB?limit=all&page=9&q=footer" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">@import url(http://weloveiconfonts.com/api/?family=entypo);
+@import url(https://fonts.googleapis.com/css?family=Courgette);
+@import url(https://fonts.googleapis.com/css?family=Exo+2);
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+* {
+  font-size: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Courgette', cursive;
+  font-size: 14px;
+  color: #0a0b0f;
+  background: #0a0b0f;
+}
+
+header {
+  top: 0;
+  height: 5em;
+  width: 100%;
+  line-height: 5em;
+  background: #0a0b0f;
+}
+header span.logo {
+  color: #bcbdc2;
+  float: left;
+  margin-left: 1em;
+  font-size: 1.5em;
+}
+header span.ls a {
+  float: right;
+  margin-right: 2em;
+  font-size: 1em;
+  color: #bcbdc2;
+  text-decoration: none;
+}
+header span.ls a:hover {
+  text-decoration: underline;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.wrapper {
+  margin: 0;
+}
+
+.main {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #f2f2f2;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#content {
+  background: #f2f2f2;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+#content h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  color: #0a0b0f;
+}
+#content h1 span.big {
+  font-family: 'Courgette', cursive;
+  font-size: 3em;
+}
+#content h1 span.small {
+  font-size: .7em;
+}
+
+[class*="col-"] {
+  background: #1f202e;
+  font-family: 'Exo 2', sans-serif;
+  letter-spacing: 2px;
+}
+
+#img {
+  height: 40em;
+  background: url(http://i65.tinypic.com/2q88sud.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  border-top: 3px solid rgba(10, 11, 15, 0.8);
+}
+#img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-box-shadow: inset 0 0px 16px rgba(0, 0, 0, 0.6);
+          box-shadow: inset 0 0px 16px rgba(0, 0, 0, 0.6);
+}
+#img p {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  color: #bcbdc2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 3em;
+}
+#img p span {
+  width: 80%;
+  font-size: .6em;
+  font-style: italic;
+  float: right;
+}
+
+.tint {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(31, 32, 46, 0.8);
+}
+
+.scont > .search {
+  padding: 1em;
+  background: #0a0b0f;
+}
+
+.scont input[type="text"],
+.scont input[type="search"] {
+  width: 97%;
+  height: 1.5rem;
+  padding: .5em;
+  margin: 0 .5%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #878892;
+  -webkit-box-shadow: inset 1px 1px 1px #878892;
+          box-shadow: inset 1px 1px 1px #878892;
+  background: white;
+  color: #878892;
+}
+.scont input[type="text"]:focus,
+.scont input[type="search"]:focus {
+  border: 1px solid #bcbdc2;
+}
+
+#one {
+  color: #bcbdc2;
+  border-right: 1px solid rgba(10, 11, 15, 0.2);
+}
+#one h2 {
+  background: #474c6b;
+  padding: .8em;
+  margin: 0;
+  font-size: 1.2em;
+}
+#one h2:hover {
+  background: #0a0b0f;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+#one ul li {
+  padding: .5em 1em .5em 0;
+  line-height: 1.5em;
+  list-style-type: square;
+}
+#one h4 {
+  margin-left: 1em;
+}
+#one a {
+  text-decoration: none;
+  color: #bcbdc2;
+}
+#one a:hover {
+  margin-left: .2em;
+  color: #d7d7db;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+#two {
+  color: #bcbdc2;
+}
+#two h2 {
+  background: #33364d;
+  padding: 1.7em;
+  margin: 0;
+}
+#two p {
+  line-height: 1.5em;
+  padding: 1em 1em 5em 1em;
+  margin-right: 20px;
+}
+#two p span {
+  text-align: center;
+}
+#two p button {
+  border: 1px solid #0a0b0f;
+  background: #33364d;
+  padding: .5em;
+  width: 8em;
+  float: right;
+}
+#two p button:hover {
+  background: #0a0b0f;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+#contact {
+  border: 1px solid #0a0b0f;
+  color: #bcbdc2;
+  text-align: center;
+}
+
+.fwrap {
+  margin: 40px auto 40px;
+  width: 80%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.fwrap span {
+  color: #bcbdc2;
+  text-transform: uppercase;
+  display: block;
+  font-size: .8em;
+  padding-top: .5em;
+  letter-spacing: .5em;
+}
+
+textarea {
+  background: transparent;
+  border: 1px solid #999999;
+  width: 70%;
+  color: #e6e6e6;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 4px 0px;
+  height: 103px;
+  resize: none;
+  margin-top: 8px;
+}
+textarea:focus {
+  outline: 1px solid rgba(153, 153, 153, 0.5);
+}
+
+input {
+  background: transparent;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-bottom: 1px solid #999999;
+  border-right: 1px solid transparent;
+  width: 70%;
+}
+input:focus {
+  outline: 1px solid rgba(153, 153, 153, 0.5);
+}
+
+input[type="text"] {
+  height: 40px;
+  color: #e6e6e6;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 4px 0;
+}
+
+.submit {
+  padding-top: 19px;
+}
+
+.btn {
+  background: #33364d;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #bcbdc2;
+  border: none;
+  margin: 0px;
+  padding: 10px 10px;
+  border-radius: 2px;
+  border: 1px solid #0a0b0f;
+}
+.btn:hover {
+  background: #0a0b0f;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+#icons {
+  margin: 0 auto;
+  cursor: pointer;
+  text-align: center;
+  min-height: 60px;
+}
+#icons ul li {
+  color: #a1a2aa;
+  display: inline;
+  font-size: 2em;
+  letter-spacing: 25px;
+}
+#icons ul li:hover {
+  color: #d7d7db;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+/*
+hr style adapted from Ibrahim Jabbari:
+https://codepen.io/ibrahimjabbari/pen/ozinB?editors=011
+*/
+hr.title {
+  padding: 0;
+  border: none;
+  height: 30px;
+  border-style: solid;
+  border-color: rgba(215, 215, 219, 0.7);
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+  margin: 63px auto 13px;
+  width: 60%;
+}
+hr.title:after {
+  content: "Contact Us";
+  letter-spacing: 4px;
+  font-size: 1em;
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+  top: -13px;
+  padding: 0 5px;
+  background: #1f202e;
+}
+hr.title:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: rgba(215, 215, 219, 0.7);
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+section.footer {
+  padding: 0;
+  margin: 0;
+  background: #1f202e;
+}
+
+footer {
+  margin: 0;
+  background: #0a0b0f;
+  height: 4em;
+  padding: 0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+footer h3 {
+  color: #bcbdc2;
+  line-height: 2em;
+  font-family: 'Exo 2', sans-serif;
+}
+
+/*
+12 flex value columns for mix/matching different widths in a row. 
+Not all have been used in this demo (only equal width cols used)
+*/
+@media all and (min-width: 830px) {
+  .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+
+  [class*="col-"]:last-child {
+    margin-right: 0;
+  }
+
+  .col-1 {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+
+  .col-2 {
+    -webkit-box-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+  }
+
+  .col-3 {
+    -webkit-box-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+  }
+
+  .col-4 {
+    -webkit-box-flex: 4;
+    -ms-flex: 4;
+    flex: 4;
+  }
+
+  .col-5 {
+    -webkit-box-flex: 5;
+    -ms-flex: 5;
+    flex: 5;
+  }
+
+  .col-6 {
+    -webkit-box-flex: 6;
+    -ms-flex: 6;
+    flex: 6;
+  }
+
+  .col-7 {
+    -webkit-box-flex: 7;
+    -ms-flex: 7;
+    flex: 7;
+  }
+
+  .col-8 {
+    -webkit-box-flex: 8;
+    -ms-flex: 8;
+    flex: 8;
+  }
+
+  .col-9 {
+    -webkit-box-flex: 9;
+    -ms-flex: 9;
+    flex: 9;
+  }
+
+  .col-10 {
+    -webkit-box-flex: 10;
+    -ms-flex: 10;
+    flex: 10;
+  }
+
+  .col-11 {
+    -webkit-box-flex: 11;
+    -ms-flex: 11;
+    flex: 11;
+  }
+
+  .col-12 {
+    -webkit-box-flex: 12;
+    -ms-flex: 12;
+    flex: 12;
+  }
+}
+</style></head><body>
+<header>
+  <span class='logo'>Catchy Logo</span>
+  <span class='ls'>
+    <a href = '#'>Login</a>
+    <a href = '#'>Sign Up</a>
+  </span>
+</header>
+<div class="wrapper">
+  <div class='main'>
+    <div class='col-12' id='content'>
+      <h1><span class = 'big'>Big, Bold</span><br>Statement<br><span class = 'small'>&& Maybe Some Content...</span></h1>
+    </div>
+  </div>
+</div>
+
+<section class = 'footer'>
+  <div class="row" id='img'>
+    <div class="tint"></div>
+    <p>&ldquo;Look In the Mirror...
+      <br>That's Your Competition.&rdquo;
+      <br><span>-A Wise Someone</span>
+    </p>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class='scont'>
+        <div class="search">
+          <input type="search" placeholder="✎ Search...">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4" id='one'>
+      <h2>About</h2>
+      <h4>Find Out About Our:</h4>
+      <ul>
+        <li><a href='#'>  Services</a></li>
+        <li><a href='#'>  Deals</a></li>
+        <li><a href='#'>  Staff</a></li>
+        <li><a href='#'>  Employment</a></li>
+        <li><a href='#'>  Locations</a></li>
+      </ul>
+    </div>
+    <div class="col-4" id='one'>
+      <h2>FAQ</h2>
+      <h4>Samuel Wants To Know:</h4>
+      <ul>
+        <li><a href='#'> Oh... what I'm gon' do?</a></li>
+        <li><a href='#'> Is she dead, yes or no?</a></li>
+        <li><a href='#'> We happy?</a></li>
+        <li><a href='#'> Are you ready for the truth?</a></li>
+      </ul>
+    </div>
+    <div class="col-4" id='one'>
+      <h2>Community</h2>
+      <h4>Get Involved:</h4>
+      <ul>
+        <li><a href='#'> Mentor Programs</a></li>
+        <li><a href='#'> Scholarship Programs</a></li>
+        <li><a href='#'> Internships</a></li>
+        <li><a href='#'> Donate</a></li>
+      </ul>
+    </div>
+    <div class="col-4" id='two'>
+      <h2></h2>
+      <p>
+        Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become
+        television programs.
+        <br />
+        <br />
+        <button>Continue...</button>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4" id='contact'>
+      <hr class="title" />
+      <form class="fwrap">
+        <input type="text" /><span>name</span>
+        <input type="text" /><span>email</span>
+        <input type="text" /><span>subject</span>
+        <br /><br />
+        <textarea></textarea><span>message</span>
+        <div class="submit">
+          <input class="btn" type="button" value="Send" />
+        </div>
+      </form>
+    </div>
+</div>
+      <div class="row">
+      <div class="col-12" id='icons'>
+        <ul>
+          <li class="entypo-facebook-circled"></li>
+          <li class="entypo-gplus-circled"></li>
+          <li class="entypo-pinterest-circled"></li>
+          <li class="entypo-twitter-circled"></li>
+        </ul>
+      </div>
+    </div>
+   </div>
+  </div>
+</section>
+<footer>
+  <h3>Copyright ©️ 2016</h3>
+</footer>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >/*
+An extra-large, multi-row / column footer section made w/Flexbox... 
+
+Everything from the image down is considered the footer section.  Resize It...
+*/
+//# sourceURL=pen.js
+</script>
+</body></html>

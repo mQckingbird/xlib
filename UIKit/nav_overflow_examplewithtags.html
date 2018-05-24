@@ -1,0 +1,180 @@
+
+<!DOCTYPE html><html lang='en' class='gb'>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/fruitbowlmedia/pen/RPLWBx?limit=all&page=2&q=tags" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+<style class="cp-pen-styles">*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  *zoom: 1;
+  font-family: "Open Sans", "Helvetica", sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #54B2D3;
+  height: 100%;
+}
+
+.c {
+  width: 100%;
+}
+
+article.post {
+  padding: 20px;
+  background: white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -98px;
+  max-width: 400px;
+  -webkit-box-shadow: 2px 3px 0 0 rgba(67, 74, 84, .2);
+  -moz-box-shadow: 2px 3px 0 0 rgba(67, 74, 84, .2);
+  box-shadow: 2px 3px 0 0 rgba(67, 74, 84, .2);
+}
+
+article.post > p,
+article.post > hr {
+  margin-top: 15px;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.post_tags,
+.post_tags a {
+  color: #A7A7A7;
+}
+
+.post_tags {
+  position: relative;
+  margin-top: 10px;
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+html.touch .post_tags {
+  /* If touch device, the jQuery script will be disabled and a scrollbar will be put in its place to allow mobile scrolling */
+  overflow-x: scroll !important;
+}
+
+.post_tags.draggable .post_tags_inner {
+  cursor: col-resize;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.post_tags_inner {
+  float: left;
+  position: relative;
+  padding: 0px 20px 0px 0;
+}
+
+.post_tags a,
+.post_tags .post_tag {
+  color: #A7A7A7;
+  font-size: 15px;
+  text-decoration: none;
+  margin-right: 6px;
+  text-transform: lowercase !important;
+}
+
+.post_tags a:before {
+  content: '#';
+}
+
+.post_tags:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, #FFF));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0, #FFF 100%);
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) 100%);
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #FFF 100%);
+}
+html.touch .post_tags:after {content:none;}
+.post_tags a:hover,
+.post_tags .post_tag:hover,
+.post_tags a:focus,
+.post_tags .post_tag:focus,
+.post_tags a:active,
+.post_tags .post_tag:active {
+  color: #54B2D3;
+}</style></head><body>
+<div class='c'>
+  <article class='post'>
+    <h1>Tumblr-like tag overflow</h1>
+    <p>Click and drag the overflowing tags to see more. Inspired by Tumblr and how they deal with an excess of tags.</p>
+    <hr>
+    <div class='post_tags draggable'>
+      <div class='post_tags_inner'>
+        <a href='#'>venenatis</a>
+        <a href='#'>vitae</a>
+        <a href='#'>ultricies</a>
+        <a href='#'>phasellus</a>
+        <a href='#'>accumsan</a>
+        <a href='#'>morbi</a>
+        <a href='#'>consectetur</a>
+        <a href='#'>pellentesque</a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script >/* REQUIRES jQuery, jQuery UI, Easing.JS and Modernizr (for touch detection) */
+$(document).ready(function() {
+  if($("html").hasClass("no-touch")){
+    $(".post_tags_inner").draggable({
+      axis: "x",
+      scroll: false,
+      stop: function() {
+        var __left = $(this).css("left").replace(/[^-\d\.]/g, '');
+        if (__left > 0) {
+          $(this).animate({
+            left: 0
+          }, 400, 'easeOutExpo');
+        }
+        var __width = $(this).outerWidth();
+        var __parentWidth = $(".post_tags.draggable").outerWidth();
+        if (__width > __parentWidth) {
+          if (__left < __parentWidth - __width) {
+            $(this).animate({
+              left: __parentWidth - __width
+            }, 400, 'easeOutExpo');
+          }
+        } else {
+          $(this).animate({
+            left: 0
+          }, 400, 'easeOutExpo');
+        }
+      }
+    });
+  } 
+  
+
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

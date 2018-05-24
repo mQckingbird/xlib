@@ -1,0 +1,530 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/EduardoLopes/pen/vObVbb?depth=everything&order=popularity&page=4&q=next+prev&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body {
+  background: #dee0dd;
+  font-family: 'Raleway', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #eee;
+}
+.noselect,
+.canvas,
+.next,
+.prev {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.transitions,
+h1,
+.circle-1,
+.circle-2,
+.circle-3,
+.next,
+.prev {
+  -webkit-transition: transform 0.3s cubic-bezier(0.76, 0.16, 0.19, 0.78);
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.76, 0.16, 0.19, 0.78);
+  transition: -webkit-transform 0.3s cubic-bezier(0.76, 0.16, 0.19, 0.78);
+  transition: transform 0.3s cubic-bezier(0.76, 0.16, 0.19, 0.78);
+  transition: transform 0.3s cubic-bezier(0.76, 0.16, 0.19, 0.78), -webkit-transform 0.3s cubic-bezier(0.76, 0.16, 0.19, 0.78);
+}
+h1 {
+  text-align: center;
+  color: #eee;
+/*text-transform: uppercase*/
+  padding: 15px 0;
+  font-weight: normal;
+}
+.panel-next h1 {
+  -webkit-transform: translate(-200%, 0);
+          transform: translate(-200%, 0);
+}
+.panel-prev h1 {
+  -webkit-transform: translate(200%, 0);
+          transform: translate(200%, 0);
+}
+.center,
+.container,
+.circle-1,
+.circle-2,
+.circle-3,
+.circle,
+.canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.container {
+  width: 540px;
+  height: 540px;
+  overflow: hidden;
+  background: #21313e;
+}
+.slide-container {
+  width: 400%;
+  height: 100%;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  position: relative;
+  will-change: transform;
+}
+.circle-1 {
+  border-radius: 320px;
+  width: 320px;
+  height: 320px;
+  z-index: 2;
+  -webkit-transition-delay: 0.25s;
+          transition-delay: 0.25s;
+  -webkit-transition-duration: 0.55s;
+          transition-duration: 0.55s;
+}
+.circle-2 {
+  border-radius: 280px;
+  width: 280px;
+  height: 280px;
+  z-index: 3;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+.circle-3 {
+  border-radius: 240px;
+  width: 240px;
+  height: 240px;
+  z-index: 4;
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+.circle {
+  border-radius: 200px;
+  width: 200px;
+  height: 200px;
+  background: #d06f79;
+  z-index: 5;
+  border: 4px solid #eee;
+  overflow: hidden;
+}
+.circle img {
+  margin: -4px 0 0 -4px;
+}
+.panel.active .circle-1,
+.panel.active .circle-2,
+.panel.active .circle-3 {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  -webkit-transition-timing-function: cubic-bezier(0.71, 0.13, 0.13, 1.4);
+          transition-timing-function: cubic-bezier(0.71, 0.13, 0.13, 1.4);
+}
+.circle-1,
+.circle-2,
+.circle-3 {
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+}
+.canvas {
+  z-index: 4;
+  position: absolute;
+}
+.background {
+  z-index: 4;
+  background: #eee;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 50%;
+}
+.next,
+.prev {
+  z-index: 6;
+  position: absolute;
+  top: 50%;
+  font-size: 4em;
+  -webkit-transform: translate(0, -120%);
+          transform: translate(0, -120%);
+  font-family: serif;
+}
+.next {
+  right: 15px;
+}
+.next.hide {
+  -webkit-transform: translate(200%, -120%);
+          transform: translate(200%, -120%);
+}
+.prev {
+  left: 15px;
+}
+.prev.hide {
+  -webkit-transform: translate(-200%, -120%);
+          transform: translate(-200%, -120%);
+}
+.panel {
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  float: left;
+  position: relative;
+  will-change: transform;
+}
+.green .circle-1 {
+  background: #24545f;
+}
+.green .circle-2 {
+  background: #247b79;
+}
+.green .circle-3 {
+  background: #39a287;
+}
+.green .circle {
+  background: #68ca8a;
+}
+.blue .circle-1 {
+  background: #314d5f;
+}
+.blue .circle-2 {
+  background: #416b81;
+}
+.blue .circle-3 {
+  background: #4f8ba4;
+}
+.blue .circle {
+  background: #5badc8;
+}
+.purple .circle-1 {
+  background: #40445a;
+}
+.purple .circle-2 {
+  background: #685573;
+}
+.purple .circle-3 {
+  background: #966587;
+}
+.purple .circle {
+  background: #c77594;
+}
+</style></head><body>
+<div class="container" id="container">
+
+        <div class="slide-container" id="slide-container">
+
+            <div class="panel active green">
+                <h1>Forest</h1>
+                <div class="circle">
+                    <img src="https://i.imgur.com/XdoDMOu.png" alt="">
+                </div>
+                <div class="circle-1"></div>
+                <div class="circle-2"></div>
+                <div class="circle-3"></div>
+                <div class="background"></div>
+                <canvas class="canvas"></canvas>
+
+            </div>
+
+            <div class="panel blue">
+                <h1>Mountains</h1>
+                <div class="circle">
+                    <img src="https://i.imgur.com/UfpZnPA.png" alt="">
+                </div>
+                <div class="circle-1"></div>
+                <div class="circle-2"></div>
+                <div class="circle-3"></div>
+                <div class="background"></div>
+                <canvas class="canvas"></canvas>
+
+            </div>
+
+            <div class="panel purple">
+                <h1>Rain</h1>
+                <div class="circle">
+                    <img src="https://i.imgur.com/8nLpgOM.png" alt="">
+                </div>
+                <div class="circle-1"></div>
+                <div class="circle-2"></div>
+                <div class="circle-3"></div>
+                <div class="background"></div>
+                <canvas class="canvas"></canvas>
+
+            </div>
+
+        </div>
+
+        <div class="prev hide"> <a href="#"> &lsaquo; </a></div>
+        <div class="next"> <a href="#"> &rsaquo; </a></div>
+
+    </div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.4/zepto.min.js'></script><script src='https://cdn.rawgit.com/EduardoLopes/parallax-scroll-experiment/gh-pages/js/vendor/Tween.js'></script>
+<script >var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) {if (window.CP.shouldStopExecution(1)){break;} var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); }
+window.CP.exitedLoop(1);
+ } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var PI_TWO = Math.PI * 2;
+var TO_DEG = 180 / Math.PI;
+var TO_RAD = Math.PI / 180;
+
+var $container = $('#container');
+var $sliceContainer = $('#slide-container');
+
+var nextPanelPosition = 0;
+var panelIndex = 0;
+var state = 'forward';
+var start = 0;
+var end = 0;
+var barSize = 0;
+var per = 0;
+
+var $next = $('.next');
+var $prev = $('.prev');
+
+var panels = [];
+
+var colors = ['#A8EF85', '#66D0ED', '#F6869A'];
+
+var tween = new TWEEN.Tween({ x: 0 }).to({ x: 25 }, 500).easing(TWEEN.Easing.Exponential.InOut).onUpdate(function () {
+
+  $sliceContainer.css('transform', 'translate(-' + this.x + '%, 0)');
+}).onStart(function () {
+
+  nextPanelPosition = Math.max(0, Math.min(50, nextPanelPosition));
+  tween.to({ x: nextPanelPosition });
+  panelIndex = nextPanelPosition / 25 >> 0;
+  app.loader.reset();
+  app.loader.stop();
+
+  checkNavigation();
+
+  panels[panelIndex].container.addClass('active');
+  panels[panelIndex].container.removeClass('panel-prev panel-next');
+}).onComplete(function () {
+
+  app.loader.start();
+});
+
+var Panel = function Panel($element, index) {
+  _classCallCheck(this, Panel);
+
+  this.container = $element;
+  this.index = index;
+  this.canvas = $element.children('canvas')[0];
+  this.ctx = this.canvas.getContext('2d');
+  this.color = colors[index];
+
+  this.canvas.width = 540;
+  this.canvas.height = 210;
+};
+
+$('.panel').forEach(function (item, index) {
+
+  panels[index] = new Panel($(item), index);
+});
+
+$(window).on('resize', function () {
+
+  for (var i = 0; i < panels.length; i++) {if (window.CP.shouldStopExecution(2)){break;}
+    panels[i].canvas.width = panels[i].container.width();
+  }
+window.CP.exitedLoop(2);
+;
+});
+
+function checkNavigation() {
+  if (panelIndex == 0) {
+    $prev.addClass('hide');
+  } else {
+    $prev.removeClass('hide');
+  }
+
+  if (panelIndex == panels.length - 1) {
+    $next.addClass('hide');
+  } else {
+    $next.removeClass('hide');
+  }
+}
+
+function next() {
+  tween.stop();
+  panels[panelIndex].container.removeClass('active');
+  panels[panelIndex].container.addClass('panel-next');
+  nextPanelPosition += 25;
+  tween.start();
+  state = 'forward';
+}
+
+function prev() {
+  tween.stop();
+  panels[panelIndex].container.removeClass('active');
+  panels[panelIndex].container.addClass('panel-prev');
+  nextPanelPosition -= 25;
+  tween.start();
+  state = 'back';
+}
+
+$next.on('click', next);
+$prev.on('click', prev);
+
+var Loader = function () {
+  function Loader() {
+    _classCallCheck(this, Loader);
+
+    var self = this;
+    /*
+    * Percentage in float numbers
+    */
+    this.percentage = 0;
+
+    this.radialPercentage = 0;
+
+    this.pause = false;
+
+    this.tween = new TWEEN.Tween({ percentage: 0 }).to({ percentage: 1 }, 5000).easing(TWEEN.Easing.Circular.In).onUpdate(function () {
+
+      self.percentage = this.percentage;
+    }).onStart(function () {
+
+      this.percentage = 0;
+    }).onComplete(function () {
+
+      if (panelIndex == 0) state = 'forward';
+      if (panelIndex == panels.length - 1) state = 'back';
+
+      if (state == 'forward') {
+        next();
+        return false;
+      };
+
+      prev();
+    });
+
+    this.tween.start();
+  }
+
+  _createClass(Loader, [{
+    key: 'setPercentage',
+    value: function setPercentage() {
+      var percentage = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+      this.percentage = percentage;
+    }
+  }, {
+    key: 'reset',
+    value: function reset() {
+
+      this.percentage = 0;
+      this.radialPercentage = 0;
+    }
+  }, {
+    key: 'start',
+    value: function start() {
+      this.pause = false;
+      this.tween.start();
+    }
+  }, {
+    key: 'stop',
+    value: function stop() {
+      this.pause = true;
+      this.tween.stop();
+    }
+  }]);
+
+  return Loader;
+}();
+
+var APP = function () {
+  function APP() {
+    _classCallCheck(this, APP);
+
+    this.loader = new Loader();
+
+    //set the right size on start
+    for (var i = 0; i < panels.length; i++) {if (window.CP.shouldStopExecution(3)){break;}
+      panels[i].canvas.width = panels[i].container.width();
+    }
+window.CP.exitedLoop(3);
+;
+
+    requestAnimationFrame(this.step.bind(this));
+  }
+
+  _createClass(APP, [{
+    key: 'update',
+    value: function update() {
+
+      start = panels[panelIndex].canvas.width / 2 - 100;
+      end = panels[panelIndex].canvas.width / 2 + 100;
+      barSize = panels[panelIndex].canvas.width * this.loader.percentage - start;
+      per = barSize / (end - start);
+
+      this.loader.radialPercentage = per;
+    }
+  }, {
+    key: 'draw',
+    value: function draw() {
+
+      panels[panelIndex].ctx.save();
+      panels[panelIndex].ctx.strokeStyle = panels[panelIndex].color;
+      panels[panelIndex].ctx.fillStyle = panels[panelIndex].color;
+      panels[panelIndex].ctx.fillRect(0, panels[panelIndex].canvas.height / 2 - 2, panels[panelIndex].canvas.width * this.loader.percentage, 4);
+
+      panels[panelIndex].ctx.translate(panels[panelIndex].canvas.width / 2, panels[panelIndex].canvas.height / 2);
+      panels[panelIndex].ctx.rotate(180 * TO_RAD);
+      panels[panelIndex].ctx.translate(-(panels[panelIndex].canvas.width / 2), -(panels[panelIndex].canvas.height / 2));
+
+      panels[panelIndex].ctx.lineWidth = 4;
+      panels[panelIndex].ctx.beginPath();
+      panels[panelIndex].ctx.arc(panels[panelIndex].canvas.width / 2, panels[panelIndex].canvas.height / 2, 102, 0, Math.PI * Math.max(0, Math.min(1, this.loader.radialPercentage)), false);
+      panels[panelIndex].ctx.stroke();
+
+      panels[panelIndex].ctx.beginPath();
+      panels[panelIndex].ctx.globalCompositeOperation = 'destination-out';
+      panels[panelIndex].ctx.arc(panels[panelIndex].canvas.width / 2, panels[panelIndex].canvas.height / 2, 100, 0, PI_TWO, false);
+      panels[panelIndex].ctx.closePath();
+      panels[panelIndex].ctx.fill();
+
+      panels[panelIndex].ctx.restore();
+    }
+  }, {
+    key: 'step',
+    value: function step() {
+      requestAnimationFrame(this.step.bind(this));
+
+      var delta = Date.now() - this.lastTick;
+      this.lastTick = Date.now();
+
+      var dt = delta / 1000;
+
+      this.elapsed = dt;
+
+      TWEEN.update();
+
+      panels[panelIndex].ctx.clearRect(0, 0, panels[panelIndex].canvas.width, panels[panelIndex].canvas.height);
+
+      this.update();
+
+      this.draw();
+    }
+  }]);
+
+  return APP;
+}();
+
+var app = new APP();
+//# sourceURL=pen.js
+</script>
+</body></html>

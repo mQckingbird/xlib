@@ -1,0 +1,373 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/elmanifico45/pen/eexGad" />
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+<style class="cp-pen-styles">* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: url("https://images.unsplash.com/photo-1496060169243-453fde45943b?auto=format&fit=crop&w=1572&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-attachment: fixed;
+}
+
+body:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 192, 127, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.container {
+  width: 1000px;
+  height: 800px;
+  display: block;
+  background: #fff;
+  overflow: hidden;
+  margin: 10% auto;
+  -moz-box-shadow: 0px 5px 28px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 5px 28px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 28px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+/*------------header section --------------------*/
+header {
+  position: relative;
+  display: block;
+  height: 250px;
+  background: url("https://images.unsplash.com/photo-1507290439931-a861b5a38200?auto=format&fit=crop&w=1490&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  z-index: 1;
+}
+
+.buttons {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  list-style-type: none;
+}
+
+.buttons li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  margin-right: 10px;
+  border-radius: 50px;
+  -moz-box-shadow: 0px 5px 28px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 5px 28px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 28px rgba(0, 0, 0, 0.5);
+}
+
+.buttons li:nth-child(1) {
+  background: #FC4A1A;
+}
+
+.buttons li:nth-child(2) {
+  background: #F7B733;
+}
+
+.buttons li:nth-child(3) {
+  background: #82C12F;
+}
+
+.hamburger__btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  direction: rtl;
+}
+
+.hamburger__btn > span {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: #fff;
+  margin: 3px;
+}
+
+.hamburger__btn > span:nth-child(2) {
+  width: 12px;
+}
+
+/*------------- content ----------------*/
+.content {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.aside-01 {
+  z-index: 2;
+  width: 40%;
+  text-align: center;
+}
+
+.profile .image {
+  background: url(https://randomuser.me/api/portraits/women/68.jpg);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: -15% auto;
+  position: relative;
+}
+
+.profile .image:after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 100px;
+  left: 80px;
+  border: 1px solid #fff;
+  background: #F7B733;
+  border-radius: 50%;
+}
+
+.aside-02 {
+  width: 60%;
+}
+
+.profile h4,
+.profile span {
+  margin-top: 80px;
+  line-height: 24px;
+}
+
+.profile h4 {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1.2em;
+  font-weight: 800;
+}
+
+.profile span {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.informations {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+}
+
+.informations > div {
+  width: 35.333%;
+  margin-bottom: 20px;
+}
+
+.informations div span:nth-child(1) {
+  font-weight: 800;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.about {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.about article {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 800;
+}
+
+.social__media {
+  list-style: none;
+  margin-top: 25px;
+}
+
+.social__media li {
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  font-size: 23px;
+}
+
+.social__media li:nth-child(1) {
+  color: #1da1f2;
+}
+
+.social__media li:nth-child(2) {
+  color: #bd081c;
+}
+
+.social__media li:nth-child(3) {
+  color: #3b5998;
+}
+
+.social__media li:nth-child(4) {
+  color: #ea4c89;
+}
+
+/*------------- aside 02 --------------*/
+.gallery {
+  margin-top: 50px;
+}
+
+.menu {
+  margin-left: 17px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+  display: inline-block;
+  width: 80px;
+  font-weight: 800;
+}
+
+.menu a.active {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.menu a.follow__btn {
+  background: #1da1f2;
+  text-align: center;
+  margin-left: 120px;
+  height: 30px;
+  color: #fff;
+  font-weight: 200;
+  line-height: 30px;
+  border-radius: 5px;
+}
+
+.gallery__container {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery__container > div {
+  overflow: hidden;
+  width: 160px;
+  height: 120px;
+  margin: 15px;
+  border-radius: 5px;
+}
+</style></head><body>
+<div class="container">
+  <header>
+    <ul class="buttons">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <div class="hamburger__btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+  <div class="content">
+   <aside class="aside-01">
+    <div class="profile">
+      <div  class="image"></div>
+      <h4>Daniel Kordan</h4>
+      <span>UI/UX Designer</span><br/>
+      <span>280948727@qq.com</span>
+      
+      <div class="informations">
+        <div class="followers">
+          <span>4,073</span><br/>
+          <span>Followers</span>
+        </div>
+        <div class="following">
+          <span>372</span><br/>
+          <span>Following</span>
+        </div>
+        <div class="likes">
+          <span>286,032</span><br/>
+          <span>Likes</span>
+        </div>
+      </div>
+      <tr>
+        <div class="about">
+          <article>
+            HI! My name is Daniel , i'm a creative geek from Prague. I enjoy creating eye candy solutions for web and mobile app.
+          </article>
+          <ul class="social__media">
+            <li><i class="fa fa-twitter"></i></li>
+            <li><i class="fa fa-pinterest"></i></li>
+            <li><i class="fa fa-facebook"></i></li>
+            <li><i class="fa fa-dribbble"></i></li>
+          </ul>
+        </div>
+    </div>
+  </aside>
+  <aside class="aside-02"> 
+    <div class="gallery">
+      <nav class="menu">
+        <a href="#" class="active">PHOTOS</a>
+        <a href="#">GALLERIES</a>
+        <a href="#">GROUPS</a>
+        <a href="#">ABOUT</a>
+        <a href="#" class="follow__btn">Follow</a>
+      </nav>
+      <div class="gallery__container">
+        <div>
+          <img src="https://cdn.stocksnap.io/img-thumbs/280h/6EI7S7V301.jpg" title="image__01"/>
+        </div>
+        <div>
+          <img src="https://cdn.stocksnap.io/img-thumbs/280h/FMUEJKZBRH.jpg" title="image__02"/>
+        </div>
+        <div>
+          <img src="https://cdn.stocksnap.io/img-thumbs/280h/GG75AB4SA6.jpg" title="image__03"/>
+        </div>
+        <div>
+          <img src="https://cdn.stocksnap.io/img-thumbs/280h/HKMSDVXFY1.jpg" title="image__04"/>
+        </div>
+        <div>
+          <img src="https://cdn.stocksnap.io/img-thumbs/280h/RTHQWD08HL.jpg" title="image__05"/>
+        </div>
+        <div>
+          <img src="https://cdn.stocksnap.io/img-thumbs/280h/IIVJUIENYZ.jpg" title="image__06"/>
+        </div>
+      </div>
+    </div>
+  </aside>
+ </div>
+</div>
+
+</body></html>

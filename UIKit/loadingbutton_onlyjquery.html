@@ -1,0 +1,192 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/lessthanthree/pen/razPaL" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<style class="cp-pen-styles">@import url(//fonts.googleapis.com/css?family=Montserrat:700|Roboto:100);
+@-webkit-keyframes animation-rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes animation-rotate {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-o-keyframes animation-rotate {
+  100% {
+    -o-transform: rotate(360deg);
+  }
+}
+@keyframes animation-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  cursor: pointer;
+}
+button,
+button span {
+  position: relative;
+}
+button span {
+  white-space: nowrap;
+  display: block;
+}
+button::moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+button:focus {
+  outline: none;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  padding: 50px;
+  text-align: center;
+  background-image: linear-gradient(to bottom right, rgba(236, 240, 241, 0.55), rgba(255, 255, 255, 0.85)), url("//ununsplash.imgix.net/5/unsplash-bonus.jpg?q=75&fm=jpg&s=816c3ecfd6f8058450e6ae250fac7141");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body h1 {
+  padding: 50px;
+  font: 100 72px Roboto, "Helvetica Neue", sans-serif;
+  text-align: center;
+  color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM5NDdiYzEiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzMzYWNkNCIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(top, #947bc1 -10%, #33acd4 100%);
+  background-image: -moz-linear-gradient(top, #947bc1 -10%, #33acd4 100%);
+  background-image: -o-linear-gradient(top, #947bc1 -10%, #33acd4 100%);
+  background-image: linear-gradient(to bottom, #947bc1 -10%, #33acd4 100%);
+}
+.button {
+  padding: 0;
+  background-color: #3498db;
+  background-image: 8121991;
+  background-image: -webkit-linear-gradient(#4aa3df 0%, #258cd1 100%);
+  background-image: -moz-linear-gradient(#4aa3df 0%, #258cd1 100%);
+  background-image: -o-linear-gradient(#4aa3df 0%, #258cd1 100%);
+  background-image: linear-gradient(#4aa3df 0%, #258cd1 100%);
+  -webkit-box-shadow: inset rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(52, 152, 219, 0.5) 0 0 5px;
+  -moz-box-shadow: inset rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(52, 152, 219, 0.5) 0 0 5px;
+  box-shadow: inset rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(52, 152, 219, 0.5) 0 0 5px;
+  -webkit-border-radius: 4px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 4px;
+  -moz-background-clip: padding;
+  border-radius: 4px;
+  background-clip: padding-box;
+}
+.button span {
+  text-shadow: rgba(29, 111, 165, 0.9) 0 0 2px;
+}
+.button span {
+  padding: 20px 25px;
+  font: 700 13px Montserrat, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  -webkit-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+  -o-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+.button:hover {
+  background-color: #4aa3df;
+  background-image: 8121991;
+  background-image: -webkit-linear-gradient(#5faee3 0%, #3498db 100%);
+  background-image: -moz-linear-gradient(#5faee3 0%, #3498db 100%);
+  background-image: -o-linear-gradient(#5faee3 0%, #3498db 100%);
+  background-image: linear-gradient(#5faee3 0%, #3498db 100%);
+  -webkit-box-shadow: inset rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(74, 163, 223, 0.5) 0 0 5px;
+  -moz-box-shadow: inset rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(74, 163, 223, 0.5) 0 0 5px;
+  box-shadow: inset rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(74, 163, 223, 0.5) 0 0 5px;
+}
+.button:hover span {
+  text-shadow: rgba(33, 125, 187, 0.9) 0 0 2px;
+}
+.button:active {
+  background-color: #258cd1;
+  background-image: 8121991;
+  background-image: -webkit-linear-gradient(#258cd1 0%, #258cd1 100%);
+  background-image: -moz-linear-gradient(#258cd1 0%, #258cd1 100%);
+  background-image: -o-linear-gradient(#258cd1 0%, #258cd1 100%);
+  background-image: linear-gradient(#258cd1 0%, #258cd1 100%);
+}
+.button--loading {
+  background-color: #258cd1 !important;
+  background-image: 8121991 !important;
+  background-image: -webkit-linear-gradient(#258cd1 0%, #258cd1 100%) !important;
+  background-image: -moz-linear-gradient(#258cd1 0%, #258cd1 100%) !important;
+  background-image: -o-linear-gradient(#258cd1 0%, #258cd1 100%) !important;
+  background-image: linear-gradient(#258cd1 0%, #258cd1 100%) !important;
+  position: relative;
+  cursor: wait;
+}
+.button--loading:before {
+  margin: -13px 0 0 -13px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: '';
+  -webkit-border-radius: 24px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 24px;
+  -moz-background-clip: padding;
+  border-radius: 24px;
+  background-clip: padding-box;
+  border: rgba(255, 255, 255, 0.25) 2px solid;
+  border-top-color: #fff;
+  -webkit-animation: animation-rotate 750ms linear infinite;
+  -moz-animation: animation-rotate 750ms linear infinite;
+  -o-animation: animation-rotate 750ms linear infinite;
+  animation: animation-rotate 750ms linear infinite;
+}
+.button--loading span,
+.button--loading:hover span,
+.button--loading:active span {
+  color: transparent;
+  text-shadow: none;
+}
+</style></head><body>
+<h1>Call To Action</h1>
+<button class='button' id='call-to-action'>
+  <span>Click this for magic</span>
+</button>
+
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >(function() {
+  var $;
+
+  $ = jQuery;
+
+  $(document).ready(function() {
+    return $('#call-to-action').on('click', function() {
+      return $(this).toggleClass('button--loading');
+    });
+  });
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiPGFub255bW91cz4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQSxNQUFBOztFQUFBLENBQUEsR0FBSTs7RUFDSixDQUFBLENBQUUsUUFBRixDQUNFLENBQUMsS0FESCxDQUNTLFFBQUEsQ0FBQSxDQUFBO1dBQ0wsQ0FBQSxDQUFFLGlCQUFGLENBQ0UsQ0FBQyxFQURILENBQ00sT0FETixFQUNlLFFBQUEsQ0FBQSxDQUFBO2FBQ1gsQ0FBQSxDQUFFLElBQUYsQ0FBSSxDQUFDLFdBQUwsQ0FBaUIsaUJBQWpCO0lBRFcsQ0FEZjtFQURLLENBRFQ7QUFEQSIsInNvdXJjZXNDb250ZW50IjpbIiQgPSBqUXVlcnlcbiQgZG9jdW1lbnRcbiAgLnJlYWR5ICgpIC0+XG4gICAgJCAnI2NhbGwtdG8tYWN0aW9uJ1xuICAgICAgLm9uICdjbGljaycsICgpIC0+XG4gICAgICAgICQoQCkudG9nZ2xlQ2xhc3MgJ2J1dHRvbi0tbG9hZGluZyciXX0=
+//# sourceURL=coffeescript
+//# sourceURL=pen.js
+</script>
+</body></html>

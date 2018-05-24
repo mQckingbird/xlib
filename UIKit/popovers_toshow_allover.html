@@ -1,0 +1,135 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/Type-Style/pen/xOKRgN?depth=everything&order=popularity&page=24&q=popover&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<style class="cp-pen-styles">@charset "UTF-8";
+.container {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1000px;
+}
+
+.mapContainer {
+  position: relative;
+  height: 0;  padding-bottom: 98.073%; /* ratio box */
+  background: url("//www.weissblauimherzen.de/typo3conf/ext/f7_wst_template/Resources/Public/Images/tourstops/wst_wbih_2015_tour_kartefrei.png") no-repeat transparent;
+  background-size: 100% auto;
+  background-position: 3px -10px;
+}
+	.mapContainer .pin {
+	  position: absolute; top: 0; left: 0;
+	  width: 11.46%; /* ratio between original image width */
+	  height: 0;  padding-bottom: 8.214%;  /* ratio box */
+	  background: url("https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/295716/1850011/XAHGTPvoErDUrJi/wst_wbih_tourkarte_pin_2016.png") no-repeat  top left transparent;
+	  background-size: 100% 100%;
+
+	  
+	  /* remove style and text */
+	  box-shadow: none;	  
+	  border: 0; outline: 0;
+	  text-indent: -1337em;		
+	}
+
+	.mapContainer .pin[data-lat][data-lon] {
+	  transform: translate(-50%, -70%);
+	}
+
+	.mapContainer .popover {
+	  color: #fff;
+	  background: #0248A0;
+	  padding: 8px;
+	}
+
+	.mapContainer .popover-title {
+		background: transparent;
+		border: 0;
+		padding: 0;
+		font-weight: bold;
+	}
+
+	.mapContainer .popover-content {
+		background: transparent;
+		border: 0;
+		padding: 0;
+	}
+
+	.mapContainer .right.popover .arrow {
+	  left: -12px;
+	}
+	.mapContainer .left.popover.arrow {right: -12px;}
+	.mapContainer .right.popover .arrow::after {
+		border-right-color: #0248A0;
+	}
+	.mapContainer .left.popover .arrow::after {
+	 	border-left-color: #0248A0;
+	}
+	
+	
+</style></head><body>
+<div class="container">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#karte" aria-controls="map" role="tab" data-toggle="tab">Karte</a>
+		</li>
+		<li role="presentation">
+			<a href="#liste" aria-controls="list" role="tab" data-toggle="tab">Liste</a>
+		</li>
+	</ul>
+
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="karte">
+			<div class="mapContainer"><!--<img class="map" src="http://www.weissblauimherzen.de/typo3conf/ext/f7_wst_template/Resources/Public/Images/tourstops/wst_wbih_2015_tour_kartefrei.png" data-src="https://s33.postimg.org/tzqqbnnlb/map.png"
+data-src="https://s33.postimg.org/9lbxqhqnj/map2.png">-->
+				
+				<button class="pin" data-lat="49.79383" data-lon="9.95008" data-toggle="popover" title="Würzburg" type="button" data-content="Was ist <b>Würzburg</b> denn für ein Ort?" data-html="true">Würzburg</button>
+
+				<button class="pin" data-toggle="popover" title="Freising" type="button" data-content="Was ist <b>Freising</b> denn für ein Ort?" data-html="true" data-lat="48.40086" data-lon="11.75043">Freising</button>
+
+				<button class="pin" data-toggle="popover" title="Salzburg" type="button" data-content="Was ist <b>Salzburg</b> denn für ein Ort?" data-html="true" data-lat="47.8095322" data-lon="13.027966">Salzburg</button>
+
+<button class="pin" data-toggle="popover" title="München" type="button" data-content="Was ist <b>München</b> denn für ein Ort?" data-html="true" data-lat="48.135355" data-lon="11.580233">München</button>
+
+				
+			</div>
+		</div>
+
+		<div role="tabpanel" class="tab-pane" id="liste">
+			<p title="Test &#013;New Line">Hier kommt die Liste hin.</p>
+		</div>
+	</div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script >
+$(function () {
+	$('[data-toggle="popover"]').popover({
+		placement: "auto right",
+		trigger: "focus"
+	});
+
+	$('[data-lat][data-lon]').each(function(){
+		var n = 50.56, o = 13.84, s = 47.27, w= 8.97;
+		var lat = parseFloat($(this).attr("data-lat"),10);
+		var lon = parseFloat($(this).attr("data-lon"),10);
+		
+		var top  =  100 - ((lat-s) / (n-s) * 100);
+		var left =  (lon-w) / (o-w) * 100; 
+		
+		//console.log($(this).text() + " - lat: " + lat + " , lon: " + lon);
+
+		$(this).css({
+			"top": top+"%",
+			"left": left+"%"			
+		})
+		
+	});
+	
+	
+	
+});
+
+
+//# sourceURL=pen.js
+</script>
+</body></html>

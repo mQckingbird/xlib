@@ -1,0 +1,10 @@
+ <select id="selectVehicle">
+       <option value="1" data-year="2011">Mazda</option>
+       <option value="2" data-year="2015">Honda</option>
+       <option value="3" data-year="2008">Mercedes</option>
+       <option value="4" data-year="2005">Toyota</option>
+  </select>
+
+$("#selectVehicle").change(function () {
+     alert($(this).find(':selected').data("year"));
+});

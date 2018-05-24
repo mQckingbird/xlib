@@ -1,0 +1,94 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/arianalynn/pen/qbmyRZ?depth=everything&order=popularity&page=8&q=icon&show_forks=false" />
+<link href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet' type='text/css'>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">
+<div style="position:fixed;z-index:10;font-family:sans-serif;padding:11px;background:rgba(0,0,0,0.5);color:white;font-size:11px;width:300px;word-break:break-word;line-height:18px;bottom:0;left:0;cursor:pointer"><a href="https://codepen.io/arianalynn" target="_blank" style="color:inherit;text-decoration:none;font-family:sans-serif"><span style="float:left;display:inline-block;font-size:30px;margin:7px 10px 0 4px">♥</span> Follow Me on Codepen to get more free snippets of html codes for the #dailyui challenge</a></div>-->
+
+<style class="cp-pen-styles">* {box-sizing: border-box;max-width: 100%;font-family: 'Gruppo', cursive;}
+html,body {height: 100%;margin: 0;padding: 0;background:rgb(240,240,240)}
+
+.menu-icon {width: 50px;height: 50px;position: fixed;top: 0;right: 0;margin: 10px 15px;transform:scale(0.8);padding: 0;cursor: pointer;z-index:20}
+.menu-bar {width: 50px;height: 5px;background: rgb(190,190,190);position: absolute;transition: all 0.3s;}
+.menu-bar1 {margin-top: 9px}
+.menu-bar2 {margin-top: 23px}
+.menu-bar3 {margin-top: 37px}
+.menu-icon.hover .menu-bar1 {-webkit-transform: rotate(45deg) scaleX(0.7);margin-top: 22px;}
+.menu-icon.hover .menu-bar2 {opacity: 0}
+.menu-icon.hover .menu-bar3 {-webkit-transform: rotate(-45deg) scaleX(0.7);margin-top: 22px;}
+
+.menu {width: 100%;height: 100%;display: -webkit-flex;display: flex;-webkit-flex-wrap: wrap;flex-wrap: wrap;}
+.menu-con {-webkit-flex-grow: 1;flex-basis: 0;flex-grow: 1;display: -webkit-flex;display: flex;-webkit-justify-content:space-around;position:relative;top:-100%;transition:all 0.5s}
+.menu-con p:before {content: ""; display: block;position:absolute;top:0;left:0;z-index:1;width:100%;height: 100%;opacity: 1;background: rgba(0,0,0,0);-webkit-transition: all 0.5s;transition: all 0.5s;}
+.menu-con:hover p:before {background: rgba(0,0,0,0.2)}
+.menu-con p {height:20px;-webkit-align-self:center;color:white;font-size:25px;z-index:2;cursor:pointer}
+@media screen and (max-width: 600px) {.menu-con {min-width:50%}}
+@media screen and (max-width: 350px) {.menu-con {min-width:100%}}</style></head><body>
+<div class="menu-icon" onclick="this.classList.toggle('hover');Drop(0)">
+	<div class="menu-bar menu-bar1"></div>
+	<div class="menu-bar menu-bar2"></div>
+	<div class="menu-bar menu-bar3"></div>
+</div>
+<div class="menu">
+	<div class="menu-con" style="background:IndianRed;"><p>HOME</p></div>
+  <div class="menu-con" style="background:rgb(160,160,170);"><p>GALLERY</p></div>  
+  <div class="menu-con" style="background:mediumseagreen;"><p>PRODUCTS</p></div> 
+  <div class="menu-con" style="background:teal;"><p>ABOUT</p></div> 
+  <div class="menu-con" style="background:rgb(70,70,70);"><p>CONTACT</p></div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >var open = false;
+
+function Drop(n) {
+	var i;
+	if (open == false) {
+		for (i = n; i < 5; i++) {if (window.CP.shouldStopExecution(1)){break;}
+			Drp(i)
+		}
+window.CP.exitedLoop(1);
+
+		open = true
+	} else if (open == true) {
+		for (i = n; i < 5; i++) {if (window.CP.shouldStopExecution(2)){break;}
+			Cls(i)
+		}
+window.CP.exitedLoop(2);
+
+		open = false
+	}
+}
+
+function Drp(n) {
+	var elem = document.getElementsByClassName("menu-con")[n];
+	var pos = -1 * window.innerHeight - n * 100;
+	var id = setInterval(frame, 5);
+
+	function frame() {
+		if (pos >= -10) {
+			clearInterval(id);
+			elem.style.top = 0 + 'px';
+		} else {
+			pos += 10;
+			elem.style.top = pos + 'px';
+		}
+	}
+}
+
+function Cls(n) {
+	var elems = document.getElementsByClassName("menu-con")[n];
+	var poss = 0;
+	var ids = setInterval(frames, 5);
+
+	function frames() {
+		if (poss <= -1 * window.innerHeight) {
+			clearInterval(ids);
+			elems.style.top = -1 * window.innerHeight + 'px';
+		} else {
+			poss += -7 - n * 2;
+			elems.style.top = poss + 'px';
+		}
+	}
+}
+//# sourceURL=pen.js
+</script>
+</body></html>

@@ -1,0 +1,1391 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/mimoduo/pen/wdqJXr" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">/* ================
+// Lights
+// ============= */
+.lights {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  height: 50%;
+  width: 100%;
+}
+.lights:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
+  -webkit-animation: fiddle 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: fiddle 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: -webkit-gradient(linear, left top, right top, color-stop(1%, #ff3c33), color-stop(2%, #ff4433), color-stop(3%, #ff4d33), color-stop(4%, #ff5633), color-stop(5%, #ff5e33), color-stop(6%, #ff6733), color-stop(7%, #ff7033), color-stop(8%, #ff7833), color-stop(9%, #ff8133), color-stop(10%, #ff8a33), color-stop(11%, #ff9233), color-stop(12%, #ff9b33), color-stop(13%, #ffa433), color-stop(14%, #ffac33), color-stop(15%, #ffb533), color-stop(16%, #ffbe33), color-stop(17%, #ffc633), color-stop(18%, #ffcf33), color-stop(19%, #ffd833), color-stop(20%, #ffe033), color-stop(21%, #ffe933), color-stop(22%, #fff233), color-stop(23%, #fffa33), color-stop(24%, #fbff33), color-stop(25%, #f2ff33), color-stop(26%, #eaff33), color-stop(27%, #e1ff33), color-stop(28%, #d8ff33), color-stop(29%, #d0ff33), color-stop(30%, #c7ff33), color-stop(31%, #beff33), color-stop(32%, #b6ff33), color-stop(33%, #adff33), color-stop(34%, #a4ff33), color-stop(35%, #9cff33), color-stop(36%, #93ff33), color-stop(37%, #8aff33), color-stop(38%, #82ff33), color-stop(39%, #79ff33), color-stop(40%, #70ff33), color-stop(41%, #68ff33), color-stop(42%, #5fff33), color-stop(43%, #56ff33), color-stop(44%, #4eff33), color-stop(45%, #45ff33), color-stop(46%, #3cff33), color-stop(47%, #34ff33), color-stop(48%, #33ff3b), color-stop(49%, #33ff44), color-stop(50%, #33ff4d), color-stop(51%, #33ff55), color-stop(52%, #33ff5e), color-stop(53%, #33ff67), color-stop(54%, #33ff6f), color-stop(55%, #33ff78), color-stop(56%, #33ff81), color-stop(57%, #33ff89), color-stop(58%, #33ff92), color-stop(59%, #33ff9b), color-stop(60%, #33ffa3), color-stop(61%, #33ffac), color-stop(62%, #33ffb5), color-stop(63%, #33ffbd), color-stop(64%, #33ffc6), color-stop(65%, #33ffcf), color-stop(66%, #33ffd7), color-stop(67%, #33ffe0), color-stop(68%, #33ffe9), color-stop(69%, #33fff1), color-stop(70%, #33fffa), color-stop(71%, #33fbff), color-stop(72%, #33f3ff), color-stop(73%, #33eaff), color-stop(74%, #33e1ff), color-stop(75%, #33d9ff), color-stop(76%, #33d0ff), color-stop(77%, #33c7ff), color-stop(78%, #33bfff), color-stop(79%, #33b6ff), color-stop(80%, #33adff), color-stop(81%, #33a5ff), color-stop(82%, #339cff), color-stop(83%, #3393ff), color-stop(84%, #338bff), color-stop(85%, #3382ff), color-stop(86%, #3379ff), color-stop(87%, #3371ff), color-stop(88%, #3368ff), color-stop(89%, #335fff), color-stop(90%, #3357ff), color-stop(91%, #334eff), color-stop(92%, #3345ff), color-stop(93%, #333dff), color-stop(94%, #3334ff), color-stop(95%, #3b33ff), color-stop(96%, #4333ff), color-stop(97%, #4c33ff), color-stop(98%, #5533ff), color-stop(99%, #5d33ff), to(#6633ff));
+  background: linear-gradient(to right, #ff3c33 1%, #ff4433 2%, #ff4d33 3%, #ff5633 4%, #ff5e33 5%, #ff6733 6%, #ff7033 7%, #ff7833 8%, #ff8133 9%, #ff8a33 10%, #ff9233 11%, #ff9b33 12%, #ffa433 13%, #ffac33 14%, #ffb533 15%, #ffbe33 16%, #ffc633 17%, #ffcf33 18%, #ffd833 19%, #ffe033 20%, #ffe933 21%, #fff233 22%, #fffa33 23%, #fbff33 24%, #f2ff33 25%, #eaff33 26%, #e1ff33 27%, #d8ff33 28%, #d0ff33 29%, #c7ff33 30%, #beff33 31%, #b6ff33 32%, #adff33 33%, #a4ff33 34%, #9cff33 35%, #93ff33 36%, #8aff33 37%, #82ff33 38%, #79ff33 39%, #70ff33 40%, #68ff33 41%, #5fff33 42%, #56ff33 43%, #4eff33 44%, #45ff33 45%, #3cff33 46%, #34ff33 47%, #33ff3b 48%, #33ff44 49%, #33ff4d 50%, #33ff55 51%, #33ff5e 52%, #33ff67 53%, #33ff6f 54%, #33ff78 55%, #33ff81 56%, #33ff89 57%, #33ff92 58%, #33ff9b 59%, #33ffa3 60%, #33ffac 61%, #33ffb5 62%, #33ffbd 63%, #33ffc6 64%, #33ffcf 65%, #33ffd7 66%, #33ffe0 67%, #33ffe9 68%, #33fff1 69%, #33fffa 70%, #33fbff 71%, #33f3ff 72%, #33eaff 73%, #33e1ff 74%, #33d9ff 75%, #33d0ff 76%, #33c7ff 77%, #33bfff 78%, #33b6ff 79%, #33adff 80%, #33a5ff 81%, #339cff 82%, #3393ff 83%, #338bff 84%, #3382ff 85%, #3379ff 86%, #3371ff 87%, #3368ff 88%, #335fff 89%, #3357ff 90%, #334eff 91%, #3345ff 92%, #333dff 93%, #3334ff 94%, #3b33ff 95%, #4333ff 96%, #4c33ff 97%, #5533ff 98%, #5d33ff 99%, #6633ff 100%);
+  -webkit-clip-path: polygon(0% 4%, 3.3333333333% 17%, 6.6666666667% 37%, 10% 8%, 13.3333333333% 15%, 16.6666666667% 28%, 20% 37%, 23.3333333333% 18%, 26.6666666667% 29%, 30% 17%, 33.3333333333% 24%, 36.6666666667% 13%, 40% 38%, 43.3333333333% 26%, 46.6666666667% 7%, 50% 3%, 53.3333333333% 38%, 56.6666666667% 10%, 60% 14%, 63.3333333333% 23%, 66.6666666667% 5%, 70% 37%, 73.3333333333% 42%, 76.6666666667% 47%, 80% 48%, 83.3333333333% 47%, 86.6666666667% 2%, 90% 44%, 93.3333333333% 20%, 96.6666666667% 44%, 100% 0, 100% 3%, 96.6666666667% 50%, 93.3333333333% 25%, 90% 49%, 86.6666666667% 8%, 83.3333333333% 54%, 80% 54%, 76.6666666667% 53%, 73.3333333333% 47%, 70% 41%, 66.6666666667% 12%, 63.3333333333% 27%, 60% 17%, 56.6666666667% 16%, 53.3333333333% 44%, 50% 10%, 46.6666666667% 13%, 43.3333333333% 31%, 40% 44%, 36.6666666667% 17%, 33.3333333333% 31%, 30% 22%, 26.6666666667% 36%, 23.3333333333% 22%, 20% 43%, 16.6666666667% 32%, 13.3333333333% 22%, 10% 11%, 6.6666666667% 43%, 3.3333333333% 20%, 0% 7%);
+          clip-path: polygon(0% 4%, 3.3333333333% 17%, 6.6666666667% 37%, 10% 8%, 13.3333333333% 15%, 16.6666666667% 28%, 20% 37%, 23.3333333333% 18%, 26.6666666667% 29%, 30% 17%, 33.3333333333% 24%, 36.6666666667% 13%, 40% 38%, 43.3333333333% 26%, 46.6666666667% 7%, 50% 3%, 53.3333333333% 38%, 56.6666666667% 10%, 60% 14%, 63.3333333333% 23%, 66.6666666667% 5%, 70% 37%, 73.3333333333% 42%, 76.6666666667% 47%, 80% 48%, 83.3333333333% 47%, 86.6666666667% 2%, 90% 44%, 93.3333333333% 20%, 96.6666666667% 44%, 100% 0, 100% 3%, 96.6666666667% 50%, 93.3333333333% 25%, 90% 49%, 86.6666666667% 8%, 83.3333333333% 54%, 80% 54%, 76.6666666667% 53%, 73.3333333333% 47%, 70% 41%, 66.6666666667% 12%, 63.3333333333% 27%, 60% 17%, 56.6666666667% 16%, 53.3333333333% 44%, 50% 10%, 46.6666666667% 13%, 43.3333333333% 31%, 40% 44%, 36.6666666667% 17%, 33.3333333333% 31%, 30% 22%, 26.6666666667% 36%, 23.3333333333% 22%, 20% 43%, 16.6666666667% 32%, 13.3333333333% 22%, 10% 11%, 6.6666666667% 43%, 3.3333333333% 20%, 0% 7%);
+}
+
+@-webkit-keyframes fiddle {
+  50% {
+    -webkit-clip-path: polygon(0% 15%, 3.3333333333% 37%, 6.6666666667% 17%, 10% 28%, 13.3333333333% 6%, 16.6666666667% 1%, 20% 47%, 23.3333333333% 17%, 26.6666666667% 8%, 30% 13%, 33.3333333333% 23%, 36.6666666667% 32%, 40% 22%, 43.3333333333% 35%, 46.6666666667% 34%, 50% 29%, 53.3333333333% 33%, 56.6666666667% 17%, 60% 12%, 63.3333333333% 5%, 66.6666666667% 41%, 70% 41%, 73.3333333333% 19%, 76.6666666667% 14%, 80% 35%, 83.3333333333% 19%, 86.6666666667% 11%, 90% 50%, 93.3333333333% 24%, 96.6666666667% 34%, 100% 0, 100% 6%, 96.6666666667% 40%, 93.3333333333% 29%, 90% 57%, 86.6666666667% 17%, 83.3333333333% 24%, 80% 42%, 76.6666666667% 20%, 73.3333333333% 26%, 70% 45%, 66.6666666667% 48%, 63.3333333333% 10%, 60% 16%, 56.6666666667% 24%, 53.3333333333% 39%, 50% 35%, 46.6666666667% 40%, 43.3333333333% 39%, 40% 28%, 36.6666666667% 35%, 33.3333333333% 28%, 30% 20%, 26.6666666667% 15%, 23.3333333333% 20%, 20% 52%, 16.6666666667% 4%, 13.3333333333% 11%, 10% 31%, 6.6666666667% 23%, 3.3333333333% 43%, 0% 18%);
+            clip-path: polygon(0% 15%, 3.3333333333% 37%, 6.6666666667% 17%, 10% 28%, 13.3333333333% 6%, 16.6666666667% 1%, 20% 47%, 23.3333333333% 17%, 26.6666666667% 8%, 30% 13%, 33.3333333333% 23%, 36.6666666667% 32%, 40% 22%, 43.3333333333% 35%, 46.6666666667% 34%, 50% 29%, 53.3333333333% 33%, 56.6666666667% 17%, 60% 12%, 63.3333333333% 5%, 66.6666666667% 41%, 70% 41%, 73.3333333333% 19%, 76.6666666667% 14%, 80% 35%, 83.3333333333% 19%, 86.6666666667% 11%, 90% 50%, 93.3333333333% 24%, 96.6666666667% 34%, 100% 0, 100% 6%, 96.6666666667% 40%, 93.3333333333% 29%, 90% 57%, 86.6666666667% 17%, 83.3333333333% 24%, 80% 42%, 76.6666666667% 20%, 73.3333333333% 26%, 70% 45%, 66.6666666667% 48%, 63.3333333333% 10%, 60% 16%, 56.6666666667% 24%, 53.3333333333% 39%, 50% 35%, 46.6666666667% 40%, 43.3333333333% 39%, 40% 28%, 36.6666666667% 35%, 33.3333333333% 28%, 30% 20%, 26.6666666667% 15%, 23.3333333333% 20%, 20% 52%, 16.6666666667% 4%, 13.3333333333% 11%, 10% 31%, 6.6666666667% 23%, 3.3333333333% 43%, 0% 18%);
+  }
+}
+
+@keyframes fiddle {
+  50% {
+    -webkit-clip-path: polygon(0% 15%, 3.3333333333% 37%, 6.6666666667% 17%, 10% 28%, 13.3333333333% 6%, 16.6666666667% 1%, 20% 47%, 23.3333333333% 17%, 26.6666666667% 8%, 30% 13%, 33.3333333333% 23%, 36.6666666667% 32%, 40% 22%, 43.3333333333% 35%, 46.6666666667% 34%, 50% 29%, 53.3333333333% 33%, 56.6666666667% 17%, 60% 12%, 63.3333333333% 5%, 66.6666666667% 41%, 70% 41%, 73.3333333333% 19%, 76.6666666667% 14%, 80% 35%, 83.3333333333% 19%, 86.6666666667% 11%, 90% 50%, 93.3333333333% 24%, 96.6666666667% 34%, 100% 0, 100% 6%, 96.6666666667% 40%, 93.3333333333% 29%, 90% 57%, 86.6666666667% 17%, 83.3333333333% 24%, 80% 42%, 76.6666666667% 20%, 73.3333333333% 26%, 70% 45%, 66.6666666667% 48%, 63.3333333333% 10%, 60% 16%, 56.6666666667% 24%, 53.3333333333% 39%, 50% 35%, 46.6666666667% 40%, 43.3333333333% 39%, 40% 28%, 36.6666666667% 35%, 33.3333333333% 28%, 30% 20%, 26.6666666667% 15%, 23.3333333333% 20%, 20% 52%, 16.6666666667% 4%, 13.3333333333% 11%, 10% 31%, 6.6666666667% 23%, 3.3333333333% 43%, 0% 18%);
+            clip-path: polygon(0% 15%, 3.3333333333% 37%, 6.6666666667% 17%, 10% 28%, 13.3333333333% 6%, 16.6666666667% 1%, 20% 47%, 23.3333333333% 17%, 26.6666666667% 8%, 30% 13%, 33.3333333333% 23%, 36.6666666667% 32%, 40% 22%, 43.3333333333% 35%, 46.6666666667% 34%, 50% 29%, 53.3333333333% 33%, 56.6666666667% 17%, 60% 12%, 63.3333333333% 5%, 66.6666666667% 41%, 70% 41%, 73.3333333333% 19%, 76.6666666667% 14%, 80% 35%, 83.3333333333% 19%, 86.6666666667% 11%, 90% 50%, 93.3333333333% 24%, 96.6666666667% 34%, 100% 0, 100% 6%, 96.6666666667% 40%, 93.3333333333% 29%, 90% 57%, 86.6666666667% 17%, 83.3333333333% 24%, 80% 42%, 76.6666666667% 20%, 73.3333333333% 26%, 70% 45%, 66.6666666667% 48%, 63.3333333333% 10%, 60% 16%, 56.6666666667% 24%, 53.3333333333% 39%, 50% 35%, 46.6666666667% 40%, 43.3333333333% 39%, 40% 28%, 36.6666666667% 35%, 33.3333333333% 28%, 30% 20%, 26.6666666667% 15%, 23.3333333333% 20%, 20% 52%, 16.6666666667% 4%, 13.3333333333% 11%, 10% 31%, 6.6666666667% 23%, 3.3333333333% 43%, 0% 18%);
+  }
+}
+.light {
+  position: absolute;
+  border-radius: 45%;
+  mix-blend-mode: soft-light;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+.light:nth-child(1) {
+  top: 4%;
+  left: 0%;
+  height: 7.25vmin;
+  width: 7.25vmin;
+  -webkit-animation: rearrange-1 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-1 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #4e33ff, #9cff33 100%);
+}
+.light:nth-child(2) {
+  top: 17%;
+  left: 3.3333333333%;
+  height: 5.675vmin;
+  width: 5.675vmin;
+  -webkit-animation: rearrange-2 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-2 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ddff33, #ccff33 100%);
+}
+.light:nth-child(3) {
+  top: 37%;
+  left: 6.6666666667%;
+  height: 9.275vmin;
+  width: 9.275vmin;
+  -webkit-animation: rearrange-3 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-3 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #3358ff, #52ff33 100%);
+}
+.light:nth-child(4) {
+  top: 8%;
+  left: 10%;
+  height: 2.6vmin;
+  width: 2.6vmin;
+  -webkit-animation: rearrange-4 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-4 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #fff533, #3377ff 100%);
+}
+.light:nth-child(5) {
+  top: 15%;
+  left: 13.3333333333%;
+  height: 3.725vmin;
+  width: 3.725vmin;
+  -webkit-animation: rearrange-5 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-5 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ff8533, #3363ff 100%);
+}
+.light:nth-child(6) {
+  top: 28%;
+  left: 16.6666666667%;
+  height: 7.925vmin;
+  width: 7.925vmin;
+  -webkit-animation: rearrange-6 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-6 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #33bbff, #ffd633 100%);
+}
+.light:nth-child(7) {
+  top: 37%;
+  left: 20%;
+  height: 3.65vmin;
+  width: 3.65vmin;
+  -webkit-animation: rearrange-7 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-7 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ffff33, #333aff 100%);
+}
+.light:nth-child(8) {
+  top: 18%;
+  left: 23.3333333333%;
+  height: 5.45vmin;
+  width: 5.45vmin;
+  -webkit-animation: rearrange-8 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-8 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ffbe33, #a0ff33 100%);
+}
+.light:nth-child(9) {
+  top: 29%;
+  left: 26.6666666667%;
+  height: 6.725vmin;
+  width: 6.725vmin;
+  -webkit-animation: rearrange-9 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-9 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #33ffff, #ff7733 100%);
+}
+.light:nth-child(10) {
+  top: 17%;
+  left: 30%;
+  height: 6.95vmin;
+  width: 6.95vmin;
+  -webkit-animation: rearrange-10 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-10 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #33ebff, #33ff63 100%);
+}
+.light:nth-child(11) {
+  top: 24%;
+  left: 33.3333333333%;
+  height: 4.55vmin;
+  width: 4.55vmin;
+  -webkit-animation: rearrange-11 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-11 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #33ff41, #55ff33 100%);
+}
+.light:nth-child(12) {
+  top: 13%;
+  left: 36.6666666667%;
+  height: 5.975vmin;
+  width: 5.975vmin;
+  -webkit-animation: rearrange-12 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-12 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ff9c33, #33ccff 100%);
+}
+.light:nth-child(13) {
+  top: 38%;
+  left: 40%;
+  height: 5.75vmin;
+  width: 5.75vmin;
+  -webkit-animation: rearrange-13 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-13 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #5233ff, #ff8833 100%);
+}
+.light:nth-child(14) {
+  top: 26%;
+  left: 43.3333333333%;
+  height: 8.975vmin;
+  width: 8.975vmin;
+  -webkit-animation: rearrange-14 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-14 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ff4b33, #92ff33 100%);
+}
+.light:nth-child(15) {
+  top: 7%;
+  left: 46.6666666667%;
+  height: 3.35vmin;
+  width: 3.35vmin;
+  -webkit-animation: rearrange-15 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-15 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ff4133, #3392ff 100%);
+}
+.light:nth-child(16) {
+  top: 3%;
+  left: 50%;
+  height: 7.775vmin;
+  width: 7.775vmin;
+  -webkit-animation: rearrange-16 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-16 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #3336ff, #ff9c33 100%);
+}
+.light:nth-child(17) {
+  top: 38%;
+  left: 53.3333333333%;
+  height: 9.35vmin;
+  width: 9.35vmin;
+  -webkit-animation: rearrange-17 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-17 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #33f1ff, #ffad33 100%);
+}
+.light:nth-child(18) {
+  top: 10%;
+  left: 56.6666666667%;
+  height: 2.675vmin;
+  width: 2.675vmin;
+  -webkit-animation: rearrange-18 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-18 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ffbe33, #33a0ff 100%);
+}
+.light:nth-child(19) {
+  top: 14%;
+  left: 60%;
+  height: 4.25vmin;
+  width: 4.25vmin;
+  -webkit-animation: rearrange-19 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-19 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #3a33ff, #33ff7e 100%);
+}
+.light:nth-child(20) {
+  top: 23%;
+  left: 63.3333333333%;
+  height: 4.25vmin;
+  width: 4.25vmin;
+  -webkit-animation: rearrange-20 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-20 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #5cff33, #33fcff 100%);
+}
+.light:nth-child(21) {
+  top: 5%;
+  left: 66.6666666667%;
+  height: 7.775vmin;
+  width: 7.775vmin;
+  -webkit-animation: rearrange-21 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-21 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #3358ff, #338bff 100%);
+}
+.light:nth-child(22) {
+  top: 37%;
+  left: 70%;
+  height: 6.05vmin;
+  width: 6.05vmin;
+  -webkit-animation: rearrange-22 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-22 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #33ffcc, #33ff8f 100%);
+}
+.light:nth-child(23) {
+  top: 42%;
+  left: 73.3333333333%;
+  height: 5.975vmin;
+  width: 5.975vmin;
+  -webkit-animation: rearrange-23 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-23 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #33ff7e, #33ffe0 100%);
+}
+.light:nth-child(24) {
+  top: 47%;
+  left: 76.6666666667%;
+  height: 8.6vmin;
+  width: 8.6vmin;
+  -webkit-animation: rearrange-24 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-24 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ffff33, #33d3ff 100%);
+}
+.light:nth-child(25) {
+  top: 48%;
+  left: 80%;
+  height: 3.425vmin;
+  width: 3.425vmin;
+  -webkit-animation: rearrange-25 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-25 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #33ff8f, #ff8533 100%);
+}
+.light:nth-child(26) {
+  top: 47%;
+  left: 83.3333333333%;
+  height: 7.4vmin;
+  width: 7.4vmin;
+  -webkit-animation: rearrange-26 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-26 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #33ffd3, #33ffe4 100%);
+}
+.light:nth-child(27) {
+  top: 2%;
+  left: 86.6666666667%;
+  height: 2.9vmin;
+  width: 2.9vmin;
+  -webkit-animation: rearrange-27 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-27 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #3aff33, #ff7e33 100%);
+}
+.light:nth-child(28) {
+  top: 44%;
+  left: 90%;
+  height: 5.075vmin;
+  width: 5.075vmin;
+  -webkit-animation: rearrange-28 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-28 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ff4433, #ff9633 100%);
+}
+.light:nth-child(29) {
+  top: 20%;
+  left: 93.3333333333%;
+  height: 8.225vmin;
+  width: 8.225vmin;
+  -webkit-animation: rearrange-29 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-29 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #ff9233, #ff5833 100%);
+}
+.light:nth-child(30) {
+  top: 44%;
+  left: 96.6666666667%;
+  height: 6.425vmin;
+  width: 6.425vmin;
+  -webkit-animation: rearrange-30 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+          animation: rearrange-30 15s infinite cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  background: radial-gradient(ellipse at center, #33ffc5, #33eeff 100%);
+}
+
+@-webkit-keyframes rearrange-1 {
+  50% {
+    top: 15%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+
+@keyframes rearrange-1 {
+  50% {
+    top: 15%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-2 {
+  50% {
+    top: 37%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-2 {
+  50% {
+    top: 37%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-3 {
+  50% {
+    top: 17%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-3 {
+  50% {
+    top: 17%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-4 {
+  50% {
+    top: 28%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-4 {
+  50% {
+    top: 28%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-5 {
+  50% {
+    top: 6%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-5 {
+  50% {
+    top: 6%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-6 {
+  50% {
+    top: 1%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-6 {
+  50% {
+    top: 1%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-7 {
+  50% {
+    top: 47%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-7 {
+  50% {
+    top: 47%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-8 {
+  50% {
+    top: 17%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-8 {
+  50% {
+    top: 17%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-9 {
+  50% {
+    top: 8%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-9 {
+  50% {
+    top: 8%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-10 {
+  50% {
+    top: 13%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-10 {
+  50% {
+    top: 13%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-11 {
+  50% {
+    top: 23%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-11 {
+  50% {
+    top: 23%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-12 {
+  50% {
+    top: 32%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-12 {
+  50% {
+    top: 32%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-13 {
+  50% {
+    top: 22%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-13 {
+  50% {
+    top: 22%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-14 {
+  50% {
+    top: 35%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-14 {
+  50% {
+    top: 35%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-15 {
+  50% {
+    top: 34%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-15 {
+  50% {
+    top: 34%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-16 {
+  50% {
+    top: 29%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-16 {
+  50% {
+    top: 29%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-17 {
+  50% {
+    top: 33%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-17 {
+  50% {
+    top: 33%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-18 {
+  50% {
+    top: 17%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-18 {
+  50% {
+    top: 17%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-19 {
+  50% {
+    top: 12%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-19 {
+  50% {
+    top: 12%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-20 {
+  50% {
+    top: 5%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-20 {
+  50% {
+    top: 5%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-21 {
+  50% {
+    top: 41%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-21 {
+  50% {
+    top: 41%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-22 {
+  50% {
+    top: 41%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-22 {
+  50% {
+    top: 41%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-23 {
+  50% {
+    top: 19%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-23 {
+  50% {
+    top: 19%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-24 {
+  50% {
+    top: 14%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-24 {
+  50% {
+    top: 14%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-25 {
+  50% {
+    top: 35%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-25 {
+  50% {
+    top: 35%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-26 {
+  50% {
+    top: 19%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-26 {
+  50% {
+    top: 19%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-27 {
+  50% {
+    top: 11%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-27 {
+  50% {
+    top: 11%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-28 {
+  50% {
+    top: 50%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-28 {
+  50% {
+    top: 50%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-29 {
+  50% {
+    top: 24%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-29 {
+  50% {
+    top: 24%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@-webkit-keyframes rearrange-30 {
+  50% {
+    top: 34%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+@keyframes rearrange-30 {
+  50% {
+    top: 34%;
+    -webkit-box-shadow: 0 0 1em 0 #fff;
+            box-shadow: 0 0 1em 0 #fff;
+  }
+}
+.bulb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 150%;
+  width: 150%;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+}
+.light:nth-child(1) .bulb {
+  -webkit-animation: bubble 4s 0.325s infinite;
+          animation: bubble 4s 0.325s infinite;
+  background: radial-gradient(ellipse at center, #ffaa33, #33ffc2 100%);
+}
+.light:nth-child(1) .bulb:before {
+  -webkit-animation-delay: 0.325s;
+          animation-delay: 0.325s;
+  background: radial-gradient(ellipse at center, #33fff1, #81ff33 100%);
+}
+.light:nth-child(1) .bulb:after {
+  -webkit-animation-delay: 0.325s;
+          animation-delay: 0.325s;
+  background: radial-gradient(ellipse at center, #ff5233, #ffbe33 100%);
+}
+.light:nth-child(2) .bulb {
+  -webkit-animation: bubble 4s 0.55s infinite;
+          animation: bubble 4s 0.55s infinite;
+  background: radial-gradient(ellipse at center, #337eff, #33bbff 100%);
+}
+.light:nth-child(2) .bulb:before {
+  -webkit-animation-delay: 0.55s;
+          animation-delay: 0.55s;
+  background: radial-gradient(ellipse at center, #3dff33, #ff5533 100%);
+}
+.light:nth-child(2) .bulb:after {
+  -webkit-animation-delay: 0.55s;
+          animation-delay: 0.55s;
+  background: radial-gradient(ellipse at center, #33ff70, #33cfff 100%);
+}
+.light:nth-child(3) .bulb {
+  -webkit-animation: bubble 4s 2.1s infinite;
+          animation: bubble 4s 2.1s infinite;
+  background: radial-gradient(ellipse at center, #ffb133, #44ff33 100%);
+}
+.light:nth-child(3) .bulb:before {
+  -webkit-animation-delay: 2.1s;
+          animation-delay: 2.1s;
+  background: radial-gradient(ellipse at center, #33ff9c, #ff6d33 100%);
+}
+.light:nth-child(3) .bulb:after {
+  -webkit-animation-delay: 2.1s;
+          animation-delay: 2.1s;
+  background: radial-gradient(ellipse at center, #33ff8b, #33fff1 100%);
+}
+.light:nth-child(4) .bulb {
+  -webkit-animation: bubble 4s 1.975s infinite;
+          animation: bubble 4s 1.975s infinite;
+  background: radial-gradient(ellipse at center, #ffeb33, #88ff33 100%);
+}
+.light:nth-child(4) .bulb:before {
+  -webkit-animation-delay: 1.975s;
+          animation-delay: 1.975s;
+  background: radial-gradient(ellipse at center, #ffd633, #ff3a33 100%);
+}
+.light:nth-child(4) .bulb:after {
+  -webkit-animation-delay: 1.975s;
+          animation-delay: 1.975s;
+  background: radial-gradient(ellipse at center, #33ff3d, #ff8533 100%);
+}
+.light:nth-child(5) .bulb {
+  -webkit-animation: bubble 4s 0.925s infinite;
+          animation: bubble 4s 0.925s infinite;
+  background: radial-gradient(ellipse at center, #ffc533, #ffcf33 100%);
+}
+.light:nth-child(5) .bulb:before {
+  -webkit-animation-delay: 0.925s;
+          animation-delay: 0.925s;
+  background: radial-gradient(ellipse at center, #33ffeb, #33ff36 100%);
+}
+.light:nth-child(5) .bulb:after {
+  -webkit-animation-delay: 0.925s;
+          animation-delay: 0.925s;
+  background: radial-gradient(ellipse at center, #33ffcf, #ff7e33 100%);
+}
+.light:nth-child(6) .bulb {
+  -webkit-animation: bubble 4s 0.825s infinite;
+          animation: bubble 4s 0.825s infinite;
+  background: radial-gradient(ellipse at center, #33ff4e, #3385ff 100%);
+}
+.light:nth-child(6) .bulb:before {
+  -webkit-animation-delay: 0.825s;
+          animation-delay: 0.825s;
+  background: radial-gradient(ellipse at center, #33f5ff, #33ff44 100%);
+}
+.light:nth-child(6) .bulb:after {
+  -webkit-animation-delay: 0.825s;
+          animation-delay: 0.825s;
+  background: radial-gradient(ellipse at center, #55ff33, #ff8833 100%);
+}
+.light:nth-child(7) .bulb {
+  -webkit-animation: bubble 4s 1.725s infinite;
+          animation: bubble 4s 1.725s infinite;
+  background: radial-gradient(ellipse at center, #52ff33, #96ff33 100%);
+}
+.light:nth-child(7) .bulb:before {
+  -webkit-animation-delay: 1.725s;
+          animation-delay: 1.725s;
+  background: radial-gradient(ellipse at center, #ffa333, #3377ff 100%);
+}
+.light:nth-child(7) .bulb:after {
+  -webkit-animation-delay: 1.725s;
+          animation-delay: 1.725s;
+  background: radial-gradient(ellipse at center, #3aff33, #36ff33 100%);
+}
+.light:nth-child(8) .bulb {
+  -webkit-animation: bubble 4s 2.05s infinite;
+          animation: bubble 4s 2.05s infinite;
+  background: radial-gradient(ellipse at center, #3369ff, #33fff8 100%);
+}
+.light:nth-child(8) .bulb:before {
+  -webkit-animation-delay: 2.05s;
+          animation-delay: 2.05s;
+  background: radial-gradient(ellipse at center, #4e33ff, #33ffbe 100%);
+}
+.light:nth-child(8) .bulb:after {
+  -webkit-animation-delay: 2.05s;
+          animation-delay: 2.05s;
+  background: radial-gradient(ellipse at center, #33ffcc, #33ebff 100%);
+}
+.light:nth-child(9) .bulb {
+  -webkit-animation: bubble 4s 1.3s infinite;
+          animation: bubble 4s 1.3s infinite;
+  background: radial-gradient(ellipse at center, #c5ff33, #88ff33 100%);
+}
+.light:nth-child(9) .bulb:before {
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+  background: radial-gradient(ellipse at center, #6333ff, #33fff8 100%);
+}
+.light:nth-child(9) .bulb:after {
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+  background: radial-gradient(ellipse at center, #33ff81, #ff4133 100%);
+}
+.light:nth-child(10) .bulb {
+  -webkit-animation: bubble 4s 1.425s infinite;
+          animation: bubble 4s 1.425s infinite;
+  background: radial-gradient(ellipse at center, #33ffaa, #3374ff 100%);
+}
+.light:nth-child(10) .bulb:before {
+  -webkit-animation-delay: 1.425s;
+          animation-delay: 1.425s;
+  background: radial-gradient(ellipse at center, #92ff33, #e4ff33 100%);
+}
+.light:nth-child(10) .bulb:after {
+  -webkit-animation-delay: 1.425s;
+          animation-delay: 1.425s;
+  background: radial-gradient(ellipse at center, #8fff33, #33ff3d 100%);
+}
+.light:nth-child(11) .bulb {
+  -webkit-animation: bubble 4s 2.325s infinite;
+          animation: bubble 4s 2.325s infinite;
+  background: radial-gradient(ellipse at center, #3352ff, #9cff33 100%);
+}
+.light:nth-child(11) .bulb:before {
+  -webkit-animation-delay: 2.325s;
+          animation-delay: 2.325s;
+  background: radial-gradient(ellipse at center, #333aff, #ff9233 100%);
+}
+.light:nth-child(11) .bulb:after {
+  -webkit-animation-delay: 2.325s;
+          animation-delay: 2.325s;
+  background: radial-gradient(ellipse at center, #3399ff, #33f5ff 100%);
+}
+.light:nth-child(12) .bulb {
+  -webkit-animation: bubble 4s 0.75s infinite;
+          animation: bubble 4s 0.75s infinite;
+  background: radial-gradient(ellipse at center, #33c9ff, #33fff5 100%);
+}
+.light:nth-child(12) .bulb:before {
+  -webkit-animation-delay: 0.75s;
+          animation-delay: 0.75s;
+  background: radial-gradient(ellipse at center, #333dff, #4733ff 100%);
+}
+.light:nth-child(12) .bulb:after {
+  -webkit-animation-delay: 0.75s;
+          animation-delay: 0.75s;
+  background: radial-gradient(ellipse at center, #74ff33, #eeff33 100%);
+}
+.light:nth-child(13) .bulb {
+  -webkit-animation: bubble 4s 2.025s infinite;
+          animation: bubble 4s 2.025s infinite;
+  background: radial-gradient(ellipse at center, #85ff33, #ff5233 100%);
+}
+.light:nth-child(13) .bulb:before {
+  -webkit-animation-delay: 2.025s;
+          animation-delay: 2.025s;
+  background: radial-gradient(ellipse at center, #33ff7a, #99ff33 100%);
+}
+.light:nth-child(13) .bulb:after {
+  -webkit-animation-delay: 2.025s;
+          animation-delay: 2.025s;
+  background: radial-gradient(ellipse at center, #33ff8f, #ffaa33 100%);
+}
+.light:nth-child(14) .bulb {
+  -webkit-animation: bubble 4s 0.675s infinite;
+          animation: bubble 4s 0.675s infinite;
+  background: radial-gradient(ellipse at center, #33ff6d, #33ccff 100%);
+}
+.light:nth-child(14) .bulb:before {
+  -webkit-animation-delay: 0.675s;
+          animation-delay: 0.675s;
+  background: radial-gradient(ellipse at center, #f1ff33, #33ff69 100%);
+}
+.light:nth-child(14) .bulb:after {
+  -webkit-animation-delay: 0.675s;
+          animation-delay: 0.675s;
+  background: radial-gradient(ellipse at center, #33ff88, #70ff33 100%);
+}
+.light:nth-child(15) .bulb {
+  -webkit-animation: bubble 4s 2.475s infinite;
+          animation: bubble 4s 2.475s infinite;
+  background: radial-gradient(ellipse at center, #ff6333, #cfff33 100%);
+}
+.light:nth-child(15) .bulb:before {
+  -webkit-animation-delay: 2.475s;
+          animation-delay: 2.475s;
+  background: radial-gradient(ellipse at center, #ff6333, #338bff 100%);
+}
+.light:nth-child(15) .bulb:after {
+  -webkit-animation-delay: 2.475s;
+          animation-delay: 2.475s;
+  background: radial-gradient(ellipse at center, #f5ff33, #33ffc2 100%);
+}
+.light:nth-child(16) .bulb {
+  -webkit-animation: bubble 4s 0.675s infinite;
+          animation: bubble 4s 0.675s infinite;
+  background: radial-gradient(ellipse at center, #ff6d33, #5f33ff 100%);
+}
+.light:nth-child(16) .bulb:before {
+  -webkit-animation-delay: 0.675s;
+          animation-delay: 0.675s;
+  background: radial-gradient(ellipse at center, #fff133, #33ffe7 100%);
+}
+.light:nth-child(16) .bulb:after {
+  -webkit-animation-delay: 0.675s;
+          animation-delay: 0.675s;
+  background: radial-gradient(ellipse at center, #ff3d33, #338fff 100%);
+}
+.light:nth-child(17) .bulb {
+  -webkit-animation: bubble 4s 1.8s infinite;
+          animation: bubble 4s 1.8s infinite;
+  background: radial-gradient(ellipse at center, #33c5ff, #4433ff 100%);
+}
+.light:nth-child(17) .bulb:before {
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+  background: radial-gradient(ellipse at center, #4433ff, #ffeb33 100%);
+}
+.light:nth-child(17) .bulb:after {
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+  background: radial-gradient(ellipse at center, #fcff33, #3633ff 100%);
+}
+.light:nth-child(18) .bulb {
+  -webkit-animation: bubble 4s 0.275s infinite;
+          animation: bubble 4s 0.275s infinite;
+  background: radial-gradient(ellipse at center, #ff5c33, #33ff8f 100%);
+}
+.light:nth-child(18) .bulb:before {
+  -webkit-animation-delay: 0.275s;
+          animation-delay: 0.275s;
+  background: radial-gradient(ellipse at center, #33ff81, #3352ff 100%);
+}
+.light:nth-child(18) .bulb:after {
+  -webkit-animation-delay: 0.275s;
+          animation-delay: 0.275s;
+  background: radial-gradient(ellipse at center, #33ddff, #33ffa0 100%);
+}
+.light:nth-child(19) .bulb {
+  -webkit-animation: bubble 4s 0.375s infinite;
+          animation: bubble 4s 0.375s infinite;
+  background: radial-gradient(ellipse at center, #d6ff33, #33a0ff 100%);
+}
+.light:nth-child(19) .bulb:before {
+  -webkit-animation-delay: 0.375s;
+          animation-delay: 0.375s;
+  background: radial-gradient(ellipse at center, #ffda33, #33e0ff 100%);
+}
+.light:nth-child(19) .bulb:after {
+  -webkit-animation-delay: 0.375s;
+          animation-delay: 0.375s;
+  background: radial-gradient(ellipse at center, #eeff33, #63ff33 100%);
+}
+.light:nth-child(20) .bulb {
+  -webkit-animation: bubble 4s 2.125s infinite;
+          animation: bubble 4s 2.125s infinite;
+  background: radial-gradient(ellipse at center, #33ffff, #ff8533 100%);
+}
+.light:nth-child(20) .bulb:before {
+  -webkit-animation-delay: 2.125s;
+          animation-delay: 2.125s;
+  background: radial-gradient(ellipse at center, #3385ff, #333dff 100%);
+}
+.light:nth-child(20) .bulb:after {
+  -webkit-animation-delay: 2.125s;
+          animation-delay: 2.125s;
+  background: radial-gradient(ellipse at center, #33ffb8, #ffeb33 100%);
+}
+.light:nth-child(21) .bulb {
+  -webkit-animation: bubble 4s 0.6s infinite;
+          animation: bubble 4s 0.6s infinite;
+  background: radial-gradient(ellipse at center, #ff3d33, #ff7433 100%);
+}
+.light:nth-child(21) .bulb:before {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+  background: radial-gradient(ellipse at center, #ff7e33, #33ffbe 100%);
+}
+.light:nth-child(21) .bulb:after {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+  background: radial-gradient(ellipse at center, #3385ff, #ffc933 100%);
+}
+.light:nth-child(22) .bulb {
+  -webkit-animation: bubble 4s 0.725s infinite;
+          animation: bubble 4s 0.725s infinite;
+  background: radial-gradient(ellipse at center, #5cff33, #33e7ff 100%);
+}
+.light:nth-child(22) .bulb:before {
+  -webkit-animation-delay: 0.725s;
+          animation-delay: 0.725s;
+  background: radial-gradient(ellipse at center, #3374ff, #ebff33 100%);
+}
+.light:nth-child(22) .bulb:after {
+  -webkit-animation-delay: 0.725s;
+          animation-delay: 0.725s;
+  background: radial-gradient(ellipse at center, #33ffc5, #e4ff33 100%);
+}
+.light:nth-child(23) .bulb {
+  -webkit-animation: bubble 4s 0.725s infinite;
+          animation: bubble 4s 0.725s infinite;
+  background: radial-gradient(ellipse at center, #33ff7a, #ffaa33 100%);
+}
+.light:nth-child(23) .bulb:before {
+  -webkit-animation-delay: 0.725s;
+          animation-delay: 0.725s;
+  background: radial-gradient(ellipse at center, #88ff33, #3aff33 100%);
+}
+.light:nth-child(23) .bulb:after {
+  -webkit-animation-delay: 0.725s;
+          animation-delay: 0.725s;
+  background: radial-gradient(ellipse at center, #33beff, #33ffee 100%);
+}
+.light:nth-child(24) .bulb {
+  -webkit-animation: bubble 4s 2.175s infinite;
+          animation: bubble 4s 2.175s infinite;
+  background: radial-gradient(ellipse at center, #4b33ff, #ffbe33 100%);
+}
+.light:nth-child(24) .bulb:before {
+  -webkit-animation-delay: 2.175s;
+          animation-delay: 2.175s;
+  background: radial-gradient(ellipse at center, #ffe433, #6dff33 100%);
+}
+.light:nth-child(24) .bulb:after {
+  -webkit-animation-delay: 2.175s;
+          animation-delay: 2.175s;
+  background: radial-gradient(ellipse at center, #c9ff33, #33ff96 100%);
+}
+.light:nth-child(25) .bulb {
+  -webkit-animation: bubble 4s 1.125s infinite;
+          animation: bubble 4s 1.125s infinite;
+  background: radial-gradient(ellipse at center, #33ff77, #33fff5 100%);
+}
+.light:nth-child(25) .bulb:before {
+  -webkit-animation-delay: 1.125s;
+          animation-delay: 1.125s;
+  background: radial-gradient(ellipse at center, #5233ff, #5833ff 100%);
+}
+.light:nth-child(25) .bulb:after {
+  -webkit-animation-delay: 1.125s;
+          animation-delay: 1.125s;
+  background: radial-gradient(ellipse at center, #daff33, #33ffda 100%);
+}
+.light:nth-child(26) .bulb {
+  -webkit-animation: bubble 4s 0.4s infinite;
+          animation: bubble 4s 0.4s infinite;
+  background: radial-gradient(ellipse at center, #ff8833, #ff3633 100%);
+}
+.light:nth-child(26) .bulb:before {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+  background: radial-gradient(ellipse at center, #33ffc2, #ffff33 100%);
+}
+.light:nth-child(26) .bulb:after {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+  background: radial-gradient(ellipse at center, #33b1ff, #33ffc9 100%);
+}
+.light:nth-child(27) .bulb {
+  -webkit-animation: bubble 4s 0.175s infinite;
+          animation: bubble 4s 0.175s infinite;
+  background: radial-gradient(ellipse at center, #8fff33, #33ff41 100%);
+}
+.light:nth-child(27) .bulb:before {
+  -webkit-animation-delay: 0.175s;
+          animation-delay: 0.175s;
+  background: radial-gradient(ellipse at center, #4133ff, #5fff33 100%);
+}
+.light:nth-child(27) .bulb:after {
+  -webkit-animation-delay: 0.175s;
+          animation-delay: 0.175s;
+  background: radial-gradient(ellipse at center, #ff7e33, #ff7733 100%);
+}
+.light:nth-child(28) .bulb {
+  -webkit-animation: bubble 4s 1.95s infinite;
+          animation: bubble 4s 1.95s infinite;
+  background: radial-gradient(ellipse at center, #ff7a33, #33ffa3 100%);
+}
+.light:nth-child(28) .bulb:before {
+  -webkit-animation-delay: 1.95s;
+          animation-delay: 1.95s;
+  background: radial-gradient(ellipse at center, #ffa733, #ffe733 100%);
+}
+.light:nth-child(28) .bulb:after {
+  -webkit-animation-delay: 1.95s;
+          animation-delay: 1.95s;
+  background: radial-gradient(ellipse at center, #33ffc5, #3374ff 100%);
+}
+.light:nth-child(29) .bulb {
+  -webkit-animation: bubble 4s 1.7s infinite;
+          animation: bubble 4s 1.7s infinite;
+  background: radial-gradient(ellipse at center, #33ff52, #5c33ff 100%);
+}
+.light:nth-child(29) .bulb:before {
+  -webkit-animation-delay: 1.7s;
+          animation-delay: 1.7s;
+  background: radial-gradient(ellipse at center, #a0ff33, #fff833 100%);
+}
+.light:nth-child(29) .bulb:after {
+  -webkit-animation-delay: 1.7s;
+          animation-delay: 1.7s;
+  background: radial-gradient(ellipse at center, #ff9933, #33ff41 100%);
+}
+.light:nth-child(30) .bulb {
+  -webkit-animation: bubble 4s 0.825s infinite;
+          animation: bubble 4s 0.825s infinite;
+  background: radial-gradient(ellipse at center, #3344ff, #ff7a33 100%);
+}
+.light:nth-child(30) .bulb:before {
+  -webkit-animation-delay: 0.825s;
+          animation-delay: 0.825s;
+  background: radial-gradient(ellipse at center, #33ff8f, #33daff 100%);
+}
+.light:nth-child(30) .bulb:after {
+  -webkit-animation-delay: 0.825s;
+          animation-delay: 0.825s;
+  background: radial-gradient(ellipse at center, #ff3633, #c2ff33 100%);
+}
+.bulb:before, .bulb:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
+  border-radius: 50%;
+}
+.bulb:before {
+  -webkit-animation: shoot-up 8s infinite;
+          animation: shoot-up 8s infinite;
+}
+.bulb:after {
+  -webkit-animation: shoot-down 8s infinite;
+          animation: shoot-down 8s infinite;
+}
+
+@-webkit-keyframes bubble {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes bubble {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+@-webkit-keyframes shoot-up {
+  100% {
+    -webkit-transform: translate(-200%, -200%) scale(0);
+            transform: translate(-200%, -200%) scale(0);
+  }
+}
+@keyframes shoot-up {
+  100% {
+    -webkit-transform: translate(-200%, -200%) scale(0);
+            transform: translate(-200%, -200%) scale(0);
+  }
+}
+@-webkit-keyframes shoot-down {
+  100% {
+    -webkit-transform: translate(200%, 200%) scale(0);
+            transform: translate(200%, 200%) scale(0);
+  }
+}
+@keyframes shoot-down {
+  100% {
+    -webkit-transform: translate(200%, 200%) scale(0);
+            transform: translate(200%, 200%) scale(0);
+  }
+}
+/* ================
+// Heading
+// ============= */
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  font-size: 10vmin;
+  font-weight: normal;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+/* ================
+// Structure
+// ============= */
+html,
+body {
+  height: 100%;
+}
+
+html {
+  overflow: hidden;
+  font-family: 'Sacramento';
+  background: linear-gradient(45deg, #320031, #011A54 100%);
+  color: #fff;
+}
+</style></head><body>
+
+<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet" type="text/css"/>
+<h1>Lights</h1>
+<div class="lights">
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+  <div class="light">
+    <div class="bulb"></div>
+  </div>
+</div>
+
+</body></html>

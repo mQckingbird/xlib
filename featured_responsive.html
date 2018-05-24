@@ -1,0 +1,251 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/DavieB/pen/CFywH?q=ecommerce&limit=all&type=type-pens" />
+
+
+<style class="cp-pen-styles">body{background:#f1f2f3;font-family:'Arial',sans-serif;}
+#wrap{width:80%;margin:20px auto;}
+img{max-width:100%;}
+.featured{
+  width:100%
+}
+.featured .full{
+  width:35%;
+  display:block;
+  height:445px;
+  float:left;
+  margin-right:2%;
+  background:url('https://i.imgur.com/kmn9APj.jpg') center 0;
+  background-size:cover;
+  border:1px solid #fff;
+  position:relative;
+}
+.featured .full .banner{
+  background:salmon;
+  color:#FFF;
+  width:70%;
+  position:absolute;
+  top:10px;
+  left:-10px;
+  height:50px;
+}
+.featured .full .banner:before{
+  content: "";
+  position: absolute;
+  left:2;
+  top:100%;
+  bottom:0;
+  margin-top:0px;
+  border-top: 0px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 2em solid #ff511d;
+  z-index:-1;
+}
+.featured .full .banner h1{
+  font-weight:200;
+  text-align:center;
+  margin-top:5px;
+}
+.featured .full .product_desc{
+  background:rgba(0,0,0,0.4);
+  position:absolute;
+  bottom:-10%;
+  box-sizing:border-box;
+  transition:all .5s linear;
+  opacity:0;
+}
+.featured .full:hover .product_desc{
+  opacity:1;
+  bottom:0;
+}
+.featured .full .description{
+  width:50%;
+  padding:10px;
+  float:left;
+  color:#FFF;
+  font-size:11px;
+  box-sizing:border-box;
+}
+.featured .full .product_desc h2{
+  text-align:center;
+  color:#FFF;
+  line-height:.5;
+  margin-bottom:-10px;
+}
+.featured .full .product_desc .call_to_action{
+  width:50%;
+  float:left;
+  padding:10px;
+  box-sizing:border-box;
+}
+.featured .full .product_desc .call_to_action .button{
+  display:block;
+  background:salmon;
+  text-decoration:none;
+  text-align:center;
+  padding:9px;
+  color:#FFF;
+  margin-top:30px;
+}
+.featured .small{
+  height:400px;
+  width:60%;
+  float:left;
+}
+.featured .three{
+  margin-left:0;
+  background:#808080;
+  padding:.5em;
+  margin-bottom:20px;
+  box-sizing:content-box;
+  height:120px;
+}
+.featured .three .featured_small{
+  height:100px;
+  max-height:100px;
+  text-overflow:ellipsis;
+  position:relative;
+}
+.featured .three .featured_small .prod_img{
+  float:left;
+  margin-bottom:1%;
+  width:20%;
+  max-height:100px;
+  margin-right:2%;
+}
+.featured .three .featured_small .small_desc{
+  width:40%;
+  height:100px;
+  max-height:100px;
+  float:left;
+  margin-left:2%;
+  color:#fff;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.featured .three .featured_small .small_desc h3{
+  font-weight:500;
+}
+.featured .three .featured_small .small_desc p{
+  font-size:.7em;
+}
+.featured .three .featured_small .action{
+  display:block;
+  width:20%;
+  float:left;
+  margin-left:2%;
+}
+.featured .three .featured_small .action .button{
+ position:absolute;
+ background:salmon;
+ padding:10px 15px;
+ width:100px;
+ top:45%;
+ right:-20px;
+ color:#FFF;
+ text-decoration:none;
+ font-size:18px;
+}
+.featured .three .featured_small .action .button:after{
+  content: "";
+  position: absolute;
+  right:0px;
+  top:100%;
+  bottom:0;
+  margin-top:0px;
+  border-top: 0px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 2em solid #ff511d;
+  z-index:-3;
+}
+@media (max-width:600px){
+  .featured .full,
+  .featured .small{
+    width:100%;
+  }
+  .featured .full .product_desc{
+    opacity:1;
+    bottom:0;
+  }
+  .featured .small{
+    height:auto;
+  }
+  .featured .small .three{
+    height:120px;
+    max-height:120px;
+    margin-bottom:5px;
+  }
+  .featured .small .three .prod_img{
+    width:50%;
+    max-height:100px;
+  }
+   .featured .small .three .small_desc{
+     width:40%
+   }
+   .featured .small .three .small_desc h3{
+     font-size:1em;
+   }
+  .featured .small .three .small_desc p{
+    display:none;
+  }
+    
+}</style></head><body>
+<body>
+  <div id="wrap">
+    <div class="featured">
+      <div class="full">
+        <div class="banner">
+          <h1>Featured</h1>
+        </div>
+        <div class="product_desc">
+          <h2>Green Bikini</h2>
+          <div class="description">
+          <p>Um, well it's a delorean, right? Yeah okay. Wow, ah Red, you look great. Everything looks great. 1:24, I still got time. Oh my god. No, no not again...</p>
+          </div>
+          <div class="call_to_action">
+            <a class="button" href="#">Read More</a>
+          </div>
+      </div>
+      </div>
+      <div class="small">
+      <div class="three">
+          <div class="featured_small">
+            <div class="prod_img">
+            <img src="https://i.imgur.com/qyk1gD3.jpg"/>
+            </div>
+            <div class="small_desc"><h3>Flower Dress</h3><p>Why that's me, look at me, I'm an old man. Oh, you make it sound so easy. I just, I wish I wasn't so scared. What were you doing in the middle of the street, a kid your age. Doc? Wrecked?</p>
+            </div>
+            <div class="action">
+              <a class="button" href="#"> Read More</a>
+            </div>
+          </div>
+      </div>
+        <div class="three">
+          <div class="featured_small">
+            <div class="prod_img">
+            <img src="https://i.imgur.com/Bt4ypgM.jpg"/>
+            </div>
+            <div class="small_desc"><h3>USA Shirt</h3><p>Why that's me, look at me, I'm an old man. Oh, you make it sound so easy. I just, I wish I wasn't so scared. What were you doing in the middle of the street, a kid your age. Doc? Wrecked?</p>
+            </div>
+            <div class="action">
+              <a class="button" href="#"> Read More</a>
+            </div>
+          </div>
+      </div>
+       <div class="three">
+          <div class="featured_small">
+            <div class="prod_img">
+            <img src="https://i.imgur.com/nhODrN6.jpg"/>
+            </div>
+            <div class="small_desc"><h3>Skull Shirt</h3><p>Why that's me, look at me, I'm an old man. Oh, you make it sound so easy. I just, I wish I wasn't so scared. What were you doing in the middle of the street, a kid your age. Doc? Wrecked?</p>
+            </div>
+            <div class="action">
+              <a class="button" href="#"> Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
+
+</body></html>

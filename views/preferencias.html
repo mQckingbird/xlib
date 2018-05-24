@@ -1,0 +1,544 @@
+
+
+<style class="tab">header {
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 4px #657786;
+          box-shadow: 0 0 4px #657786;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #fff;
+  height: 3.5rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.link {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  color: #657786;
+}
+
+.link:hover {
+  color: #1da1f2;
+}
+
+.active {
+  color: #1da1f2;
+}
+
+.active:after {
+  content: '';
+  background-color: currentColor;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.icon {
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+.icon:last-child,
+.active .icon:first-child {
+  display: none;
+}
+
+.active .icon:last-child {
+  display: block;
+}
+
+.theme-solid-0 {
+  --layer1: #657786;
+}
+
+.link:hover .theme-solid-0,
+.active .theme-solid-0 {
+  --layer1: #1da1f2;
+}
+
+.timeline {
+  margin: -27px auto;
+  max-width: 600px;
+}
+</style>
+<svg width="0" height="0" class="hidden">
+  <symbol data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+  id="home_active-1">
+    <title>home_active</title>
+    <desc>A solid styled icon from Orion Icon Library.</desc>
+    <path fill="#aaa" d="M22.58 7.35L12.475 1.9a1 1 0 0 0-.95 0l-10.1 5.45a1 1 0 1 0 .95 1.761l.734-.4L4.7 19.965a2.591 2.591 0 0 0 2.66 2.062h9.282a2.591 2.591 0 0 0 2.658-2.088l1.591-11.225.737.4a1 1 0 0 0 .95-1.759zM12 15.435a3.25 3.25 0 1 1 3.25-3.25 3.25 3.25 0 0 1-3.25 3.25z"
+    data-name="layer1" style="fill:var(--layer1, #aaa)"></path>
+  </symbol>
+  <symbol data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+  id="home_default-1">
+    <title>home_default</title>
+    <desc>A solid styled icon from Orion Icon Library.</desc>
+    <g fill="#aaa" data-name="layer1"
+    style="fill:var(--layer1, #aaa)">
+      <path d="M22.46 7.57l-10.1-5.455a.751.751 0 0 0-.713 0L1.543 7.57a.75.75 0 0 0 .713 1.32l.815-.44L4.7 19.963a2.586 2.586 0 0 0 2.658 2.062h9.282a2.591 2.591 0 0 0 2.66-2.087l1.626-11.49.818.442a.75.75 0 1 0 .713-1.32zM17.822 19.7a1.105 1.105 0 0 1-1.18.822H7.36a1.1 1.1 0 0 1-1.178-.8L4.48 7.69 12 3.628l7.522 4.06z"></path>
+      <path d="M8.22 12.184A3.78 3.78 0 1 0 12 8.4a3.784 3.784 0 0 0-3.78 3.784zm6.06 0A2.28 2.28 0 1 1 12 9.9a2.282 2.282 0 0 1 2.28 2.284z"></path>
+    </g>
+  </symbol>
+  <symbol data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+  id="messages_active-1">
+    <title>messages_active</title>
+    <desc>A solid styled icon from Orion Icon Library.</desc>
+    <g fill="#aaa" data-name="layer1"
+    style="fill:var(--layer1, #aaa)">
+      <path d="M11.55 12.082a.81.81 0 0 0 .9 0L22 5.716V5.5a2.253 2.253 0 0 0-2.25-2.25H4.25A2.253 2.253 0 0 0 2 5.5v.2z"></path>
+      <path d="M13.26 13.3a2.266 2.266 0 0 1-2.52 0L2 7.452v11.67a2.253 2.253 0 0 0 2.25 2.25h15.5a2.253 2.253 0 0 0 2.25-2.25V7.47l-8.74 5.823z"></path>
+    </g>
+  </symbol>
+  <symbol data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+  id="messages_default-1">
+    <title>messages_default</title>
+    <desc>A solid styled icon from Orion Icon Library.</desc>
+    <path fill="#aaa" d="M19.25 3.018H4.75A2.753 2.753 0 0 0 2 5.77v12.495a2.754 2.754 0 0 0 2.75 2.753h14.5A2.754 2.754 0 0 0 22 18.265V5.77a2.753 2.753 0 0 0-2.75-2.752zm-14.5 1.5h14.5a1.25 1.25 0 0 1 1.25 1.25v.714l-8.05 5.367a.81.81 0 0 1-.9 0L3.5 6.482v-.714a1.25 1.25 0 0 1 1.25-1.25zm14.5 15H4.75a1.25 1.25 0 0 1-1.25-1.25V8.24l7.24 4.83a2.265 2.265 0 0 0 2.52 0l7.24-4.83v10.023a1.25 1.25 0 0 1-1.25 1.25z"
+    data-name="layer1" style="fill:var(--layer1, #aaa)"></path>
+  </symbol>
+  <symbol data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+  id="notifications_active-1">
+    <title>Inicio</title>
+    <desc>Preferencias de usuario.</desc>
+    <path fill="#aaa" d="M21.7 16.468c-.02-.016-2.14-1.64-2.1-6.03A8.778 8.778 0 0 0 17.247 4.1 7.342 7.342 0 0 0 12 1.932h-.013A7.35 7.35 0 0 0 6.75 4.1a8.78 8.78 0 0 0-2.35 6.337c.037 4.332-2.02 5.967-2.1 6.03a.751.751 0 0 0 .45 1.353h4.494a4.759 4.759 0 0 0 9.512 0h4.494a.75.75 0 0 0 .447-1.352zm-9.7 3.94a2.771 2.771 0 0 1-2.756-2.588h5.512A2.772 2.772 0 0 1 12 20.407z"
+    data-name="layer1" style="fill:var(--layer1, #aaa)"></path>
+  </symbol>
+  <symbol data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+  id="notifications_default-1">
+    <title>Buscador</title>
+    <desc>Buscar opciones</desc>
+    <path fill="#aaa" d="M21.7 16.468c-.02-.016-2.14-1.64-2.1-6.03A8.784 8.784 0 0 0 17.247 4.1a7.351 7.351 0 0 0-5.242-2.17h-.013A7.352 7.352 0 0 0 6.75 4.1a8.776 8.776 0 0 0-2.35 6.338c.037 4.33-2.02 5.967-2.1 6.03a.75.75 0 0 0 .447 1.353h4.92a4.332 4.332 0 0 0 8.657 0h4.922a.751.751 0 0 0 .447-1.352zm-9.7 4.01a2.84 2.84 0 0 1-2.828-2.658h5.656A2.845 2.845 0 0 1 12 20.48zM4.38 16.32a10.409 10.409 0 0 0 1.524-5.9 7.205 7.205 0 0 1 1.913-5.263 5.925 5.925 0 0 1 8.363 0 7.2 7.2 0 0 1 1.92 5.268 10.406 10.406 0 0 0 1.525 5.9H4.38z"
+    data-name="layer1" style="fill:var(--layer1, #aaa)"></path>
+  </symbol>
+  <symbol data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+  id="search_active-1">
+    <title>Notificaciones</title>
+    <desc>Notificaciones de usuario</desc>
+    <path fill="#aaa" d="M22.06 19.94l-3.73-3.73a9.018 9.018 0 1 0-2.12 2.12l3.73 3.73a1.5 1.5 0 0 0 2.122-2.118zM11 17a6 6 0 1 1 6-6 6.007 6.007 0 0 1-6 6z"
+    data-name="layer1" style="fill:var(--layer1, #aaa)"></path>
+  </symbol>
+  <symbol data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+  id="search_default-1">
+    <title>Mensajes</title>
+    <desc>Mensajes de usuario.</desc>
+    <path fill="#aaa" d="M21.53 20.47l-3.66-3.66a9.027 9.027 0 1 0-1.062 1.06l3.66 3.66a.746.746 0 0 0 1.055.005l.005-.005a.747.747 0 0 0 .006-1.056zM3.5 11a7.5 7.5 0 1 1 7.5 7.5A7.509 7.509 0 0 1 3.5 11z"
+    data-name="layer1" style="fill:var(--layer1, #aaa)"></path>
+  </symbol>
+</svg>
+
+<header style="top: 65px;">
+  <div class="container">
+    <nav>
+      <a href="#0" class="link active">
+        <svg class="theme-solid-0 icon"><use xlink:href="#home_default-1"></use></svg>
+        <svg class="theme-solid-0 icon"><use xlink:href="#home_active-1"></use></svg>
+      </a>
+      
+      <a href="#0" class="link">
+        <svg class="theme-solid-0 icon"><use xlink:href="#search_default-1"></use></svg>
+        <svg class="theme-solid-0 icon"><use xlink:href="#search_active-1"></use></svg>
+      </a>
+      
+      <a href="#0" class="link">
+        <svg class="theme-solid-0 icon"><use xlink:href="#notifications_default-1"></use></svg>
+        <svg class="theme-solid-0 icon"><use xlink:href="#notifications_active-1"></use></svg>
+      </a>
+      
+      <a href="#0" class="link">
+        <svg class="theme-solid-0 icon"><use xlink:href="#messages_default-1"></use></svg>
+        <svg class="theme-solid-0 icon"><use xlink:href="#messages_active-1"></use></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<script >
+var nav = document.querySelector('nav');
+var links = Array.from(document.querySelectorAll('.link'));
+var removeActive = function removeActive(node) {
+  return node.classList.remove('active');
+};
+var setActive = function setActive(e) {
+  if (e.target.nodeName === 'A') {
+    links.map(removeActive);
+    e.target.classList.add('active');
+  }
+  e.stopPropagation();
+};
+
+nav.addEventListener('click', setActive, false);
+</script>
+<style class="preferencias">.frame-flip-wrap {
+  position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  margin-bottom: 1rem;
+}
+.frame-flip-wrap label {
+  margin-bottom: .2rem;
+}
+.frame-flip-wrap dd {
+  margin-bottom: 2.2rem;
+}
+.frame-flip-wrap .frame {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 300ms ease-out;
+  transition: -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out;
+  transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+}
+.frame-flip-wrap .frame:not(.frame-height-determiner) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.no-preserve3d .frame-flip-wrap .frame {
+  -webkit-transition-duration: 0s;
+          transition-duration: 0s;
+}
+.frame-flip-wrap.flipped .frame:not(.frame-backface) {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+.frame-flip-wrap:not(.flipped) .frame-backface {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+
+body {
+  background-color: #eaedf0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+dt {
+  font-weight: 500;
+}
+
+.frame {
+  border-radius: .25rem;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+  background-color: white;
+  box-shadow: 0px 3px 8px -3px rgba(0, 0, 0, 0.4);
+}
+
+.frame-header {
+  padding: .75rem 1rem;
+  border-bottom: 1px solid #c4cbd4;
+}
+.frame-header.has-dropdown {
+  position: relative;
+}
+.frame-header.has-dropdown .dropdown {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: unset;
+  margin-left: unset;
+  overflow: unset;
+  border-left: 1px solid #c4cbd4;
+
+}
+.frame-header.has-dropdown .dropdown button {
+  height: 100%;
+  padding: 0 1rem;
+}
+.frame-header.has-dropdown .dropdown button::after {
+  content: none;
+}
+
+.frame-title {
+  margin-bottom: 0;
+}
+
+.frame-body {
+  padding: .75rem 1rem;
+}
+.frame-body .frame-title {
+  margin-bottom: .75rem;
+}
+
+.frame-footer {
+  padding: 0 1rem .75rem;
+  margin-top: auto;
+}
+
+.wall {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+}
+.wall > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+}
+@media (min-width: 768px) {
+  .wall > div {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+  }
+}
+@media (min-width: 768px) {
+  .wall > div {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .wall-md-2col > div {
+    width: calc(50% - 2rem);
+  }
+}
+
+.frame-max-width-400 {
+  max-width: 400px;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+.icon-text {
+  vertical-align: middle;
+}
+
+.icon-size-1-1 {
+  font-size: 1.1rem;
+}
+.icon-size-1-2 {
+  font-size: 1.2rem;
+}
+.icon-size-1-3 {
+  font-size: 1.3rem;
+}
+.icon-size-1-4 {
+  font-size: 1.4rem;
+}
+.icon-size-1-5 {
+  font-size: 1.5rem;
+}
+.icon-size-1-6 {
+  font-size: 1.6rem;
+}
+.icon-size-1-7 {
+  font-size: 1.7rem;
+}
+.icon-size-1-8 {
+  font-size: 1.8rem;
+}
+.icon-size-1-9 {
+  font-size: 1.9rem;
+}
+.icon-size-2 {
+  font-size: 2rem;
+}
+
+.btn-icon {
+  background: none;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  opacity: .8;
+  cursor: pointer;
+    border-radius: 0 !important;
+  border-bottom:0 !important;
+  
+    top: -8px;
+    margin-top: 0;
+    position: absolute;
+    right: 0;
+
+}
+.btn-icon:active {
+  box-shadow: none;
+}
+.btn-icon:hover, .btn-icon:focus {
+  outline: 0;
+  opacity: 1;
+}
+.dropdown-menu {
+
+    margin-top: -25px !important;
+    border-bottom: 0 !important;
+
+}
+</style>
+<section class="container pt-5 pb-3" style="margin-top: 140px;">
+    <div class="wall wall-md-2col">
+        <div class="frame-flip-wrap">
+            <div class="frame">
+                <div class="frame-header has-dropdown">
+                    <h4 class="frame-title h5">Perfil</h4>
+                    <div class="dropdown">
+                        <button class="btn-icon dropdown-toggle text-muted" type="button" data-toggle="dropdown">
+                           <i class="fa fa-sliders" style="color: #000;"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="edit-frame dropdown-item" type="button">Editar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="frame-body">
+                    <dl>
+                        <dt>Nombre</dt>
+                        <dd>Test nombre</dd>
+                        <dt>E-Mail</dt>
+                        <dd>test@test.com</dd>
+                        <dt>País</dt>
+                        <dd>selecc</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="frame frame-backface frame-height-determiner">
+                <div class="frame-header">
+                    <h4 class="frame-title h5">Perfil</h4>
+                </div>
+                <div class="frame-body">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" value="Test nombre">
+                    </div>
+                    <div class="form-group">
+                        <label>E-Mail</label>
+                        <input type="text" class="form-control" value="test@test.com">
+                    </div>
+                    <div class="form-group mb-0">
+                        <label>Pais</label>
+                         <select name="sources" id="sources" class="custom-select sources" placeholder="País">
+                              <option value="argentina">Argentina</option>
+                              <option value="chile">Chile</option>
+                              <option value="uruguay">Uruguay</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="frame-footer">
+                    <button class="save-frame btn btn-success float-right" type="button">Guardar</button>
+                    <button class="save-frame btn btn-link text-danger float-right" type="button">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        <div class="frame-flip-wrap">
+            <div class="frame">
+                <div class="frame-header has-dropdown">
+                    <h4 class="frame-title h5">Personal</h4>
+                    <div class="dropdown">
+                        <button class="btn-icon dropdown-toggle text-muted" type="button" data-toggle="dropdown">
+                            <i class="fa fa-sliders" style="color: #000;"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="edit-frame dropdown-item" type="button">Editar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="frame-body">
+                    <dl>
+                        <dt>DNI</dt>
+                        <dd>25235235235</dd>
+                        <dt>Dirección</dt>
+                        <dd>Pedro de Vega 1429</dd>
+                        <dt>Contraseña</dt>
+                        <dd>********</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="frame frame-backface frame-height-determiner">
+                <div class="frame-header">
+                    <h4 class="frame-title h5">Editar detales</h4>
+                </div>
+                <div class="frame-body">
+                    <div class="form-group">
+                        <label>DNI</label>
+                        <input type="text" class="form-control" value="25235235235">
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input type="text" class="form-control" value="Pedro de Vega 1429">
+                    </div>
+                    <div class="form-group mb-0">
+                        <label>Contraseña</label>
+                        <input type="password" class="form-control" placeholder="Contraseña">
+                    </div>
+                </div>
+                <div class="frame-footer">
+                    <button class="save-frame btn btn-success float-right" type="button">Guardar</button>
+                    <button class="save-frame btn btn-link text-danger float-right" type="button">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script >"use strict";
+$(".edit-frame, .save-frame").click(FlipMe);
+function FlipMe() {
+    $(this).closest(".frame-flip-wrap").toggleClass("flipped");
+}
+initselect();
+
+</script>

@@ -1,0 +1,307 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/jcoulterdesign/pen/gPmLJo" />
+
+
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Nunito);
+body {
+  overflow: hidden;
+  background: -webkit-linear-gradient(top, #5799db 0%, #3f8edd 100%);
+  height: 100vh;
+}
+
+.cards {
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin: auto;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.cards h1 {
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+}
+.cards h2 {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 200;
+  color: #A4C9EF;
+  font-family: 'Nunito', sans-serif;
+}
+.cards_inner {
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  position: relative;
+  top: 60px;
+}
+.cards_inner .wrap {
+  width: 220px;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.cards_inner .invalid {
+  pointer-events: none;
+  left: -180px !important;
+  opacity: 0;
+  -webkit-transition: all .23s;
+  transition: all .23s;
+}
+.cards_inner .animate {
+  -webkit-transition: all 0.2s cubic-bezier(0.56, 2.15, 0.25, 0.715);
+  transition: all 0.2s cubic-bezier(0.56, 2.15, 0.25, 0.715);
+}
+.cards_inner .card_in {
+  opacity: 0;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  margin-top: 40px;
+  -webkit-animation: pop 0.6s 0.1s cubic-bezier(0.56, 1.75, 0.25, 0.715);
+          animation: pop 0.6s 0.1s cubic-bezier(0.56, 1.75, 0.25, 0.715);
+  right: 0;
+}
+@-webkit-keyframes pop {
+  0% {
+    margin-top: 40px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+@keyframes pop {
+  0% {
+    margin-top: 40px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+.cards_inner .card_in_two {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  margin-top: 40px;
+  -webkit-transition: all 0.2s cubic-bezier(0.56, 2.15, 0.25, 0.715);
+  transition: all 0.2s cubic-bezier(0.56, 2.15, 0.25, 0.715);
+  margin-top: 0px;
+}
+.cards_inner__card {
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.56, 2.15, 0.25, 0.715);
+  transition: -webkit-transform 0.2s cubic-bezier(0.56, 2.15, 0.25, 0.715);
+  transition: transform 0.2s cubic-bezier(0.56, 2.15, 0.25, 0.715);
+  transition: transform 0.2s cubic-bezier(0.56, 2.15, 0.25, 0.715), -webkit-transform 0.2s cubic-bezier(0.56, 2.15, 0.25, 0.715);
+  position: absolute;
+  margin-top: 0px;
+  left: 0;
+  right: 0;
+  background: -moz-linear-gradient(top, white 0%, #f7f7f7 100%);
+  top: 50%;
+  margin: auto;
+  width: 220px;
+  height: 130px;
+  background: -webkit-linear-gradient(top, white 0%, #f7f7f7 100%);
+  border-radius: 12px;
+  -webkit-box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+}
+.cards_inner__card:nth-of-type(1) {
+  top: 10px;
+  -webkit-transform: translateZ(-180px);
+          transform: translateZ(-180px);
+}
+.cards_inner__card:nth-of-type(2) {
+  top: 20px;
+  -webkit-transform: translateZ(-120px);
+          transform: translateZ(-120px);
+}
+.cards_inner__card:nth-of-type(3) {
+  top: 30px;
+  -webkit-transform: translateZ(-60px);
+          transform: translateZ(-60px);
+}
+.cards_inner__card:nth-of-type(4) {
+  top: 40px;
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+}
+
+.maestro .logo {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MasterCard_logo.png/640px-MasterCard_logo.png");
+}
+
+.paypal .logo {
+  background: url("https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png?01AD=3B28EURZY9Emi4KsrC-JAvZqhykcobygL70miwLcjbS3qGuX1m1ZgsQ&01RI=08D0AE0331EC9B2&01NA=");
+  left: 58px;
+  background-size: contain !important;
+  top: 49px;
+}
+
+.logo {
+  width: 100px;
+  height: 70px;
+  position: relative;
+  background-repeat: no-repeat !important;
+  left: 62px;
+  background-size: contain !important;
+  top: 29px;
+}
+
+.mastercard .logo {
+  left: 73px;
+  background-size: contain !important;
+  top: 44px;
+  width: 70px;
+  height: 70px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Maestro_2016.svg/1200px-Maestro_2016.svg.png");
+}
+
+.visa .logo {
+  left: 58px;
+  background-size: contain !important;
+  top: 45px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2000px-Visa_Inc._logo.svg.png");
+}
+
+.points {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
+  top: 50%;
+  height: 0px;
+}
+.points .active {
+  background: #245484;
+}
+.points_point {
+  float: left;
+  width: 8px;
+  display: inline-block;
+  border-radius: 10px;
+  height: 8px;
+  background: #69AEF3;
+  margin-right: 4px;
+  position: relative;
+  top: 156px;
+  left: 26px;
+}
+</style></head><body>
+<div class='cards'>
+  <h1>Payment Card Swipes</h1>
+  <h2>Swipe left through the cards</h2>
+  <div class='cards_inner'>
+    <div class='wrap'>
+      <div class='cards_inner__card maestro'>
+        <div class='logo'></div>
+      </div>
+      <div class='cards_inner__card paypal'>
+        <div class='logo'></div>
+      </div>
+      <div class='cards_inner__card visa'>
+        <div class='logo'></div>
+      </div>
+      <div class='cards_inner__card mastercard'>
+        <div class='logo'></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='points'>
+  <div class='points_point first active'></div>
+  <div class='points_point'></div>
+  <div class='points_point'></div>
+  <div class='points_point'></div>
+</div>
+
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >t = 53;
+p = 0;
+pm = $('.cards_inner__card').length;
+
+$('.cards_inner__card').mousedown(function(){
+  var ct = $(this).css('transform');
+  var cts = ct.split(',')
+  ctse = (cts[cts.length - 2] + 'px')
+})
+
+function on(){
+  $('.cards_inner__card').draggable({
+    start: function( event, ui ) {
+      startPosition = ui.position.left;
+    },
+    drag:function(e, ui){
+      if(ui.position.left > startPosition){
+        ui.position.left = startPosition;
+      }
+      if(ui.position.left < -250){
+        ui.position.left = -250;
+      }
+      x = ui.position.left;
+      $(this).css('transform',' rotate(' + x/36 + 'deg)')
+    },
+    revert:function(valid) {
+      if(x > 60 || x < - 60) {
+        el = $(this)
+        setTimeout(function(){
+          el_class = el.attr('class').split(' ');
+          el_class_end = el_class[1]
+          el.addClass('invalid')
+          if(p < 3){
+            $('.points').find('.active').removeClass('active').next().addClass('active') 
+            p++
+          } else {
+            $('.points').find('.active').removeClass('active')
+            $('.points').find('.first').addClass('active') 
+            p=0
+          }
+        },10)
+        setTimeout(function(){
+          $('.cards_inner__card').each(function(){
+            $(this).addClass('animate');
+            var ct = $(this).css('transform');
+            var cts = ct.split(',')
+            ctse = (parseInt(cts[cts.length - 2]) + 60 + 'px')
+            $(this).css('transform','translateZ(' + ctse + ')');
+          });
+          $('.cards_inner .wrap').prepend('<div class="cards_inner__card ' + el_class_end + ' card_in"><div class="logo"></div></div>')
+          el.remove();
+          $('.cards_inner__card').removeClass('animate');
+          on();
+        },160);
+        setTimeout(function(){
+          $('.card_in').removeClass('card_in')
+        },500);
+      } else {
+        $(this).css('transform','rotate(0deg)')
+        return !valid;
+      }
+    },
+    axis:'x',
+    containment:'.cards_inner'
+  });
+  $('.cards_inner__card:nth-of-type(1)').draggable( 'disable' )
+  $('.cards_inner__card:nth-of-type(2)').draggable( 'disable' )
+  $('.cards_inner__card:nth-of-type(3)').draggable( 'disable' )
+  $('.cards_inner__card:nth-of-type(4)').draggable( 'enable' )
+}
+on();
+
+//# sourceURL=pen.js
+</script>
+</body></html>

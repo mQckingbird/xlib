@@ -1,0 +1,215 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/Devolvera/pen/msIvh?limit=all&page=24&q=progress" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+
+<link rel='stylesheet prefetch' href='https://daneden.github.io/animate.css/animate.min.css'>
+<style class="cp-pen-styles">/*import animate.css from
+ https://github.com/daneden/animate.css
+*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:300");
+@import url("http://thecodeplayer.com/uploads/fonts/font-awesome-4.1.0/css/font-awesome.min.css");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #3E1B3A;
+  color: #3E1B3A;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 36px;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-top: -35px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.git-icon i {
+  -webkit-transform: scale(7);
+  -moz-transform: scale(7);
+  -ms-transform: scale(7);
+  -o-transform: scale(7);
+  transform: scale(7);
+  opacity: 0.1;
+  margin-top: 60px;
+  color: #fff;
+}
+
+#form {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  position: relative;
+}
+#form form {
+  width: 100%;
+  padding: 5px;
+  height: 70px;
+}
+#form #submit {
+  padding: 15px;
+  margin: 0 auto;
+  background: #fff;
+  outline: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3E1B3A;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: none;
+}
+#form #submit:hover {
+  background: #ccc;
+}
+#form input[type=text] {
+  width: 100%;
+  padding: 5px;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 30px;
+  color: #fff;
+  font-weight: 300;
+  display: block;
+}
+#form i {
+  color: #fff;
+}
+#form #sub-2 {
+  visibility: hidden;
+}
+
+#email {
+  visibility: hidden;
+}
+
+.submit-icon {
+  position: absolute;
+  top: 13px;
+  right: 0;
+  color: rgba(0, 0, 0, 0.25);
+  line-height: 40px;
+  padding: 0 10px;
+  /*to make the icons feel like buttons*/
+  cursor: pointer;
+}
+
+#progress-circles {
+  display: block;
+  margin-top: 10px;
+}
+#progress-circles i {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#refresh {
+  margin-top: 30px;
+  color: #fff;
+  visibility: hidden;
+  cursor: pointer;
+}
+</style></head><body>
+<div class="git-icon"><i class="fa fa-codepen"></i></div>
+<h1>Animated Form Stuff</h1>
+
+  <div id="form" class="animated slideInDown">
+    <form>
+    <input id="name" type="text" placeholder="click to type name..." autocomplete="off">
+      
+        <i id="sub-1" class="fa fa-chevron-right submit-icon"></i>
+      
+    <input id="email" type="text" placeholder="email address..." autocomplete="off">
+      
+      <i id="sub-2" class="fa fa-chevron-right submit-icon"></i>
+
+      <input type='submit' id="submit" value='subscribe'>
+    </form>
+      
+    <div id='progress-circles'>
+      <i class="fa fa-circle-o" id="progress-a"></i>
+      <i class="fa fa-circle-o" id="progress-b"></i>
+    </div>
+    <i class="fa fa-refresh fa-spin" id="refresh"></i>
+  </div>
+      
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >var $e = $('#email');
+var $n = $('#name');
+var $r = $('#refresh');
+
+$('form').submit(function(){
+   return false;
+});
+
+// when typing, bounce arrow to prompt action
+$n.keyup(function(){
+  $('#sub-1').addClass('animated bounce').css('animation-iteration-count','3');
+});
+
+
+$n.blur(function(){
+  $(this).addClass('animated bounceOutRight');
+  $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    $(this).css('display', 'none');
+    $e.addClass('animated bounceInLeft').css('visibility', 'visible').focus();
+  });
+  
+  // replace arrows (this actually seems unnecessary)
+  $('#sub-1').css('display', 'none');
+  $('#sub-2').css('visibility', 'visible');
+  
+
+  // fill in first progress circle
+  $('#progress-a').removeClass('fa fa-circle-o').addClass('animated bounce fa fa-circle');
+});
+
+// arrow bounces when typing, like before
+$e.keyup(function(){
+  $('#sub-2').addClass('animated bounce').css('animation-iteration-count','3');
+});
+
+//$('#sub-2').click(function(){
+$e.blur(function(){
+  $(this).addClass('animated bounceOutRight');
+  $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    $(this).css('display', 'none');
+    $('#submit').addClass('animated bounceInLeft').css({visibility : 'visible', display : 'block'});
+  });
+    
+  // hide arrow
+  $('#sub-2').css('display', 'none');
+  // fill progress circle
+  $('#progress-b').removeClass('fa fa-circle-o').addClass('animated bounce fa fa-circle');
+  
+  $r.addClass('animated fadeIn').css('visibility','visible');
+});
+
+$r.click(function(){
+  alert('refresh stuff goes ehre');
+})
+
+
+//# sourceURL=pen.js
+</script>
+</body></html>

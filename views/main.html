@@ -1,0 +1,1812 @@
+
+<style class="edlee">/*@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);*/
+/*** Shadows ***/
+/*** Follow ***/
+/*@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,700,300);*/
+/* SVG ICONS ANIMADOS ^*/
+.iconsvg {
+  width: 282px;
+  height: 282px;
+  margin: -30px;
+  /*
+     .hand{ stroke-linecap:round;
+  &.long{
+    -webkit-animation: rotate 20s infinite linear;
+    -moz-animation: rotate 20s infinite linear;
+    animation: rotate 20s infinite linear;
+    transform-origin: 50% 100%;-moz-transform-origin: 50% 100%;}
+  &.short{
+    -webkit-animation: rotate 90s infinite linear;
+    -moz-animation: rotate 90s infinite linear;
+    animation: rotate 90s infinite linear;
+     transform-origin: 0% 50%;
+        -moz-transform-origin: 0% 50%;
+        transform-origin: 0% 50%;
+  }
+}*/
+}
+.iconsvg path {
+  fill: none;
+  stroke-width: 1.5px;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+  stroke: #284e58;
+}
+.iconsvg path.long {
+  stroke-dasharray: 420,420;
+  transition: 1.5s all ease;
+}
+.iconsvg path.longer {
+  stroke-dasharray: 512,512;
+  transition: 1.5s all ease;
+}
+.iconsvg path.short {
+  stroke-dasharray: 90,90;
+  transition: 1s all ease;
+}
+.iconsvg path.round {
+  stroke-linecap: round ;
+  stroke-linejoin: round ;
+}
+.iconsvg path.virtual {
+  transition: 1.5s all ease;
+  stroke-dasharray: 1.1, 3;
+  stroke-linecap: round ;
+}
+path.virtual {
+  -webkit-animation: virtual-outline 60s infinite linear;
+  -moz-animation: virtual-outline 60s infinite linear;
+  animation: virtual-outline 60s infinite linear;
+}
+@-webkit-keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+@-moz-keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+@keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+/*
+@-webkit-keyframes rotate {  0%   {
+    -webkit-transform:rotate(0deg) }  100% {
+    -webkit-transform:rotate(360deg) }}
+
+@-moz-keyframes rotate {  0%   {
+    -moz-transform:rotate(0deg) }  100% {
+    -moz-transform:rotate(360deg) }}
+
+@keyframes rotate {  0%   {
+    transform:rotate(0deg) }  100% {
+    transform:rotate(360deg) }}
+
+*/
+.text-center:hover .iconsvg   path.long {
+  stroke-dashoffset: 420;
+}
+.text-center:hover .iconsvg   path.longer {
+  stroke-dashoffset: 512;
+}
+.text-center:hover .iconsvg   path.short {
+  stroke-dashoffset: 90;
+}
+.text-center:hover .iconsvg   path.virtual {
+  stroke-dasharray: 11.1, 22 ;
+  stroke-width: 9;
+  opacity: 0;
+}
+
+/* FIN SVG ICONS ANIMADOS */
+
+.cfbook {
+  margin-bottom: 7px;
+}
+
+.cfbook-cell {
+  width: 100%;
+  height: 300px;
+  margin-right: 10px;
+  background: #0a2944;
+  border-radius: 0px;
+  counter-increment: cfbook-cell;
+}
+
+/* cell number */
+.cfbook-cell:before {
+  display: block;
+  text-align: center;
+ /* content: counter(cfbook-cell); */
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+.cfbook-nav .cfbook-cell {
+  height: 80px;
+  width: 100px;
+}
+
+.cfbook-nav .cfbook-cell:before {
+  font-size: 50px;
+  line-height: 80px;
+}
+
+.cfbook-nav .cfbook-cell.is-nav-selected {
+  background: #3886a9;
+}
+
+/*
+
+#wrap{width:80%;margin:20px auto;}
+#wrap img{max-width:100%;}
+.featured{
+  width:100%
+}
+.featured .full{
+  width:35%;
+  display:block;
+  height:445px;
+  float:left;
+  margin-right:2%;
+  background:url('https://i.imgur.com/kmn9APj.jpg') center 0;
+  background-size:cover;
+  border:1px solid #fff;
+  position:relative;
+}
+.featured .full .banner{
+  background:salmon;
+  color:#FFF;
+  width:70%;
+  position:absolute;
+  top:10px;
+  left:-10px;
+  height:50px;
+}
+.featured .full .banner:before{
+  content: "";
+  position: absolute;
+  left:2;
+  top:100%;
+  bottom:0;
+  margin-top:0px;
+  border-top: 0px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 2em solid #ff511d;
+  z-index:-1;
+}
+.featured .full .banner h1{
+  font-weight:200;
+  text-align:center;
+  margin-top:5px;
+}
+.featured .full .product_desc{
+  background:rgba(0,0,0,0.4);
+  position:absolute;
+  bottom:-10%;
+  box-sizing:border-box;
+  transition:all .5s linear;
+  opacity:0;
+}
+.featured .full:hover .product_desc{
+  opacity:1;
+  bottom:0;
+}
+.featured .full .description{
+  width:50%;
+  padding:10px;
+  float:left;
+  color:#FFF;
+  font-size:11px;
+  box-sizing:border-box;
+}
+.featured .full .product_desc h2{
+  text-align:center;
+  color:#FFF;
+  line-height:.5;
+  margin-bottom:-10px;
+}
+.featured .full .product_desc .call_to_action{
+  width:50%;
+  float:left;
+  padding:10px;
+  box-sizing:border-box;
+}
+.featured .full .product_desc .call_to_action .button{
+  display:block;
+  background:salmon;
+  text-decoration:none;
+  text-align:center;
+  padding:9px;
+  color:#FFF;
+  margin-top:30px;
+}
+.featured .small{
+  height:400px;
+  width:60%;
+  float:left;
+}
+.featured .three{
+  margin-left:0;
+  background:#808080;
+  padding:.5em;
+  margin-bottom:20px;
+  box-sizing:content-box;
+  height:120px;
+}
+.featured .three .featured_small{
+  height:100px;
+  max-height:100px;
+  text-overflow:ellipsis;
+  position:relative;
+}
+.featured .three .featured_small .prod_img{
+  float:left;
+  margin-bottom:1%;
+  width:20%;
+  max-height:100px;
+  margin-right:2%;
+}
+.featured .three .featured_small .small_desc{
+  width:40%;
+  height:100px;
+  max-height:100px;
+  float:left;
+  margin-left:2%;
+  color:#fff;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.featured .three .featured_small .small_desc h3{
+  font-weight:500;
+}
+.featured .three .featured_small .small_desc p{
+  font-size:.7em;
+}
+.featured .three .featured_small .action{
+  display:block;
+  width:20%;
+  float:left;
+  margin-left:2%;
+}
+.featured .three .featured_small .action .button{
+ position:absolute;
+ background:salmon;
+ padding:10px 15px;
+ width:100px;
+ top:45%;
+ right:-20px;
+ color:#FFF;
+ text-decoration:none;
+ font-size:18px;
+}
+.featured .three .featured_small .action .button:after{
+  content: "";
+  position: absolute;
+  right:0px;
+  top:100%;
+  bottom:0;
+  margin-top:0px;
+  border-top: 0px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 2em solid #ff511d;
+  z-index:-3;
+}
+@media (max-width:600px){
+  .featured .full,
+  .featured .small{
+    width:100%;
+  }
+  .featured .full .product_desc{
+    opacity:1;
+    bottom:0;
+  }
+  .featured .small{
+    height:auto;
+  }
+  .featured .small .three{
+    height:120px;
+    max-height:120px;
+    margin-bottom:5px;
+  }
+  .featured .small .three .prod_img{
+    width:50%;
+    max-height:100px;
+  }
+   .featured .small .three .small_desc{
+     width:40%
+   }
+   .featured .small .three .small_desc h3{
+     font-size:1em;
+   }
+  .featured .small .three .small_desc p{
+    display:none;
+  }
+    
+}
+*/
+</style>
+<!-- look in the mirror. that's your competition. -->
+
+
+
+
+<!--
+<div id="wrap">
+    <div class="featured">
+      <div class="full">
+        <div class="banner">
+          <h1>Featured</h1>
+        </div>
+        <div class="product_desc">
+          <h2>Green Bikini</h2>
+          <div class="description">
+          <p>Um, well it's a delorean, right? Yeah okay. Wow, ah Red, you look great. Everything looks great. 1:24, I still got time. Oh my god. No, no not again...</p>
+          </div>
+          <div class="call_to_action">
+            <a class="button" href="#">Read More</a>
+          </div>
+      </div>
+      </div>
+      <div class="small">
+      <div class="three">
+          <div class="featured_small">
+            <div class="prod_img">
+            <img src="https://i.imgur.com/qyk1gD3.jpg"/>
+            </div>
+            <div class="small_desc"><h3>Flower Dress</h3><p>Why that's me, look at me, I'm an old man. Oh, you make it sound so easy. I just, I wish I wasn't so scared. What were you doing in the middle of the street, a kid your age. Doc? Wrecked?</p>
+            </div>
+            <div class="action">
+              <a class="button" href="#"> Read More</a>
+            </div>
+          </div>
+      </div>
+        <div class="three">
+          <div class="featured_small">
+            <div class="prod_img">
+            <img src="https://i.imgur.com/Bt4ypgM.jpg"/>
+            </div>
+            <div class="small_desc"><h3>USA Shirt</h3><p>Why that's me, look at me, I'm an old man. Oh, you make it sound so easy. I just, I wish I wasn't so scared. What were you doing in the middle of the street, a kid your age. Doc? Wrecked?</p>
+            </div>
+            <div class="action">
+              <a class="button" href="#"> Read More</a>
+            </div>
+          </div>
+      </div>
+       <div class="three">
+          <div class="featured_small">
+            <div class="prod_img">
+            <img src="https://i.imgur.com/nhODrN6.jpg"/>
+            </div>
+            <div class="small_desc"><h3>Skull Shirt</h3><p>Why that's me, look at me, I'm an old man. Oh, you make it sound so easy. I just, I wish I wasn't so scared. What were you doing in the middle of the street, a kid your age. Doc? Wrecked?</p>
+            </div>
+            <div class="action">
+              <a class="button" href="#"> Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+-->
+<script >
+
+$(document).ready(function(){
+  //$('svg').clone().addClass('svg2').appendTo(".svgs");
+})
+
+//# sourceURL=svgmain.js
+</script>
+
+<section style="width: 100%; padding:0; padding-top: 65px;" class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+<div class="cfbook cfbook-main" style="margin-bottom: 5px;">
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+</div>
+</section>
+<section style="width: 100%; padding:0;" class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+<div class="cfbook cfbook-nav">
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div>
+</div>
+</section>
+
+<style class="headerxlib">
+.pmainshowcase {
+  font-family: "Ubuntu";
+  font-weight: 200 !important;
+  color: #808281;
+}
+
+.mainshowcase {
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8) 20%, rgba(0, 0, 0, 0.5) 80%), url(assets/mainheader.png);
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.8) 20%, rgba(0, 0, 0, 0.5) 80%), url(assets/mainheader.png);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.8) 20%, rgba(0, 0, 0, 0.5) 80%), url(assets/mainheader.png);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.8) 20%, rgba(0, 0, 0, 0.5) 80%), url(assets/mainheader.png);
+  background-size: 100% 100%;
+  text-align: center;
+}
+.mainshowcase h1 {
+  margin: 0;
+  padding: 1em 0 .5em;
+  font-size: 7em;
+  color: #fff;
+  font-weight: 300;
+  text-align: center;
+
+}
+.mainshowcase h1 span {
+  display: block;
+  font-size: .5em;
+  font-weight: 300;
+  letter-spacing: -2px;
+  color: #222;
+  text-shadow: unset;
+
+}
+.mainshowcase button {
+  display: inline-block;
+  margin: 0 0 2em;
+  padding: .5em 1em;
+  font-size: 1.5em;
+  color: #fff;
+  font-weight: 300;
+  background: none;
+  border: #fff 3px solid;
+  border-radius: 3px;
+  appearance: none;
+  transition: all .25s;
+}
+.mainshowcase button:hover {
+  background: #fff;
+  color: #111;
+}
+
+.wrapmainshowcase {
+  margin: 1em auto;
+  width: 100%;
+}
+
+.gridmainshowcase {
+  display: inline-block;
+  vertical-align: top;
+}
+.gridmainshowcase h2 {
+  text-align: center;
+  color:#c5c8c6;
+}
+.gridmainshowcase p {
+  font-size: 1.5em;
+  text-align:center;
+}
+
+
+</style>
+
+<section style="width: 100%; padding:0; padding-top: 0px;" class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+<header class="mainshowcase">
+  <h1 ><span>Desde ahora, tu libro puede ser realidad</span> SIMPLE Y GRATIS.</h1>
+  
+  <button class="invite">Sé parte</button>
+</header>
+
+<div class="wrapmainshowcase"> 
+  <div class="gridmainshowcase col-xs-12 col-sm-6 col-md-3 col-lg-3"><h2>Publica</h2>
+    <p class="pmainshowcase">Publica el primer manuscrito de tu libro, y con llegar a 30 pre-ventas, tú y los pre-compradores tendrán un libro físico en sus manos.</p>
+  </div>
+  
+  <div class="gridmainshowcase col-xs-12 col-sm-6 col-md-3 col-lg-3"><h2>Comparte</h2>
+    <p class="pmainshowcase">Comparte tu libro en redes sociales, con amigos, familiares, y demás. <br>¿Necesitas una mano?<br>...<br>Todos tenemos dos.</p>
+  </div>
+  <div class="gridmainshowcase col-xs-12 col-sm-6 col-md-3 col-lg-3"><h2>Reembolsos</h2>
+    <p class="pmainshowcase">
+      Si el libro no llega a 30 pre-ventas antes de su tiempo límite, tu dinero por la pre-compra será devuelto a tí; ya que tu pago permanecio pendiente.
+    </p>
+  </div>
+    <div class="gridmainshowcase col-xs-12 col-sm-6 col-md-3 col-lg-3"><h2>Meta</h2>
+    <p class="pmainshowcase">
+      Cuando llegues a tu meta, como regalo te ofrecemos gratis corregir, diseñar, distribución, difusión, ISBN legal, y demás.
+    </p>
+  </div>
+</div>
+</section>
+
+    <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
+          <svg width="144" height="144" viewBox="0 0 144 144" class="iconsvg icon-clock stroked">
+<path class="long"  d="m 71.99,35.87 c 19.97,0.1 36.11,16.23 36.11,36.24 0,19.93 -16.32,35.99 -36.19,36.09 -19.94,0 -36.14,-16.16 -36.13,-36.14 0,-19.95 16.2,-36.14 36.19,-36.18 z m 0,-4.16 c 22.24,0 40.31,18.08 40.31,40.3 C 112.2,94.25 94.24,112.3 72.01,112.3 49.77,112.2 31.75,94.25 31.76,72.02 31.74,49.82 49.79,31.67 72,31.71 z"    />
+<path class="short" d="m 86.64,97.6 3.02,5.7 m -35.69,-62.6 3.31,6 m -14.57,25.4 -6.97,0 m 72.36,0 -6.7,0 m -54.75,14.7 -5.9,3.4 m 62.65,-36 -5.95,3.2 m -40.07,40.2 -3.41,6 m 36.18,-62.7 -3.43,5.9 m -14.68,54.8 0,7 m 0,-72.7 0,6.9 M 97.38,87 103,90.2 m -62.44,-36.1 5.96,3.5"
+/> 
+
+    <path class="hand long" d="m 72.04,50.6 0,21.7"/>
+  <path class="hand short" d="m 72.04,72.28 13.85,0" />>
+</svg>
+        
+       </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
+        <svg width="144" height="144" viewBox="0 0 144 144" class="iconsvg icon-atom stroked">
+<path class="long round"  d="M 66.8,77.1 C 53.86,64.1 45.53,51.29 48.34,48.48 51.15,45.67 63.99,54.01 76.9,66.9 89.9,79.9 98.1,92.7 95.3,95.5 92.5,98.3 79.8,90 66.8,77.1 z m 5.3,2.1 C 53.75,79.1 38.71,76 38.81,72 38.66,68.1 53.69,64.9 71.9,64.8 c 18.4,0 33.3,3.2 33.3,7.2 0,4 -14.9,7.2 -33.1,7.2 z m 5,-2.2 C 64.1,89.9 51.23,98.4 48.34,95.5 45.59,92.7 53.94,79.7 66.9,66.8 79.8,53.89 92.7,45.71 95.4,48.46 98.2,51.21 90,64.1 77.1,77 z m 2.2,-5 C 79.1,90.3 76,105.2 72,105.2 68,105.3 64.9,90.2 64.9,72 64.8,53.72 68,38.74 72,38.81 76,38.71 79.2,53.67 79.3,72 z" ></path>
+    
+    
+    <path class="long virtual" style="stroke-width: 4px !important; stroke-dasharray: .1 24; opacity:.5;"  d="M 66.8,77.1 C 53.86,64.1 45.53,51.29 48.34,48.48 51.15,45.67 63.99,54.01 76.9,66.9 89.9,79.9 98.1,92.7 95.3,95.5 92.5,98.3 79.8,90 66.8,77.1 z m 5.3,2.1 C 53.75,79.1 38.71,76 38.81,72 38.66,68.1 53.69,64.9 71.9,64.8 c 18.4,0 33.3,3.2 33.3,7.2 0,4 -14.9,7.2 -33.1,7.2 z m 5,-2.2 C 64.1,89.9 51.23,98.4 48.34,95.5 45.59,92.7 53.94,79.7 66.9,66.8 79.8,53.89 92.7,45.71 95.4,48.46 98.2,51.21 90,64.1 77.1,77 z m 2.2,-5 C 79.1,90.3 76,105.2 72,105.2 68,105.3 64.9,90.2 64.9,72 64.8,53.72 68,38.74 72,38.81 76,38.71 79.2,53.67 79.3,72 z" ></path>
+<path class="short"  d="m 74.7,72 c 0,1.6 -1.2,2.7 -2.7,2.7 -1.5,0 -2.7,-1.1 -2.7,-2.7 0,-1.5 1.2,-2.7 2.7,-2.7 1.5,0 2.7,1.2 2.7,2.7 z"></path>
+</svg>
+            </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
+         <svg width="144" height="144" viewBox="0 0 144 144" class="iconsvg icon-book stroked">
+<path class="long"  d="m 107.1,49.55 1.5,0 c 1.9,0 2.6,1.46 2.6,2.74 l 0,43.5 c 0,2.4 -1.3,3.5 -3.5,3.5 l -30.45,0 c -1.2,1.21 -3.2,1.81 -5.2,1.81 -2.1,0 -4.1,-0.6 -5.3,-1.81 l -30.49,0 c -2.2,0 -3.5,-1.1 -3.5,-3.5 l 0,-43.5 c 0,-1.28 0.8,-2.74 2.6,-2.74 l 1.5,0 m 35.09,48.44 c -1.1,-1.4 -1.9,-2.4 -4.1,-2.4 l -30.92,0 0,-48.67 30.92,0 c 2.4,0 4.1,1.45 4.1,2.89 m 0,0 0,48.18 m 0,0 c 1.5,-2.5 4.1,-2.4 4.1,-2.4 l 30.95,0 0,-48.67 -30.95,0 c -2.4,0 -4.1,1.45 -4.1,2.89" ></path>
+<path class="short reduce"  d="m 67.35,80.99 c -1,-0.5 -2.1,-0.8 -4.22,-0.8 l -21.58,0 m 25.8,5.3 c -1,-0.5 -2.1,-0.8 -4.22,-0.8 l -21.58,0 m 25.8,5.4 c -1,-0.5 -2.1,-0.8 -4.22,-0.8 l -21.58,0 m 25.8,-35.7 c -1,-0.5 -2.1,-0.8 -4.22,-0.8 l -21.58,0 m 25.8,5.36 c -1,-0.5 -2.1,-0.8 -4.22,-0.8 l -21.58,0 m 25.8,5.36 c -1,-0.5 -2.1,-0.8 -4.22,-0.8 l -21.58,0 m 25.8,5.38 c -1,-0.5 -2.1,-0.8 -4.22,-0.8 l -21.58,0 m 25.8,5.3 c -1,-0.5 -2.1,-0.8 -4.22,-0.8 l -21.58,0 m 25.8,5.4 c -1,-0.5 -2.1,-0.8 -4.22,-0.8 l -21.58,0 m 35,-22 c 1,-0.5 2.1,-0.8 4.2,-0.8 l 21.65,0 m -25.85,5.36 c 1,-0.5 2.1,-0.8 4.2,-0.8 l 21.65,0 m -25.85,5.36 c 1,-0.5 2.1,-0.8 4.2,-0.8 l 21.65,0 m -25.85,5.38 c 1,-0.5 2.1,-0.8 4.2,-0.8 l 21.65,0 m -25.85,5.3 c 1,-0.5 2.1,-0.8 4.2,-0.8 l 21.65,0 m -25.85,5.4 c 1,-0.5 2.1,-0.8 4.2,-0.8 l 21.65,0 m -25.85,5.3 c 1,-0.5 2.1,-0.8 4.2,-0.8 l 9.6,0 m -13.8,5.4 c 1,-0.5 2.1,-0.8 4.2,-0.8 l 9.6,0 m -13.8,5.3 c 1,-0.5 2.1,-0.8 4.2,-0.8 l 7.9,0"></path>
+<path class="short" d="m 107,74.79 c -4.5,7.2 -17.95,18.3 -24.95,20.8 7.1,-4.5 8.7,-8.8 8.9,-15.7 6.4,1.1 11.55,-0.5 16.05,-5.1 z" ></path>
+</svg>
+    <!--   <div class="headlinlee">¿Límites?</div><br>
+    <div class="goo">Sólo hay uno:<br>Nunca permitas que la relativa verdad <br> se cruce en el camino de una buena historia.<br>Publica tu libro (terminado) hoy.<br> Y si llegas a las primeras 30 preventas, tu libro (en formato físico) se hará realidad.<br>Y estará en aún más manos, miles de manos.<br> Y no, no tienes que pagar absolutamente nada.</div> -->
+
+<!-- Filter: https://css-tricks.com/gooey-effect/ -->
+
+
+      </div>
+      <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />    
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+    </defs>
+</svg>
+    </section>
+
+
+
+
+
+
+<style class="edicionesleebooks">
+
+.carouselOfImages
+{
+  max-width:100%;
+  margin:auto;
+  overflow:visible;
+}
+.carouselImage {
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+  margin-top:100px;
+  margin-bottom:100px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+  transition: transform 0.5s;
+  transform: scale(1);
+}
+.carouselImage.is-selected {
+  background:green;
+  z-index:10;
+  transform: scale(1.5);
+}
+.carouselImage.nextToSelected {
+  background:orange;
+  transform: scale(1.25);
+  z-index:5;
+}
+
+/*! Flickity v2.0.5
+https://flickity.metafizzy.co
+---------------------------------------------- */
+
+#intelligentslidermtk > .flickity-enabled {
+  position: relative;
+}
+
+#intelligentslidermtk > .flickity-enabled:focus { outline: none; }
+
+#intelligentslidermtk > .flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+#intelligentslidermtk > .flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* draggable */
+
+#intelligentslidermtk > .flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+          tap-highlight-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#intelligentslidermtk > .flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+#intelligentslidermtk > .flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* ---- previous/next buttons ---- */
+
+#intelligentslidermtk > .flickity-prev-next-button {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  background: hsla(0, 0%, 100%, 0.75);
+  cursor: pointer;
+  /* vertically center */
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+#intelligentslidermtk > .flickity-prev-next-button:hover { background: white; }
+
+#intelligentslidermtk > .flickity-prev-next-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #09F;
+}
+
+#intelligentslidermtk > .flickity-prev-next-button:active {
+  opacity: 0.6;
+}
+
+#intelligentslidermtk > .flickity-prev-next-button.previous { left: 10px; }
+#intelligentslidermtk > .flickity-prev-next-button.next { right: 10px; }
+/* right to left */
+#intelligentslidermtk > .flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px;
+}
+#intelligentslidermtk > .flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px;
+}
+
+#intelligentslidermtk > .flickity-prev-next-button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+}
+
+#intelligentslidermtk > .flickity-prev-next-button svg {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+#intelligentslidermtk > .flickity-prev-next-button .arrow {
+  fill: #333;
+}
+
+/* ---- page dots ---- */
+
+ .flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: 13px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-rtl .flickity-page-dots { direction: rtl; }
+
+ .flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: #000;
+  border-radius: 4px;
+  opacity: 0.15;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 1;
+}
+.headlinebelowslider {
+  color:#FFF;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 80px rgba(0, 0, 0, 0.5);
+  font-family: 'Barlow', Arial, sans-serif !important;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  /*font-size: 5vw;*/
+  display: inline-block;
+  text-transform:uppercase;
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:.8em 0;
+  margin:5em 0 0;
+  border:solid 1px rgba(0,0,0,.2);
+  position:relative;
+  /*text-shadow:0px 1px 2px #000;*/
+  font-size: unset;
+}
+
+.headlinebelowslider:before, .headlinebelowslider:after, .headlinebelowslider span:before, .headlinebelowslider span:after {
+  content:"";
+  display:block;
+  width:16px;
+  height:16px;
+  position:absolute;
+}
+.headlinebelowslider:before {
+  border-right:solid 1px #282828;
+  border-bottom:solid 1px #282828;
+  left:-16px;
+  top:-16px;
+}
+.headlinebelowslider:after {
+  border-left:solid 1px #282828;
+  border-bottom:solid 1px #282828;
+  right:-16px;
+  top:-16px;
+}
+.headlinebelowslider span:before {
+  border-right:solid 1px #282828;
+  border-top:solid 1px #282828;
+  left:-16px;
+  bottom:-16px;
+}
+.headlinebelowslider span:after {
+  border-left:solid 1px #282828;
+  border-top:solid 1px #282828;
+  right:-16px;
+  bottom:-16px;
+}
+
+.fa-spin-fast {
+  -webkit-animation: fa-spin-fast 0.2s infinite linear;
+  animation: fa-spin-fast 0.2s infinite linear;
+}
+@-webkit-keyframes fa-spin-fast {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes fa-spin-fast {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+.material-card {
+  position: relative;
+  height: 0;
+  padding-bottom: calc(100% - 46px);
+  margin-bottom: 6.6em;
+}
+.material-card h2 {
+  position: absolute;
+  top: calc(100% - 16px);
+  left: 0;
+  width: 108%;
+  height:50px;
+  padding: 10px 16px;
+  color: #fff;
+  font-size: 0.8em;
+  line-height: 1.4em;
+  margin: 0;
+  margin-left: -16px;
+  z-index: 10;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card h2 span {
+  display: block;
+  width: 100px;
+}
+.material-card h2 strong {
+  font-weight: 400;
+  display: block;
+  font-size: .8em;
+}
+.material-card h2:before,
+.material-card h2:after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: -16px;
+  width: 0;
+  border: 8px solid;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card h2:after {
+  top: auto;
+  bottom: 0;
+}
+@media screen and (max-width: 767px) {
+  .material-card.mc-active {
+    padding-bottom: 0;
+    height: auto;
+  }
+}
+.material-card.mc-active h2 {
+  top: 0;
+  padding: 10px 16px 10px 90px;
+}
+.material-card.mc-active h2:before {
+  top: 0;
+}
+.material-card.mc-active h2:after {
+  bottom: -16px;
+}
+.material-card .mc-content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 16px;
+  left: 0;
+  font-size:11px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card .mc-btn-action {
+  position: absolute;
+  right: 16px;
+  top: 15px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid;
+  width: 34px;
+  height: 34px;
+  line-height: 22px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  z-index: 20;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card.mc-active .mc-btn-action {
+  top: 6px;
+  right:6px;
+}
+
+.material-card .mc-btn-action-love {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid;
+  width: 34px;
+  height: 34px;
+  line-height: 22px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  z-index: 20;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card.mc-active .mc-btn-action-love {
+  top: 7px !important;
+  right:45px;
+  left: unset;
+}
+
+
+.material-card .mc-btn-action-progress {
+  position: absolute !important;
+  top: 15px;
+  right:56px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 0;
+  width: 34px;
+  height: 34px;
+  line-height: 22px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  z-index: 20;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card.mc-active .mc-btn-action-progress {
+  top: 8px !important;
+  right:7px;
+}
+.material-card .mc-description {
+  position: absolute;
+  top: 65px;
+  padding:7px;
+  padding-top: 10px !important;
+
+  bottom: 54px;
+  z-index: 50;
+  overflow: hidden;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 1.2s;
+  -moz-transition: all 1.2s;
+  -ms-transition: all 1.2s;
+  -o-transition: all 1.2s;
+  transition: all 1.2s;
+}
+.material-card .mc-footer {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card .mc-footer h4 {
+  position: absolute;
+  display: none;
+  top: 200px;
+  left: 30px;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  -webkit-transition: all 1.4s;
+  -moz-transition: all 1.4s;
+  -ms-transition: all 1.4s;
+  -o-transition: all 1.4s;
+  transition: all 1.4s;
+}/*
+.material-card .mc-footer a {
+  display: block;
+  float: left;
+  position: relative;
+  width: 52px;
+  height: 52px;
+  margin-left: 5px;
+  margin-bottom: 15px;
+  font-size: 28px;
+  color: #fff;
+  line-height: 52px;
+  text-decoration: none;
+  top: 200px;
+}
+.material-card .mc-footer a:nth-child(1) {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.material-card .mc-footer a:nth-child(2) {
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+}
+.material-card .mc-footer a:nth-child(3) {
+  -webkit-transition: all 0.7s;
+  -moz-transition: all 0.7s;
+  -ms-transition: all 0.7s;
+  -o-transition: all 0.7s;
+  transition: all 0.7s;
+}
+.material-card .mc-footer a:nth-child(4) {
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  transition: all 0.8s;
+}
+.material-card .mc-footer a:nth-child(5) {
+  -webkit-transition: all 0.9s;
+  -moz-transition: all 0.9s;
+  -ms-transition: all 0.9s;
+  -o-transition: all 0.9s;
+  transition: all 0.9s;
+}*/
+ .material-card .img-container {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  }
+.material-card.mc-active .img-container {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 5px;
+  left: 0;
+  top: 12px;
+  width: 60px;
+  height: 60px;
+  z-index: 20;
+  display:block;
+}
+.material-card.mc-active .mc-content {
+  height:156px;
+  padding-top: 57px;
+  font-size:11px;
+}
+@media screen and (max-width: 767px) {
+  .material-card.mc-active .mc-content {
+    position: relative;
+    margin-right: 0;
+  }
+}
+.material-card.mc-active .mc-description {
+  top: 60px;
+  padding-top: 10px;
+  width:100%;
+  height:95px;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+@media screen and (max-width: 767px) {
+  .material-card.mc-active .mc-description {
+    position: relative;
+    top: 5px;
+    right: auto;
+    left: auto;
+    padding: 10px !important;
+    bottom: 0;
+  }
+}
+.material-card.mc-active .mc-footer {
+  overflow: visible;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 50px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 0;
+}
+.material-card.mc-active .mc-footer a {
+  top: 0;
+}
+.material-card.mc-active .mc-footer h4 {
+  top: -32px;
+  display:block;
+}
+
+
+.material-card.Blue h2 {
+  background-color: #2196F3;
+}
+.material-card.Blue h2:after {
+  border-top-color: #2196F3;
+  border-right-color: #2196F3;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.material-card.Blue h2:before {
+  border-top-color: transparent;
+  border-right-color: #0D47A1;
+  border-bottom-color: #0D47A1;
+  border-left-color: transparent;
+}
+.material-card.Blue.mc-active h2:before {
+  border-top-color: transparent;
+  border-right-color: #2196F3;
+  border-bottom-color: #2196F3;
+  border-left-color: transparent;
+}
+.material-card.Blue.mc-active h2:after {
+  border-top-color: #0D47A1;
+  border-right-color: #0D47A1;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.material-card.Blue .mc-btn-action {
+  background-color: #2196F3;
+}
+.material-card.Blue .mc-btn-action:hover {
+  background-color: #0D47A1;
+}
+.material-card.Blue .mc-footer h4 {
+  color: #0D47A1;
+}
+.material-card.Blue .mc-footer a {
+  background-color: #0D47A1;
+}
+.material-card.Blue.mc-active .mc-content {
+  background-color: #E3F2FD;
+}
+.material-card.Blue.mc-active .mc-footer {
+  background-color: #BBDEFB;
+}
+.material-card.Blue.mc-active .mc-btn-action {
+  border-color: #E3F2FD;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 200;
+}
+
+ .loadprogresscampaign {
+  color: #4cd964;
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bolder;
+  position: relative;
+  text-align: center;
+}
+.loadprogresscampaign:after {
+  content: attr(data-percent);
+  font-size: 12px;
+  left: 0;
+  line-height: 12px;
+  margin-top: -6px;
+  position: absolute;
+  text-align: center;
+  top: 42%;
+  width: 100%;
+  color:#80b0db;
+}
+.loadprogresscampaign svg {
+  height: 34px;
+  width: 34px;
+}
+.loadprogresscampaign svg:last-child {
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.loadprogresscampaign svg:last-child circle {
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 629;
+  stroke-width: 9;
+  -webkit-animation: progress-loader 2.4s 1;
+  animation: progress-loader 2.4s 1;
+}
+
+@-webkit-keyframes progress-loader {
+  0% {
+    stroke-dashoffset: 0;
+  }
+}
+@-moz-keyframes progress-loader {
+  0% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes progress-loader {
+  0% {
+    stroke-dashoffset: 0;
+  }
+}
+.buttonprecio {
+  width: 80px;
+  position: absolute;
+  bottom: -25px;
+  right:10px;
+  border-radius: 4px;
+  border: 2px solid white;
+  padding: 0 5px 0 5px;
+  color: white;
+  background: rgba(0,0,0,.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,.15);
+  cursor: pointer;
+  user-select: none;
+  z-index:99;
+}
+.material-card.mc-active .buttonprecio {
+  left:10px;
+  bottom:-38px;
+}
+.badgeprecio {
+  font-size:9px;
+  border-radius: 4px;
+  min-width: 20px;
+  height: 20px;
+  display: block;
+  padding: 0 5px 0 5px;
+  position: absolute;
+  background: rgba(31,206,255,1);
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -15px;
+  right: -8px; 
+}
+.countdown {
+  text-align: center;
+  color: #3d3d3d;
+  font-family: "Ubuntu";
+  font-weight: 700;
+  font-size: 1em;
+  margin: 8;
+  padding:7px;
+  border-top: .1em solid;
+  border-bottom: .1em solid;
+}
+</style>
+
+<section style="width: 100%; padding:0; margin-top: 40px;" id="intelligentslidermtk" class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+  <!-- <div class="products">
+      
+   
+      
+    </div> products 
+    
+    <div class="shopping-cart">
+      <div class="shopping-cart-head">
+        <span class="product-quantity">0</span> Product(s) in Cart
+      </div>
+      <ul class="shopping-cart-list">
+      </ul>
+      <div class="cart-buttons">
+        <a href="#0" class="button empty-cart-btn">Empty</a>
+        <a href="#0" class="button cart-checkout">Checkout - <span class="total-price">$0</span></a>
+      </div>
+    </div>
+
+-->
+
+</section>
+<style class="leetestimonios">
+.main-gallery {
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-cell {
+  width: 100%;
+}
+
+.testimonial {
+  text-align: center;
+  max-width: 850px;
+  margin: 100px auto 130px auto;
+  padding: 0 20px;
+}
+
+.testimonial-avatar {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.testimonial-quote {
+  display: block;
+  font-size: 24px;
+  font-weight: 300;
+  padding: 10px 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.testimonial-author {
+  display: block;
+  font-weight: 800;
+  color: #00acee;
+}
+
+
+
+  </style>
+  <section style="width: 100%; padding:0; margin-top: 0;"  class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+
+<div class="main-gallery">
+  <div class="gallery-cell">
+    <div class="testimonial">
+        <img class="testimonial-avatar" src="https://scontent.fcnq2-2.fna.fbcdn.net/v/t1.0-9/27655289_761206797422683_7665919825177651338_n.jpg?oh=d993d998478b71bd6dedbbf8d3d4c544&oe=5B19D637">
+      <q class="testimonial-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mauris ex, gravida ut leo eu, rhoncus porta orci. Fusce vitae rutrum nulla."</q>
+      <span class="testimonial-author">Victoria Aihar - Escritora publicada</span>
+    </div>
+  </div>
+  <div class="gallery-cell">
+     <div class="testimonial">
+        <img class="testimonial-avatar" src="https://scontent.fcnq2-2.fna.fbcdn.net/v/t1.0-9/27331937_1895420750771253_4466145260564327404_n.jpg?oh=3695d5693f716c7abf3925eaf253cc47&oe=5B24AA3E">
+      <q class="testimonial-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mauris ex, gravida ut leo eu, rhoncus porta orci. Fusce vitae rutrum nulla."</q>
+      <span class="testimonial-author">Diego Vidal - Escritor publicado</span>
+    </div>
+  </div>
+  <div class="gallery-cell">
+        <div class="testimonial">
+        <img class="testimonial-avatar" src="https://scontent.fcnq2-2.fna.fbcdn.net/v/t1.0-9/13612360_891579894321929_5697321541454943323_n.jpg?oh=7d9fa645977389fd774377bb755b1997&oe=5ADB8014">
+      <q class="testimonial-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mauris ex, gravida ut leo eu, rhoncus porta orci. Fusce vitae rutrum nulla."</q>
+      <span class="testimonial-author">Matías Fork - Dev</span>
+    </div>
+  </div>
+</div>
+</section>
+
+  <script>
+
+    var testimonios = new Flickity( '.main-gallery', {
+  cellAlign: 'left',
+  contain: true,
+  wrapAround: true,
+  prevNextButtons: false,
+  autoPlay: 5000,
+  pageDots: false,
+});
+
+</script>
+<footer style="height:150px; width:100%; padding-top: 100px;" style="padding:0;" class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+<div class="social" class="col-xs-12 col-md-12 col-lg-12 col-sm-12"><a href="https://facebook.com/EdicionesLEE" class="link facebook" target="_parent"><span class="fa fa-facebook-square"></span></a><a href="https://twitter.com/EdicionesLEE" class="link twitter" target="_parent"><span class="fa fa-twitter"></span></a><a href="https://plus.google.com/+EdicionesLEE" class="link google-plus" target="_parent"><span class="fa fa-google-plus-square"></span></a></div>
+
+<div class="copyright col-xs-12 col-md-12 col-lg-12 col-sm-12">
+
+   <section class="links link-effect-14 col-xs-12 col-md-12 col-lg-12 col-sm-12" id="link-effect-14">
+
+                    <a onclick="router.navigate('/tyc')" class="col-xs-6 col-sm-4 col-md-4 col-lg-3"><span>Términos</span></a>
+                    <a onclick="router.navigate('/')" class="col-xs-6 col-sm-4 col-md-4 col-lg-3"><span>Privacidad</span></a>
+                    <a onclick="router.navigate('/')" class="col-xs-6 col-sm-4 col-md-4 col-lg-3"><span>FAQ</span></a>
+                    <a onclick="router.navigate('/')" class="col-xs-6 col-sm-4 col-md-4 col-lg-3"><span>Showcase</span></a>
+                    <a onclick="router.navigate('/')" class="col-xs-6 col-sm-4 col-md-4 col-lg-3"><span>Team</span></a>
+                    <a onclick="router.navigate('/')" class="col-xs-6 col-sm-4 col-md-4 col-lg-3"><span>Editorial</span></a>
+
+            </section>
+
+<button class="cb-button"><span class="cb-button__ellipse"><span class="cb-button__phone"></span></span>
+  <p class="cb-button__text">0800-3451-LEE (533) </p>
+</button>
+</div>
+</footer>
+
+<script>
+  function rendercrsl(){
+
+                        $('.material-card > .mc-btn-action').click(function () {
+            var card = $(this).parent('.material-card');
+            var icon = $(this).children('i');
+            icon.addClass('fa-spin-fast');
+
+            if (card.hasClass('mc-active')) {
+                card.removeClass('mc-active');
+
+                window.setTimeout(function() {
+                    icon
+                        .removeClass('fa-arrow-left')
+                        .removeClass('fa-spin-fast')
+                        .addClass('fa-bars');
+
+                }, 800);
+            } else {
+                card.addClass('mc-active');
+
+                window.setTimeout(function() {
+                    icon
+                        .removeClass('fa-bars')
+                        .removeClass('fa-spin-fast')
+                        .addClass('fa-arrow-left');
+
+                }, 800);
+            }
+        });
+
+              $('.loadprogresscampaign').each(function() {
+  var $this = $(this);
+  var svg = '<svg viewBox="-10 -10 220 220"><circle cx="0" cy="0" fill="#133553" r="100" stroke="#4cd964" stroke-width="10" transform="translate(100, 100)"></circle></svg>';
+  
+  $this.append(svg, svg).find('>svg').last().find('>circle').attr('stroke-dashoffset', -Math.round((parseInt($this.data('percent').replace('%', ''))*629)/100));
+});
+              var $carousel;
+ $('.carouselOfImages').each( function( i, carousel ) {
+  $carousel = $( carousel );
+  $carousel.flickity({
+  contain: true,
+  wrapAround: true,
+  friction: 0.2,
+  autoPlay: 4000,
+pauseAutoPlayOnHover: true,
+prevNextButtons: false,
+  });
+
+  var $imgs = $carousel.find('.carouselImage');
+  // get Flickity instance
+  var flkty = $carousel.data('flickity');
+
+  function resizeCells() {
+  
+    var flkty = $carousel.data('flickity');
+  var $current = flkty.selectedIndex
+  var $length = flkty.cells.length
+
+  $('.carouselOfImages .carouselImage').removeClass("nextToSelected");
+  $('.carouselOfImages .carouselImage').eq($current-1).addClass("nextToSelected");
+  if ($current+1 == $length) {
+    var $endCell = "0"
+  } else {
+    var $endCell = $current+1
+  }
+   $('.carouselOfImages .carouselImage').eq($endCell).addClass("nextToSelected");
+  };
+
+resizeCells();
+
+$carousel.on( 'scroll.flickity', function() {
+    resizeCells();
+  });
+
+/* var docStyle = document.documentElement.style;
+var transformProp = typeof docStyle.transform == 'string' ?
+  'transform' : 'WebkitTransform';
+
+   $carousel.on( 'scroll.flickity', function() {
+    flkty.slides.forEach( function( slide, i ) {
+      var img = $imgs[i];
+      var x = ( slide.target + flkty.x ) * -1/3;
+      img.style[ transformProp ] = 'translateX(' + x  + 'px)';
+    });
+     resizeCells();
+  }); */
+  
+});
+  }
+
+
+
+         var tmp = new Date().toISOString();
+                                  //console.log('new Date() ' + tmp);
+
+
+                 
+                                  
+
+                               
+                        
+
+
+ /* dbleelocal.allDocs({include_docs:true}).then(function(docs){ 
+    console.log(docs.rows);
+  })*/
+    var tags_book_final = "";
+    var ias = 0;
+    var intelnative = "";
+                           var inteltag = "";
+       dbleelocal.createIndex({
+                                      index: {
+                                          fields: ['publish', 'compras'],
+                                              name: 'intelib',
+                                                ddoc: 'intelib',
+                                                type: 'json'
+                                      }
+                                  }).then(function (results) {
+                                      console.log(results);
+                                      console.log("intelib index creado");
+                                      
+                                      dbleelocal.find({
+
+                                      selector: { publish: { $eq: true } },
+                                      use_index: 'intelib'
+                                  }).then(function (result) {      
+                                
+
+                                      //console.log('find - result ' + result);
+                                     /* console.log(JSON.stringify(result));*/
+                                     console.log("Resultado find libros publicados");
+                                      console.log(result);
+                                      if(result.docs.length > 0){
+                     var url, idimg;
+                      for (var itg = 0; itg < result.docs.length; itg++) {
+
+                       var tags_book = result.docs[itg].tags.split(',');
+                          for (var it = 0; it < tags_book.length; it++) {
+                             console.log(tags_book);
+                             if(tags_book[it] != "undefined" || tag_book[it])
+                            tags_book_final += tags_book[it]+',';
+                          }
+                        console.log("Tag item:", tags_book)
+
+                      }
+                      var tagsslicecoma = tags_book_final.slice(0, tags_book_final.lastIndexOf(","));
+var tagsArrayCount = tagsslicecoma.split(',');
+console.log("Count:", tagsArrayCount);
+ var map = tagsArrayCount.reduce(function(prev, cur) {
+  prev[cur] = (prev[cur] || 0) + 1;
+  return prev;
+}, {});
+ console.log("Map: ", map);
+ var intelltags = Object.keys(map).filter(function(key) {
+    // Categorias que tienen más de 5 libros
+    return map[key] >= 5;
+});
+ var colorBlue;
+ console.log("Intell tags", intelltags)
+  console.log("Intell tags", intelltags[0]);
+  $('#intelligentslidermtk').prepend('<div class="container"><div class="row"><div class="col-md-6 col-md-offset-2 col-xs-10" style="float: unset; margin: 0 auto;"><h1 class="headlinebelowslider" style="margin-top:0;"><span class="rainbow-text titleslider">Recientes</span></h1></div></div></div><div class="carouselOfImages recientes"></div><div class="boxhr"><div class="boxhr-sm red"></div><div class="boxhr-sm orange"></div><div class="boxhr-sm yellow "></div><div class="boxhr-sm green "></div><div class="boxhr-sm blue "></div><div class="boxhr-sm purple"></div></div>')
+ for (ias; ias < intelltags.length; ias++) {
+     console.log("FOR LOOP TAG");
+     
+                           intelnative = intelltags[ias];
+                             $('#intelligentslidermtk').append('<div class="container"><div class="row"><div class="col-md-6 col-md-offset-2 col-xs-10" style="float: unset; margin: 0 auto;"><h1 class="headlinebelowslider"><span class="rainbow-text titleslider">'+intelnative+'</span></h1></div></div></div><div class="carouselOfImages '+getCleanedString(intelnative)+'"></div><div class="boxhr"><div class="boxhr-sm red"></div><div class="boxhr-sm orange"></div><div class="boxhr-sm yellow "></div><div class="boxhr-sm green "></div><div class="boxhr-sm blue "></div><div class="boxhr-sm purple"></div></div>');
+                           
+                           console.log(intelnative);
+                                                
+              
+       var whatcolor = "", $carousel_book;                                  
+                                        }   
+ for (var i = 0; i < result.docs.length; i++) {
+
+// It should go something like this:
+
+/*
+console: [
+  Object { value="dog", count=2}, 
+  Object { value="cat", count=3}, 
+  Object { value="buffalo", count=1}, 
+  Object { value="wolf", count=1}, 
+  Object { value="tiger", count=1}
+]
+ */
+           /* console.log(compressArray(tags_book))*/
+           
+
+
+
+
+    idimg = result.docs[i]._id;
+  /*  var colors = result.docs[i].colors;
+    console.log("COLORS: ", colors)*/
+   
+ /*   
+ var $carousel_book = $(' <div class="carouselImage '+result.docs[i]._id +'" style="background:url(assets/portada_upload.jpg); background-size:cover;"><div class="col-xs-12" style="padding:0;"><article class="material-card Blue"><div class="buttonprecio"><span class="content">Comprar</span><span class="badgeprecio">$'+result.docs[i].price_unity+'</span></div><h2><span>'+result.docs[i].title+'</span><strong><i class="fa fa-fw fa-star"></i> '+result.docs[i].compras +'/'+result.docs[i].preventas+'<i class="fa fa-fw fa-star"></i><i class="fa fa-fw fa-star"></i></strong></h2><div class="mc-content"><div class="img-container"><img class="img-responsive '+result.docs[i]._id +'" src="assets/portada_upload.jpg"></div><div class="mc-description">'+result.docs[i].chapter +'</div></div><a class="mc-btn-action"><i class="fa fa-bars"></i></a><div class="mc-footer"><a class="mc-btn-action-progress" style="background-color: transparent;"><div class="loadprogresscampaign" data-percent="20%"></div></a><a class="mc-btn-action-love"><i class="fa fa-heart-o"></i></a></div></article></div></div>');
+
+ */
+
+    /* var direction = x < 200 ? 1 : -1; */
+    var colorsbook = result.docs[i].colors;
+   if(!colorsbook){
+      whatcolor = "Blue";
+      console.log(whatcolor);
+      $carousel_book = $(' <div class="carouselImage '+result.docs[i]._id +' libro-item col-xs-12 col-md-12 col-lg-12 col-sm-12" style="padding:0; background:url(assets/portada_upload.jpg); background-size:cover;"><div class="col-xs-12" style="padding:0;"><article class="material-card Blue" data-book="'+result.docs[i].title+'" data-precio="'+result.docs[i].price_unity+'" data-id="'+result.docs[i]._id+'"><div class="addlibro buttonprecio" onclick="addlibro(\''+result.docs[i]._id +'\', \''+result.docs[i].title +'\', \''+result.docs[i].price_unity +'\')"><span class="content">Comprar</span><span class="badgeprecio product-price">$'+result.docs[i].price_unity+'</span></div><h2><span class="truncate">'+result.docs[i].title+'</span><strong><a class="nice-link" onclick="showbook(\''+result.docs[i]._id+'\')">Detalles</a></strong></h2><div class="mc-content"><div class="img-container"><img class="img-responsive '+result.docs[i]._id +'" src="assets/portada_upload.jpg"></div><div class="mc-description"><h1 class="countdown countdown'+result.docs[i]._id+'"></h1></div></div><a class="mc-btn-action regresiva'+result.docs[i]._id+'" onclick="cuentaregresiva(\''+result.docs[i]._id +'\', \''+result.docs[i].time_limit +'\');"><i class="fa fa-bars"></i></a><div class="mc-footer"><a class="mc-btn-action-progress" style="background-color: transparent;"><div class="loadprogresscampaign" data-percent="'+((result.docs[i].compras/result.docs[i].preventas) * 100).toFixed(0)+'%"></div></a><a class="mc-btn-action-love"><i class="fa fa-heart-o"></i></a></div></article></div></div>');
+    } else {
+      $('.edicionesleebooks').append('.material-card.mb'+result.docs[i]._id+' h2{background-color:#'+result.docs[i].colors[3].hex+'; color:#'+result.docs[i].colors[2].hex+'}.material-card.mb'+result.docs[i]._id+' h2:after{border-top-color:#'+result.docs[i].colors[3].hex+';border-right-color:#'+result.docs[i].colors[3].hex+';border-bottom-color:transparent;border-left-color:transparent}.material-card.mb'+result.docs[i]._id+' h2:before{border-top-color:transparent;border-right-color:#'+result.docs[i].colors[4].hex+';border-bottom-color:#'+result.docs[i].colors[4].hex+';border-left-color:transparent}.material-card.mb'+result.docs[i]._id+'.mc-active h2:before{border-top-color:transparent;border-right-color:#'+result.docs[i].colors[2].hex+';border-bottom-color:#'+result.docs[i].colors[2].hex+';border-left-color:transparent}.material-card.mb'+result.docs[i]._id+'.mc-active h2:after{border-top-color:'+result.docs[i].colors[2].hex+';border-right-color:#'+result.docs[i].colors[2].hex+';border-bottom-color:transparent;border-left-color:transparent}.material-card.mb'+result.docs[i]._id+' .mc-btn-action{background-color:#'+result.docs[i].colors[3].hex+'}.material-card.'+result.docs[i]._id+' .mc-btn-action:hover{background-color:#'+result.docs[i].colors[4].hex+'}.material-card.mb'+result.docs[i]._id+' .mc-footer h4{color:#'+result.docs[i].colors[2].hex+'}.material-card.mb'+result.docs[i]._id+' .mc-footer a{background-color:#'+result.docs[i].colors[2].hex+'}.material-card.mb'+result.docs[i]._id+'.mc-active .mc-content{background-color:#'+result.docs[i].colors[1].hex+'}.material-card.mb'+result.docs[i]._id+'.mc-active .mc-footer{background-color:#'+result.docs[i].colors[1].hex+'}.material-card.mb'+result.docs[i]._id+'.mc-active .mc-btn-action{border-color:#'+result.docs[i].colors[2].hex+'}');
+
+      $carousel_book = $(' <div class="carouselImage '+result.docs[i]._id +' libro-item col-xs-12 col-md-12 col-lg-12 col-sm-12" style="padding:0; background:url(assets/portada_upload.jpg); background-size:cover;" ><div class="col-xs-12" style="padding:0;"><article class="material-card mb'+result.docs[i]._id +'" data-book="'+result.docs[i].title+'" data-precio="'+result.docs[i].price_unity+'" data-id="'+result.docs[i]._id+'"><div class="addlibro buttonprecio" onclick="addlibro(\''+result.docs[i]._id +'\', \''+result.docs[i].title +'\', \''+result.docs[i].price_unity +'\')"><span class="content">Comprar</span><span class="badgeprecio product-price">$'+result.docs[i].price_unity+'</span></div><h2 class="product-name"><span class="truncate">'+result.docs[i].title+'</span><strong><a class="nice-link" onclick="showbook(\''+result.docs[i]._id+'\')">Detalles</a></strong></h2><div class="mc-content"><div class="img-container"><img class="img-responsive '+result.docs[i]._id +'" src="assets/portada_upload.jpg"></div><div class="mc-description"><h1 class="countdown countdown'+result.docs[i]._id+'"></h1></div></div><a class="mc-btn-action regresiva'+result.docs[i]._id+'" onclick="cuentaregresiva(\''+result.docs[i]._id +'\', \''+result.docs[i].time_limit +'\');"><i class="fa fa-bars"></i></a><div class="mc-footer"><a class="mc-btn-action-progress" style="background-color: transparent;"><div class="loadprogresscampaign" data-percent="'+((result.docs[i].compras/result.docs[i].preventas) * 100).toFixed(0)+'%"></div></a><a class="mc-btn-action-love"><i class="fa fa-heart-o"></i></a></div></article></div></div>');
+
+    }  
+
+                                        $('.recientes').append($carousel_book.clone());  
+
+                                        intelltags.forEach(function(word) {
+  console.log(word);
+  var matchtag = result.docs[i].tags.match(word);
+  if(matchtag != null){
+    
+    if(word == matchtag[0]){
+      console.log("PASADO!");
+      console.log(matchtag[0]);
+      $('.'+getCleanedString(matchtag[0])).append($carousel_book.clone());
+
+       
+  }
+  }
+}); 
+                                           if(result.docs.length > 1) {
+                                              console.log("hay libros home main")
+                                              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           }
+
+                                            
+
+                                           if(result.docs[i].upload_portada == true){
+                                            console.log("YES!")
+                                            console.log(idimg);
+                                            getportadabyIdtoClass(idimg);
+              
+              }
+                  
+ 
+
+                                           
+                                          
+                                              
+                                        };
+
+
+                                        dbleelocal.find({
+     selector: {
+    $and: [
+      { publish: { $eq: true } },
+      { compras: { $gte: 1 } }
+    ]
+  },
+  limit: 10
+}).then(function (bookheaders) {
+ for (let i = 0; i < bookheaders.docs.length; i++) {
+  xlog(bookheaders.docs[i].title, "error");
+
+  dbleelocal.get(bookheaders.docs[i]._id, {attachments: true}).then(function (doc) {
+      var taghb = doc.tags.split(','), tagresult = "";
+      var descr = $.trim(doc.descripcion);
+    for (var itag = 0; itag < taghb.length; itag+=1) {
+
+    tagresult += '<li><a href="#">'+taghb[itag]+'</a></li>';
+  }
+        
+      return upublic.get(doc.autor).then(function (user) {
+    console.log(doc);
+    console.log("USUARIO: ", user);
+    var avautor = user.nombre.substring(0, user.nombre.indexOf(' '));
+    avautor += " ";
+    
+    avautor += user.nombre.substring(user.nombre.indexOf(' ') + 1);
+    avautor = avautor.replace(/\W*(\w)\w*/g, '$1').toUpperCase();
+    $( ".cfbook-main" ).find('.cfbook-cell').eq([i]).html('<div class="book-header-card" id="hb'+doc._id+'" style="background-image: url(data:'+doc._attachments.portada.content_type+';base64,'+doc._attachments.portada.data+');"><div class="color-overlay"><div class="book-header-share"><div class="circle-tags"><ul>'+tagresult+'</ul></div></div><div class="book-header-content"><div class="book-header-header"><h1 class="book-header-title truncate">'+doc.title+'</h1><div class="book-header-info"> <p class="author" data-letters="'+avautor+'" style="color:rgba(247, 247, 247, 0.69);">'+user.nombre+'</p></div></div><p class="book-header-desc">'+$('<span>'+descr+'</span>').text()+'</p></div><a class="btnhb btnhb-outline" href="#" onclick="showbook(\''+doc._id+'\')">Abrir</a></div></div>');
+    $( ".cfbook-nav" ).find('.cfbook-cell').eq([i]).css({'background-image': 'url(data:'+doc._attachments.portada.content_type+';base64,'+doc._attachments.portada.data+'', 'background-size': 'cover'});
+      })
+  }).then(function(returned){
+
+    $('.cfbook-main').flickity({
+  // options
+  prevNextButtons: false,
+  pageDots: false,
+  cellAlign: 'left',
+  contain: true
+});
+  $('.cfbook-nav').flickity({
+    prevNextButtons: false,
+  asNavFor: '.cfbook-main',
+  pageDots: false,
+  contain: true
+}); 
+
+  }).catch(function(errs){
+    console.log("aca");
+    xlog(errs, 'error');
+  });
+
+
+                                        
+                                 
+ }
+   
+ }).catch(function (err) {
+console.log("aca");
+  xlog(err, "warning");
+
+ });
+
+                                      } else {
+                                       console.log("no hay libros publicados");
+                                     /*  router.navigate('/zero'); */
+                                      }
+                                     // console.log('JSON' + JSON.stringify(result, undefined, 2));
+                                    
+                                  }).then(function(returns){
+                                    rendercrsl();
+                                  }).catch(function (err) {
+                                      console.log(err);
+                                      rendercrsl();
+                                  });
+
+
+
+                                  }).catch(function (errs) {
+                                      console.log(errs);
+                                      rendercrsl();
+                                  });
+
+
+      
+
+
+        
+
+
+
+
+</script>

@@ -1,0 +1,148 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/wintr/pen/aWRKrm?depth=everything&order=popularity&page=4&q=book&show_forks=false" />
+
+
+<style class="cp-pen-styles">@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700';
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  padding: 0px;
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  background: #24252A;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 9999;
+}
+
+.wrapper h2 {
+  color: #644cad;
+  font-weight: 400;
+}
+
+.wrapper input {
+  padding: 8px;
+  font-size: 14px;
+  min-width: 200px;
+}
+
+.book {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  -webkit-transform: skew(30deg, 0deg) rotate(-15deg);
+  -moz-transform: skew(30deg, 0deg) rotate(-15deg);
+  -ms-transform: skew(30deg, 0deg) rotate(-15deg);
+  -o-transform: skew(30deg, 0deg) rotate(-15deg);
+  transform: skew(30deg, 0deg) rotate(-15deg);
+}
+
+.book .cover {
+  height: 600px;
+  width: 480px;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image: url("https://placeholdit.imgix.net/~text?txtsize=33&txt=Paste+Image+URL+480%C3%97600&w=480&h=600");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.book .cover:before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  width: 6px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .cover:after {
+  content: '';
+  display: inline-block;
+  width: 480px;
+  height: 40px;
+  position: absolute;
+  bottom: -40px;
+  -webkit-transform: skewX(-45deg) translate(-20px, 0px);
+  -moz-transform: skewX(-45deg) translate(-20px, 0px);
+  -ms-transform: skewX(-45deg) translate(-20px, 0px);
+  -o-transform: skewX(-45deg) translate(-20px, 0px);
+  transform: skewX(-45deg) translate(-20px, 0px);
+  background: #c4c4c4;
+  background: -webkit-linear-gradient(45deg, #c4c4c4, #EEE);
+  background: linear-gradient(45deg, #c4c4c4, #EEE);
+}
+
+.book .spine {
+  height: 600px;
+  width: 40px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+  background: #c4c4c4;
+  background: -webkit-linear-gradient(90deg, #c4c4c4, #EEE);
+  background: linear-gradient(90deg, #c4c4c4, #EEE);
+  -webkit-transform: skewY(-45deg) translate(0px, 20px);
+  -moz-transform: skewY(-45deg) translate(0px, 20px);
+  -ms-transform: skewY(-45deg) translate(0px, 20px);
+  -o-transform: skewY(-45deg) translate(0px, 20px);
+  transform: skewY(-45deg) translate(0px, 20px);
+  content: attr(data-text);
+  font-size: 22px;
+  letter-spacing: 30px;
+  overflow-wrap: break-word;
+  color: #333;
+  padding: 13px;
+  text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+</style></head><body>
+<div class="wrapper">
+  <h2>Book Mockup Generator</h2>
+  <input type="text" id="title" placeholder="Book Title" />
+  <input type="text" id="image" placeholder="Book Cover Image URL" />
+</div>
+
+<div class="book">
+  <div class="spine" data-text="Book Title">BOOK TITLE</div>
+  <div class="cover"></div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script >// I'm aware the dimensions are not correct, will look to fix shortly.
+
+$("input#title").keyup(function(){
+   $('.book .spine').html(this.value);
+});
+$("input#image").keyup(function(){
+  var bgimg = this.value;
+  $('.cover').css('background-image', 'url("' + bgimg + '")');
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

@@ -1,0 +1,305 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/kenjiSpecial/pen/EaVxdx?depth=everything&order=popularity&page=12&q=three.js&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  overflow: hidden;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+</style></head><body>
+<script id="vertexShaderLines" type="x-shader/x-vertex">
+
+      precision mediump float;
+      precision mediump int;
+
+      //attribute vec3 pos;
+      attribute vec4 color;
+      //attribute vec3 data;
+
+      varying vec3 vPosition;
+      varying vec4 vColor;
+      //varying vec2 texCoordVarying;
+
+      uniform float time;
+
+      void main() {
+          float PI = 3.14159;
+          //float deltaY = pow(data.z,2.0);
+
+          float distFromCenter = length(position);
+
+          vec3 posFinal = position;
+
+          float pulsateDist = sin(distFromCenter*(1.5+sin(time*0.2)*0.5) + time*0.3);
+          float offsetX = pulsateDist * 0.7 * sin( 0.8*position.x  + time*0.7 );
+          float offsetY = pulsateDist * 0.7 * cos( 0.8*position.y  + time*0.7 );
+          posFinal.x += offsetX;
+          posFinal.y += offsetY;
+
+
+          vPosition = posFinal;
+          vColor = color;
+
+          gl_Position = projectionMatrix * modelViewMatrix * vec4( posFinal, 1.0 );
+      }
+
+
+</script>
+
+<script id="fragmentShaderLines" type="x-shader/x-fragment">
+
+      precision highp float;
+      precision mediump int;
+
+      varying vec3 vPosition;
+      varying vec4 vColor;
+
+      uniform sampler2D texture;
+      uniform sampler2D texture2;
+
+      uniform float rate;
+      //uniform float time;
+
+      void main() {
+         vec2 pos = (vPosition.xy + 12.0)  /24.0 ;
+
+         vec4 color1 = texture2D(texture, pos);
+         vec4 color2 = texture2D(texture2, pos);
+
+        gl_FragColor = color1 * (1.0 - rate) + color2 * rate;
+
+      }
+
+</script>
+<script src='http://production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js'></script><script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js'></script>
+<script >var camera, scene, renderer;
+
+    var mesh;
+    var shaderValue = {rate: 0};
+
+    var g_dt = 1/30;
+    var time = 0;
+
+    init();
+
+    animate();
+
+    function init() {
+      THREE.ImageUtils.crossOrigin = "Anonymous";
+        camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
+        // reset camera
+        camera.position.x = 0;
+        camera.position.y = 0;
+        camera.position.z = 20;
+        camera.lookAt( new THREE.Vector3( 0, 0, -1 ) );
+
+        scene = new THREE.Scene();
+
+        /*
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+        camera.position.z = 20;
+        */
+        //camera.position.y = 12;
+
+        //camera.lookAt(scene.position);
+
+        var geometry = new THREE.BufferGeometry();
+        var material = new THREE.LineBasicMaterial({ vertexColors: THREE.VertexColors });
+
+        var positions = [];
+        var colors = [];
+        var indices_array = [];
+
+        var numPtsX = 96;
+        var numPtsY = 96;
+        var numVerts = numPtsX * numPtsY;
+        var deltaStep = 0.2;
+
+        // generate verts
+        var posXOffset = -numPtsX * deltaStep * 0.5;
+        var posYOffset = -numPtsY * deltaStep * 0.5;
+
+        for ( var y = 0; y < numPtsY; y++ )
+        {if (window.CP.shouldStopExecution(2)){break;}
+            for ( var x = 0; x < numPtsX; x++ )
+            {if (window.CP.shouldStopExecution(1)){break;}
+                var posX = posXOffset + x * deltaStep;
+                var posY = posYOffset + y * deltaStep;
+                var posZ = 0.0;
+
+                positions.push(posX, posY,posZ);
+                //colors.push(Math.random()*0.5+0.5, Math.random()*0.5+0.5, 1);
+                colors.push(0.65,0.65,0.65);
+                //colors.push(1.0,0.0,1.0);
+            }
+window.CP.exitedLoop(1);
+
+        }
+window.CP.exitedLoop(2);
+
+
+        // generate indices
+        for ( var y = 0; y < numPtsY-1; y++ )
+        {if (window.CP.shouldStopExecution(4)){break;}
+            var rowIndexOffset = y * numPtsX;
+
+            for ( var x = 0; x < numPtsX-1; x++ )
+            {if (window.CP.shouldStopExecution(3)){break;}
+                var indexCurr = rowIndexOffset + x;
+                var indexRight = indexCurr + 1;
+                var indexTop = indexCurr + numPtsX;
+                var indexTopRight = indexTop + 1;
+
+                indices_array.push(indexCurr, indexRight);
+                indices_array.push(indexCurr, indexTop);
+                indices_array.push(indexCurr, indexTopRight);
+            }
+window.CP.exitedLoop(3);
+
+        }
+window.CP.exitedLoop(4);
+
+
+        // top row - needs to stitch together
+        for ( var x = 0; x < numPtsX-1; x++ )
+        {if (window.CP.shouldStopExecution(5)){break;}
+            var index0 = (numPtsY-1)*numPtsX + x;
+            var index1 = index0 + 1;
+            indices_array.push(index0, index1);
+        }
+window.CP.exitedLoop(5);
+
+
+        // right col - needs to stitch together
+        for ( var y = 0; y < numPtsY-1; y++ )
+        {if (window.CP.shouldStopExecution(6)){break;}
+            var index0 = y*numPtsX + numPtsX-1;
+            var index1 = index0 + numPtsX;
+            indices_array.push(index0, index1);
+        }
+window.CP.exitedLoop(6);
+
+
+        // vert attrib
+        geometry.addAttribute( 'index', new THREE.BufferAttribute( new Uint16Array( indices_array ), 1 ) );
+        geometry.addAttribute( 'position', new THREE.BufferAttribute( new Float32Array( positions ), 3 ) );
+        geometry.addAttribute( 'color', new THREE.BufferAttribute( new Float32Array( colors ), 3 ) );
+        geometry.computeBoundingSphere();
+
+        var attributes = {
+            position: {	type: 'f', value: null },
+            color: { type: 'f', value: null },
+            //data: { type: 'f', value: null }
+        };
+
+        uniforms = {
+            time: {type: 'f', value: 2.0},
+            texture:   { type: "t", value: THREE.ImageUtils.loadTexture( "https://s3-us-west-2.amazonaws.com/s.cdpn.io/13842/ballon.jpg" ) },
+            texture2:   { type: "t", value: THREE.ImageUtils.loadTexture( "https://s3-us-west-2.amazonaws.com/s.cdpn.io/13842/town-texture.jpg" ) },
+            rate : {type: 'f', value: 0.0}
+        };
+
+        var shaderMaterial = new THREE.ShaderMaterial( {
+
+            uniforms: 		uniforms,
+            attributes:     attributes,
+            vertexShader:   document.getElementById( 'vertexShaderLines' ).textContent,
+            fragmentShader: document.getElementById( 'fragmentShaderLines' ).textContent,
+
+
+            //blending: 		THREE.AdditiveBlending,
+            depthTest: 		true,
+            transparent:	false,
+        });
+
+        mesh = new THREE.Line( geometry, shaderMaterial, THREE.LinePieces );
+        scene.add(mesh);
+
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor( 0x000000, 1);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        document.body.appendChild(renderer.domElement);
+
+    }
+
+    function animate() {
+
+        // note: three.js includes requestAnimationFrame shim
+        requestAnimationFrame(animate);
+
+        time += g_dt;
+
+        var rate = (Math.cos(time/2) + 1) / 2;
+        mesh.material.uniforms.time.value = time;
+        mesh.material.uniforms.rate.value = rate;
+
+        renderer.render(scene, camera);
+
+    }
+
+//# sourceURL=pen.js
+</script>
+</body></html>

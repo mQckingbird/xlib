@@ -1,0 +1,228 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/RSH87/pen/MymoNO?depth=everything&order=popularity&page=7&q=pay&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'><link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300,500,700);
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: -webkit-gradient(linear, right top, left top, color-stop(40%, #ff3aa7), to(#a43aff));
+  background: linear-gradient(to left, #ff3aa7 40%, #a43aff);
+  background-size: 100% 100vh;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1200px;
+          perspective: 1200px;
+}
+.container .sharebtn {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1200px;
+          perspective: 1200px;
+  -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 18px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#c7c7c7));
+  background: linear-gradient(#ffffff, #c7c7c7);
+  border-radius: 3px;
+  color: #2b2b2b;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.25);
+}
+.container .sharebtn:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+  background: linear-gradient(#ffffff, #ffffff);
+}
+.container .sharebtn.open {
+  -webkit-animation: open 1.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1;
+          animation: open 1.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1;
+}
+.container .sharebtn.close {
+  -webkit-animation: close 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1;
+          animation: close 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1;
+}
+.container .sharebtn.active ~ .social {
+  top: 0;
+  left: calc(50% - 20px);
+  height: 0px;
+  width: 0px;
+}
+.container .sharebtn.active ~ .social:before {
+  font-size: 0px;
+  -webkit-transition-delay: 0.3s !important;
+          transition-delay: 0.3s !important;
+}
+.container .social {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#eaeaea));
+  background: linear-gradient(#ffffff, #eaeaea);
+  top: 70px;
+  border-radius: 40px;
+  -webkit-box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.15);
+  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: -1;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.container .social:before {
+  content: "\f09a";
+  font-family: FontAwesome;
+  color: #3b5999;
+  text-shadow: 0 1px 0 #e5e5e5;
+  -webkit-transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.container .social.twitter:before {
+  content: "\f099";
+  color: #54abee;
+}
+.container .social.linked:before {
+  content: "\f0e1";
+  color: #007bb6;
+}
+.container .social:nth-child(2) {
+  left: -27.5px;
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+.container .social:nth-child(2):before {
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+}
+.container .social:hover:before {
+  -webkit-animation: outin .4s ease;
+          animation: outin .4s ease;
+}
+.container .social:nth-child(3) {
+  left: 42.5px;
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+}
+.container .social:nth-child(3):before {
+  -webkit-transition-delay: 0.9s;
+          transition-delay: 0.9s;
+}
+.container .social:hover:before {
+  -webkit-animation: outin .4s ease;
+          animation: outin .4s ease;
+}
+.container .social:nth-child(4) {
+  left: 112.5px;
+  -webkit-transition-delay: 0.8s;
+          transition-delay: 0.8s;
+}
+.container .social:nth-child(4):before {
+  -webkit-transition-delay: 1.2s;
+          transition-delay: 1.2s;
+}
+.container .social:hover:before {
+  -webkit-animation: outin .4s ease;
+          animation: outin .4s ease;
+}
+
+@-webkit-keyframes outin {
+  30% {
+    line-height: -100px;
+    opacity: 0;
+  }
+  60% {
+    line-height: 40pxpx;
+    opacity: 0;
+  }
+}
+
+@keyframes outin {
+  30% {
+    line-height: -100px;
+    opacity: 0;
+  }
+  60% {
+    line-height: 40pxpx;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes open {
+  60% {
+    -webkit-transform: rotateX(50deg);
+            transform: rotateX(50deg);
+    -webkit-box-shadow: 0px 40px 90px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0px 40px 90px 0px rgba(0, 0, 0, 0.35);
+    border-bottom: 3px solid grey;
+  }
+}
+@keyframes open {
+  60% {
+    -webkit-transform: rotateX(50deg);
+            transform: rotateX(50deg);
+    -webkit-box-shadow: 0px 40px 90px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0px 40px 90px 0px rgba(0, 0, 0, 0.35);
+    border-bottom: 3px solid grey;
+  }
+}
+@-webkit-keyframes close {
+  70% {
+    -webkit-transform: rotateX(50deg);
+            transform: rotateX(50deg);
+    -webkit-box-shadow: 0px 40px 90px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0px 40px 90px 0px rgba(0, 0, 0, 0.35);
+    border-bottom: 3px solid grey;
+  }
+}
+@keyframes close {
+  70% {
+    -webkit-transform: rotateX(50deg);
+            transform: rotateX(50deg);
+    -webkit-box-shadow: 0px 40px 90px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0px 40px 90px 0px rgba(0, 0, 0, 0.35);
+    border-bottom: 3px solid grey;
+  }
+}
+</style></head><body>
+<div class="container">
+	<div class="sharebtn active">Share</div>
+	<div class="social"></div>
+	<div class="social twitter"></div>
+	<div class="social linked"></div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >$('.sharebtn').on('click', function(){
+	$(this).toggleClass('active');
+	if($(this).hasClass('open')){
+		$(this).removeClass('open');
+		$(this).addClass('close');
+	} else{
+		$(this).removeClass('close');
+		$(this).addClass('open');
+	}
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

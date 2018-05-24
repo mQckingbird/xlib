@@ -1,0 +1,149 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/dmjcomdem/pen/VzgJrZ?limit=all&page=14&q=buy+button" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+html, body {
+  height: 100%;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #EEEEEE;
+}
+
+section {
+  width: 1000px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  text-align: center;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  margin: 0 16px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  padding: 16px 32px;
+  border: 1px solid #ddd;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: .5px;
+  background-color: #ddd;
+  background-image: none;
+  cursor: pointer;
+  color: #212121;
+  text-transform: uppercase;
+  outline: none;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 4px;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+button:hover {
+  -webkit-box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+button:active {
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translate(0, 2px);
+          transform: translate(0, 2px);
+}
+button.btn-buy {
+  background-color: #ffeb3b;
+}
+button.btn-download {
+  background-color: #8bc34a;
+}
+
+.circle {
+  display: block;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  pointer-events: none;
+}
+.circle.animate {
+  -webkit-animation: effect .7s linear;
+          animation: effect .7s linear;
+}
+
+@-webkit-keyframes effect {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+            transform: scale(2.5);
+  }
+}
+
+@keyframes effect {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+            transform: scale(2.5);
+  }
+}
+</style></head><body>
+
+<section>
+  <button class="btn-buy" type="button">$ buy</button>
+  <button type="button">♕ Material design buttons </button>
+  <button class="btn-download" type="button">⇩ download</button>
+</section>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >(function () {
+  // Array.from(buttons) or Array.prototype.forEach.call
+  // Array.prototype.forEach.call(buttons, function() {});
+
+  Array.from(document.querySelectorAll('button')).forEach(function (btn) {
+    btn.addEventListener('mousedown', handlerRipple);
+  });
+
+  function handlerRipple(event) {
+    var circle = void 0,
+        offsetX = event.offsetX,
+        offsetY = event.offsetY;
+    circle = this.querySelector('.circle');
+
+    if (!circle) {
+      circle = document.createElement('div');
+      circle.classList.add('circle');
+      this.appendChild(circle);
+    }
+
+    var size = Math.max(this.clientWidth, this.clientHeight);
+    circle.style.left = offsetX - size / 2 + 'px';
+    circle.style.top = offsetY - size / 2 + 'px';
+    circle.style.width = circle.style.height = size + 'px';
+    circle.classList.remove('animate');
+    setTimeout(function () {
+      circle.classList.add('animate');
+    }, 100);
+  }
+})();
+//# sourceURL=pen.js
+</script>
+</body></html>

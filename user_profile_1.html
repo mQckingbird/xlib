@@ -1,0 +1,364 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/hairarrow/pen/BoJLGK?depth=everything&order=popularity&page=3&q=user+profile&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<style class="cp-pen-styles">html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body *, body *:before, body *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.bg {
+  position: static;
+  top: 0;
+  height: 50%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0b1019), color-stop(300%, #5f94e3));
+  background: linear-gradient(#0b1019, #5f94e3 300%);
+  z-index: 1;
+}
+
+.body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+nav, section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo {
+  height: 28px;
+  width: 28px;
+  color: #fff;
+  border: 2px solid;
+  border-radius: 28px;
+}
+.logo:hover {
+  color: #69A4FC;
+}
+.logo:hover + .navigation-name {
+  color: #69A4FC;
+}
+
+nav {
+  margin: 40px auto 60px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+}
+.navigation a {
+  position: relative;
+  padding: 10px 14px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #4b4b4b;
+  background: #fff;
+  -webkit-transition: color 300ms ease, -webkit-box-shadow 120ms ease;
+  transition: color 300ms ease, -webkit-box-shadow 120ms ease;
+  transition: color 300ms ease, box-shadow 120ms ease;
+  transition: color 300ms ease, box-shadow 120ms ease, -webkit-box-shadow 120ms ease;
+}
+.navigation a:hover {
+  color: #69A4FC;
+  -webkit-box-shadow: 0 5px 54px #69A4FC;
+          box-shadow: 0 5px 54px #69A4FC;
+  -webkit-transition: color 120ms ease, -webkit-box-shadow 200ms ease;
+  transition: color 120ms ease, -webkit-box-shadow 200ms ease;
+  transition: color 120ms ease, box-shadow 200ms ease;
+  transition: color 120ms ease, box-shadow 200ms ease, -webkit-box-shadow 200ms ease;
+}
+.navigation a:first-child {
+  border-radius: 2px 0 0 2px;
+  z-index: 12;
+}
+.navigation a:nth-child(2) {
+  z-index: 13;
+  -webkit-transition: color 300ms ease, z-index 200ms, -webkit-box-shadow 120ms ease;
+  transition: color 300ms ease, z-index 200ms, -webkit-box-shadow 120ms ease;
+  transition: color 300ms ease, box-shadow 120ms ease, z-index 200ms;
+  transition: color 300ms ease, box-shadow 120ms ease, z-index 200ms, -webkit-box-shadow 120ms ease;
+}
+.navigation a:nth-child(2):hover {
+  z-index: 10;
+  -webkit-transition: color 120ms ease, z-index 0ms, -webkit-box-shadow 200ms ease;
+  transition: color 120ms ease, z-index 0ms, -webkit-box-shadow 200ms ease;
+  transition: color 120ms ease, box-shadow 200ms ease, z-index 0ms;
+  transition: color 120ms ease, box-shadow 200ms ease, z-index 0ms, -webkit-box-shadow 200ms ease;
+}
+.navigation a:nth-child(3) {
+  margin-right: 10px;
+  border-radius: 0 2px 2px 0;
+  z-index: 12;
+}
+.navigation a:last-child {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0);
+          box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0);
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.navigation a:last-child:hover {
+  color: #fff;
+  -webkit-box-shadow: inset 0 0 0 1px #fff;
+          box-shadow: inset 0 0 0 1px #fff;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.navigation-name {
+  margin-left: 10px;
+  color: #fff;
+  text-shadow: 0 1px #000;
+  font-weight: 400;
+  font-size: 16px;
+}
+.navigation-name:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+section {
+  padding: 40px;
+  background: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.profile {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #efefef;
+}
+.social a {
+  display: inline-block;
+  margin-right: auto;
+  padding: 10px 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  background: #69A4FC;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.social .following,
+.social .followers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-right: 20px;
+  font-size: 14px;
+  border: 1px solid #eee;
+  border-radius: 200px;
+}
+.social .following .number,
+.social .followers .number {
+  margin-right: 8px;
+  color: #69A4FC;
+  font-size: 18px;
+  font-weight: 300;
+}
+.social .following .label,
+.social .followers .label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999;
+}
+
+.shared-content h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #747474;
+}
+.shared-content .section-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #efefef;
+}
+.shared-content .section-head a {
+  display: inline-block;
+  padding: 8px 12px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  background: #a4fc69;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.content .row {
+  padding: 18px 0;
+  border-bottom: 1px solid #efefef;
+}
+.content .title {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: #5483ca;
+  font-size: 18px;
+  font-weight: 500;
+}
+.content .author {
+  display: inline-block;
+  padding: 6px 8px;
+  color: #464646;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+}
+.content .preview {
+  position: relative;
+  line-height: 1.6;
+  color: #666;
+}
+.content .preview:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(255, 255, 255, 0)), color-stop(98%, #fff));
+  background: linear-gradient(rgba(255, 255, 255, 0) 40%, #fff 98%);
+}
+
+.show-more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 40px;
+}
+.show-more a {
+  display: inline-block;
+  margin: auto;
+  padding: 12px 18px;
+  color: #69A4FC;
+  text-decoration: none;
+  border: 1px solid rgba(105, 164, 252, 0.8);
+  border-radius: 100px;
+}
+</style></head><body>
+<!-- 
+Things to add.
+1. Favorite Shapes
+2. Shapes you might like
+5. Shared Shapes
+ -->
+<div class="bg"></div>
+
+<div class="body">
+  <nav role='navigation'>
+    <div class="logo"></div>
+    <div class="navigation-name">Emmanuel Herrero</div>
+    <div class="navigation">
+      <a href="#">Feed</a>
+      <a href="#">Shapes</a>
+      <a href="#">Friends</a>
+      <a href="#">Logout</a>
+    </div>
+  </nav>  
+  <section class="profile">
+    <div class="social">
+      <a href="#">Follow</a>
+      <div class="following">
+        <div class="number">42</div>
+        <div class="label">Following</div>
+      </div> 
+      <div class="followers">
+        <div class="number">23</div>
+        <div class="label">Followers</div>
+      </div>
+    </div>
+    <div class="shared-content">
+      <div class="section-head">
+        <h3>Favorites</h3>
+        <a href="#">Add</a>
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="title">How to Bounce Shapes</div>
+          <div class="author">John McAwesome</div>
+          <div class="preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, soluta vitae blanditiis neque tempore eaque. Vero repudiandae hic sapiente. Molestias repudiandae numquam, maxime fugiat ea libero ducimus tenetur sunt facere.</div>
+        </div>
+        <div class="row">
+          <div class="title">Animating Shapes</div>
+          <div class="author">Cindy Expo</div>
+          <div class="preview">Repellat quidem eius molestias, laudantium eveniet eos esse numquam, minima omnis veniam! Cumque consectetur dicta distinctio minima suscipit necessitatibus reprehenderit vero, cum optio assumenda perspiciatis magnam. Iusto soluta aliquid perferendis?</div>
+        </div>
+        <div class="row">
+          <div class="title">Not My Shape</div>
+          <div class="author">Beie Felicia</div>
+          <div class="preview">Earum quod voluptates numquam assumenda inventore. Obcaecati praesentium blanditiis quis aut eaque officiis aperiam dicta natus voluptatibus tenetur. Natus nemo, facere temporibus sint possimus, doloremque ab excepturi numquam! Natus, ipsum.</div>
+        </div>
+        <div class="show-more">
+          <a href="#">Show More</a>
+        </div>
+    </div>
+  </section>
+</div>
+
+</body></html>

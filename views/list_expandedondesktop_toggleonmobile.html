@@ -1,0 +1,120 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/rikschennink/pen/aVoXxJ?q=destroy%20element&order=popularity&depth=everything&show_forks=false" />
+<meta name="viewport" content="width=device-width">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">body {
+  padding: 0 2em;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
+button {
+  all: inherit;
+  position: relative;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-right: 2em;
+  cursor: pointer;
+}
+
+svg {
+  position: absolute;
+  right: 0;
+  top: .175em;
+  width: 1.25em;
+}
+
+button:focus svg {
+  outline: 2px solid;
+}
+
+[aria-expanded='true'] svg {
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+</style></head><body>
+<h2 data-module="section-toggler">Toggle me on a small viewport!</h2>
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo purus quis mi cursus hendrerit eu eu metus. Aliquam aliquam arcu eget aliquet scelerisque. Pellentesque sodales turpis vitae venenatis vehicula.</p>
+
+	<p>Ut id porta velit. Ut eu dignissim dui, quis gravida est. Cras quis venenatis mauris, a bibendum enim. Sed at augue libero. Nullam tortor metus, tincidunt ut urna id, posuere placerat orci. Ut quis risus dictum risus facilisis imperdiet quis sed eros.</p>
+</div>
+
+<h2 data-module="section-toggler">No no, toggle me!</h2>
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo purus quis mi cursus hendrerit eu eu metus. Aliquam aliquam arcu eget aliquet scelerisque. <Pellente>					</Pellente>sque sodales turpis vitae venenatis vehicula.</p>
+
+	<p>Ut id porta velit. Ut eu dignissim dui, quis gravida est. Cras quis venenatis mauris, a bibendum enim. Sed at augue libero. Nullam tortor metus, tincidunt ut urna id, posuere placerat orci. Ut quis risus dictum risus facilisis imperdiet quis sed eros.</p>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >/**
+ * Our Accessible Section toggler module
+ */
+const createSectionToggler = (element) => {
+
+	// get section to toggle so we can hide it
+	const target = element.nextElementSibling;
+
+	// setup toggle button
+	const btn = document.createElement('button');
+	btn.setAttribute('aria-expanded', 'false');
+	btn.innerHTML = element.textContent + '<svg aria-hidden="true" focusable="false" viewBox="0 0 16 10"><polyline stroke="#000" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" points="2 2 8 8 14 2"></polyline></svg>';
+	btn.onclick = function() {
+		const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
+		btn.setAttribute('aria-expanded', !expanded);
+		target.hidden = expanded;
+	};
+	element.textContent = '';
+	element.appendChild(btn);
+
+	// hide the section
+	target.hidden = true;
+
+};
+
+// destroy the section toggler
+const destroySectionToggler = (element) => {
+	element.nextElementSibling.hidden = false;
+	element.textContent = element.firstChild.textContent;
+};
+
+
+/**
+ * Use to setup a module that should only load under certain conditions
+ */
+const createModuleQuery = (query, create, destroy) => (element) => {
+
+	// watch our media query
+	const mql = window.matchMedia(query);
+	
+	// toggle the module based on if the media query matches or not
+	const toggle = (mql) => mql.matches ? create(element) : destroy(element);
+
+	// toggle the element based on current media query state
+	toggle(mql)
+
+	// observes changes to media query and creates / destroys the element if mq changes
+	mql.addListener(toggle);	
+};
+
+
+/**
+ * Setup your module factories here (the binding between the module name and creator / destroyer function)
+ */
+var moduleFactories = {
+	'section-toggler': createModuleQuery('(max-width: 36em)', createSectionToggler, destroySectionToggler)
+};
+
+
+/**
+ * Load all modules on page
+ */
+var modules = document.querySelectorAll('[data-module]');
+modules.forEach(element => moduleFactories[element.dataset.module](element));
+//# sourceURL=pen.js
+</script>
+</body></html>

@@ -1,0 +1,919 @@
+
+<!DOCTYPE html><html class=''>
+<head>
+    <meta charset='UTF-8'>
+    <link rel="canonical" href="http://matikbird.com" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ediciones Lee - Recaudación de fondos</title>
+
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css'>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+<link rel='stylesheet prefetch' href='assets/text-editor.css'>
+<link rel='stylesheet prefetch' href='assets/cplee.css'>
+<style>/*
+ *  Imports
+*/
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+/*
+ *  Variables
+*/
+/* Single Line truncation */
+/* Multiline truncation */
+/*
+ *  Global styles
+*/
+html,
+body,
+.main,
+.main-container {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #313131;
+  background: #ecf0f1;
+}
+
+
+#phrase_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column;
+      flex-flow: column;
+  height: 150px;
+  overflow: hidden;
+  width: 260px;
+}
+
+#phrases {
+  -webkit-animation: slide-phrases-upward 20s;
+          animation: slide-phrases-upward 20s;
+}
+
+
+#nprogress {
+  pointer-events: none;
+  -webkit-tap-highlight-color: unset !important;
+  -webkit-transform-style: unset !important;
+  transform-style: unset !important;
+}
+
+#nprogress .bar {
+  background: #ffffff;
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #fff, 0 0 5px #fff;
+  opacity: 1.0;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+          transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: absolute;
+  z-index: 1031;
+  left: 49%;
+  top: 7px;
+}
+
+#nprogress .spinner-icon {
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+
+  border: solid 2px transparent;
+  border-top-color: #1e76a9;
+  border-left-color: #3181af;
+  border-radius: 50%;
+
+  -webkit-animation: nprogress-spinner 600ms linear infinite;
+          animation: nprogress-spinner 600ms linear infinite;
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0%   { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes nprogress-spinner {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+@-webkit-keyframes slide-phrases-upward {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  5% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  10% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  15% {
+    -webkit-transform: translateY(-150px);
+            transform: translateY(-150px);
+  }
+  20% {
+    -webkit-transform: translateY(-200px);
+            transform: translateY(-200px);
+  }
+  25% {
+    -webkit-transform: translateY(-250px);
+            transform: translateY(-250px);
+  }
+  30% {
+    -webkit-transform: translateY(-300px);
+            transform: translateY(-300px);
+  }
+  35% {
+    -webkit-transform: translateY(-350px);
+            transform: translateY(-350px);
+  }
+  40% {
+    -webkit-transform: translateY(-400px);
+            transform: translateY(-400px);
+  }
+  45% {
+    -webkit-transform: translateY(-450px);
+            transform: translateY(-450px);
+  }
+  50% {
+    -webkit-transform: translateY(-500px);
+            transform: translateY(-500px);
+  }
+  55% {
+    -webkit-transform: translateY(-550px);
+            transform: translateY(-550px);
+  }
+  60% {
+    -webkit-transform: translateY(-600px);
+            transform: translateY(-600px);
+  }
+  65% {
+    -webkit-transform: translateY(-650px);
+            transform: translateY(-650px);
+  }
+  70% {
+    -webkit-transform: translateY(-700px);
+            transform: translateY(-700px);
+  }
+  75% {
+    -webkit-transform: translateY(-750px);
+            transform: translateY(-750px);
+  }
+  80% {
+    -webkit-transform: translateY(-800px);
+            transform: translateY(-800px);
+  }
+  85% {
+    -webkit-transform: translateY(-850px);
+            transform: translateY(-850px);
+  }
+  90% {
+    -webkit-transform: translateY(-900px);
+            transform: translateY(-900px);
+  }
+  95% {
+    -webkit-transform: translateY(-950px);
+            transform: translateY(-950px);
+  }
+  100% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+  }
+}
+
+@keyframes slide-phrases-upward {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  5% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  10% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  15% {
+    -webkit-transform: translateY(-150px);
+            transform: translateY(-150px);
+  }
+  20% {
+    -webkit-transform: translateY(-200px);
+            transform: translateY(-200px);
+  }
+  25% {
+    -webkit-transform: translateY(-250px);
+            transform: translateY(-250px);
+  }
+  30% {
+    -webkit-transform: translateY(-300px);
+            transform: translateY(-300px);
+  }
+  35% {
+    -webkit-transform: translateY(-350px);
+            transform: translateY(-350px);
+  }
+  40% {
+    -webkit-transform: translateY(-400px);
+            transform: translateY(-400px);
+  }
+  45% {
+    -webkit-transform: translateY(-450px);
+            transform: translateY(-450px);
+  }
+  50% {
+    -webkit-transform: translateY(-500px);
+            transform: translateY(-500px);
+  }
+  55% {
+    -webkit-transform: translateY(-550px);
+            transform: translateY(-550px);
+  }
+  60% {
+    -webkit-transform: translateY(-600px);
+            transform: translateY(-600px);
+  }
+  65% {
+    -webkit-transform: translateY(-650px);
+            transform: translateY(-650px);
+  }
+  70% {
+    -webkit-transform: translateY(-700px);
+            transform: translateY(-700px);
+  }
+  75% {
+    -webkit-transform: translateY(-750px);
+            transform: translateY(-750px);
+  }
+  80% {
+    -webkit-transform: translateY(-800px);
+            transform: translateY(-800px);
+  }
+  85% {
+    -webkit-transform: translateY(-850px);
+            transform: translateY(-850px);
+  }
+  90% {
+    -webkit-transform: translateY(-900px);
+            transform: translateY(-900px);
+  }
+  95% {
+    -webkit-transform: translateY(-950px);
+            transform: translateY(-950px);
+  }
+  100% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+  }
+}
+#loadingCheckCircleSVG-0 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-1 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-2 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-3 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-4 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-5 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 3.5s;
+          animation-delay: 3.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-6 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 4.5s;
+          animation-delay: 4.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-7 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 5.5s;
+          animation-delay: 5.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-8 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 6.5s;
+          animation-delay: 6.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-9 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 7.5s;
+          animation-delay: 7.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-10 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 8.5s;
+          animation-delay: 8.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-11 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 9.5s;
+          animation-delay: 9.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-12 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 10.5s;
+          animation-delay: 10.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-13 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 11.5s;
+          animation-delay: 11.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-14 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 12.5s;
+          animation-delay: 12.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-15 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 13.5s;
+          animation-delay: 13.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-16 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 14.5s;
+          animation-delay: 14.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-17 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 15.5s;
+          animation-delay: 15.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-18 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 16.5s;
+          animation-delay: 16.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-19 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 17.5s;
+          animation-delay: 17.5s;
+  fill: white;
+  opacity: 0;
+}
+
+#loadingCheckCircleSVG-20 {
+  -webkit-animation: fill-to-white 5000ms;
+          animation: fill-to-white 5000ms;
+  -webkit-animation-delay: 18.5s;
+          animation-delay: 18.5s;
+  fill: white;
+  opacity: 0;
+}
+
+@-webkit-keyframes fill-to-white {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fill-to-white {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#loadingCheckSVG-0 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+}
+
+#loadingCheckSVG-1 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+
+#loadingCheckSVG-2 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+#loadingCheckSVG-3 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+#loadingCheckSVG-4 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+}
+
+#loadingCheckSVG-5 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 3.5s;
+          animation-delay: 3.5s;
+}
+
+#loadingCheckSVG-6 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 4.5s;
+          animation-delay: 4.5s;
+}
+
+#loadingCheckSVG-7 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 5.5s;
+          animation-delay: 5.5s;
+}
+
+#loadingCheckSVG-8 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 6.5s;
+          animation-delay: 6.5s;
+}
+
+#loadingCheckSVG-9 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 7.5s;
+          animation-delay: 7.5s;
+}
+
+#loadingCheckSVG-10 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 8.5s;
+          animation-delay: 8.5s;
+}
+
+#loadingCheckSVG-11 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 9.5s;
+          animation-delay: 9.5s;
+}
+
+#loadingCheckSVG-12 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 10.5s;
+          animation-delay: 10.5s;
+}
+
+#loadingCheckSVG-13 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 11.5s;
+          animation-delay: 11.5s;
+}
+
+#loadingCheckSVG-14 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 12.5s;
+          animation-delay: 12.5s;
+}
+
+#loadingCheckSVG-15 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 13.5s;
+          animation-delay: 13.5s;
+}
+
+#loadingCheckSVG-16 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 14.5s;
+          animation-delay: 14.5s;
+}
+
+#loadingCheckSVG-17 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 15.5s;
+          animation-delay: 15.5s;
+}
+
+#loadingCheckSVG-18 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 16.5s;
+          animation-delay: 16.5s;
+}
+
+#loadingCheckSVG-19 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 17.5s;
+          animation-delay: 17.5s;
+}
+
+#loadingCheckSVG-20 {
+  -webkit-animation: fill-to-coral 5000ms;
+          animation: fill-to-coral 5000ms;
+  -webkit-animation-delay: 18.5s;
+          animation-delay: 18.5s;
+}
+
+@-webkit-keyframes fill-to-coral {
+  0% {
+    fill: white;
+  }
+  10% {
+    fill: #FF6D92;
+  }
+  100% {
+    fill: #FF6D92;
+  }
+}
+
+@keyframes fill-to-coral {
+  0% {
+    fill: white;
+  }
+  10% {
+    fill: #FF6D92;
+  }
+  100% {
+    fill: #FF6D92;
+  }
+}
+</style></head><body>
+  <div id="page">
+  <div id="phrase_box">
+  <svg width="100%" height="100%">
+    <defs>
+      <!--<style type="text/css">
+        @font-face {
+          font-family: "Proxima";
+          src: url('');
+        }
+      </style>-->
+      <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
+        <linearGradient id="linearGradient" gradientUnits="objectBoundingBox" x2="0" y2="1">
+          <stop stop-color="white" stop-opacity="0" offset="0%"/>
+          <stop stop-color="white" stop-opacity="1" offset="30%"/>
+          <stop stop-color="white" stop-opacity="1" offset="70%"/>
+          <stop stop-color="white" stop-opacity="0" offset="100%"/>
+        </linearGradient>
+        <rect width="100%" height="100%" fill="url(#linearGradient)"/>
+      </mask>
+    </defs>
+    <g width="100%" height="100%" style="mask: url(#mask);">
+      <g id="phrases"></g>
+    </g>
+  </svg>
+  </div>
+  <div id="footer">
+    <div id="logo"></div>Ediciones Lee
+  </div>
+</div>
+
+<div class="webblur">
+<div id="main-container" class="main-container nav-effect-1">
+
+
+
+  <div class="main clearfix">
+
+    <!-- Header Content -->
+    <header id="header" class="page-header">
+      <div class="page-header-container row">
+        <img src="assets/lee_logo.png" id="logo_lee">
+      <div class="initbutton">
+        
+  <a href="#" class="iniciarsesion" id="searchtoggl">Iniciar</a> 
+</div>
+
+
+
+        <div class="menu-search">
+
+          <!-- Search -->
+          <div class="catalog-search">
+            <input class="shuffle-search input_field " type="search" autocomplete="off" value="" maxlength="128" id="input-search" />
+            <label class="input_label" for="input-search">
+              <span class="input_label-content">Buscar libros</span>
+              <span class="input_label-search"></span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+  <div id="searchbar" class="clearfix">
+    <!-- <form id="searchform" method="get" action="searchpage.php">
+      <button type="submit" id="searchsubmit" class="fa fa-search fa-4x"></button>
+      <input type="search" name="s" id="s" placeholder="Keywords..." autocomplete="off">
+      
+    </form> -->
+    <form class="grop-from" id="signup">
+  <div class="form-head"><span class="text"> </span><i class="icon-placeholder"></i></div>
+  <div class="form-body"><span class="error-text">Por favor, llena los campos.</span>
+    <div class="form-controls">
+
+      <input id="control-dni" placeholder="DNI" autocomplete="off" autofocus/>
+      <input id="control-nombre" placeholder="Nombre completo" autofocus/>
+      <input id="control-email" placeholder="Email"/>
+      <input id="control-phone" placeholder="Número de teléfono"/>
+      <input id="control-password" placeholder="Clave" type="password" autofocus/>
+      <input id="control-password-repeat" placeholder="Confirmar" type="password" style="margin-top: -18px;/">
+      <input id="control-exists" style="display: none" value="0"/>
+    </div>
+  </div><a class="form-action"><i class="icon-action"></i></a>
+  
+</form>
+  </div>
+
+    <!-- Main Section -->
+  <div id="matikbirdpath"></div>
+<div class="main-overlay">
+    <div class="overlay-full"></div>
+  </div>
+    <!-- Footer Content -->
+    <footer id="footer" class="page-footer">
+      <div class="row footer-wrapper">
+        <div class="original-version small-12 columns"><a href="https://edicioneslee.com" target="_blank"><em>EdicionesLee</em></a></div>
+        <div class="copyright small-12 columns">&copy; 2016 - <a href="https://quay.stream"  target="_blank">Quay</a></div>
+      </div>
+    </footer>
+</div>
+</div>
+</div>
+
+<div class="modal">
+CopyLee Modal Blur
+</div>
+  <!-- /main -->
+
+  
+
+<!-- /main-container --><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Shuffle/4.0.0/shuffle.min.js'></script>
+<script src='https://npmcdn.com/flickity@2/dist/flickity.pkgd.js'></script>
+<script src="assets/mtk.editor.js"></script>
+<script src='assets/text-editor.js'></script>
+<script src="assets/matikbird-login.js"></script>
+<script src="assets/mtk.manage.js"></script>
+<script src="assets/mtk.cplee.js"></script>
+<script src="assets/mtk.route.js"></script>
+<script >
+var checkmarkIdPrefix = "loadingCheckSVG-";
+var checkmarkCircleIdPrefix = "loadingCheckCircleSVG-";
+var verticalSpacing = 50;
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+function createSVG(tag, properties, opt_children) {
+  var newElement = document.createElementNS("http://www.w3.org/2000/svg", tag);
+  for(prop in properties) {
+    newElement.setAttribute(prop, properties[prop]);
+  }
+  if (opt_children) {
+    opt_children.forEach(function(child) {
+      newElement.appendChild(child);
+    })
+  }
+  return newElement;
+}
+
+function createPhraseSvg(phrase, yOffset) {
+  var text = createSVG("text", {
+    fill: "white",
+    x: 50,
+    y: yOffset,
+    "font-size": 18,
+    "font-family": "Arial"
+  });
+  text.appendChild(document.createTextNode(phrase + "..."));
+  return text;
+}
+function createCheckSvg(yOffset, index) {
+  var check = createSVG("polygon", {
+    points: "21.661,7.643 13.396,19.328 9.429,15.361 7.075,17.714 13.745,24.384 24.345,9.708 ",
+    fill: "rgba(255,255,255,1)",
+    id: checkmarkIdPrefix + index
+  });
+  var circle_outline = createSVG("path", {
+    d: "M16,0C7.163,0,0,7.163,0,16s7.163,16,16,16s16-7.163,16-16S24.837,0,16,0z M16,30C8.28,30,2,23.72,2,16C2,8.28,8.28,2,16,2 c7.72,0,14,6.28,14,14C30,23.72,23.72,30,16,30z",
+    fill: "white"
+  })
+  var circle = createSVG("circle", {
+    id: checkmarkCircleIdPrefix + index,
+    fill: "rgba(255,255,255,0)",
+    cx: 16,
+    cy: 16,
+    r: 15
+  })
+  var group = createSVG("g", {
+    transform: "translate(10 " + (yOffset - 20) + ") scale(.9)"
+  }, [circle, check, circle_outline]);
+  return group;
+}
+
+function addPhrasesToDocument(phrases) {
+  phrases.forEach(function(phrase, index) {
+    var yOffset = 30 + verticalSpacing * index;
+    document.getElementById("phrases").appendChild(createPhraseSvg(phrase, yOffset));
+    document.getElementById("phrases").appendChild(createCheckSvg(yOffset, index));
+  });
+}
+
+function easeInOut(t) {
+  var period = 200;
+  return (Math.sin(t / period + 100) + 1) /2;
+}
+
+  var phrases = shuffleArray(["Cargando", "Procesando", "Calculando libros", "Libros cargados", "Operando recaudaciones", "Dividiendo porcentajes", "Recaudaciones faltantes", "Recaudaciones exitosas", "Comprobando usuario", "Simulando sesión", "Ayudando a la humanidad", "Rescatando inspiración", "Financiano proyectos", "Construyendo mundos", "Preparando...", "Bienvenido"]);
+  addPhrasesToDocument(phrases);
+  var start_time = new Date().getTime();
+  var upward_moving_group = document.getElementById("phrases");
+  upward_moving_group.currentY = 0;
+  var checks = phrases.map(function(_, i) { 
+    return {check: document.getElementById(checkmarkIdPrefix + i), circle: document.getElementById(checkmarkCircleIdPrefix + i)};
+  });
+  function animateLoading() {
+    var now = new Date().getTime();
+    upward_moving_group.setAttribute("transform", "translate(0 " + upward_moving_group.currentY + ")");
+    upward_moving_group.currentY -= 1.35 * easeInOut(now);
+    checks.forEach(function(check, i) {
+      var color_change_boundary = - i * verticalSpacing + verticalSpacing + 15;
+      if (upward_moving_group.currentY < color_change_boundary) {
+        var alpha = Math.max(Math.min(1 - (upward_moving_group.currentY - color_change_boundary + 15)/30, 1), 0);
+        check.circle.setAttribute("fill", "rgba(255, 255, 255, " + alpha + ")");
+        var check_color = [Math.round(255 * (1-alpha) + 120 * alpha), Math.round(255 * (1-alpha) + 154 * alpha)];
+        check.check.setAttribute("fill", "rgba(255, " + check_color[0] + "," + check_color[1] + ", 1)");
+      }
+    })
+    if (now - start_time < 30000 && upward_moving_group.currentY > -710) {
+      requestAnimationFrame(animateLoading);
+    }
+  }
+  //animateLoading();
+
+</script>
+</body></html>

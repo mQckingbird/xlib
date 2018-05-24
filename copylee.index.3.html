@@ -1,0 +1,233 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/ArielBeninca/pen/MYaaOZ?depth=everything&order=popularity&page=2&q=header+data&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">body {
+  color: #727272;
+  font-family: 'Raleway',Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  color: #fff;
+}
+
+h1, h2, h3 {
+  margin: 0 0 25px;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  line-height: 40px;
+}
+
+.main {
+  width: 100%;
+}
+
+.container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: grey;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+}
+
+/* header*/
+header {
+  top: 0;
+  margin: 0;
+  height: 100vh;
+  max-height: 100vh;
+  background: url(http://arielbeninca.com/Storage/Milky-Way-Galaxy-Over-Mountains.jpg) 50% 0 no-repeat fixed;
+  margin: 0 auto;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+}
+
+#headercontent {
+  padding-top: 40vh;
+}
+
+/* Parallax windows*/
+.paralaxtext {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 100px;
+}
+
+.paralax1 {
+  background: url(http://arielbeninca.com/Storage/forest-wallpaper-tumblr-3.jpg) 50% 0 no-repeat fixed;
+  margin: 0 auto;
+  padding: 50px 0;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+}
+
+.paralax2 {
+  background: url(http://arielbeninca.com/Storage/1746699.jpg) 50% 0 no-repeat fixed;
+  margin: 0 auto;
+  padding: 50px 0;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+}
+
+.paralax3 {
+  background: url(http://arielbeninca.com/Storage/1913098.jpg) 50% 0 no-repeat fixed;
+  margin: 0 auto;
+  padding: 50px 0;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+}
+
+/* mouse anaimtion */
+.mouse {
+  width: 22px;
+  position: absolute;
+  height: 42px;
+  border-radius: 15px;
+  border: 2px solid white;
+  bottom: 40px;
+  left: 50%;
+  margin-left: -12px;
+}
+
+.scroll {
+  display: block;
+  margin: 6px auto;
+  width: 3px;
+  height: 3px;
+  border-radius: 4px;
+  background: white;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: scroll;
+  animation-name: scroll;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+}
+@-webkit-keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+}
+</style></head><body>
+</head>
+<body>
+<div id="main">
+<header data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+<div id="headercontent" data-top=" opacity:1; transform[swing]:scale(1) " data-top-bottom=" opacity:0; transform[swing]:scale(0.5) " data-anchor-target="header">
+<h1>parallax Effects Using Skrollr.js </h1>
+<br><br>
+<p><a style="color:white" href="https://github.com/Prinzhorn/skrollr" target="_blank">get scrollr.js</a></p>
+</div>
+<div class="mouse animated fadeInUp" data-top=" opacity:1;  " data-top-bottom=" opacity:0; " data-anchor-target="header">
+<div class="scroll">
+</div>
+</header>
+<div class="container" style="padding-top:100px;padding-bottom:100px">
+<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur sed enim in mollis. Proin molestie libero id congue hendrerit. In hac habitasse platea dictumst. Aenean augue libero, scelerisque id sagittis et, tristique nec ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam congue maximus efficitur. Fusce malesuada, magna eu porttitor fermentum, lorem arcu fermentum mi, porta faucibus lorem mauris sed felis. Curabitur dignissim risus quam, rutrum congue tellus aliquet sit amet. Cras luctus ac lectus non sollicitudin. Sed dolor metus, tempor eleifend orci et, laoreet vulputate orci. </p>
+<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque vitae malesuada massa. Proin facilisis ligula sed turpis scelerisque, ut pellentesque felis pharetra. Praesent metus elit, semper non vehicula non, pharetra quis nunc. Phasellus purus tortor, commodo non eleifend ut, blandit in leo. Aliquam sollicitudin gravida tristique. Nulla convallis nibh id massa eleifend ullamcorper. Morbi ut eleifend nisl, nec tincidunt nunc. Donec facilisis nibh tellus, non scelerisque augue varius elementum. Cras cursus mollis lectus ac malesuada. Nulla bibendum ex malesuada, dignissim neque a, scelerisque ipsum. Etiam pretium gravida odio, ac pulvinar nulla vehicula vel. Vestibulum pellentesque neque purus, eu bibendum ligula euismod id. Cras eu tristique massa. Nunc blandit vulputate mi non maximus.</p>
+<p>Nunc egestas blandit ipsum, eu faucibus lacus pulvinar sit amet. Fusce sollicitudin nulla nunc, eu lacinia lorem posuere ut. Nulla felis erat, mollis vel volutpat eget, ultrices et eros. Proin tincidunt, urna et vehicula euismod, diam elit condimentum sem, non pellentesque massa nibh vel purus. Sed egestas efficitur mollis. Nam bibendum ipsum non enim convallis rutrum. Donec vel ante metus. Mauris lacinia ante quis neque eleifend dignissim. Nulla augue lorem, consectetur non pharetra vitae, tristique a mi. Vestibulum vitae est sed mauris accumsan molestie quis non neque. Nulla commodo non magna id malesuada.
+</p>
+</div>
+</div>
+</div>
+<section class="fullwidth">
+<div class="paralax1" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;" data-bottom-top="background-position: 50% 100px;">
+<div class="paralaxtext" data-bottom-top=" opacity:0; transform[swing]:scale(0.5) " data-top=" opacity:1; transform[swing]:scale(1) ">
+<h2 style="color:white"> to infinity and beyond</h2>
+</div>
+</div>
+</section>
+<div class="container" style="padding-top:100px;padding-bottom:100px">
+<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur sed enim in mollis. Proin molestie libero id congue hendrerit. In hac habitasse platea dictumst. Aenean augue libero, scelerisque id sagittis et, tristique nec ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam congue maximus efficitur. Fusce malesuada, magna eu porttitor fermentum, lorem arcu fermentum mi, porta faucibus lorem mauris sed felis. Curabitur dignissim risus quam, rutrum congue tellus aliquet sit amet. Cras luctus ac lectus non sollicitudin. Sed dolor metus, tempor eleifend orci et, laoreet vulputate orci. </p>
+<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque vitae malesuada massa. Proin facilisis ligula sed turpis scelerisque, ut pellentesque felis pharetra. Praesent metus elit, semper non vehicula non, pharetra quis nunc. Phasellus purus tortor, commodo non eleifend ut, blandit in leo. Aliquam sollicitudin gravida tristique. Nulla convallis nibh id massa eleifend ullamcorper. Morbi ut eleifend nisl, nec tincidunt nunc. Donec facilisis nibh tellus, non scelerisque augue varius elementum. Cras cursus mollis lectus ac malesuada. Nulla bibendum ex malesuada, dignissim neque a, scelerisque ipsum. Etiam pretium gravida odio, ac pulvinar nulla vehicula vel. Vestibulum pellentesque neque purus, eu bibendum ligula euismod id. Cras eu tristique massa. Nunc blandit vulputate mi non maximus.</p>
+<p>Nunc egestas blandit ipsum, eu faucibus lacus pulvinar sit amet. Fusce sollicitudin nulla nunc, eu lacinia lorem posuere ut. Nulla felis erat, mollis vel volutpat eget, ultrices et eros. Proin tincidunt, urna et vehicula euismod, diam elit condimentum sem, non pellentesque massa nibh vel purus. Sed egestas efficitur mollis. Nam bibendum ipsum non enim convallis rutrum. Donec vel ante metus. Mauris lacinia ante quis neque eleifend dignissim. Nulla augue lorem, consectetur non pharetra vitae, tristique a mi. Vestibulum vitae est sed mauris accumsan molestie quis non neque. Nulla commodo non magna id malesuada.
+</p>
+</div>
+<section class="fullwidth">
+<div class="paralax2" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;" data-bottom-top="background-position: 50% 100px;">
+<div class="paralaxtext">
+<h2 style="color:white" data-bottom-top="letter-spacing: 10px;" data-top="letter-spacing: 20px; "> Letter Spaceing On scroll </h2>
+</div>
+</section>
+<div class="container" style="padding-top:100px;padding-bottom:100px">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur sed enim in mollis. Proin molestie libero id congue hendrerit. In hac habitasse platea dictumst. Aenean augue libero, scelerisque id sagittis et, tristique nec ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam congue maximus efficitur. Fusce malesuada, magna eu porttitor fermentum, lorem arcu fermentum mi, porta faucibus lorem mauris sed felis. Curabitur dignissim risus quam, rutrum congue tellus aliquet sit amet. Cras luctus ac lectus non sollicitudin. Sed dolor metus, tempor eleifend orci et, laoreet vulputate orci. </p>
+<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque vitae malesuada massa. Proin facilisis ligula sed turpis scelerisque, ut pellentesque felis pharetra. Praesent metus elit, semper non vehicula non, pharetra quis nunc. Phasellus purus tortor, commodo non eleifend ut, blandit in leo. Aliquam sollicitudin gravida tristique. Nulla convallis nibh id massa eleifend ullamcorper. Morbi ut eleifend nisl, nec tincidunt nunc. Donec facilisis nibh tellus, non scelerisque augue varius elementum. Cras cursus mollis lectus ac malesuada. Nulla bibendum ex malesuada, dignissim neque a, scelerisque ipsum. Etiam pretium gravida odio, ac pulvinar nulla vehicula vel. Vestibulum pellentesque neque purus, eu bibendum ligula euismod id. Cras eu tristique massa. Nunc blandit vulputate mi non maximus.</p>
+<p>Nunc egestas blandit ipsum, eu faucibus lacus pulvinar sit amet. Fusce sollicitudin nulla nunc, eu lacinia lorem posuere ut. Nulla felis erat, mollis vel volutpat eget, ultrices et eros. Proin tincidunt, urna et vehicula euismod, diam elit condimentum sem, non pellentesque massa nibh vel purus. Sed egestas efficitur mollis. Nam bibendum ipsum non enim convallis rutrum. Donec vel ante metus. Mauris lacinia ante quis neque eleifend dignissim. Nulla augue lorem, consectetur non pharetra vitae, tristique a mi. Vestibulum vitae est sed mauris accumsan molestie quis non neque. Nulla commodo non magna id malesuada.
+</p>
+</div>
+<section class="fullwidth">
+<div class="paralax3" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;" data-bottom-top="background-position: 50% 100px;">
+<div class="paralaxtext" 
+     data-bottom-top="transform[bounce]:scale(0.5);" data-top="transform[bounce]:scale(1)"
+                                                       >
+<h2 style="color:white">I REALLY LOVE PARALLAX </h2>
+</div>
+</section>
+<div class="container" style="padding-top:100px;padding-bottom:100px">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur sed enim in mollis. Proin molestie libero id congue hendrerit. In hac habitasse platea dictumst. Aenean augue libero, scelerisque id sagittis et, tristique nec ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam congue maximus efficitur. Fusce malesuada, magna eu porttitor fermentum, lorem arcu fermentum mi, porta faucibus lorem mauris sed felis. Curabitur dignissim risus quam, rutrum congue tellus aliquet sit amet. Cras luctus ac lectus non sollicitudin. Sed dolor metus, tempor eleifend orci et, laoreet vulputate orci. </p>
+<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque vitae malesuada massa. Proin facilisis ligula sed turpis scelerisque, ut pellentesque felis pharetra. Praesent metus elit, semper non vehicula non, pharetra quis nunc. Phasellus purus tortor, commodo non eleifend ut, blandit in leo. Aliquam sollicitudin gravida tristique. Nulla convallis nibh id massa eleifend ullamcorper. Morbi ut eleifend nisl, nec tincidunt nunc. Donec facilisis nibh tellus, non scelerisque augue varius elementum. Cras cursus mollis lectus ac malesuada. Nulla bibendum ex malesuada, dignissim neque a, scelerisque ipsum. Etiam pretium gravida odio, ac pulvinar nulla vehicula vel. Vestibulum pellentesque neque purus, eu bibendum ligula euismod id. Cras eu tristique massa. Nunc blandit vulputate mi non maximus.</p>
+<p>Nunc egestas blandit ipsum, eu faucibus lacus pulvinar sit amet. Fusce sollicitudin nulla nunc, eu lacinia lorem posuere ut. Nulla felis erat, mollis vel volutpat eget, ultrices et eros. Proin tincidunt, urna et vehicula euismod, diam elit condimentum sem, non pellentesque massa nibh vel purus. Sed egestas efficitur mollis. Nam bibendum ipsum non enim convallis rutrum. Donec vel ante metus. Mauris lacinia ante quis neque eleifend dignissim. Nulla augue lorem, consectetur non pharetra vitae, tristique a mi. Vestibulum vitae est sed mauris accumsan molestie quis non neque. Nulla commodo non magna id malesuada.
+</p>
+</div>
+<br>
+<br>
+<hr>
+<br> <br> <br>
+<a href="http://arielbeninca.com" target="_blank"> arielbeninca.com </a>
+<br> <br> <br> <br>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="
+https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+<script type="text/javascript">var s=skrollr.init({forceHeight:false});</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script>
+</body></html>

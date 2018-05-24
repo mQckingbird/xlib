@@ -1,0 +1,256 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/99tharun/pen/gsiGb?limit=all&page=3&q=logo" />
+
+
+<style class="cp-pen-styles">body{
+  		background: #FFFFFF;
+  	}
+	#logo{
+		font-size: 8px;
+		width: 24em;
+		height: 24em;
+		border-radius: 14em;
+		position: relative;
+	}
+	#logo:after,#logo:before,#curve5:before,#curve5:after{
+		position: absolute;
+		content: "";
+		display: block;
+		width: 13em;
+		height: 13em;
+		background: #fff;
+		-o-transition: all 1s;
+		-moz-transition: all 1s;
+		-webkit-transition: all 1s;
+		transition: all 1s;
+	}
+	#logo:after{
+		border-radius: 10em/28em;
+		-webkit-border-radius: 10em/28em;
+		-moz-border-radius: 10em/28em;
+		top: 5.5em;
+		left: 5.3em;
+		-webkit-transform: rotate(51deg);
+		-moz-transform: rotate(51deg);
+		-o-transform: rotate(51deg);
+		transform: rotate(51deg);
+		clip: rect(0.59em, 13em, 11.1em, 4.5em);
+	}
+	#logo:before{
+		z-index: 1;
+		border-radius: 6em/21em;
+		-webkit-border-radius: 6em/21em;
+		-moz-border-radius: 6em/21em;
+		bottom: 6em;
+		right: 5.4em;
+		-webkit-transform: rotate(136deg);
+		-moz-transform: rotate(136deg);
+		-o-transform: rotate(136deg);
+		transform: rotate(136deg);
+		clip: rect(0.9em, 13em, 11.2em, 2em);
+	}
+	.right{
+		width: 24em;
+		height: 24em;
+		position: absolute;
+		border-radius:0 0 12em 12em/0 0 9em 7em;
+		-webkit-border-radius:0 0 12em 12em/0 0 9em 7em;
+		-moz-border-radius:0 0 12em 12em/0 0 9em 7em;
+	}
+	.left{
+		width: 24em;
+		height: 24em;
+		position: absolute;
+		border-radius:0 0 12em 12em/0 0 7em 9em;
+		-webkit-border-radius:0 0 12em 12em/0 0 7em 9em;
+		-moz-border-radius:0 0 12em 12em/0 0 7em 9em;
+	}
+	#curve1{
+		top: -5.5em;
+		left: -3em;
+		-webkit-transform: rotate(-53deg);
+		-moz-transform: rotate(-53deg);
+		-o-transform: rotate(-53deg);
+		transform: rotate(-53deg);
+		box-shadow: 3em 6.67em 0 #16c1f3,inset -6em -4.42em 3.92em -5.17em #0092ca;
+		-webkit-box-shadow: 3em 6.67em 0 #16c1f3,inset -6em -4.42em 3.92em -5.17em #0092ca;
+		-moz-box-shadow: 3em 6.67em 0 #16c1f3,inset -6em -4.42em 3.92em -5.17em #0092ca;
+	}
+	#curve2{
+		bottom: -3.5em;
+		right: 5em;
+		-webkit-transform: rotate(-143deg);
+		-moz-transform: rotate(-143deg);
+		-o-transform: rotate(-143deg);
+		transform: rotate(-143deg);
+		box-shadow: 0 6.67em 0 #16c1f3,inset -1em -4.75em 8em -2.75em #0092ca;
+		-webkit-box-shadow: 0 6.67em 0 #16c1f3,inset -1em -4.75em 8em -2.75em #0092ca;
+		-moz-box-shadow: 0 6.67em 0 #16c1f3,inset -1em -4.75em 8em -2.75em #0092ca; 
+	}
+	#curve3{
+		bottom: -4.5em;
+		right: -3.9em;
+		-webkit-transform: rotate(-233deg);
+		-moz-transform: rotate(-233deg);
+		-o-transform: rotate(-233deg);
+		transform: rotate(-233deg);
+		box-shadow: 0 6.67em 0 #16c1f3,inset -1em -5.75em 8em -2.75em #0092ca;
+		-webkit-box-shadow: 0 6.67em 0 #16c1f3,inset -1em -5.75em 8em -2.75em #0092ca;
+		-moz-box-shadow: 0 6.67em 0 #16c1f3,inset -1em -5.75em 8em -2.75em #0092ca;
+	}
+	#curve4{
+		bottom: 3.9em;
+		right: -4.5em;
+		-webkit-transform: rotate(-325deg);
+		-moz-transform: rotate(-325deg);
+		-o-transform: rotate(-325deg);
+		transform: rotate(-325deg);
+		box-shadow: 0 6.67em 0 #16c1f3,inset 0 -4.75em 8em #0092ca;
+		-webkit-box-shadow: 0 6.67em 0 #16c1f3,inset 0 -4.75em 8em #0092ca;
+		-moz-box-shadow: 0 6.67em 0 #16c1f3,inset 0 -4.75em 8em #0092ca;
+	}
+	#curve5{
+		position: absolute;
+		bottom: 4.1em;
+		right: -5.6em;
+		width: 24em;
+		height: 24em;
+		border-radius: 12em 6em 12em 12em/15em 5em 7em 9em;
+		-webkit-border-radius: 12em 6em 12em 12em/15em 5em 7em 9em;
+		-moz-border-radius: 12em 6em 12em 12em/15em 5em 7em 9em;
+		-webkit-transform: rotate(-38deg);
+		-moz-transform: rotate(-38deg);
+		-o-transform: rotate(-38deg);
+		transform: rotate(-38deg);
+		box-shadow: 0 6.67em 0 #16c1f3,inset 3.5em -8.17em 4.17em -6.17em #0092ca;
+		-moz-box-shadow: 0 6.67em 0 #16c1f3,inset 3.5em -8.17em 4.17em -6.17em #0092ca;
+		-webkit-box-shadow: 0 6.67em 0 #16c1f3,inset 3.5em -8.17em 4.17em -6.17em #0092ca;
+	}
+	#curve5:after,#curve5:before{
+		border-radius: 9em/24em;
+		-webkit-border-radius: 9em/24em;
+		-moz-border-radius: 9em/24em;
+		left: -1.6em;
+	}
+	#curve5:after{
+		top: 5.69em;
+		-webkit-transform: rotate(263deg);
+		-moz-transform: rotate(263deg);
+		-o-transform: rotate(263deg);
+		transform: rotate(263deg);
+		clip: rect(1.29em, 13em, 12.11em, 3em);
+	}
+	#curve5:before{
+		top: 5.6em;
+		-webkit-transform: rotate(-365deg);
+		-moz-transform: rotate(-365deg);
+		-o-transform: rotate(-365deg);
+		transform: rotate(-365deg);
+		clip: rect(1.16em, 13em, 11.6em, 5em);
+	}
+	#mask{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background: transparent;
+		box-shadow: 0 0 0 120px white;
+		z-index: 9;
+	}
+	#container{
+		width: 192px;
+		height: 192px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin: -96px 0 0 -96px;
+	}
+	* {
+		-o-transition: all 1s;
+		-moz-transition: all 1s;
+		-webkit-transition: all 1s;
+		transition: all 1s;
+	}
+	.layered{
+		background: rgb(240, 240, 240);
+	}
+	.layered #logo{
+		-o-transform: rotateX( 60deg ) rotateZ( 10deg  ) translateY( 300px ) scale(.9);
+  		-moz-transform: rotateX( 60deg ) rotateZ( 10deg  ) translateY( 300px ) scale(.9); 
+  		-webkit-transform: rotateX( 60deg ) rotateZ( 10deg  ) translateY( 300px ) scale(.9); 
+		transform: rotateX( 60deg ) rotateZ( 10deg  ) translateY( 300px ) scale(.9);
+	}
+	.layered #logo:before {
+		-o-transform: translateY(-600px);
+		-moz-transform: translateY(-600px);
+		-webkit-transform: translateY(-600px);
+		transform: translateY(-600px);
+	}
+	.layered #logo:after {
+		-o-transform: translateX(80px) translateY(-550px);
+		-moz-transform: translateX(80px) translateY(-550px);
+		-webkit-transform: translateX(80px) translateY(-550px);
+		transform: translateX(80px) translateY(-550px);
+	}
+	.layered #curve5:after {
+		-o-transform: translateY(-82px);
+		-moz-transform: translateY(-82px);
+		-webkit-transform: translateX(-82px) translateY(-600px);
+		transform: translateY(-82px);
+	}
+	.layered #curve5:before {
+		-o-transform: translateX(-168px) translateY(-550px);
+		-moz-transform: translateX(-168px) translateY(-550px);
+		-webkit-transform: translateX(-168px) translateY(-550px);
+		transform: translateX(-168px) translateY(-550px);
+	}
+	.layered #curve5{
+		-o-transform: translateY(50px);
+		-moz-transform: translateY(50px);
+		-webkit-transform: translateY(50px);
+		transform: translateY(50px);
+	}
+	.layered #curve1{
+		left: 5em;
+	}
+	.layered #curve2{
+		bottom: 16em;
+		right: -2em;
+	}
+	.layered #curve3{
+		right: 6.1em;
+		bottom: 11em;
+	}
+	.layered #curve4{
+		right: 8.5em;
+		top: 1em;
+	}
+	.layered #mask{
+		-o-transform: translateY(-300px);
+		-moz-transform: translateY(-300px);
+		-webkit-transform: translateY(-300px);
+		transform: translateY(-300px);
+		opacity: .7;		
+	}</style></head><body>
+<div id="container">
+  <div id="logo">
+    <div id="mask"></div>
+    <div id="curve4" class="left"></div>
+    <div id="curve3" class="left"></div>
+    <div id="curve2" class="right"></div>
+    <div id="curve1" class="right"></div>
+    <div id="curve5"></div>
+  </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >$(document).ready(function(){
+	$('body').click(function(){
+		$(this).toggleClass('layered');
+	});
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

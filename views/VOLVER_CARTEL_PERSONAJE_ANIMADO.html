@@ -1,0 +1,127 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/tanertombas/pen/JyJRgg?depth=everything&order=popularity&page=12&q=back+button&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">.radius, .buton span, .buton span::before, .buton span::after, .buton span:nth-child(2) {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.buton {
+  width: 120px;
+  height: auto;
+  width: auto;
+  height: auto;
+  position: relative;
+  margin: 160px;
+  float: left;
+  display: block;
+  cursor: pointer;
+}
+.buton .wood {
+  animation: rotate 5s linear 0s infinite;
+  -webkit-animation: rotate 1s linear 0s infinite;
+  width: 120px;
+  height: 20px;
+  color: #000;
+  background: #ebebeb;
+  padding: 5px 7px;
+  text-decoration: none;
+  font-family: 'arialnarrow',sans-serif;
+  margin: auto;
+  margin-right: -10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.buton .wood i {
+  width: auto;
+  height: auto;
+  position: relative;
+  margin-right: 10px;
+}
+.buton .wood b.wanted {
+  width: 25px;
+  height: 35px;
+  position: absolute;
+  background-image: url("http://www.dshargis106.com/wp-content/uploads/2015/03/WantedPoster.png");
+  background-size: cover;
+  background-position: center;
+  display: block;
+  right: -5px;
+  top: 0px;
+  transform: rotate(30deg);
+}
+.buton span {
+  content: '';
+  background: #646464;
+  width: 10px;
+  height: 100px;
+  display: block;
+  position: absolute !important;
+  top: -10px;
+  right: 45px;
+  z-index: -1;
+}
+.buton span::before {
+  content: '';
+  width: 25px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  left: -5px;
+  bottom: 0;
+  background: -webkit-linear-gradient(-60deg, #116611, #004400);
+}
+.buton span::after {
+  content: '';
+  width: 25px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  left: -9px;
+  bottom: 0;
+  z-index: -1;
+  background: -webkit-linear-gradient(-60deg, #004400, #116611);
+}
+.buton span:nth-child(2) {
+  content: '';
+  background: #646464;
+  width: 10px;
+  height: 100px;
+  display: block;
+  position: absolute !important;
+  top: -10px;
+  right: 20px;
+  z-index: -1;
+}
+.buton span:nth-child(2)::before {
+  left: -3px;
+}
+.buton span:nth-child(2)::after {
+  left: 0px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+</style></head><body>
+<div class="buton">
+    <div class="wood">
+        <i class="fa fa-arrow-left"></i>
+        VOLVER
+        <b class="wanted"></b>
+    </div>
+    <span></span>
+    <span></span>
+</div>
+
+</body></html>

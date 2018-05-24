@@ -1,0 +1,625 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/carlinscuderi/pen/XmeyvV?limit=all&page=3&q=progress" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">body {
+  background: rgba(0, 0, 0, 0.1);
+  line-height: 1.45rem;
+  color: #444;
+}
+body.freeze {
+  pointer-events: none;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: normal;
+  line-height: 2.2rem;
+}
+
+.section {
+  max-width: 500px;
+  padding: 4rem;
+  margin: 5vh auto 0 auto;
+  background: white;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.section:before {
+  content: "";
+  width: 100%;
+  background: #0ce479;
+  height: 170px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.form-instructions {
+  text-align: center;
+}
+
+form {
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 330px;
+  will-change: transform;
+}
+
+.fieldgroup {
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+label {
+  position: absolute;
+  top: .8rem;
+  left: 0;
+  display: block;
+  font-size: 1rem;
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+  opacity: .5;
+  will-change: top, font-size;
+}
+label:hover {
+  cursor: text;
+}
+
+input {
+  border: 1px solid #fff;
+  font-size: 1.2rem;
+  padding: .6rem;
+  padding-left: 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #444;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  width: calc(100% - .6rem);
+  max-width: 350px;
+  border-radius: 0;
+}
+input:focus {
+  outline: none;
+}
+input:valid {
+  border-color: #444;
+}
+input:focus + label, input.hasInput + label {
+  top: -.8rem;
+  font-size: .7rem;
+}
+
+.btn {
+  color: #fff;
+  background-color: #0bcc6c;
+  padding: .8rem;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  min-width: 45px !important;
+}
+.btn:hover, .btn.hover {
+  color: #fff;
+  background-color: #1fe080;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+.btn:active, .btn.active {
+  color: #fff;
+  background-color: #00b858;
+  -webkit-box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+  outline: 2px solid #0bcc6c;
+}
+.btn:focus, .btn.focus {
+  color: #fff;
+  outline: 2px solid #0bcc6c;
+  outline-offset: 2px;
+}
+.btn:active:focus, .btn.active.focus {
+  outline: 4px solid #0bcc6c;
+}
+.btn.hover, .btn.active {
+  outline: none;
+}
+
+.btn-alt {
+  background-color: transparent;
+  color: #0bcc6c;
+  border: 2px solid #0bcc6c;
+}
+.btn-alt:hover, .btn-alt.hover {
+  background-color: transparent;
+  color: #00a444;
+  border-color: #00a444;
+  text-shadow: none;
+}
+.btn-alt:focus, .btn-alt.focus {
+  color: #00b858;
+}
+.btn-alt:active, .btn-alt.active {
+  color: #fff;
+  background-color: #0bcc6c;
+  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.2);
+}
+.btn-alt.hover, .btn-alt.active {
+  outline: none;
+}
+
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.buttons .btn {
+  margin-right: 15px;
+}
+
+form .btn {
+  display: inline-block;
+  width: 100%;
+  max-width: 220px;
+  margin: 4rem auto 0 auto;
+}
+
+[data-step="4"] button.btn {
+  display: block;
+  margin: 0 auto;
+}
+
+.form-progress {
+  position: relative;
+  display: block;
+  margin: 3rem auto;
+  width: 100%;
+  max-width: 400px;
+}
+
+progress {
+  display: block;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background: #0bcc6c;
+  width: 100%;
+  height: 5px;
+  background: none;
+  -webkit-transition: 1s;
+  transition: 1s;
+  will-change: contents;
+}
+progress::-webkit-progress-bar {
+  background-color: #ddd;
+}
+progress::-webkit-progress-value {
+  background-color: #0bcc6c;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.form-progress-indicator {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 3px solid #ddd;
+  border-radius: 50%;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+  will-change: transform;
+}
+.form-progress-indicator.one {
+  left: 0;
+}
+.form-progress-indicator.two {
+  left: 33%;
+}
+.form-progress-indicator.three {
+  left: 66%;
+}
+.form-progress-indicator.four {
+  left: 100%;
+}
+.form-progress-indicator.active {
+  -webkit-animation: bounce .5s forwards;
+          animation: bounce .5s forwards;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+  border-color: #0bcc6c;
+}
+
+.animation-container {
+  position: relative;
+  width: 100%;
+  -webkit-transition: .3s;
+  transition: .3s;
+  will-change: padding;
+  overflow: hidden;
+}
+
+.form-step {
+  position: absolute;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  will-change: transform, opacity;
+}
+
+.form-step.leaving {
+  -webkit-animation: left-and-out .5s forwards;
+          animation: left-and-out .5s forwards;
+}
+
+.form-step.waiting {
+  -webkit-transform: translateX(400px);
+          transform: translateX(400px);
+}
+
+.form-step.coming {
+  -webkit-animation: right-and-in .5s forwards;
+          animation: right-and-in .5s forwards;
+}
+
+@-webkit-keyframes left-and-out {
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-400px);
+            transform: translateX(-400px);
+  }
+}
+
+@keyframes left-and-out {
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-400px);
+            transform: translateX(-400px);
+  }
+}
+@-webkit-keyframes right-and-in {
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@keyframes right-and-in {
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes bounce {
+  50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes bounce {
+  50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.hidden {
+  display: none;
+}
+</style></head><body>
+<section class="section">
+	<h1>So you think you can create an ID?</h1>
+
+	<div class="form-progress">
+		<progress class="form-progress-bar" min="0" max="100" value="0" step="33" aria-labelledby="form-progress-completion"></progress>
+		
+		<div class="form-progress-indicator one active"></div>
+		<div class="form-progress-indicator two"></div>
+		<div class="form-progress-indicator three"></div>
+		<div class="form-progress-indicator four"></div>
+		
+		<p id="form-progress-completion" class="js-form-progress-completion sr-only" aria-live="polite">0% complete</p>
+	</div>
+	
+	
+	<div class="animation-container">
+		<!-- Step one -->
+		<div class="form-step js-form-step" data-step="1">
+
+			<p class="form-instructions"><strong>Click the continue button to show form progression.</strong><br>
+				Please fill out the fields below so we can learn some information about you. We promise to store these on Post-It<sup><small>TM</small></sup> notes around the office.</p>
+
+			<form action="" name="form-step-1">
+				<div class="fieldgroup">
+					<input type="text" name="firstName" id="firstName" />
+					<label for="firstName">First name</label>
+				</div>
+
+				<div class="fieldgroup">
+					<input type="text" name="lastName" id="lastName" />
+					<label for="lastName">Last name</label>
+				</div>
+
+				<div class="fieldgroup">
+					<input type="text" name="email" id="email" />
+					<label for="email">Email</label>
+				</div>
+
+				<div class="fieldgroup">
+					<input type="text" name="postalCode" id="postalCode" />
+					<label for="postalCode">Postal code</label>
+				</div>
+
+				<div class="buttons">
+							<button type="button" class="btn btn-alt js-reset">Reset</button>
+
+						<button type="submit" class="btn">Continue</button>
+				</div>
+			</form>
+
+		</div>
+		
+			<!-- Step two -->
+			<div class="form-step js-form-step waiting hidden" data-step="2">
+
+				<p class="form-instructions"><strong>Click the continue button to show form progression.</strong>
+						<br> Please fill in the token below with yesterday's date plus the timestamp from the day of your birth (expressed as an integer) to the power of fourteen divided by two.</p>
+
+				<form action="" name="form-step-2">
+						<div class="fieldgroup">
+								<input type="text" name="token" id="token" />
+								<label for="token">Token</label>
+						</div>
+
+						<div class="buttons">
+								<button type="button" class="btn btn-alt js-reset">Reset</button>
+
+								<button type="submit" class="btn">Continue</button>
+						</div>
+				</form>
+
+		</div>
+		
+		
+		
+					<!-- Step three -->
+			<div class="form-step js-form-step waiting hidden" data-step="3">
+
+				<p class="form-instructions"><strong>Click the continue button to show form progression.</strong>
+						<br> Please tell us your credit card information. We promise not to store it or use it to buy a new iPhone in the App Store.</p>
+
+				<form action="" name="form-step-3">
+						<div class="fieldgroup">
+								<input type="text" name="credit-card" id="credit-card" />
+								<label for="credit-card">Credit card number</label>
+						</div>
+					
+						<div class="fieldgroup">
+								<input type="text" name="credit-card-expiry" id="credit-card-expiry" />
+								<label for="credit-card-expiry">Credit card expiry</label>
+						</div>
+
+						<div class="buttons">
+								<button type="button" class="btn btn-alt js-reset">Reset</button>
+
+								<button type="submit" class="btn">Continue</button>
+						</div>
+				</form>
+
+		</div>
+		
+		
+		
+		<!-- Step four -->
+			<div class="form-step js-form-step waiting hidden" data-step="4">
+
+				<p class="form-instructions"><strong>Click the continue button to show form progression.</strong>
+						<br> Finally, please just write the words "I Agree" in the field below to consent to us using the previous data you entered to buy a new iPhone.</p>
+
+				<form action="" name="form-step-4">
+						<div class="fieldgroup">
+								<input type="text" name="agreen" id="agreen" />
+								<label for="agreen">I agree</label>
+						</div>
+
+						<div class="buttons">
+								<button type="button" class="btn btn-alt js-reset">Reset</button>
+						</div>
+				</form>
+
+		</div>
+	</div>
+</section>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >var $body = $('body');
+var $progressBar = $('progress');
+var $animContainer = $('.animation-container');
+var value = 0;
+var transitionEnd = 'webkitTransitionEnd transitionend';
+
+/**
+ * Resets the form back to the default state.
+ * ==========================================
+ */
+function formReset() {
+	value = 0;
+	$progressBar.val(value);
+	$('form input').not('button').val('').removeClass('hasInput');
+	$('.js-form-step').removeClass('left leaving');
+	$('.js-form-step').not('.js-form-step[data-step="1"]').addClass('hidden waiting');
+	$('.js-form-step[data-step="1"]').removeClass('hidden');
+	$('.form-progress-indicator').not('.one').removeClass('active');
+	
+	$animContainer.css({
+		'paddingBottom': $('.js-form-step[data-step="1"]').height() + 'px'
+	});
+	
+	console.warn('Form reset.');
+	return false;
+}
+
+/**
+ * Sets up the click handlers on the form. Next/reset.
+ * ===================================================
+ */
+function setupClickHandlers() {
+
+	// Show next form on continue click
+	$('button[type="submit"]').on('click', function(event) {
+			event.preventDefault();
+			var $currentForm = $(this).parents('.js-form-step');
+			showNextForm($currentForm);
+	});
+
+	// Reset form on reset button click
+	$('.js-reset').on('click', function() {
+		formReset();
+	});
+	
+	return false;
+}
+
+/**
+ * Shows the next form.
+ * @param - Node - The current form.
+ * ======================================
+ */
+function showNextForm($currentForm) {
+	var currentFormStep = parseInt($currentForm.attr('data-step')) || false;
+	var $nextForm = $('.js-form-step[data-step="' + (currentFormStep + 1) + '"]');
+
+	console.log('Current step is ' + currentFormStep);
+	console.log('The next form is # ' + $nextForm.attr('data-step'));
+
+	$body.addClass('freeze');
+
+	// Ensure top of form is in view
+	$('html, body').animate({
+		scrollTop : $progressBar.offset().top
+	}, 'fast');
+
+	// Hide current form fields
+	$currentForm.addClass('leaving');
+	setTimeout(function() {
+		$currentForm.addClass('hidden');
+	}, 500);
+	
+	// Animate container to height of form
+	$animContainer.css({
+		'paddingBottom' : $nextForm.height() + 'px'
+	});  
+
+	// Show next form fields
+	$nextForm.removeClass('hidden')
+					 .addClass('coming')
+					 .one(transitionEnd, function() {
+						 $nextForm.removeClass('coming waiting');
+					 });
+
+	// Increment value (based on 4 steps 0 - 100)
+	value += 33;
+
+	// Reset if we've reached the end
+	if (value >= 100) {
+		formReset();
+	} else {
+		$('.form-progress')
+			.find('.form-progress-indicator.active')
+			.next('.form-progress-indicator')
+			.addClass('active');
+
+		// Set progress bar to the next value
+		$progressBar.val(value);
+	}
+
+	// Update hidden progress descriptor (for a11y)
+	$('.js-form-progress-completion').html($progressBar.val() + '% complete');
+
+	$body.removeClass('freeze');
+
+	return false;
+}
+
+/**
+ * Sets up and handles the float labels on the inputs.
+ =====================================================
+ */
+function setupFloatLabels() {
+	// Check the inputs to see if we should keep the label floating or not
+	$('form input').not('button').on('blur', function() {
+
+		// Different validation for different inputs
+		switch (this.tagName) {
+			case 'SELECT':
+				if (this.value > 0) {
+					this.className = 'hasInput';
+				} else {
+					this.className = '';
+				}
+				break;
+
+			case 'INPUT':
+				if (this.value !== '') {
+					this.className = 'hasInput';
+				} else {
+					this.className = '';
+				}
+				break;
+
+			default:
+				break;
+		}
+	});
+	
+	return false;
+}
+
+/**
+ * Gets the party started.
+ * =======================
+ */
+function init() {
+	formReset();
+	setupFloatLabels();
+	setupClickHandlers();
+}
+
+init();
+//# sourceURL=pen.js
+</script>
+</body></html>

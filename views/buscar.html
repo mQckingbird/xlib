@@ -1,0 +1,1069 @@
+<style class="buscar-lee">
+.search-form {
+  position: relative;
+  top: 30px;
+  left: 54%;
+  width: 90%;
+  height: 40px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #fff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.search-form.focus {
+  -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+}
+
+.search-input {
+  position: absolute !important;
+  top: 10px !important;
+  left: 38px !important;
+  font-size: 14px !important;
+  background: none !important;
+  color: #5a6674 !important;
+  width: 195px !important;
+  height: 20px !important;
+  border: none !important;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
+  outline: none !important;
+}
+
+.search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+.search-button {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.search-button svg {
+  width: 20px;
+  height: 20px;
+  fill: #5a6674;
+}
+
+.search-option {
+  position: absolute;
+  text-align: right;
+  top: 10px;
+  right: 15px;
+}
+
+.search-option div {
+  position: relative;
+  display: inline-block;
+  margin: 0 1px;
+  cursor: pointer;
+}
+
+.search-option div input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.01;
+  cursor: pointer;
+}
+
+.search-option div span {
+  position: absolute;
+  display: block;
+  text-align: center;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 0;
+  background: #929AA3;
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 4px 7px;
+  border-radius: 12px;
+  top: -18px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.search-option div span::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-top: 4px solid #929AA3;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.search-option div:hover span {
+  opacity: 1;
+  top: -21px;
+}
+
+.search-option div label {
+  display: block;
+  cursor: pointer;
+}
+
+.search-option div svg {
+  height: 20px;
+  width: 20px;
+  fill: #5a6674;
+  opacity: 0.6;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  pointer-events: none;
+}
+
+.search-option div:hover svg {
+  opacity: 1;
+}
+
+.search-option div input:checked + label svg {
+  fill: #e24040;
+  opacity: .9;
+}
+
+.search-option div input:checked + label span {
+  background: #e24040;
+}
+
+.search-option div input:checked + label span::after {
+  border-top-color: #e24040;
+}
+</style>
+<div class='cerrar-boton-container'>
+      <div class='cerrar-boton'></div>
+    </div>
+<form class="search-form">
+  <input type="search" value="" placeholder="Buscar" class="reset-this search-input">
+  <button type="submit" class="search-button">
+    <svg class="submit-button">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#search"></use>
+    </svg>
+  </button>
+  <div class="search-option">
+    <div>
+      <input name="type" type="radio" value="type-users" id="type-users">
+      <label for="type-users">
+        <svg class="edit-pen-title">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use>
+        </svg>
+        <span>Libros</span>
+      </label>
+    </div>
+    
+    <div>
+      <input name="type" type="radio" value="type-posts" id="type-posts">
+      <label for="type-posts">
+        <svg class="edit-pen-title">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#post"></use>
+        </svg>
+        <span>Autores</span>
+      </label>
+    </div>
+    <div>
+      <input name="type" type="radio" value="type-images" id="type-images">
+      <label for="type-images">
+        <svg class="edit-pen-title">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#images"></use>
+        </svg>
+        <span>Exito</span>
+      </label>
+    </div>
+    <div>
+      <input name="type" type="radio" value="type-special" id="type-special" checked="">
+      <label for="type-special">
+        <svg class="edit-pen-title">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#special"></use>
+        </svg>
+        <span>Financiando</span>
+      </label>
+    </div>
+  </div>
+</form>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" display="none">
+  <symbol id="search" viewBox="0 0 32 32">
+    <path d="M 19.5 3 C 14.26514 3 10 7.2651394 10 12.5 C 10 14.749977 10.810825 16.807458 12.125 18.4375 L 3.28125 27.28125 L 4.71875 28.71875 L 13.5625 19.875 C 15.192542 21.189175 17.250023 22 19.5 22 C 24.73486 22 29 17.73486 29 12.5 C 29 7.2651394 24.73486 3 19.5 3 z M 19.5 5 C 23.65398 5 27 8.3460198 27 12.5 C 27 16.65398 23.65398 20 19.5 20 C 15.34602 20 12 16.65398 12 12.5 C 12 8.3460198 15.34602 5 19.5 5 z" />
+  </symbol>
+  <symbol id="user" viewBox="0 0 32 32">
+    <path d="M 16 4 C 12.145852 4 9 7.1458513 9 11 C 9 13.393064 10.220383 15.517805 12.0625 16.78125 C 8.485554 18.302923 6 21.859881 6 26 L 8 26 C 8 21.533333 11.533333 18 16 18 C 20.466667 18 24 21.533333 24 26 L 26 26 C 26 21.859881 23.514446 18.302923 19.9375 16.78125 C 21.779617 15.517805 23 13.393064 23 11 C 23 7.1458513 19.854148 4 16 4 z M 16 6 C 18.773268 6 21 8.2267317 21 11 C 21 13.773268 18.773268 16 16 16 C 13.226732 16 11 13.773268 11 11 C 11 8.2267317 13.226732 6 16 6 z" /></symbol>
+  <symbol id="images" viewbox="0 0 32 32">
+    <path d="M 2 5 L 2 6 L 2 26 L 2 27 L 3 27 L 29 27 L 30 27 L 30 26 L 30 6 L 30 5 L 29 5 L 3 5 L 2 5 z M 4 7 L 28 7 L 28 20.90625 L 22.71875 15.59375 L 22 14.875 L 21.28125 15.59375 L 17.46875 19.40625 L 11.71875 13.59375 L 11 12.875 L 10.28125 13.59375 L 4 19.875 L 4 7 z M 24 9 C 22.895431 9 22 9.8954305 22 11 C 22 12.104569 22.895431 13 24 13 C 25.104569 13 26 12.104569 26 11 C 26 9.8954305 25.104569 9 24 9 z M 11 15.71875 L 20.1875 25 L 4 25 L 4 22.71875 L 11 15.71875 z M 22 17.71875 L 28 23.71875 L 28 25 L 23.03125 25 L 18.875 20.8125 L 22 17.71875 z" />
+  </symbol>
+  <symbol id="post" viewbox="0 0 32 32">
+    <path d="M 3 5 L 3 6 L 3 23 C 3 25.209804 4.7901961 27 7 27 L 25 27 C 27.209804 27 29 25.209804 29 23 L 29 13 L 29 12 L 28 12 L 23 12 L 23 6 L 23 5 L 22 5 L 4 5 L 3 5 z M 5 7 L 21 7 L 21 12 L 21 13 L 21 23 C 21 23.73015 21.221057 24.41091 21.5625 25 L 7 25 C 5.8098039 25 5 24.190196 5 23 L 5 7 z M 7 9 L 7 10 L 7 13 L 7 14 L 8 14 L 18 14 L 19 14 L 19 13 L 19 10 L 19 9 L 18 9 L 8 9 L 7 9 z M 9 11 L 17 11 L 17 12 L 9 12 L 9 11 z M 23 14 L 27 14 L 27 23 C 27 24.190196 26.190196 25 25 25 C 23.809804 25 23 24.190196 23 23 L 23 14 z M 7 15 L 7 17 L 12 17 L 12 15 L 7 15 z M 14 15 L 14 17 L 19 17 L 19 15 L 14 15 z M 7 18 L 7 20 L 12 20 L 12 18 L 7 18 z M 14 18 L 14 20 L 19 20 L 19 18 L 14 18 z M 7 21 L 7 23 L 12 23 L 12 21 L 7 21 z M 14 21 L 14 23 L 19 23 L 19 21 L 14 21 z" />
+  </symbol>
+  <symbol id="special" viewbox="0 0 32 32">
+    <path d="M 4 4 L 4 5 L 4 27 L 4 28 L 5 28 L 27 28 L 28 28 L 28 27 L 28 5 L 28 4 L 27 4 L 5 4 L 4 4 z M 6 6 L 26 6 L 26 26 L 6 26 L 6 6 z M 16 8.40625 L 13.6875 13.59375 L 8 14.1875 L 12.3125 18 L 11.09375 23.59375 L 16 20.6875 L 20.90625 23.59375 L 19.6875 18 L 24 14.1875 L 18.3125 13.59375 L 16 8.40625 z M 16 13.3125 L 16.5 14.40625 L 17 15.5 L 18.1875 15.59375 L 19.40625 15.6875 L 18.5 16.5 L 17.59375 17.3125 L 17.8125 18.40625 L 18.09375 19.59375 L 17 19 L 16 18.40625 L 15 19 L 14 19.59375 L 14.3125 18.40625 L 14.5 17.3125 L 13.59375 16.5 L 12.6875 15.6875 L 13.90625 15.59375 L 15.09375 15.5 L 15.59375 14.40625 L 16 13.3125 z" />
+  </symbol>
+</svg>
+
+
+
+<style class="booksearch">/* Icon set - http://ionicons.com */
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+figure.snip1249 {
+  font-family: 'Ubuntu', Arial, sans-serif;
+  position: relative;
+
+  overflow: hidden;
+  margin: 10px 1%;
+  background: #1a1a1a;
+  color: #ffffff;
+  text-align: left;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+figure.snip1249 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+figure.snip1249 .image {
+  position: relative;
+}
+figure.snip1249 img {
+  max-width: 100%;
+  vertical-align: top;
+  min-width: 280px;
+
+}
+figure.snip1249 i {
+  position: absolute;
+  top: 7px;
+  left: 12px;
+  font-size: 32px;
+  opacity: 0;
+  z-index: 2;
+  -webkit-transition-delay: 0;
+  transition-delay: 0;
+}
+figure.snip1249 h3 {
+  margin: 0;
+  font-weight: 500;
+  color: #FFF;
+}
+figure.snip1249:before,
+figure.snip1249:after {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 100%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 100%);
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+figure.snip1249:before {
+  background-color: #20638f;
+  -webkit-transform: skew(-45deg) translateX(-150%);
+  transform: skew(-45deg) translateX(-150%);
+  border-right: 1px solid #20638f;
+}
+figure.snip1249:after {
+  background-color: #962d22;
+  -webkit-transform: skew(-45deg) translateX(-175%);
+  transform: skew(-45deg) translateX(-175%);
+  border-right: 1px solid #962d22;
+}
+figure.snip1249 figcaption {
+  padding: 25px 80px 25px 25px;
+  background-color: linear-gradient(to top, #000000, transparent)
+  color: #9a9898;
+  position: absolute;
+  bottom:0;
+  width:100%;
+  font-size: 0.9em;
+}
+figure.snip1249 figcaption p {
+  margin-bottom: 15px;
+}
+figure.snip1249 figcaption:before {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: '';
+  z-index: 1;
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 100%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 100%);
+  background-color: #20638f;
+  -webkit-transform: skew(-45deg) translateX(50%);
+  transform: skew(-45deg) translateX(50%);
+  border-right: 1px solid #20638f;
+}
+figure.snip1249 .add-to-cart {
+  display: inline-block;
+  width: auto;
+  border: 2px solid #20638f;
+  padding: 0.4em 0.6em;
+  color: #20638f;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+figure.snip1249 .add-to-cart:hover {
+  background-color: #20638f;
+  color: #ffffff;
+}
+figure.snip1249 .price {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #ffffff;
+  z-index: 2;
+  text-transform: uppercase;
+  padding: 20px;
+  font-weight: 800;
+  font-size: 1.2em;
+  text-align: center;
+}
+figure.snip1249 .price s {
+  display: block;
+  font-size: 0.85em;
+  font-weight: 400;
+  opacity: 0.8;
+}
+figure.snip1249:hover i,
+figure.snip1249.hover i {
+  opacity: 0.7;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+figure.snip1249:hover h3,
+figure.snip1249.hover h3 {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+figure.snip1249:hover:before,
+figure.snip1249.hover:before {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transform: skew(-45deg) translateX(-50%);
+  transform: skew(-45deg) translateX(-50%);
+}
+figure.snip1249:hover:after,
+figure.snip1249.hover:after {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+  -webkit-transform: skew(-45deg) translateX(-75%);
+  transform: skew(-45deg) translateX(-75%);
+}
+.flexbox-masonry article{
+    display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+    background: transparent !important;
+    padding:0 !important;
+}
+#totalresults {
+  display:none;
+  padding-top: 20px;
+  text-align:center;
+}
+.flexbox-masonry {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.flexbox-masonry .col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+</style>
+<h1 id="totalresults" class="rainbow-text"></h1>
+<div class="boxhr" style="display:none;"><div class="boxhr-sm red"></div><div class="boxhr-sm orange"></div><div class="boxhr-sm yellow "></div><div class="boxhr-sm green "></div><div class="boxhr-sm blue "></div><div class="boxhr-sm purple"></div></div>
+<div class="flexbox-masonry resultsearch" data-cols="1" data-breakpoints="700:2,800:3,1280:4">
+
+</div>
+<script >  /* Demo purposes only */
+
+
+  $(".hover").mouseleave(
+    function () {
+      $(this).removeClass("hover");
+    }
+  );
+//# sourceURL=pen.js
+</script>
+<style class="loader">@import url(//fonts.googleapis.com/css?family=Quicksand:400,700);
+:focus {
+  outline: 0;
+}
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-search-results-button, input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+input[type=search] {
+  -webkit-appearance: none;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.u-isVisuallyHidden {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+
+.withanes {
+  display: block;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 24px;
+  height: 32px;
+}
+
+.withanes:after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 2px;
+  height: 2px;
+  box-shadow: 8px 2px #795f41, 10px 2px #795f41, 12px 2px #795f41, 14px 2px #795f41, 16px 2px #795f41, 18px 2px #795f41, 6px 4px #795f41, 8px 4px #795f41, 10px 4px #795f41, 12px 4px #795f41, 14px 4px #795f41, 16px 4px #795f41, 18px 4px #795f41, 20px 4px #795f41, 4px 6px #795f41, 6px 6px #795f41, 8px 6px #e9d8bc, 10px 6px #795f41, 12px 6px #795f41, 14px 6px #795f41, 16px 6px #795f41, 18px 6px #cbb490, 20px 6px #795f41, 22px 6px #795f41, 4px 8px #795f41, 6px 8px #e9d8bc, 8px 8px #e0c9a4, 10px 8px #e0c9a4, 12px 8px #e0c9a4, 14px 8px #e0c9a4, 16px 8px #e0c9a4, 18px 8px #cbb490, 20px 8px #cbb490, 22px 8px #795f41, 2px 10px #7e6f5d, 4px 10px #e9d8bc, 6px 10px #e0c9a4, 8px 10px #e0c9a4, 10px 10px #e0c9a4, 12px 10px #e0c9a4, 14px 10px #e0c9a4, 16px 10px #e0c9a4, 18px 10px #e0c9a4, 20px 10px #cbb490, 22px 10px #cbb490, 24px 10px #7e6f5d, 2px 12px #7e6f5d, 4px 12px #e9d8bc, 6px 12px #e0c9a4, 8px 12px #e0c9a4, 10px 12px #e0c9a4, 12px 12px #e0c9a4, 14px 12px #e0c9a4, 16px 12px #e0c9a4, 18px 12px #e0c9a4, 20px 12px #e0c9a4, 22px 12px #cbb490, 24px 12px #7e6f5d, 2px 14px #7e6f5d, 4px 14px #e9d8bc, 6px 14px #e0c9a4, 8px 14px #cbb490, 10px 14px #cbb490, 12px 14px #e0c9a4, 14px 14px #e0c9a4, 16px 14px #cbb490, 18px 14px #cbb490, 20px 14px #e0c9a4, 22px 14px #cbb490, 24px 14px #7e6f5d, 2px 16px #b6a281, 4px 16px #e9d8bc, 6px 16px #e0c9a4, 8px 16px #000000, 10px 16px #000000, 12px 16px #e9d8bc, 14px 16px #e0c9a4, 16px 16px #000000, 18px 16px #000000, 20px 16px #e0c9a4, 22px 16px #cbb490, 24px 16px #b6a281, 2px 18px #cbb490, 4px 18px #e9d8bc, 6px 18px #e0c9a4, 8px 18px #e0c9a4, 10px 18px #e0c9a4, 12px 18px #e9d8bc, 14px 18px #e0c9a4, 16px 18px #e0c9a4, 18px 18px #e0c9a4, 20px 18px #e0c9a4, 22px 18px #cbb490, 24px 18px #cbb490, 4px 20px #795f41, 6px 20px #e0c9a4, 8px 20px #e0c9a4, 10px 20px #e0c9a4, 12px 20px #e9d8bc, 14px 20px #e0c9a4, 16px 20px #e0c9a4, 18px 20px #e0c9a4, 20px 20px #e0c9a4, 22px 20px #795f41, 4px 22px #795f41, 6px 22px #e0c9a4, 8px 22px #e0c9a4, 10px 22px #e0c9a4, 12px 22px #cbb490, 14px 22px #cbb490, 16px 22px #e0c9a4, 18px 22px #e0c9a4, 20px 22px #cbb490, 22px 22px #795f41, 4px 24px #795f41, 6px 24px #795f41, 8px 24px #795f41, 10px 24px #795f41, 12px 24px #795f41, 14px 24px #795f41, 16px 24px #795f41, 18px 24px #795f41, 20px 24px #795f41, 22px 24px #795f41, 6px 26px #795f41, 8px 26px #795f41, 10px 26px #e0c9a4, 12px 26px #e0c9a4, 14px 26px #e0c9a4, 16px 26px #b6a281, 18px 26px #795f41, 20px 26px #795f41, 8px 28px #7e6f5d, 10px 28px #e0c9a4, 12px 28px #7e6f5d, 14px 28px #7e6f5d, 16px 28px #b6a281, 18px 28px #7e6f5d, 8px 30px #7e6f5d, 10px 30px #795f41, 12px 30px #7e6f5d, 14px 30px #7e6f5d, 16px 30px #795f41, 18px 30px #7e6f5d, 10px 32px #7e6f5d, 12px 32px #7e6f5d, 14px 32px #7e6f5d, 16px 32px #7e6f5d;
+}
+
+.withanes-name {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 4px;
+  right: 16px;
+  padding: 5px 7px;
+  /*     width: 0; */
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: white;
+  opacity: 0;
+  transform: translateX(0);
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 250ms ease-in-out, width 0 linear 250ms, transform 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.withanes-name:after {
+  width: 0;
+  height: 0;
+  content: '';
+  position: absolute;
+  z-index: 2;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid white;
+  position: absolute;
+  top: calc(50% - 5px);
+  right: -6px;
+}
+
+.withanes:hover .withanes-name {
+  /*     width: 120px; */
+  overflow: visible;
+  opacity: 1;
+  transform: translateX(-20px) rotate(0deg);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.33);
+  transition: opacity 125ms ease-in-out 100ms, transform 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.withanes:hover:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: -20px;
+}
+
+.withanes-name > .heart {
+  margin: 0 3px;
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #D13E35;
+  transform: rotate(45deg);
+}
+
+.withanes-name > .heart:before, .withanes-name > .heart:after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  top: 0;
+  left: 0;
+  background-color: #D13E35;
+  border-radius: 50%;
+}
+
+.withanes-name > .heart:before {
+  left: -3px;
+}
+
+.withanes-name > .heart:after {
+  top: -3px;
+}
+
+.grid {
+  display: block;
+  /* IE9 fallback for Flex */
+  display: flex;
+  /* Using Flex for equal height containers */
+  flex-wrap: wrap;
+  /* Children need to wrap */
+  margin-top: -20px;
+  margin-left: -20px;
+  align-items: stretch;
+  /* For equal height */
+  font-size: 0;
+  /* Horiontal gap fix for inline-block fallback */
+}
+
+.grid + .grid {
+  margin-top: 0;
+  /* reset margin on stacked grids */
+}
+
+.grid-col {
+  box-sizing: border-box;
+  /* Using box-sizing so padding doesn't affect width */
+  display: inline-block;
+  /* IE9 fallback */
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 20px;
+  vertical-align: top;
+  font-size: 16px;
+  /* Resetting font-size for horizontal gap fix */
+}
+
+.grid-col_1of12 {
+  width: 8.33333%;
+}
+
+.grid-col_2of12 {
+  width: 16.66667%;
+}
+
+.grid-col_3of12 {
+  width: 25%;
+}
+
+.grid-col_4of12 {
+  width: 33.33333%;
+}
+
+.grid-col_5of12 {
+  width: 41.66667%;
+}
+
+.grid-col_6of12 {
+  width: 50%;
+}
+
+.grid-col_7of12 {
+  width: 58.33333%;
+}
+
+.grid-col_8of12 {
+  width: 66.66667%;
+}
+
+.grid-col_9of12 {
+  width: 75%;
+}
+
+.grid-col_10of12 {
+  width: 83.33333%;
+}
+
+.grid-col_11of12 {
+  width: 91.66667%;
+}
+
+.grid-col_12of12 {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .grid-col_1of12SM {
+    width: 8.33333%;
+  }
+  .grid-col_2of12SM {
+    width: 16.66667%;
+  }
+  .grid-col_3of12SM {
+    width: 25%;
+  }
+  .grid-col_4of12SM {
+    width: 33.33333%;
+  }
+  .grid-col_5of12SM {
+    width: 41.66667%;
+  }
+  .grid-col_6of12SM {
+    width: 50%;
+  }
+  .grid-col_7of12SM {
+    width: 58.33333%;
+  }
+  .grid-col_8of12SM {
+    width: 66.66667%;
+  }
+  .grid-col_9of12SM {
+    width: 75%;
+  }
+  .grid-col_10of12SM {
+    width: 83.33333%;
+  }
+  .grid-col_11of12SM {
+    width: 91.66667%;
+  }
+  .grid-col_12of12SM {
+    width: 100%;
+  }
+}
+
+@media (min-width: 960px) {
+  .grid-col_1of12MD {
+    width: 8.33333%;
+  }
+  .grid-col_2of12MD {
+    width: 16.66667%;
+  }
+  .grid-col_3of12MD {
+    width: 25%;
+  }
+  .grid-col_4of12MD {
+    width: 33.33333%;
+  }
+  .grid-col_5of12MD {
+    width: 41.66667%;
+  }
+  .grid-col_6of12MD {
+    width: 50%;
+  }
+  .grid-col_7of12MD {
+    width: 58.33333%;
+  }
+  .grid-col_8of12MD {
+    width: 66.66667%;
+  }
+  .grid-col_9of12MD {
+    width: 75%;
+  }
+  .grid-col_10of12MD {
+    width: 83.33333%;
+  }
+  .grid-col_11of12MD {
+    width: 91.66667%;
+  }
+  .grid-col_12of12MD {
+    width: 100%;
+  }
+}
+
+.blocks {
+  margin: -30px 0 0 -30px;
+  /* offset blocks horizontal and vertical spacing - must match padding of blocks items */
+  font-size: 0;
+  /* remove inline block whitespace */
+}
+
+.blocks > * {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 30px 0 0 30px;
+  /* space blocks horizontally and vertically - offset is handled by .blocks */
+  font-size: 16px;
+  /* return the font size */
+}
+
+.blocks_2up > * {
+  width: 50%;
+}
+
+.blocks_3up > * {
+  width: 33.33333%;
+}
+
+.blocks_4up > * {
+  width: 25%;
+}
+
+.u-srOnly {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+
+.containerbookanim {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.containerbookanim:after {
+  content: '';
+  position: absolute;
+  right: -19px;
+  bottom: -6px;
+  left: -5px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: -1;
+  transition: background-color 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.book {
+  position: relative;
+  width: 120px;
+  height: 30px;
+  margin-left: 6px;
+  background-color: #FF5420;
+  border-radius: 5px;
+  box-shadow: inset 0 -5px #ff4007;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.book:before, .book:after {
+  content: '';
+  width: 12px;
+  height: 5px;
+  position: absolute;
+  left: -6px;
+  border-radius: 5px;
+  background-color: #FF5420;
+}
+
+.book:after {
+  bottom: 0;
+  background-color: #ff4007;
+}
+
+.book-paper {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  width: 40px;
+  background-color: #f1f1f1;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.book-paper:before, .book-paper:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 20px;
+  height: 6px;
+  background-color: #dddddd;
+  border-radius: 3px;
+}
+
+.book-paper:before {
+  border-bottom-right-radius: 0;
+}
+
+.book-paper:after {
+  bottom: 0;
+  border-top-right-radius: 0;
+}
+
+.book-paper-shadow {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  width: 13px;
+  height: 8px;
+  background-color: #dddddd;
+}
+
+.book-paper-shadow:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -3px; 
+  width: 8px;
+  border-radius: 3px;
+  background-color: #f1f1f1;
+}
+
+.book:nth-child(1) {
+  left: 6px;
+}
+
+.book:nth-child(2) {
+  background-color: #4D4D4D;
+  box-shadow: inset 0 -5px #404040;
+}
+
+.book:nth-child(2):before {
+  background-color: #4D4D4D;
+}
+
+.book:nth-child(2):after {
+  background-color: #404040;
+}
+
+.book:nth-child(3) {
+  left: 8px;
+  background-color: #2BA7FF;
+  box-shadow: inset 0 -5px #129cff;
+}
+
+.book:nth-child(3):before {
+  background-color: #2BA7FF;
+}
+
+.book:nth-child(3):after {
+  background-color: #129cff;
+}
+
+.containerbookanim:hover:after,
+.containerbookanim:focus:after {
+  background-color: rgba(0, 0, 0, 0.18);
+}
+/*
+.container:hover .book:nth-child(1),
+.container:focus .book:nth-child(1) {
+  transform: translate(6px, -37px) rotateZ(-13deg);
+}
+
+.container:hover .book:nth-child(2),
+.container:focus .book:nth-child(2) {
+  transform: translate(9px, -11px) rotateZ(11deg);
+}
+*/
+.containerbookanim .book:nth-child(1){
+  animation: anima 12s linear;
+}
+
+.containerbookanim .book:nth-child(2){
+  animation: animb 6s linear;
+}
+@keyframes anima {
+ 0%{ transform: translate(6px, -37px) rotateZ(-13deg); }
+ 100% { transform: unset; }
+  }
+  @keyframes animb {
+ 0% { transform: translate(9px, -11px) rotateZ(11deg); }
+ 100% { transform: unset; }
+  }
+</style>
+<div class="containerbookanim isActive">
+    <div class="book">
+        <div class="book-paper">
+            <div class="book-paper-shadow"></div>
+        </div>
+    </div>
+    <div class="book">
+        <div class="book-paper">
+            <div class="book-paper-shadow"></div>
+        </div>
+    </div>
+    <div class="book">
+        <div class="book-paper">
+            <div class="book-paper-shadow"></div>
+        </div>
+    </div>
+</div>
+<script >
+
+$('.search-input').focus(function(){
+  $(this).parent().addClass('focus');
+}).blur(function(){
+  $(this).parent().removeClass('focus');
+});
+  $(".hover").mouseleave(
+    function () {
+      $(this).removeClass("hover");
+    }
+  );
+  var finder = document.querySelector('.search-input')
+  
+    
+function throttle (callback, limit) {
+
+  var wait = false;
+  return function () {
+    if (!wait) {
+
+      callback.apply(null, arguments);
+      wait = true;
+      setTimeout(function () {
+        wait = false;
+      }, limit);
+    }
+  }
+}
+ function onKeydown(e) {
+
+    if (!e.target.value) {
+       /* $('.busquedainstantanea').html('<div id="operating">Comienza una bÃºsqueda</div>'); */
+       console.log("Comienza una busqueda");
+       $('.containerbookanim').fadeIn('slow');
+       $('.boxhr').fadeOut('fast');
+       $('#totalresults').fadeOut('fast');
+    } else {
+
+
+                                            dbleelocal.search({
+  query: e.target.value,
+  fields: ['title'],
+  include_docs: true,
+  highlighting: true,
+  mm: '0%',
+  filter: function (doc) {
+    return doc.publish === true; // only index libs
+  }
+}).then(function (info) {
+  console.log("BIEN BUSQUEDA!");
+  console.log(info);
+
+  if(info.total_rows != 0){
+    $('#totalresults').html(info.total_rows+' resultados').fadeIn('fast');
+    $('.boxhr').fadeIn('fast');
+    $('.containerbookanim').fadeOut('slow');
+      for (var i = 0; i < info.rows.length; i++) {
+    if(!$(".dQsearchit-"+info.rows[i].id).hasClass('dQsearch-'+info.rows[i].id)){
+
+    $('.resultsearch').prepend('<article class="dQsearchit-'+info.rows[i].id+' dQsearch-'+info.rows[i].id+'"><figure class="snip1249">  <div class="campprogress"> <div class="campprogress-bar" style="width: '+((info.rows[i].doc.compras/info.rows[i].doc.preventas) * 100).toFixed(0)+'%;"><div class="campprogress-shadow" ></div></div></div><div class="image"><img class="'+info.rows[i].id+'" src="assets/portada_upload.jpg"/><i class="fa fa-books"></i></div><figcaption><h3>'+info.rows[i].highlighting.title+'</h3><p class="truncate">'+info.rows[i].doc.descripcion+'</p><div class="price"><s>+ABRIR</s>$'+info.rows[i].doc.price_unity+'</div><a class="add-to-cart" onclick="addlibro(\''+info.rows[i].doc._id +'\', \''+info.rows[i].doc.title +'\', \''+info.rows[i].doc.price_unity +'\')">Comprar</a></figcaption></figure></article>');
+
+
+    getportadabyIdtoClass(info.rows[i].id);
+    if(i == info.rows.length) {
+      FlexboxMasonry.run();
+    }
+    }
+      }
+      
+  } else {
+    $('.boxhr').fadeOut('fast');
+    $('.containerbookanim').fadeIn('slow');
+    $('#totalresults').fadeOut('fast');
+  }
+
+}).catch(function (err) {
+  // handle error
+  toast("Error al buscar");
+  console.log("MAL BUSQ :(");
+  console.log(err);
+});
+
+
+    }
+
+} 
+
+finder.addEventListener('keyup', throttle(function(e){onKeydown(e)}, 1000));
+
+  $('.cerrar-boton').click(function() {
+  var _this = this;
+  $(_this).addClass('slide-down');
+  setTimeout(function() {
+    $(_this).removeClass('slide-down');
+
+  }, 1250);
+    setTimeout(function() {
+    cerrarmodal();
+  }, 1350);
+});
+//# sourceURL=buscar.js
+</script>

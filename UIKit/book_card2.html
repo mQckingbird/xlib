@@ -1,0 +1,214 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/joebentaylor/pen/LLWyOY?depth=everything&order=popularity&page=20&q=book&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<style class="cp-pen-styles">.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+
+.item {
+  display: block;
+  overflow: hidden;
+  width: 300px;
+  height: 453px;
+}
+.item img {
+  width: 100%;
+  height: auto;
+}
+.item:hover .content {
+  height: 210px;
+}
+
+.content {
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  height: 80px;
+  padding: 20px;
+  background-color: rgba(35, 28, 31, 0.8);
+  transition: all 0.3s ease-out;
+}
+.content span, .content h2, .content p {
+  margin: 0;
+  color: #ffffff;
+}
+.content span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.content h2 {
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+.content p {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.hover-in {
+  transition: .3s ease-out;
+}
+
+.hover-out {
+  transition: .3s ease-in;
+}
+</style></head><body>
+
+<!--  Center this card Bruh-->
+<div class="wrapper">
+  <!-- Card--><a class="item">
+    <!-- Image--><img src="http://digitalspyuk.cdnds.net/14/47/768x1194/gallery_movies-fifty-shades-of-grey-book-tie-in-addition.jpg" alt="Item Image"/>
+    <!-- Content for card-->
+    <div class="content"><span>8th October</span>
+      <h2>Title of book goes here</h2>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, vel, doloremque eligendi quidem qui nisi repellat illum ut, aut culpa, dolores harum! Sapiente adipisci, distinctio ex facilis nam nihil qui!</p>
+    </div></a>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script >// jQuery Hover3d
+
+(function($){
+	
+	$.fn.hover3d = function(options){
+		
+		var settings = $.extend({
+			selector      : null,
+			perspective   : 1000,
+			sensitivity   : 20,
+			invert        : false,
+			shine         : false,
+			hoverInClass  : "hover-in",
+			hoverOutClass : "hover-out",
+			hoverClass    : "hover-3d"
+		}, options);
+		
+		return this.each(function(){
+			
+			var $this = $(this),
+				$card = $this.find(settings.selector);
+				currentX = 0;
+				currentY = 0;
+
+
+			if( settings.shine ){
+				$card.append('<div class="shine"></div>');
+			}
+			var $shine = $(this).find(".shine");
+
+			// Set perspective and transformStyle value
+			// for element and 3d object
+			$this.css({
+				perspective: settings.perspective+"px",
+				transformStyle: "preserve-3d"
+			});
+			
+			$card.css({
+				perspective: settings.perspective+"px",
+				transformStyle: "preserve-3d",
+			});
+
+			$shine.css({
+				position  : "absolute",
+				top       : 0,
+				left      : 0,
+				bottom    : 0,
+				right     : 0,
+				transform : 'translateZ(1px)',
+				"z-index" : 9
+			});
+			
+			// Mouse Enter function, this will add hover-in
+			// Class so when mouse over it will add transition
+			// based on hover-in class
+			function enter(event){
+				$card.addClass(settings.hoverInClass+" "+settings.hoverClass);
+				currentX = currentY = 0;
+				setTimeout(function(){
+					$card.removeClass(settings.hoverInClass);
+				}, 1000);
+			}
+			
+			// Mouse movement Parallax effect
+			function move(event){
+				
+				var w      = $card.innerWidth(),
+					h      = $card.innerHeight(),
+					currentX = Math.round(event.pageX - $card.offset().left),
+					currentY = Math.round(event.pageY - $card.offset().top),
+					ax 	   = settings.invert ?  ( w / 2 - currentX)/settings.sensitivity : -( w / 2 - currentX)/settings.sensitivity,
+					ay     = settings.invert ? -( h / 2 - currentY)/settings.sensitivity :  ( h / 2 - currentY)/settings.sensitivity,
+					dx     = currentX - w / 2,
+					dy     = currentY - h / 2,
+					theta  = Math.atan2(dy, dx),
+					angle  = theta * 180 / Math.PI - 90;
+
+					
+				if (angle < 0) {
+					angle  = angle + 360;
+				}
+				
+
+				$card.css({
+					perspective    : settings.perspective+"px",
+					transformStyle : "preserve-3d",
+					transform      : "rotateY("+ax+"deg) rotateX("+ay+"deg)"
+				});
+
+				$shine.css('background', 'linear-gradient(' + angle + 'deg, rgba(255,255,255,' + event.offsetY / h * .5 + ') 0%,rgba(255,255,255,0) 80%)');
+			}
+			
+			// Mouse leave function, will set the transform
+			// property to 0, and add transition class
+			// for exit animation
+			function leave(){
+				$card.addClass(settings.hoverOutClass+" "+settings.hoverClass);
+				$card.css({
+					perspective    : settings.perspective+"px",
+					transformStyle : "preserve-3d",
+					transform      : "rotateX(0) rotateY(0)"
+				});
+				setTimeout( function(){
+					$card.removeClass(settings.hoverOutClass+" "+settings.hoverClass);
+					currentX = currentY = 0;
+				}, 1000 );
+			}
+			
+			// Mouseenter event binding
+			$this.on( "mouseenter", function(){
+				return enter();
+			});
+			
+			// Mousemove event binding
+			$this.on( "mousemove", function(event){
+				return move(event);
+			});
+			
+			// Mouseleave event binding
+			$this.on( "mouseleave", function(){
+				return leave();
+			});
+			
+		});
+		
+	};
+	
+}(jQuery));
+
+
+
+$(".wrapper").hover3d({
+	selector: ".item",
+  perspective: 2000,
+  shine: true
+});
+
+//# sourceURL=pen.js
+</script>
+</body></html>

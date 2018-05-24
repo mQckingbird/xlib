@@ -1,0 +1,176 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/jh3y/pen/opNYWy" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css'>
+<style class="cp-pen-styles">* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #fff;
+  background-color: #111;
+}
+#app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.logs {
+  background-color: #fafafa;
+  border-radius: 5px;
+  color: #333;
+  height: 200px;
+  width: 220px;
+  overflow: auto;
+  text-align: left;
+  margin: 10px;
+  padding: 10px;
+}
+.actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+button {
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  width: 130px;
+  margin: 0 0 5px 0;
+}
+button.debounce {
+  background-color: #639;
+}
+button.debounce:active {
+  background-color: #4c2673;
+}
+button.throttle {
+  background-color: #19b5fe;
+}
+button.throttle:active {
+  background-color: #019be3;
+}
+.log__type {
+  margin: 0 0 0 4px;
+  color: #19b5fe;
+}
+.log__type--debounce {
+  color: #639;
+}
+</style></head><body>
+
+<h1>Throttling and debouncing demo</h1>
+<div id="app">
+  <div class="actions">
+    <button class="debounce" v-on:click="debounceCall">Debounce</button>
+    <button class="throttle" v-on:click="throttleCall">Throttle</button>
+  </div>
+  <div class="info">
+    <h2>{{time}}</h2>
+    <div class="logs">
+      <div class="log" v-if="!logs.length" style="text-align: center;">There are currently no invocation logs</div>
+      <div class="log" v-for="log in logs"><span class="log__time">{{log.time}}:</span><span class="log__type" v-bind:class="{'log__type--debounce': log.type === 'DEBOUNCE'}">{{log.type}}</span></div>
+    </div>
+  </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.4/moment.js'></script>
+<script >/**
+  * debounce function
+  * use inDebounce to maintain internal reference of timeout to clear
+*/
+var debounce = function debounce(func, delay) {
+  var inDebounce = void 0;
+  return function () {
+    var context = this;
+    var args = arguments;
+    clearTimeout(inDebounce);
+    inDebounce = setTimeout(function () {
+      return func.apply(context, args);
+    }, delay);
+  };
+};
+
+/**
+  * throttle function that catches and triggers last invocation
+  * use time to see if there is a last invocation
+*/
+var throttle = function throttle(func, limit) {
+  var inThrottle = void 0;
+  var lastFunc = void 0;
+  var lastRan = void 0;
+  return function () {
+    var context = this;
+    var args = arguments;
+    if (!inThrottle) {
+      func.apply(context, args);
+      lastRan = Date.now();
+      inThrottle = true;
+    } else {
+      clearTimeout(lastFunc);
+      lastFunc = setTimeout(function () {
+        if (Date.now() - lastRan >= limit) {
+          func.apply(context, args);
+          lastRan = Date.now();
+        }
+      }, limit - (Date.now() - lastRan));
+    }
+  };
+};
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    timeFormat: 'h:mm:ss A',
+    time: moment().format('h:mm:ss A'),
+    logs: []
+  },
+  methods: {
+    log: function log(type) {
+      var newDate = new Date();
+      this.logs.unshift({
+        type: type,
+        time: moment().format(this.timeFormat)
+      });
+    },
+    debounceCall: debounce(function () {
+      this.log('DEBOUNCE');
+    }, 3000),
+    throttleCall: throttle(function () {
+      this.log('THROTTLE');
+    }, 1000),
+    updateTime: function updateTime() {
+      this.time = moment().format(this.timeFormat);
+    }
+  },
+  mounted: function mounted() {
+    setInterval(this.updateTime, 1000);
+  }
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

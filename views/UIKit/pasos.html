@@ -1,0 +1,737 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head>
+
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900);
+body {
+		font-family: 'Roboto', sans-serif;
+}
+
+header {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+		-ms-flex-flow: column nowrap;
+		    flex-flow: column nowrap;
+		-ms-flex-line-pack: center;
+		    align-content: center;
+		margin: 0 auto;
+}
+
+header.part-2 {
+		text-align: center;
+		max-width: 700px;
+}
+
+.container--inner header {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-flow: column wrap;
+		    flex-flow: column wrap;
+		-webkit-box-pack: end;
+		    -ms-flex-pack: end;
+		        justify-content: flex-end;
+}
+
+h3 {
+		font-weight: 300;
+		font-size: 2.6rem;
+		line-height: 136%;
+		letter-spacing: 1px;
+		padding-bottom: 3%;
+		text-align: center;
+		-webkit-margin-before: 2.6rem;
+		-webkit-margin-after: 1.625rem;
+		/*text-shadow: 0 2px 5px rgba(0, 0, 0, 0.30), 0 2px 15px rgba(0, 0, 0, 0.16);*/
+}
+
+h4 {
+		font-weight: 500;
+		font-size: 1.8rem;
+		line-height: 116%;
+		letter-spacing: 0.0125rem;
+		padding-bottom: 0%;
+		-webkit-margin-before: 2.6rem;
+		-webkit-margin-after: 1.625rem;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-pack: distribute;
+		    justify-content: space-around;
+		-ms-flex-flow: row wrap;
+		    flex-flow: row wrap;
+		-webkit-box-align: stretch;
+		    -ms-flex-align: stretch;
+		        align-items: stretch;
+		width: 300px;
+		/*text-shadow: 0 2px 5px rgba(0, 0, 0, 0.30), 0 2px 15px rgba(0, 0, 0, 0.16);*/
+}
+
+.container--instru h4 {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-pack: distribute;
+		    justify-content: space-around;
+		-ms-flex-flow: column nowrap;
+		    flex-flow: column nowrap;
+		width: 270px;
+		-ms-flex-item-align: center;
+		    align-self: center;
+}
+
+h4>span:nth-child(1),
+h4>div:nth-child(1) {
+		font-weight: 300;
+		font-size: 1.1rem;
+		border-bottom: 1px solid rgba(0, 0, 0, .3);
+		/*background-color: rgba(0,0,0,.16);*/
+		
+		margin-bottom: 5%;
+		padding: 0 3%;
+		border-radius: ;
+		text-transform: uppercase;
+}
+
+h4>div, p {
+		text-align: center;
+}
+/* bottom features 
+
+.container--inner h4>span:nth-child(1), .container--inner h4>div:nth-child(1) {
+	border-bottome:none;
+}
+.container--inner h4 {
+	margin-bottom:0;
+}
+.container--inner header:nth-child(1) h4 {
+	color: gray;
+	font-size: .825rem;
+	margin-bottom: 5%;
+	padding: 0 3% 0;
+	text-transform: uppercase;
+	line-height: 100%;
+}
+
+.container--inner header:nth-child(2) h4{
+	margin-top:3%;
+	font-size: 1.6rem;
+	line-height:100%;
+	margin-bottom:0;
+	padding:0;
+	align-items:stretch;
+}
+
+
+.container--inner article {
+	margin: 0 auto;	
+	font-size: .825rem;
+	line-height:150%;
+}
+/* bottom features END */
+
+article {
+		text-align: center;
+		align-item: stretch;
+		margin: 4% auto 8%;
+		font-size: .9rem;
+		font-weight: 300;
+		letter-spacing: .015rem;
+		line-height: 1.45435rem;
+}
+
+button {
+		background-color: transparent;
+		border: 0;
+		width: 98%;
+		font-weight: 600;
+		-webkit-transition: all .2s ease-out;
+		transition: all .2s ease-out;
+		margin: 3% auto;
+		text-decoration: none;
+		text-align: center;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+		-ms-flex-pack: distribute;
+		    justify-content: space-around;
+}
+
+a {
+		font-size: .825rem;
+		letter-spacing: .1rem;
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
+		margin: 5px;
+		padding: 15px 25px;
+		will-change: auto
+		/*opacity, transform*/
+		
+		;
+		background-color: rgba(0, 0, 0, .5);
+		color: #fff;
+		border: 2px solid #fff;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 5px 15px 0 rgba(0, 0, 0, 0.16);
+		-webkit-transition: all .4s ease-out;
+		transition: all .4s ease-out;
+}
+
+a:hover,
+a:focus,
+a:active {
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.6), 0 5px 14px 0 rgba(0, 0, 0, 0.4), 0 10px 25px 0 rgba(0, 0, 0, 0.16);
+		background-color: rgba(0, 0, 0, 1);
+}
+
+.container--parent {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+		/*justify-content deals with the X-axis*/
+		/* values:
+	flex-start = align left or at the beginning, 
+	flex-end = align right or at the end, 
+	space-between = justifies content across width of container,
+	space-around =
+	center = centers of course */
+		-webkit-box-align: stretch;
+		    -ms-flex-align: stretch;
+		        align-items: stretch;
+		/*align-items deals wiht the Y-axis*/
+		/* values:
+	flex-start,
+	flex-end,
+	center,
+	stretch = will stretch to the max height of the container,
+	baseline = all items will line up on the lowest baseline */
+		-ms-flex-line-pack: stretch;
+		    align-content: stretch;
+		/*applies to content when it wraps */
+		/*value:
+	stretch = default; when no height is defined for child containers */
+}
+/* We tell all items to be 100% width */
+
+.container--parent > * {
+		-webkit-box-flex: 1;
+		    -ms-flex: 1 100%;
+		        flex: 1 100%;
+}
+/* container--child has direct child properties of flexbox when container--parent is given parent properties */
+/* container--steps has to then reset with parent properties  */
+
+.container--steps {
+		margin: 6% auto;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-flow: column nowrap;
+		    flex-flow: column nowrap;
+		-ms-flex-line-pack: stretch;
+		    align-content: stretch;
+		-webkit-box-align: stretch;
+		    -ms-flex-align: stretch;
+		        align-items: stretch;
+		text-align: center;
+}
+
+/*.container--steps:nth-child(2) {
+		flex-wrap: nowrap;
+		background: url("http://staging.samaritanspurse.org/wp-content/uploads/2015/07/1519CB-B-049-bkgcover.jpg") center left / cover no-repeat;
+		text-shadow: 0 2px 5px rgba(0, 0, 0, 0.30), 0 2px 15px rgba(0, 0, 0, 0.16);
+}*/
+
+.container--steps:nth-child(1),
+.container--steps:nth-child(3),
+.container--steps:nth-child(5) {
+		-webkit-box-align: end;
+		    -ms-flex-align: end;
+		        align-items: flex-end;
+}
+/*
+.container--steps:nth-child(1), .container--steps:nth-child(3) {background-color: lightcoral;}
+.container--steps:nth-child(5) {background: #F0B880;}
+.container--steps:nth-child(6){background:#67C294;}
+*/
+
+.container--steps:nth-child(n+1) > .container--text {
+		box-shadow: none;
+}
+
+.container--text {
+		width: 300px;
+		-ms-flex-line-pack: stretch;
+		    align-content: stretch;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		margin: 0 3%;
+		vertical-align: top;
+		/*background-color: rgba(0,0,0,0.3);*/		
+		padding: 0% 3%;
+		color: #5a5a5a;
+		border: 1px solid rgba(0, 0, 0, .2);
+		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3), 0 2px 15px 0 rgba(0, 0, 0, 0.12);
+		-webkit-transition: box-shadow .25s;
+		transition: box-shadow .25s;
+}
+
+.container--steps:nth-child(2) > .container--text {
+		color: #fff;
+		background-color: rgba(0, 0, 0, .45);
+		border-left: 1px solid rgba(0, 0, 0, .2);
+		border-right: 1px solid rgba(0, 0, 0, .2);
+		border-top: 0;
+		border-bottom: 0;
+}
+
+.container--text:last-child {
+		padding-bottom: 5%;
+}
+
+.container--full-width {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-flow: column nowrap;
+		    flex-flow: column nowrap;
+		-webkit-box-pack: start;
+		    -ms-flex-pack: start;
+		        justify-content: flex-start;
+	color: #fff;
+		background-color: #4d4d4d;
+		padding: 0 2%;
+}
+.container--full-width header h4 {
+	padding-bottom: 15px;
+	margin-bottom:0;
+}
+
+.container--full-width article {
+	padding:0 2%;
+	margin: 0 auto;
+}
+.container--full-width button {
+	max-width: 350px;
+}
+
+.container--instru-features {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
+		-webkit-box-pack: start;
+		    -ms-flex-pack: start;
+		        justify-content: flex-start;
+		text-align: left;
+}
+
+.container--instru-features .container--inner {
+		max-width: 350px;
+		-ms-flex-item-align: stretch;
+		    -ms-grid-row-align: stretch;
+		    align-self: stretch;
+		margin: 7px auto;
+		vertical-align: top;
+		background-color: #fff;
+		padding: 2% 2%;
+		color: #5a5a5a;
+		border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.container--instru .container--inner article {
+		-ms-flex-item-align: end;
+		    align-self: flex-end;
+}
+
+
+.container--instru {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-flow: row wrap;
+		    flex-flow: row wrap;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+		-ms-flex-line-pack: stretch;
+		    align-content: stretch;
+		text-align: center;
+		padding: 4% 6%;
+}
+
+.container--instru-features {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-flow: row nowrap;
+		    flex-flow: row nowrap;
+		-webkit-box-pack: start;
+		    -ms-flex-pack: start;
+		        justify-content: flex-start;
+}
+
+.container--instru-features .container--text {
+		max-width: 40%;
+		margin: 0 auto 6%;
+		background-color: #fff;
+		color: #5a5a5a;
+		border: 1px solid rgba(0, 0, 0, .2);
+}
+
+
+.container--features {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+		text-align: center;
+}
+
+.container--inner {
+		max-width: 300px;
+		margin: 7px auto;
+		vertical-align: top;
+		background-color: #fff;
+		padding: 2% 2%;
+		color: #5a5a5a;
+		border: 1px solid rgba(0, 0, 0, .2);
+		-webkit-transition: box-shadow .25s;
+		transition: box-shadow .25s;
+}
+
+.container--inner h4 {
+    -webkit-margin-before: 0rem;
+    -webkit-margin-after: 0.625rem;
+}
+
+.container--inner img {
+		padding: 4% 0 0 0;
+		-webkit-clip-path: circle(90px at center);
+		        clip-path: circle(90px at center);
+		background-color: lightcoral;
+		-ms-flex-item-align: center;
+		    -ms-grid-row-align: center;
+		    align-self: center;
+		width: 200px;
+		height: 200px;
+}
+
+
+
+
+@media screen and (max-width:800px) {
+		.container--parent {
+				margin: 0 auto;
+				padding: 0;
+		}
+		.container--steps {
+				max-width: 98%;
+				padding: 0;
+				margin: 0 auto;
+				-ms-flex-flow: column wrap;
+				    flex-flow: column wrap;
+		}
+		.container--text {
+				max-width: 100%;
+				width: 100%;
+				padding: 0;
+				margin: 0 auto;
+				box-shadow: none;
+				-ms-flex-flow: column wrap;
+				    flex-flow: column wrap;
+				-webkit-box-pack: center;
+				    -ms-flex-pack: center;
+				        justify-content: center;
+				-ms-flex-item-align: stretch;
+				    -ms-grid-row-align: stretch;
+				    align-self: stretch;
+		}
+		.container--text header {
+				max-width: 100%;
+				padding: 0 8%;
+				margin: 0 auto;
+				-webkit-box-pack: center;
+				    -ms-flex-pack: center;
+				        justify-content: center;
+		}
+		h4 {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: justify;
+				    -ms-flex-pack: justify;
+				        justify-content: space-between;
+				-ms-flex-flow: column wrap;
+				    flex-flow: column wrap;
+				align-item: stretch;
+		}
+		article {
+				max-width: 100%;
+		}
+		button {
+				-webkit-box-pack: center;
+				    -ms-flex-pack: center;
+				        justify-content: center;
+		}
+}</style></head><body>
+<header>
+		<h3>CopyLee</h3>
+</header>
+
+<div class="container--parent">
+		<div class="container--child">
+				<div class="container--steps">
+						<section class="container--text">
+								<header>
+										<h4>
+										<div>Escritores</div>
+										<div>Crea tu campaña</div>
+									</h4>
+								</header>
+								<article>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								</article>
+						</section>
+				</div>
+
+				<div class="container--steps">
+						<section class="container--text">
+								<header>
+										<h4>
+								<div>Lectores</div>
+								<div>Elige tu proyecto</div>
+								</h4>
+								</header>
+								<article>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								</article>
+								<button>
+										<a href="#">Más necesidad &rarr;</a>
+										<a href="#">Recompensas &rarr;</a>
+								</button>
+						</section>
+
+				</div>
+
+				<div class="container--steps">
+						<section class="container--text">
+								<header>
+										<h4>
+										<div>Ayuda</div>
+										<div>Un libro puede cambiar el mundo. Un nuevo libro, puede cambiarlo otra vez.</div>
+									</h4>
+								</header>
+								<article>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
+								</article>
+								<button>
+										<a href="#">Ayudar &rarr;</a>
+								</button>
+						</section>
+				</div>
+
+
+				<div class="container--steps">
+						<section class="container--text">
+								<header>
+										<h4>
+										<div>Mundo</div>
+										<div>Difunde la palabra</div>
+									</h4>
+								</header>
+								<article>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+								</article>
+						</section>
+				</div>
+
+
+				<section class="container--instru">
+						<header class="part-2">
+								<h3>Cómo financiar tu libro en preventa</h3>
+					</header>
+								<section>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								</section>
+	</section>
+
+						<div class="container--instru-features">
+								<section class="container--text">
+										<header>
+												<h4>
+										<div>Pide financiamiento online</div>
+										<div>Cómo publicar un libro</div>
+									</h4>
+										</header>
+										<article>
+												Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+										</article>
+										<button>
+												<a href="#">create your fundraising webpage &rarr;</a>
+										</button>
+								</section>
+								<section class="container--text">
+										<header>
+												<h4>
+										<div>Pide financiación a tus amigos/familiares</div>
+										<div>Mail/boca a boca</div>
+									</h4>
+										</header>
+										<article>
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+														<br> EdicionesLee
+														<br> 0800 ....</p>
+										</article>
+								</section>
+						</div>
+					
+		
+		</div>
+</div>
+<div class="container-steps">
+<section class="container--full-width">
+		<header>
+				<h4>
+					<span>CUÉNTANOS DE TU CAMPAÑA</span>
+				</h4>
+		</header>
+		<article>
+		Comparte tu meta de financiación con nosotros en redes sociales.
+		</article>
+		<button>
+				<a href="#">Facebook</a>
+				<a href="#">Twitter</a>
+		</button>
+</section>
+</div>
+
+<!-- RECENT CAMPAIGNS -->
+
+<header class="part-3">
+				<h3>Campañas recientes</h3>
+				<section>
+						<p>Chequea lo que otras personas escribieron e inspírate para tu próxima campaña</p>
+				</section>
+		</header>
+		<div class="container--features">
+				<section class="container--inner">
+						<article>
+								<img src="" />
+								<header>
+										<h4>
+										<span>Libro #1</span>
+									</h4>
+								</header>
+								This is a short blurb about how awesome little Libro #1 used her singing talent to raise funds for SP, okay wait this is an athletic even page. Maybe we only want to feature athletic campaign profiles... up to you Chelsea. Just let me know.
+						</article>
+						<button>
+								<a href="#">MÁS</a>
+						</button>
+				</section>
+
+				<section class="container--inner">
+						<article>
+								<img src="" />
+								<header>
+										<h4>
+										<span>Libro #1</span>
+									</h4>
+								</header>
+								This is a short blurb about how awesome little Libro #1 used her singing talent to raise funds for SP, okay wait this is an athletic even page. Maybe we only want to feature athletic campaign profiles... up to you Chelsea. Just let me know.
+						</article>
+						<button>
+								<a href="#">MÁS</a>
+						</button>
+				</section>
+
+				<section class="container--inner">
+						<article>
+								<img src="" />
+								<header>
+										<h4>
+										<span>Libro #1</span>
+									</h4>
+								</header>
+								This is a short blurb about how awesome little Libro #1 used her singing talent to raise funds for SP, okay wait this is an athletic even page. Maybe we only want to feature athletic campaign profiles... up to you Chelsea. Just let me know.
+						</article>
+						<button>
+								<a href="#">MÁS</a>
+						</button>
+				</section>
+
+				<section class="container--inner">
+						<article>
+								<img src="" />
+								<header>
+										<h4>
+										<span>Libro #1</span>
+									</h4>
+								</header>
+								This is a short blurb about how awesome little Libro #1 used her singing talent to raise funds for SP, okay wait this is an athletic even page. Maybe we only want to feature athletic campaign profiles... up to you Chelsea. Just let me know.
+						</article>
+						<button>
+								<a href="#">MÁS</a>
+						</button>
+				</section>
+
+				<section class="container--inner">
+						<article>
+								<img src="" />
+								<header>
+										<h4>
+										<span>Libro #1</span>
+									</h4>
+								</header>
+								This is a short blurb about how awesome little Libro #1 used her singing talent to raise funds for SP, okay wait this is an athletic even page. Maybe we only want to feature athletic campaign profiles... up to you Chelsea. Just let me know.
+						</article>
+						<button>
+								<a href="#">MÁS</a>
+						</button>
+				</section>
+
+				<section class="container--inner">
+						<article>
+								<img src="" />
+								<header>
+										<h4>
+										<span>Libro #1</span>
+									</h4>
+								</header>
+								This is a short blurb about how awesome little Libro #1 used her singing talent to raise funds for SP, okay wait this is an athletic even page. Maybe we only want to feature athletic campaign profiles... up to you Chelsea. Just let me know.
+						</article>
+						<button>
+								<a href="#">MÁS</a>
+						</button>
+				</section>
+		</div>
+
+</body></html>

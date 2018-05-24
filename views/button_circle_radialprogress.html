@@ -1,0 +1,207 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/nelsyeung/pen/MwdWmj?limit=all&page=15&q=progress" />
+
+
+<style class="cp-pen-styles">body {
+  text-align: center;
+}
+
+h1 {
+  font: 2.5em sans-serif;
+  line-height: 1.2em;
+  color: #CCC;
+  text-shadow: 0px 1px #FFF;
+}
+
+button {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: #0095DD;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 0.8em;
+  color: #FFF;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+button:hover {
+  background-color: #00A6EE;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}</style></head><body>
+<h1>JS only<br>Radial Progress bar</h1>
+<button onclick="createProgress()">Click me!</button>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script >var RadialProgress = function(size, barSize, barColor, backgroundColor, textColor, zIndex) { // jshint ignore:line
+  this.radialProgress = document.createElement('div');
+  this.style = document.createElement('style');
+  this.progress = 0;
+  var requestAnimationFrame = window.requestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame;
+
+  barSize = (barSize % 2 === 1) ? (barSize + 1) : barSize;
+  var innerSize = size - barSize;
+  var innerMargin = barSize / 2;
+
+  this.radialProgress.className = 'radial-progress';
+  this.radialProgress.innerHTML = '<div class="inner-circle">' +
+    '<div class="progress">0%<' + '/div>' +
+    '</div>' +
+    '<div class="outer-circle">' +
+    '<div class="mask full">' +
+    '<div class="fill"></div>' +
+    '</div>' +
+    '<div class="mask">' +
+    '<div class="fill"></div>' +
+    '<div class="fill fix"></div>' +
+    '</div>' +
+    '</div>';
+
+  this.style.type = 'text/css';
+  this.style.innerHTML = '.radial-progress {' +
+    'width:' + size + 'px;' +
+    'height: ' + size + 'px;' +
+    'position: absolute;' +
+    'margin: auto;' +
+    'top: 0; right: 0; bottom: 0; left: 0;' +
+    'z-index: ' + zIndex + ';' +
+    'background-color: #DDD;' +
+    'border-radius: 50%;' +
+    'box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);' +
+    '}' +
+    '.radial-progress .inner-circle {' +
+    'width: ' + innerSize + 'px;' +
+    'height: ' + innerSize + 'px;' +
+    'position: absolute;' +
+    'margin-top: ' + innerMargin + 'px;' +
+    'margin-left: ' + innerMargin + 'px;' +
+    'background-color: ' + backgroundColor + ';' +
+    'border-radius: 50%;' +
+    'z-index: 10;' +
+    '}' +
+    '.radial-progress .inner-circle .progress {' +
+    'height: 1em;' +
+    'position: absolute;' +
+    'margin: auto;' +
+    'top: 0; right: 0; bottom: 0; left: 0;' +
+    'text-align: center;' +
+    'color: ' + textColor + ';' +
+    '}' +
+    '.radial-progress .outer-circle .mask,' +
+    '.radial-progress .outer-circle .fill {' +
+    'width: ' + size + 'px;' +
+    'height: ' + size + 'px;' +
+    'position: absolute;' +
+    'border-radius: 50%;' +
+    '-webkit-backface-visibility: hidden;' +
+    '}' +
+    '.radial-progress .outer-circle .mask {' +
+    'clip: rect(0px, ' + size + 'px, ' + size + 'px, ' + size / 2 + 'px);' +
+    '}' +
+    '.radial-progress .outer-circle .mask .fill {' +
+    'clip: rect(0px, ' + size / 2 + 'px, ' + size + 'px, 0px);' +
+    'background-color: ' + barColor + ';' +
+    '}';
+
+  document.getElementsByTagName('head')[0].appendChild(this.style);
+  document.body.appendChild(this.radialProgress);
+
+  this.remove = function() {
+    var self = this;
+    var scale = 1;
+    var deltaScale = 0.1 / 10;
+
+    function step() {
+      scale += deltaScale;
+      scale = (scale < 0) ? 0 : scale;
+      self.radialProgress.style.transform = 'scale(' + scale + ')';
+
+      if (scale > 1.1) {
+        deltaScale = -1.1 / 8;
+      }
+
+      if (scale > 0) {
+        requestAnimationFrame(step);
+      } else {
+        document.getElementsByTagName('head')[0].removeChild(self.style);
+        document.body.removeChild(self.radialProgress);
+      }
+    }
+
+    requestAnimationFrame(step);
+  };
+
+  this.setProgress = function(progress, duration) {
+    progress = (progress > 100) ? 100 : progress;
+    var self = this;
+    var $maskFull = this.radialProgress.getElementsByClassName('mask full')[0];
+    var $fill = this.radialProgress.getElementsByClassName('fill');
+    var $fillFix = this.radialProgress.getElementsByClassName('fill fix')[0];
+    var $progress = this.radialProgress.getElementsByClassName('progress')[0];
+    var deltaProgress = (progress - this.progress) / (duration * 60);
+
+    function step() {
+      self.progress += deltaProgress;
+      self.progress = (self.progress > progress) ? progress : self.progress;
+      var rotate = self.progress * 1.8;
+      $maskFull.style.transform = 'rotate(' + rotate + 'deg)';
+      $progress.innerHTML = self.progress.toFixed() + '%';
+
+      for (var i = 0; i < $fill.length; ++i) {if (window.CP.shouldStopExecution(1)){break;}
+        $fill[i].style.transform = 'rotate(' + rotate + 'deg)';
+      }
+window.CP.exitedLoop(1);
+
+
+      $fillFix.style.transform = 'rotate(' + 2 * rotate + 'deg)';
+
+      if (self.progress < progress) {
+        requestAnimationFrame(step);
+      }
+
+      if (self.progress === 100) {
+        setTimeout(function() {
+          self.remove();
+        }, 1000);
+      }
+    }
+
+    requestAnimationFrame(step);
+  };
+};
+
+function createProgress() {
+  var progress = new RadialProgress(150, 8, '#0095DD', '#FFF', '#000', 10);
+
+  setTimeout(function() {
+    progress.setProgress(50, 0.5);
+  }, 1000);
+
+  setTimeout(function() {
+    progress.setProgress(60, 0.5);
+  }, 3000);
+
+  setTimeout(function() {
+    progress.setProgress(80, 0.5);
+  }, 5000);
+
+  setTimeout(function() {
+    progress.setProgress(100, 0.5);
+  }, 7000);
+}
+
+createProgress();
+//# sourceURL=pen.js
+</script>
+</body></html>

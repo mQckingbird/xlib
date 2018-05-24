@@ -1,0 +1,1723 @@
+
+<!DOCTYPE html><html lang='en' class='sketchbook contact'>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/benjaminsnorris/pen/dxczs?depth=everything&order=popularity&page=34&q=chat&show_forks=false" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Walter+Turncoat|Short+Stack' rel='stylesheet' type='text/css'/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script>
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Short+Stack|Walter+Turncoat|Quicksand|Open+Sans);
+/*Vars*/
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+  *zoom: 1;
+}
+
+@font-face {
+  font-family: bsn-icons;
+  src: url("http://benjaminsnorris.com/fonts/bsn-icons.eot");
+  src: url("http://benjaminsnorris.com/fonts/bsn-icons.eot?#iefix") format("embedded-opentype"), url("http://benjaminsnorris.com/fonts/bsn-icons.svg#bsn-icons") format("svg"), url("http://benjaminsnorris.com/fonts/bsn-icons.woff") format("woff"), url("http://benjaminsnorris.com/fonts/bsn-icons.ttf") format("truetype");
+  /* This should make the font use the normal weight for bold as well */
+  font-weight: bold;
+  font-style: normal;
+}
+.icon-menu:before {
+  content: "\e000";
+}
+
+.icon-sketchnotes:before {
+  content: "\e001";
+}
+
+.icon-infographics:before {
+  content: "\e002";
+}
+
+.icon-design:before {
+  content: "\e003";
+}
+
+.icon-contact:before {
+  content: "\e004";
+}
+
+.icon-blog:before {
+  content: "\e005";
+}
+
+.icon-flat:before {
+  content: "\e006";
+}
+
+.icon-sketchbook:before {
+  content: "\e007";
+}
+
+.icon-send:before {
+  content: "\e008";
+}
+
+.icon-pen:before {
+  content: "\e009";
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  position: relative;
+}
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: bsn-icons;
+  margin: 0 .5em 0 0;
+}
+
+:root.sketchbook {
+  position: relative;
+  background-color: #B87B4F;
+  background-image: url("http://benjaminsnorris.com/img/wood.jpg");
+  background-attachment: fixed;
+  font-size: 16px;
+}
+@media screen and (max-width: 1100px) {
+  :root.sketchbook {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 950px) {
+  :root.sketchbook {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 600px) {
+  :root.sketchbook {
+    font-size: 8px;
+  }
+}
+@media screen and (min-width: 1300px) {
+  :root.sketchbook {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  :root.sketchbook {
+    font-size: 20px;
+  }
+}
+
+.sketchbook #wrapper {
+  width: auto;
+  margin: 0 auto -5.25rem;
+  padding: 0 4rem;
+  position: relative;
+}
+
+.sketchbook nav {
+  position: absolute;
+  width: 30rem;
+  height: 50rem;
+  left: 50%;
+  margin-left: -15rem;
+  top: 3.75rem;
+  z-index: 0;
+}
+.sketchbook nav:before {
+  content: '';
+  width: 30rem;
+  height: 49.5rem;
+  position: absolute;
+  top: .25rem;
+  right: -.8rem;
+  z-index: -50;
+  background-color: #FBEFE1;
+  border-radius: 1.875rem;
+  box-shadow: 0px 0px 1.25rem rgba(0, 0, 0, 0.4), inset 0px 0px 3.75rem #F2CB9B;
+}
+.sketchbook nav a {
+  position: absolute;
+  cursor: pointer;
+  font-family: "Walter Turncoat", sans-serif;
+  text-transform: uppercase;
+  color: #050505;
+  text-decoration: none;
+}
+
+.sketchbook .tab {
+  right: -7.5rem;
+  width: 12.5rem;
+  height: 4.375rem;
+  background-color: #FBEFE1;
+  box-shadow: 0.3125rem -0.3125rem 0.625rem rgba(0, 0, 0, 0.2), inset 0px 0px 0.125rem rgba(255, 255, 255, 0.5), inset 0px 0px 1.875rem #F2CB9B;
+  padding-top: 1rem;
+  border-radius: 1.25rem 1.25rem 0px 0px;
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  text-align: center;
+  font-size: 1em;
+  -moz-transition: box-shadow 0.3s;
+  -o-transition: box-shadow 0.3s;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+.sketchbook .tab:hover {
+  box-shadow: inset 0 0 1.875em #CA8C39, 0px 0px 5rem rgba(0, 0, 0, 0.5);
+}
+.sketchbook .tab:after {
+  content: '';
+  width: 49.5rem;
+  height: 15rem;
+  position: absolute;
+  z-index: -50;
+  background-color: #FBEFE1;
+  border-radius: 1.875rem;
+  box-shadow: 0px 0px 1.25rem rgba(0, 0, 0, 0.4), inset 0px 0px 3.75rem #F2CB9B;
+}
+.sketchbook .tab#sketchnotes {
+  top: 7.75rem;
+  z-index: 50;
+}
+.sketchbook .tab#sketchnotes:after {
+  top: 3.2rem;
+  left: -3.4rem;
+}
+.sketchbook .tab#infographics {
+  top: 23.125rem;
+  z-index: 40;
+}
+.sketchbook .tab#infographics:after {
+  top: 3rem;
+  left: -18.75rem;
+}
+.sketchbook .tab#design {
+  top: 38.75rem;
+  z-index: 30;
+}
+.sketchbook .tab#design:after {
+  top: 2.8rem;
+  left: -34.4rem;
+}
+
+.sketchbook #blog {
+  position: absolute;
+  width: 25.5rem;
+  height: 42rem;
+  top: 2.5rem;
+  left: -.75rem;
+  -moz-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+  border-radius: .1875rem;
+  background-color: #F2DD72;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYzJiZjYxIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 1, color-stop(100%, #c2bf61), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: -moz-linear-gradient(#c2bf61 1px, rgba(0, 0, 0, 0) 1px);
+  background-image: -webkit-linear-gradient(#c2bf61 1px, rgba(0, 0, 0, 0) 1px);
+  background-image: linear-gradient(#c2bf61 1px, rgba(0, 0, 0, 0) 1px);
+  background-size: 100% 1.2em;
+  background-position: 0 1em;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.4), 0.4rem -0.4rem #F2DD72, 0.4rem -0.4rem 0.625rem rgba(0, 0, 0, 0.4), 0.8rem -0.8rem #F2DD72, 0.8rem -0.8rem 0.625rem rgba(0, 0, 0, 0.4);
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.sketchbook #blog:hover {
+  left: -1.25rem;
+  top: 2rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.4), 0.4rem -0.4rem #F2DD72, 0.4rem -0.4rem 0.625rem rgba(0, 0, 0, 0.4), 0.8rem -0.8rem #F2DD72, 0.8rem -0.8rem 0.625rem rgba(0, 0, 0, 0.4), 0 0 4rem rgba(0, 0, 0, 0.5);
+}
+.sketchbook #blog .link {
+  font-size: 1.5em;
+  margin-top: 1.75rem;
+  margin-left: -.5rem;
+  display: inline-block;
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.sketchbook #blog .link:before {
+  display: none;
+}
+
+.sketchbook #contact {
+  position: absolute;
+  width: 21rem;
+  height: 12rem;
+  top: -1rem;
+  right: 3rem;
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+  transform: rotate(10deg);
+  padding: .5rem 0 0 .625rem;
+  font-size: 1.5em;
+  background-color: #FEFEFE;
+  box-shadow: 0.3125rem -0.3125rem 1.5rem rgba(0, 0, 0, 0.2);
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.sketchbook #contact:hover {
+  top: -1.375rem;
+  right: 3.75rem;
+  box-shadow: 0 0 4rem rgba(0, 0, 0, 0.5);
+}
+.sketchbook #contact:before {
+  display: none;
+}
+
+.sketchbook #book {
+  width: 30rem;
+  height: 50rem;
+  margin: 0 auto 5.5rem;
+  padding: 7.5rem;
+  position: relative;
+  top: 3.75rem;
+  background-color: #050505;
+  background-image: url("http://benjaminsnorris.com/img/noise.png");
+  border-radius: .3125rem 1.875rem 1.875rem .3125rem;
+  box-shadow: inset 0px 0px 0.625rem rgba(255, 255, 255, 0.6), 0.3125rem 0.3125rem 0.625rem rgba(0, 0, 0, 0.4), 0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+  /*Elastic*/
+  /*Back cover*/
+}
+.sketchbook #book:before {
+  content: '';
+  width: 1.5625rem;
+  height: 50.4rem;
+  position: absolute;
+  top: -.2rem;
+  right: 3.75rem;
+  background-color: #500;
+  border-radius: .1875rem;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjIiLz48c3RvcCBvZmZzZXQ9IjQwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(40%, rgba(255, 255, 255, 0)), color-stop(60%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.2)));
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2) 100%);
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2) 100%);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2) 100%);
+  background-size: 20% 100%;
+  box-shadow: 0.125rem 0px 0.3125rem rgba(0, 0, 0, 0.2);
+}
+.sketchbook #book:after {
+  content: '';
+  width: 30rem;
+  height: 49rem;
+  position: absolute;
+  left: 1.25rem;
+  top: .5rem;
+  z-index: -100;
+  background-color: #050505;
+  background-image: url("http://benjaminsnorris.com/img/noise.png");
+  border-radius: .3125rem 1.875rem 1.875rem .3125rem;
+  box-shadow: inset 0px 0px 0.625rem rgba(255, 255, 255, 0.6), 0.3125rem 0.3125rem 0.625rem rgba(0, 0, 0, 0.4), 0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+}
+.sketchbook #book #tagline {
+  font-family: "Short Stack", sans-serif;
+  margin-top: 3rem;
+  color: #1a1a1a;
+  font-size: 1.7em;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.sketchbook #logo {
+  margin: 0;
+  width: 100%;
+  height: 23.375rem;
+  border: 1em solid #FFF;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: default;
+  background: #FFF url(http://benjaminsnorris.com/img/logo.svg) no-repeat center center;
+  background-size: contain;
+  border-radius: 1.25rem;
+}
+
+.sketchbook #menu {
+  display: none;
+}
+
+.hidden {
+  position: absolute;
+  opacity: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sketchbook h1 {
+  font-family: "Walter Turncoat", sans-serif;
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.sketchbook h2 {
+  font-family: "Walter Turncoat", sans-serif;
+  margin: 0;
+  font-size: 2em;
+}
+
+.sketchbook p {
+  font-family: "Short Stack", sans-serif;
+  margin: 0;
+}
+
+.sketchbook:not(.home) #wrapper {
+  width: 60rem;
+  box-sizing: content-box;
+}
+
+.sketchbook:not(.home) nav {
+  width: 60rem;
+  left: 4rem;
+  margin-left: 0;
+}
+.sketchbook:not(.home) nav:before {
+  top: 0;
+  border-radius: 1.25rem;
+}
+
+.sketchbook:not(.home) .tab:after {
+  border-radius: 1.25rem;
+  width: 50rem;
+  height: 32rem;
+}
+.sketchbook:not(.home) .tab#infographics:after {
+  left: -19rem;
+}
+.sketchbook:not(.home) .tab#design:after {
+  left: -34.6rem;
+}
+.sketchbook:not(.home) .tab.left {
+  left: -7.5rem;
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.sketchbook:not(.home) .tab.left#sketchnotes {
+  z-index: 10;
+}
+.sketchbook:not(.home) .tab.left#sketchnotes:after {
+  top: 2.8rem;
+  right: -3.7rem;
+  left: auto;
+}
+.sketchbook:not(.home) .tab.left#infographics {
+  z-index: 20;
+}
+.sketchbook:not(.home) .tab.left#infographics:after {
+  top: 3rem;
+  right: -19rem;
+  left: auto;
+}
+.sketchbook:not(.home) .tab.left#design:after {
+  top: 3.2rem;
+  right: -34.7rem;
+  left: auto;
+}
+.sketchbook:not(.home) .tab.left.current {
+  cursor: default;
+}
+.sketchbook:not(.home) .tab.left.current:hover {
+  box-shadow: 0.3125rem -0.3125rem 0.625rem rgba(0, 0, 0, 0.2), inset 0px 0px 0.125rem rgba(255, 255, 255, 0.5), inset 0px 0px 1.875rem #F2CB9B;
+}
+.sketchbook:not(.home) .tab.left.current:after {
+  display: none;
+}
+
+.sketchbook:not(.home) #blog {
+  right: -2rem;
+  left: auto;
+  -moz-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  -webkit-transform: rotate(5deg);
+  transform: rotate(5deg);
+  z-index: -60;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.4), -0.4rem -0.4rem #F2DD72, -0.4rem -0.4rem 0.625rem rgba(0, 0, 0, 0.4), -0.8rem -0.8rem #F2DD72, -0.8rem -0.8rem 0.625rem rgba(0, 0, 0, 0.4);
+}
+.sketchbook:not(.home) #blog:hover {
+  right: -2.5rem;
+  left: auto;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.4), -0.4rem -0.4rem #F2DD72, -0.4rem -0.4rem 0.625rem rgba(0, 0, 0, 0.4), -0.8rem -0.8rem #F2DD72, -0.8rem -0.8rem 0.625rem rgba(0, 0, 0, 0.4), 0 0 4rem rgba(0, 0, 0, 0.5);
+}
+.sketchbook:not(.home) #blog .link {
+  position: absolute;
+  right: 0;
+}
+
+.sketchbook:not(.home) #book {
+  width: 60rem;
+  background: #FBEFE1;
+  padding: 0;
+  border-radius: 1.25rem;
+  box-shadow: 0px 0px 1.25rem rgba(0, 0, 0, 0.4), inset 0px 0px 3.75rem #F2CB9B;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSI0MCUiIHN0b3AtY29sb3I9IiNmMmNiOWIiIHN0b3Atb3BhY2l0eT0iMC4wIi8+PHN0b3Agb2Zmc2V0PSI0OSUiIHN0b3AtY29sb3I9IiNmMmNiOWIiIHN0b3Atb3BhY2l0eT0iMC4zIi8+PHN0b3Agb2Zmc2V0PSI1MSUiIHN0b3AtY29sb3I9IiNmMmNiOWIiIHN0b3Atb3BhY2l0eT0iMC4zIi8+PHN0b3Agb2Zmc2V0PSI2MCUiIHN0b3AtY29sb3I9IiNmMmNiOWIiIHN0b3Atb3BhY2l0eT0iMC4wIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(40%, rgba(242, 203, 155, 0)), color-stop(49%, rgba(242, 203, 155, 0.3)), color-stop(51%, rgba(242, 203, 155, 0.3)), color-stop(60%, rgba(242, 203, 155, 0)));
+  background-image: -moz-linear-gradient(left, rgba(242, 203, 155, 0) 40%, rgba(242, 203, 155, 0.3) 49%, rgba(242, 203, 155, 0.3) 51%, rgba(242, 203, 155, 0) 60%);
+  background-image: -webkit-linear-gradient(left, rgba(242, 203, 155, 0) 40%, rgba(242, 203, 155, 0.3) 49%, rgba(242, 203, 155, 0.3) 51%, rgba(242, 203, 155, 0) 60%);
+  background-image: linear-gradient(to right, rgba(242, 203, 155, 0) 40%, rgba(242, 203, 155, 0.3) 49%, rgba(242, 203, 155, 0.3) 51%, rgba(242, 203, 155, 0) 60%);
+}
+.sketchbook:not(.home) #book:before {
+  height: 51.5rem;
+  top: -.75rem;
+  z-index: -80;
+}
+.sketchbook:not(.home) #book:after {
+  width: 62rem;
+  height: 51rem;
+  left: -1rem;
+  top: -.5rem;
+  border-radius: 1.875rem;
+}
+.sketchbook:not(.home) #book .page {
+  width: 30rem;
+  height: 100%;
+  padding: 2em;
+  float: left;
+}
+.sketchbook:not(.home) #book #left {
+  border-right: 1px solid #CA8C39;
+}
+.sketchbook:not(.home) #book #left header, .sketchbook:not(.home) #book #left .header {
+  margin-bottom: 2em;
+}
+.sketchbook:not(.home) #book #left header #home, .sketchbook:not(.home) #book #left .header #home {
+  display: inline-block;
+  width: 8.25rem;
+  height: 4rem;
+  font-size: 3em;
+  color: transparent;
+  background: url(http://benjaminsnorris.com/img/home.svg) no-repeat center center;
+  background-size: contain;
+  margin-right: 1.5rem;
+}
+.sketchbook:not(.home) #book #left header h1, .sketchbook:not(.home) #book #left .header h1 {
+  display: inline-block;
+}
+.sketchbook:not(.home) #book #left:before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 3.7rem;
+  width: 2.8rem;
+  height: 12.5rem;
+  border-radius: 0 1.5rem 1.5rem 0;
+  background-color: #FBEFE1;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyY2I5YiIgc3RvcC1vcGFjaXR5PSIwLjMiLz48c3RvcCBvZmZzZXQ9IjglIiBzdG9wLWNvbG9yPSIjZjJjYjliIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjxzdG9wIG9mZnNldD0iOTIlIiBzdG9wLWNvbG9yPSIjZjJjYjliIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2YyY2I5YiIgc3RvcC1vcGFjaXR5PSIwLjMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(242, 203, 155, 0.3)), color-stop(8%, rgba(242, 203, 155, 0)), color-stop(92%, rgba(242, 203, 155, 0)), color-stop(100%, rgba(242, 203, 155, 0.3)));
+  background-image: -moz-linear-gradient(top, rgba(242, 203, 155, 0.3) 0%, rgba(242, 203, 155, 0) 8%, rgba(242, 203, 155, 0) 92%, rgba(242, 203, 155, 0.3) 100%);
+  background-image: -webkit-linear-gradient(top, rgba(242, 203, 155, 0.3) 0%, rgba(242, 203, 155, 0) 8%, rgba(242, 203, 155, 0) 92%, rgba(242, 203, 155, 0.3) 100%);
+  background-image: linear-gradient(to bottom, rgba(242, 203, 155, 0.3) 0%, rgba(242, 203, 155, 0) 8%, rgba(242, 203, 155, 0) 92%, rgba(242, 203, 155, 0.3) 100%);
+}
+.sketchbook:not(.home) #book #right {
+  padding: 1rem;
+}
+.sketchbook:not(.home) #book #right header, .sketchbook:not(.home) #book #right .header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.sketchbook:not(.home) #book .main .definition {
+  color: #999999;
+}
+.sketchbook:not(.home) #book .main section {
+  margin-bottom: 1.5rem;
+}
+.sketchbook:not(.home) #book .main .link {
+  color: black;
+  padding: 0 .25rem;
+  margin: 0 -.25rem;
+}
+.sketchbook:not(.home) #book .main .link:hover {
+  background-color: #1B86AE;
+  border-radius: .25rem;
+  color: #FFF;
+  text-decoration: none;
+}
+.sketchbook:not(.home) #book .photo {
+  margin-bottom: 1.5rem;
+  padding: 0 .5rem;
+  float: left;
+  position: relative;
+  z-index: 1;
+}
+.sketchbook:not(.home) #book .photo img {
+  width: 100%;
+  background-color: #FBEFE1;
+  border-radius: .25rem;
+  margin-bottom: .5rem;
+  box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.3), inset 0 0 2.5rem rgba(0, 0, 0, 0.1);
+}
+.sketchbook:not(.home) #book .photo:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  margin-left: -20%;
+  top: -.5rem;
+  width: 40%;
+  height: 1.2rem;
+  background-color: rgba(240, 240, 240, 0.7);
+  box-shadow: 0.1rem 0.1rem 0.25rem rgba(0, 0, 0, 0.15);
+  -moz-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+.sketchbook:not(.home) #book .photo:after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  bottom: 1.5rem;
+  width: 50%;
+  height: 20%;
+  background-color: #FFF;
+  box-shadow: 0 0.9375rem 0.625rem rgba(0, 0, 0, 0.7);
+  -moz-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -webkit-transform: rotate(6deg);
+  transform: rotate(6deg);
+  z-index: -1;
+}
+
+.one-up {
+  width: 100%;
+}
+
+.two-up {
+  width: 50%;
+}
+
+.three-up {
+  width: 33.3%;
+}
+
+.sketchbook.sketchnotes nav .tab#infographics:after {
+  top: 3.2rem;
+}
+.sketchbook.sketchnotes nav .tab#design:after {
+  top: 3rem;
+}
+.sketchbook.sketchnotes nav:before {
+  right: -.6rem;
+}
+
+.sketchbook.infographics nav .tab#sketchnotes:after, .sketchbook.infographics nav .tab#design:after {
+  top: 3.2rem;
+}
+.sketchbook.infographics nav:before {
+  right: -.4rem;
+}
+.sketchbook.infographics #book #left:before {
+  top: 19.05rem;
+}
+
+.sketchbook.design nav .tab#sketchnotes:after {
+  top: 3rem;
+}
+.sketchbook.design nav .tab#infographics:after {
+  top: 3.2rem;
+}
+.sketchbook.design nav:before {
+  right: -.2rem;
+}
+.sketchbook.design #book #left:before {
+  top: 34.7rem;
+}
+
+.sketchbook.contact nav:before, .sketchbook.contact #contact {
+  display: none;
+}
+.sketchbook.contact #book:before {
+  z-index: 10;
+}
+.sketchbook.contact #book #left:before {
+  display: none;
+}
+
+:root.flat {
+  background-color: #bae5f4;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.sketchbook #wrapper, .flat #wrapper {
+  min-height: 100%;
+  margin-bottom: -5.25em;
+}
+.sketchbook #wrapper:after, .flat #wrapper:after {
+  content: '';
+  display: block;
+  height: 5.25em;
+}
+
+footer, .footer {
+  height: 5.25em;
+  position: relative;
+  z-index: 10;
+}
+footer #toggle, .footer #toggle {
+  display: inline-block;
+  float: right;
+  padding: 1em 2em;
+  margin: 1em;
+  color: #000;
+  text-decoration: none;
+  font-family: Quicksand, "Lucida Grande", sans-serif;
+  background-color: #78cbea;
+}
+footer #toggle:hover, .footer #toggle:hover {
+  color: white;
+  background-color: #BB304E;
+}
+.sketchbook footer #toggle, .sketchbook .footer #toggle {
+  float: left;
+  margin: 1rem;
+  color: white;
+  font-family: 'Short Stack', sans-serif;
+  background-color: #500;
+  border-radius: 1.25rem;
+  box-shadow: inset 0.1rem 0.1rem 0.25rem rgba(255, 255, 255, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);
+  opacity: .5;
+}
+.sketchbook footer #toggle:hover, .sketchbook .footer #toggle:hover {
+  box-shadow: inset 0.1rem 0.1rem 0.25rem rgba(255, 255, 255, 0.2), 0 0 2rem #500;
+  opacity: 1;
+}
+.sketchbook footer #toggle:before, .sketchbook .footer #toggle:before {
+  content: "\e006";
+}
+@media screen and (max-width: 31em) {
+  footer, .footer {
+    padding-top: .5em;
+  }
+  footer #toggle, .footer #toggle {
+    padding: .75em;
+  }
+}
+
+.flat nav {
+  display: table;
+  padding: .25em;
+  margin: 0 auto;
+}
+.flat nav a {
+  float: left;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Quicksand, "Lucida Grande", sans-serif;
+  padding: 1em 2em;
+  margin: .5em;
+  background-color: #1B86AE;
+}
+.flat nav a:hover {
+  color: white;
+  background-color: #146482;
+}
+.flat nav a#menu {
+  display: none;
+}
+
+@media screen and (max-width: 60em) {
+  .flat nav a#menu {
+    display: block;
+  }
+
+  .flat nav:not(.expanded) a {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 4em;
+    padding: 1em 1.5em;
+  }
+  .flat nav:not(.expanded) a:before, .flat nav:not(.expanded) a [class*="icon-"]:before {
+    text-indent: 0;
+    float: left;
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 31em) {
+  .flat nav:not(.sketchbook) a {
+    margin: .25em;
+    padding: .75em;
+  }
+
+  .flat nav:not(.expanded) a {
+    width: 2.5em;
+  }
+}
+.flat #book {
+  max-width: 45em;
+  margin: 1em auto 0;
+}
+
+.flat.home #book {
+  margin-top: 2em;
+  display: table;
+}
+.flat.home #book #logo {
+  margin: 0;
+  color: transparent;
+  cursor: default;
+  display: table-cell;
+  width: 10em;
+  height: 10.5em;
+  background: url(http://benjaminsnorris.com/img/logo.svg) no-repeat center top;
+}
+.flat.home #book #tagline {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 2em;
+  font-weight: normal;
+  padding: 1em;
+  font-family: Quicksand, "Lucida Grande", sans-serif;
+}
+@media screen and (max-width: 38em) {
+  .flat.home #book {
+    padding: 0 1.5em;
+    margin-top: 1em;
+  }
+  .flat.home #book #logo {
+    width: 6em;
+    height: 7em;
+    margin: 0 auto;
+  }
+  .flat.home #book #tagline {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 28em) {
+  .flat.home #book #logo {
+    display: block;
+  }
+  .flat.home #book #tagline {
+    display: block;
+    padding-top: .5em;
+    text-align: center;
+  }
+}
+
+/*IE Fixes*/
+html.flat {
+  background-color: #bae5f4;
+}
+
+.flat.fixed #wrapper {
+  width: 60em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flat.no-svg #book {
+  clear: left;
+}
+.flat.no-svg #book #logo {
+  margin: 0 auto;
+  background-image: url(http://benjaminsnorris.com/img/logo.png);
+}
+
+.no-cssgradients footer #toggle,
+.no-cssgradients .footer #toggle {
+  display: none;
+}
+
+.flat nav .current {
+  background-color: #15C3C5;
+}
+
+.flat #book {
+  max-width: 60em;
+}
+.flat #book h2 {
+  font-family: Quicksand, "Lucida Grande", sans-serif;
+  margin: 0 0 .5em;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+.flat #book p, .flat #book a {
+  font-family: "Open Sans", sans-serif;
+}
+.flat #book .page {
+  width: 50%;
+  float: left;
+  padding: 1em;
+}
+.flat #book .page header, .flat #book .page .header {
+  margin-bottom: 1.5em;
+}
+.flat #book .page header #home, .flat #book .page .header #home {
+  display: inline-block;
+  color: transparent;
+  font-size: 2.5em;
+  margin-right: .5em;
+  background: url(http://benjaminsnorris.com/img/home.svg) no-repeat center center;
+  background-size: contain;
+}
+.flat #book .page header h1, .flat #book .page .header h1 {
+  font-family: Quicksand, "Lucida Grande", sans-serif;
+  font-size: 2.5em;
+  font-weight: normal;
+  margin: 0;
+  display: inline-block;
+}
+.flat #book .page section, .flat #book .page .section {
+  clear: left;
+  background-color: #d0edf8;
+  padding: .75em;
+  margin-bottom: 1em;
+}
+.flat #book .page#right header h2, .flat #book .page#right .header h2 {
+  text-align: center;
+  font-size: 1.75em;
+  padding-top: .4em;
+  margin: 0;
+}
+.flat #book .page .definition {
+  color: #4cbae3;
+}
+.flat #book .page .link {
+  color: black;
+  padding: 0 .25rem;
+  margin: 0 -.25rem;
+}
+.flat #book .page .link:hover {
+  background-color: #BB304E;
+  color: #FFF;
+  text-decoration: none;
+}
+.flat #book .photo {
+  float: left;
+  padding: .5em;
+}
+.flat #book .photo img {
+  width: 100%;
+  padding: .5em;
+  background-color: #8ed4ed;
+}
+@media screen and (max-width: 60em) {
+  .flat #book .page {
+    width: 100%;
+    padding: .5em;
+  }
+  .flat #book .page header, .flat #book .page .header {
+    margin-left: .5em;
+    margin-top: .5em;
+  }
+  .flat #book .page#left section, .flat #book .page#left .section {
+    width: 47%;
+    margin: .5em;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+@media screen and (max-width: 40em) {
+  .flat #book .page {
+    padding: .5em;
+  }
+  .flat #book .page header {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  .flat #book .page#left section {
+    width: 100%;
+    margin: 0 0 .5em;
+    display: block;
+  }
+}
+@media screen and (max-width: 31em) {
+  .flat #book {
+    margin-top: .5em;
+  }
+  .flat #book .page header #home, .flat #book .page header h1 {
+    font-size: 2em;
+  }
+}
+
+.flat.no-svg #book .page header #home {
+  background-image: url(http://benjaminsnorris.com/img/home.png);
+}
+
+* + html.flat #book .page {
+  padding: 0;
+  width: 48%;
+}
+* + html.flat #book .page#left {
+  margin-right: 2em;
+}
+* + html.flat #book .page .photo {
+  padding: 0;
+}
+
+.flat #book .thanks {
+  display: none;
+  position: absolute;
+  width: 100%;
+  padding-right: 2em;
+  text-align: center;
+  z-index: 10;
+}
+.flat #book .thanks h2 {
+  font-size: 4em;
+  text-align: center;
+  margin: 2em 0 1em;
+}
+.flat #book .thanks .another {
+  font-family: Quicksand, "Lucida Grande", sans-serif;
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  background-color: #FAEE1A;
+  padding: 1em 2em;
+}
+.flat #book .thanks .another:hover {
+  color: white;
+  background-color: #E13D0C;
+}
+
+.flat #shadow, .flat .flap, .flat .back {
+  display: none;
+}
+
+.flat #book #left {
+  position: relative;
+}
+.flat #book #left #envelope {
+  position: relative;
+  background-color: #d0edf8;
+  padding: 1em;
+  text-align: center;
+}
+.flat #book #left #envelope p, .flat #book #left #envelope input, .flat #book #left #envelope textarea, .flat #book #left #envelope button {
+  font-family: Quicksand, "Lucida Grande", sans-serif;
+  text-align: left;
+}
+.flat #book #left #envelope p {
+  margin-bottom: 1em;
+  font-size: 1.25em;
+}
+.flat #book #left #envelope .input:focus {
+  outline: none;
+  -webkit-tap-highlight-color: #d0edf8;
+  background-color: #8ed4ed;
+}
+.flat #book #left #envelope .box, .flat #book #left #envelope .message {
+  padding: .25em .25em 0 .5em;
+  background-color: transparent;
+  border-radius: 0;
+  max-width: 95%;
+  border: none;
+  border-bottom: 2px solid #000;
+}
+.flat #book #left #envelope .email {
+  width: 15em;
+}
+.flat #book #left #envelope .message {
+  border: none;
+  width: 100%;
+  max-width: 100%;
+  min-height: 8em;
+  padding: .5em;
+}
+.flat #book #left #envelope .send {
+  display: inline-block;
+  color: white;
+  background-color: #BB304E;
+  border: none;
+  padding: 1em 2em;
+}
+.flat #book #left #envelope .send:focus {
+  outline: none;
+  -webkit-tap-highlight-color: #d0edf8;
+}
+.flat #book #left #envelope .send:hover {
+  background-color: #E13D0C;
+}
+@media screen and (max-width: 60em) {
+  .flat #book #left #envelope {
+    padding: 1em 20%;
+  }
+}
+@media screen and (max-width: 40em) {
+  .flat #book #left #envelope {
+    padding: 1em;
+  }
+}
+.flat #book #left.sent .thanks {
+  display: block;
+}
+.flat #book #left.sent #envelope {
+  opacity: 0;
+  z-index: -1;
+}
+.flat #book #left.sent #envelope > * {
+  z-index: -1;
+}
+.flat #book #right > *:not(.social) {
+  margin-bottom: 1.5em;
+}
+.flat #book #right #contact-card {
+  border: 0.5em solid #8ed4ed;
+  padding: 0 0 57%;
+  width: 100%;
+  height: 0;
+  background: #FEFEFE url(http://benjaminsnorris.com/img/card.svg) no-repeat center center;
+  background-size: contain;
+}
+.flat #book #right .bio {
+  display: table;
+}
+.flat #book #right .bio .photo {
+  padding: 0;
+  float: none;
+  display: table-cell;
+  width: 30%;
+}
+.flat #book #right .bio .blurb {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 3em;
+}
+.flat #book #right .social a {
+  display: inline-block;
+  width: 5em;
+  height: 5em;
+  margin: .5em;
+  padding: .5em;
+  background-color: #14BB8D;
+}
+.flat #book #right .social a:hover {
+  background-color: #1B86AE;
+}
+@media screen and (max-width: 60em) {
+  .flat #book #right #contact-card {
+    display: inline-block;
+    width: 50%;
+    padding-bottom: 28.5%;
+  }
+  .flat #book #right .bio {
+    width: 46%;
+    display: inline-block;
+    margin-left: 1em;
+    vertical-align: top;
+  }
+  .flat #book #right .bio .photo {
+    width: 40%;
+  }
+  .flat #book #right .bio .blurb {
+    padding: 0 1em;
+  }
+}
+@media screen and (max-width: 40em) {
+  .flat #book #right > *:not(.social) {
+    margin-bottom: 1em;
+  }
+  .flat #book #right #contact-card {
+    display: block;
+    width: 100%;
+    padding-bottom: 57%;
+  }
+  .flat #book #right .bio {
+    width: 100%;
+    display: block;
+    margin-left: 0;
+    vertical-align: baseline;
+  }
+  .flat #book #right .bio .photo {
+    width: 30%;
+  }
+  .flat #book #right .bio .blurb {
+    padding: 0 3em;
+  }
+}
+@media screen and (max-width: 26em) {
+  .flat #book #right .bio .blurb {
+    padding: 0 1em;
+  }
+}
+
+.sketchbook p, .sketchbook input, .sketchbook textarea, .sketchbook a, .sketchbook button {
+  font-family: 'Short Stack', sans-serif;
+  font-size: 1em;
+  margin: 0;
+  line-height: 1.3em;
+}
+
+.sketchbook #envelope {
+  position: absolute;
+  left: 1.1875rem;
+  bottom: 1.3125rem;
+  width: 27rem;
+  height: 40.5625rem;
+  overflow: hidden;
+}
+
+.sketchbook #shadow {
+  opacity: 1;
+  bottom: 1.3125rem;
+  left: 1.1875rem;
+  height: 18rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5), 0.1875rem 0.1875rem 0.9375rem rgba(0, 0, 0, 0.2);
+}
+
+.sketchbook .envelope {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 27rem;
+  background-color: #FFF;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
+}
+.sketchbook .envelope.flap {
+  bottom: 18rem;
+  height: 22.5625rem;
+  background: none;
+  box-shadow: none;
+  overflow: hidden;
+  -moz-transform-origin: 0% 100%;
+  -ms-transform-origin: 0% 100%;
+  -webkit-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+}
+.sketchbook .envelope.flap:before {
+  content: '';
+  position: absolute;
+  background-color: #FFF;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
+  top: 7.5625rem;
+  left: 0;
+  width: 27rem;
+  height: 27rem;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -moz-transform-origin: 18% 63%;
+  -ms-transform-origin: 18% 63%;
+  -webkit-transform-origin: 18% 63%;
+  transform-origin: 18% 63%;
+  border-radius: 2rem;
+}
+.sketchbook .envelope.back {
+  height: 18rem;
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -webkit-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
+.sketchbook .envelope.back:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: '';
+  width: 80%;
+  height: 100%;
+  background-color: #FFF;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+  -moz-transform-origin: 37.5% -20%;
+  -ms-transform-origin: 37.5% -20%;
+  -webkit-transform-origin: 37.5% -20%;
+  transform-origin: 37.5% -20%;
+}
+.sketchbook .envelope.back:after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: '';
+  width: 100%;
+  height: 27rem;
+  background-color: #FFF;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
+  -moz-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+  -moz-transform-origin: -61% 207%;
+  -ms-transform-origin: -61% 207%;
+  -webkit-transform-origin: -61% 207%;
+  transform-origin: -61% 207%;
+  border-radius: 2rem;
+}
+
+.sketchbook .letter {
+  width: 25.5rem;
+  height: 33rem;
+  background-color: #F0F0F0;
+  box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 1rem;
+  left: .75rem;
+  padding: 1rem;
+}
+.sketchbook .letter .top {
+  height: 50%;
+}
+.sketchbook .letter p {
+  margin-bottom: 1rem;
+}
+.sketchbook .letter .input:focus {
+  outline: none;
+  -webkit-tap-highlight-color: #F0F0F0;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0.75rem rgba(0, 0, 0, 0.3);
+}
+.sketchbook .letter .box {
+  padding-left: .5rem;
+  padding-top: .25rem;
+  margin-top: -.25rem;
+  margin-right: .25rem;
+  background-color: transparent;
+  border-radius: .5rem .5rem 0 0;
+  border: none;
+  border-bottom: 2px solid #050505;
+}
+.sketchbook .letter .email {
+  width: 18rem;
+}
+.sketchbook .letter .message {
+  margin-top: .25rem;
+  padding: .25rem;
+  border-radius: .5rem;
+  display: block;
+  width: 100%;
+  height: 8em;
+  background-color: transparent;
+  border: none;
+}
+.sketchbook .letter .send {
+  position: absolute;
+  left: 50%;
+  margin-left: -3.5rem;
+  bottom: 3rem;
+  opacity: 1;
+  background-color: #1B86AE;
+  color: #FFF;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 7rem;
+  height: 6rem;
+  padding: 0 0 2.75rem;
+  border: none;
+  border-radius: .75rem;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.sketchbook .letter .send:hover {
+  bottom: 3.75rem;
+  box-shadow: 0 0 2rem #1B86AE;
+}
+.sketchbook .letter .send:focus {
+  outline: none;
+  -webkit-tap-highlight-color: #F0F0F0;
+  box-shadow: 0 0 2rem #1B86AE;
+}
+.sketchbook .letter .send:before {
+  display: none;
+}
+
+.sketchbook .letter.drop {
+  top: 23rem;
+  -moz-transition: all 1.5s;
+  -o-transition: all 1.5s;
+  -webkit-transition: all 1.5s;
+  transition: all 1.5s;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.sketchbook #envelope.sent {
+  -moz-transition: left 1s cubic-bezier(0.3, -0.3, 0.5, 1) 1s;
+  -o-transition: left 1s cubic-bezier(0.3, -0.3, 0.5, 1) 1s;
+  -webkit-transition: left 1s cubic-bezier(0.3, -0.3, 0.5, 1);
+  -webkit-transition-delay: 1s;
+  transition: left 1s cubic-bezier(0.3, -0.3, 0.5, 1) 1s;
+  left: 100rem;
+  z-index: 10;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.sketchbook #envelope.sent .flap {
+  -moz-transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  -moz-transition: all 1s 0s;
+  -o-transition: all 1s 0s;
+  -webkit-transition: all 1s;
+  -webkit-transition-delay: 0s;
+  transition: all 1s 0s;
+  z-index: 20;
+}
+
+.sketchbook #shadow.sent {
+  -moz-transition: left 1s cubic-bezier(0.3, -0.3, 0.5, 1) 1s;
+  -o-transition: left 1s cubic-bezier(0.3, -0.3, 0.5, 1) 1s;
+  -webkit-transition: left 1s cubic-bezier(0.3, -0.3, 0.5, 1);
+  -webkit-transition-delay: 1s;
+  transition: left 1s cubic-bezier(0.3, -0.3, 0.5, 1) 1s;
+  left: 100rem;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.sketchbook #envelope.off {
+  bottom: -100rem;
+  height: 400rem;
+}
+.sketchbook #envelope.off .letter {
+  top: -200rem;
+}
+.sketchbook #envelope.off .letter .send {
+  opacity: 0;
+  bottom: -3rem;
+}
+
+.sketchbook #shadow.off {
+  bottom: -100rem;
+}
+
+.sketchbook #envelope.reset, #shadow.reset {
+  -moz-transition: all 1.5s ease-out;
+  -o-transition: all 1.5s ease-out;
+  -webkit-transition: all 1.5s ease-out;
+  transition: all 1.5s ease-out;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.sketchbook #envelope.reset .letter .send {
+  -moz-transition: all 0.5s ease-out 2s;
+  -o-transition: all 0.5s ease-out 2s;
+  -webkit-transition: all 0.5s ease-out;
+  -webkit-transition-delay: 2s;
+  transition: all 0.5s ease-out 2s;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.sketchbook .thanks {
+  position: relative;
+  padding-top: 11rem;
+  height: 40.5625rem;
+  font-size: 3rem;
+  text-align: center;
+}
+.sketchbook .thanks .dance {
+  padding-top: 4rem;
+}
+.sketchbook .thanks .another {
+  font-size: 1rem;
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -9rem;
+  bottom: 1rem;
+  text-decoration: none;
+  padding: 1rem 0;
+  width: 18rem;
+  color: #FFF;
+  text-align: center;
+  background-color: #500;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  border-radius: .75rem;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.sketchbook .thanks .another:hover {
+  box-shadow: 0 0 2rem #500;
+}
+.sketchbook .thanks .another:before {
+  display: none;
+}
+
+.sketchbook #contact-card {
+  position: absolute;
+  width: 21rem;
+  height: 12rem;
+  top: -1rem;
+  right: 3rem;
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+  transform: rotate(10deg);
+  border: 0.5rem solid #FEFEFE;
+  font-size: 1.5em;
+  background: #FEFEFE url(http://benjaminsnorris.com/img/card.svg) no-repeat center center;
+  background-size: contain;
+  box-shadow: 0.3125rem -0.3125rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.sketchbook .bio {
+  margin-top: 16rem;
+}
+.sketchbook .bio .photo {
+  display: inline-block;
+  width: 8.25rem;
+  margin-left: 2.1875rem;
+  margin-right: 1rem;
+}
+.sketchbook .bio .photo:before {
+  top: -.75rem;
+}
+.sketchbook .bio .blurb {
+  display: inline-block;
+  width: 10.5625rem;
+  text-align: center;
+}
+
+.sketchbook .social {
+  padding-right: 2rem;
+}
+.sketchbook .social h2 {
+  font-size: 1.75rem;
+  margin-top: 4rem;
+  margin-bottom: .5rem;
+}
+.sketchbook .social a {
+  display: inline-block;
+  width: 4.5rem;
+  height: 4.5rem;
+  border: .75rem solid transparent;
+  margin-right: 1rem;
+  border-radius: .75rem;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.sketchbook .social a:hover {
+  box-shadow: 0 0 0 0.25rem #000, 0 0 1rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.social {
+  text-align: center;
+}
+.social a {
+  background: transparent url(http://benjaminsnorris.com/img/BSN-Design-Twitter.svg) no-repeat center center;
+  background-size: contain;
+}
+.social a.linkedin {
+  background-image: url(http://benjaminsnorris.com/img/BSN-Design-LinkedIn.svg);
+}
+.social a.flickr {
+  background-image: url(http://benjaminsnorris.com/img/BSN-Design-Flickr.svg);
+}
+
+.flat.no-svg #book .page header #home {
+  background-image: url(http://benjaminsnorris.com/img/home.png);
+}
+.flat.no-svg #book #right #contact-card {
+  background-image: url(http://benjaminsnorris.com/img/card.png);
+}
+.flat.no-svg #book .social a {
+  background-image: url(http://benjaminsnorris.com/img/BSN-Design-Twitter.png);
+}
+.flat.no-svg #book .social a.linkedin {
+  background-image: url(http://benjaminsnorris.com/img/BSN-Design-LinkedIn.png);
+}
+.flat.no-svg #book .social a.flickr {
+  background-image: url(http://benjaminsnorris.com/img/BSN-Design-Flickr.png);
+}
+
+* + html.flat #book .page#right .bio {
+  margin: 1em 0;
+}
+* + html.flat #book .page#right .bio .photo, * + html.flat #book .page#right .bio .blurb {
+  display: inline-block;
+  float: left;
+  width: 8em;
+}
+* + html.flat #book .page#right .bio .blurb {
+  width: 14em;
+}
+* + html.flat #book .page#right .social {
+  clear: left;
+}
+</style></head><body>
+<!--[if lte IE 9]><script>document.documentElement.className='flat';</script><![endif]-->
+<div id="wrapper">
+  <nav><a class="icon-menu" id="menu" href="#">Menu</a><a class="tab left icon-sketchnotes" id="sketchnotes" href="#">Sketchnotes</a><a class="tab left icon-infographics" id="infographics" href="#">Infographics</a><a class="tab left icon-design" id="design" href="#">Design</a><a id="blog" href="#"> <span class="link icon-blog">Blog</span></a><a class="current icon-contact" id="contact" href="#">Contact</a></nav>
+  <div class="cf" id="book">
+    <div class="page" id="left">
+      <div class="header"><a id="home" href="#">Home</a>
+        <h1>Contact</h1>
+      </div>
+      <div class="main">
+        <div class="thanks">
+          <h2>Thank you!</h2>
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="onload"></iframe><a class="another icon-pen" href="#">Write another message</a>
+        </div>
+        <div class="envelope" id="shadow"></div>
+        <div id="envelope">
+          <div class="envelope flap"></div>
+          <form class="letter" id="contact-form" action="https://docs.google.com/forms/d/1_gstZQSaMNwDDK8zZtbX1uG-Gg4Nz2hLnSy5RiRrU1M/formResponse" method="post" target="hidden_iframe" onsubmit="send()">
+            <p>Ben,</p>
+            <p>This is <input type="text" name="entry.475091926" value="" class="input box" id="entry_475091926" dir="auto" aria-required="true" required="required" placeholder="your name"></input>, and I&rsquo;d like to chat.</p>
+            <p>You can reach me at <input type="email" name="entry.1128268298" value="" class="input email box" id="entry_1128268298" dir="auto" aria-required="true" required="required"placeholder="your email"></input>.</p>
+            <p>Here&rsquo;s what I&rsquo;m thinking: <textarea name="entry.276608436" rows="8" cols="0" class="input message" id="entry_276608436" dir="auto" aria-required="true" required="required"placeholder="your message"></textarea></p>
+            <button class="send icon-send">Send</button>
+          </form>
+          <div class="envelope back"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="right">
+      <div id="contact-card"></div>
+      <div class="bio gallery"><a class="photo" href="http://benjaminsnorris.com/img/bsn-design-ben-norris.jpg"><img src="http://benjaminsnorris.com/img/bsn-design-ben-norris-thumb.jpg" alt="BSN Design Owner Ben Norris"/></a>
+        <p class="blurb">BSN Design is a sketchnote and design one-man band owned and operated by Ben Norris: a traveling reading piano-playing Mormon husband and father</p>
+      </div>
+      <div class="social">
+        <h2>Stalk Me Here</h2><a class="twitter" href="https://twitter.com/bsndesign" target="_blank"></a><a class="linkedin" href="https://www.linkedin.com/in/benjaminsnorris" target="_blank"></a><a class="flickr" href="https://www.flickr.com/benjaminsnorris" target="_blank"></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer"><a class="icon-sketchbook" id="toggle" href="#top">Change design</a></div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>$(function() {
+  $('#toggle').click(function(e) {
+    $('html').toggleClass('sketchbook flat');
+  });
+  $('#menu').click(function(e) {
+    e.preventDefault();
+    $('nav').toggleClass('expanded');
+  });
+  if (!Modernizr.mq('only all')) {
+    $('html').addClass('fixed');
+  }
+});
+
+/*This needs to go in the head*/
+/*<!--[if lte IE 9]><script>document.documentElement.className='flat';</script><![endif]-->*/</script>
+<script >$(function() {
+  var envelope = $("#envelope, #shadow"),
+      letter = $('.letter'),
+      left = $('#left'),
+      timeout,
+      timeout2;
+  $(".another").click(function(e) {
+    e.preventDefault();
+    $("#contact-form").each(function (){
+      this.reset();
+    });
+    if($('html').hasClass('sketchbook')) {
+      envelope.show().addClass("off");
+      timeout = setTimeout(function() {
+        envelope.removeClass("off").addClass("reset");
+      }, 500);
+      timeout2 = setTimeout(function() {
+        envelope.removeClass("reset");
+      }, 2000);
+      return false;        
+    } else {
+      left.removeClass('sent');
+    }
+  });
+  $('.send').click(function(e) {
+    e.preventDefault();
+    if($('html').hasClass('sketchbook')) {
+      letter.addClass("drop");
+      timeout = setTimeout(function() {
+        envelope.addClass("sent");
+      }, 1500);
+      timeout2 = setTimeout(function() {
+        letter.removeClass("drop");
+        envelope.removeClass("sent").hide();
+      }, 5000);
+    } else {
+      left.addClass('sent');
+    }
+  });
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

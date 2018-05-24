@@ -1,0 +1,608 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/ravid7000/pen/NNvXVj?depth=everything&order=popularity&page=13&q=chat&show_forks=false" />
+
+
+<style class="cp-pen-styles">.chat-window button:focus {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.chat-window {
+  width: 310px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 0px solid #36383a;
+  border-width: 50px 15px;
+  color: #474c57;
+  border-radius: 20px;
+  font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media screen and (max-width: 380px) {
+  .chat-window {
+    border: none;
+    border-radius: 0px;
+  }
+}
+.chat-window a {
+  color: #eab1c6;
+}
+
+.chat-window a:hover,
+.chat-window a:focus {
+  color: #C7668A;
+}
+
+.chat-messages {
+  height: 460px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  position: relative;
+  border-radius: 2px 2px 0 0;
+  background: #BEE4F9;
+}
+
+.chat-messages-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding: 15px 25px 60px;
+}
+
+.chat-message {
+  position: relative;
+  font-size: 0;
+  margin-bottom: 10px;
+}
+
+.chat-message-effect {
+  position: absolute;
+}
+
+.chat-message-bubble {
+  display: inline-block;
+  font-size: 14px;
+  max-width: 350px;
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 18px;
+  min-width: 0;
+}
+
+.chat-message-self.chat-message-merge-start .chat-message-bubble {
+  border-bottom-right-radius: 0;
+}
+
+.chat-message-self.chat-message-merge-middle .chat-message-bubble {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.chat-message-self.chat-message-merge-end .chat-message-bubble {
+  border-top-right-radius: 0;
+}
+
+.chat-message-self {
+  text-align: right;
+}
+
+.chat-message-self .chat-message-bubble,
+.chat-message-effect .chat-message-bubble {
+  background: #32a8e6;
+  color: #fff;
+  text-align: left;
+}
+
+.chat-input-bar {
+  position: relative;
+  background: #32A8E6;
+}
+
+.chat-input-wrapper {
+  position: relative;
+  z-index: 2;
+  /*background: #32A8E6;*/
+  padding: 0.5em 0;
+  border-radius: 0 0 2px 2px;
+  color: #fff;
+}
+
+.chat-input-wrapper,
+.chat-send {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 16px;
+}
+
+.chat-input-tool {
+  background: transparent;
+  border: none;
+  padding: 0 0.75em;
+  color: inherit;
+}
+
+.chat-input {
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  min-height: 38px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 14px;
+  padding: 10px 0 7px;
+  cursor: text;
+}
+
+.chat-input:empty::before {
+  content: "Write something...";
+  color: #2B8EC2;
+}
+
+.chat-input:focus::before {
+  content: "";
+}
+
+.chat-send {
+  background: transparent;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  padding: 0 0.75em;
+  color: inherit;
+  -webkit-transition: color 0.6s;
+  transition: color 0.6s;
+}
+
+.chat-input:empty + .chat-send {
+  color: #2B8EC2;
+}
+
+.chat-send > i {
+  position: relative;
+}
+
+.chat-effect-container {
+  position: absolute;
+  top: -100px;
+  width: 100%;
+}
+
+.chat-effect-bar {
+  background: #32a8e6;
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  height: 40px;
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0);
+}
+
+.chat-effect-dots {
+  position: absolute;
+}
+
+.chat-effect-dot {
+  background: #32a8e6;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+}
+
+.chat-info-container {
+  position: absolute;
+  top: -20px;
+  font-size: 12px;
+  color: #2B8EC2;
+}
+
+.chat-info-typing {
+  position: absolute;
+  left: 80px;
+  white-space: nowrap;
+}
+</style></head><body>
+<div class="content">
+				<div class="chat-window">
+					<div class="chat-messages">
+						<ol class="chat-messages-list">
+							</ol>
+					</div>
+					<div class="chat-input-bar">
+						<div class="chat-info-container">
+
+						</div>
+						<div class="chat-effect-container">
+							<div class="chat-effect-bar"></div>
+						</div>
+						<div class="chat-input-wrapper">
+							<button class="chat-input-tool">
+								<i class="icon icon-camera"></i>
+							</button>
+							<div class="chat-input" contenteditable></div>
+							<button class="chat-send">
+								<i class="fa fa-paper-plane"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
+			  <defs>
+			    <filter id="goo">
+			      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+			      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+			      <feComposite in="SourceGraphic" in2="goo" />
+			    </filter>
+			  </defs>
+			</svg>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
+<script >var KEY_ENTER=13;
+$(document).ready(function(){
+	var $input=$(".chat-input")
+		,$sendButton=$(".chat-send")
+		,$messagesContainer=$(".chat-messages")
+		,$messagesList=$(".chat-messages-list")
+		,$effectContainer=$(".chat-effect-container")
+		,$infoContainer=$(".chat-info-container")
+
+		,messages=0
+		,bleeding=100
+		,isFriendTyping=false
+		,incomingMessages=0
+		,lastMessage=""
+	;
+	
+	var lipsum="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+	function gooOn(){
+		setFilter('url(#goo)');
+	}
+	function gooOff(){
+		setFilter('none');
+	}
+	function setFilter(value){
+		$effectContainer.css({
+			webkitFilter:value,
+			mozFilter:value,
+			filter:value,
+		});
+	}
+
+	function addMessage(message,self){
+		var $messageContainer=$("<li/>")
+			.addClass('chat-message '+(self?'chat-message-self':'chat-message-friend'))
+			.appendTo($messagesList)
+		;
+		var $messageBubble=$("<div/>")
+			.addClass('chat-message-bubble')
+			.appendTo($messageContainer)
+		;
+		$messageBubble.text(message);
+
+		var oldScroll=$messagesContainer.scrollTop();
+		$messagesContainer.scrollTop(9999999);
+		var newScroll=$messagesContainer.scrollTop();
+		var scrollDiff=newScroll-oldScroll;
+		TweenMax.fromTo(
+			$messagesList,0.4,{
+				y:scrollDiff
+			},{
+				y:0,
+				ease:Quint.easeOut
+			}
+		);
+
+		return {
+			$container:$messageContainer,
+			$bubble:$messageBubble
+		};
+	}
+	function sendMessage(){
+		var message=$input.text();
+		
+		if(message=="") return;
+		
+		lastMessage=message;
+
+		var messageElements=addMessage(message,true)
+			,$messageContainer=messageElements.$container
+			,$messageBubble=messageElements.$bubble
+		;
+
+		var oldInputHeight=$(".chat-input-bar").height();
+		$input.text('');
+		updateChatHeight();
+		var newInputHeight=$(".chat-input-bar").height();
+		var inputHeightDiff=newInputHeight-oldInputHeight
+
+		var $messageEffect=$("<div/>")
+			.addClass('chat-message-effect')
+			.append($messageBubble.clone())
+			.appendTo($effectContainer)
+			.css({
+				left:$input.position().left-12,
+				top:$input.position().top+bleeding+inputHeightDiff
+			})
+		;
+
+
+		var messagePos=$messageBubble.offset();
+		var effectPos=$messageEffect.offset();
+		var pos={
+			x:messagePos.left-effectPos.left,
+			y:messagePos.top-effectPos.top
+		}
+
+		var $sendIcon=$sendButton.children("i");
+		TweenMax.to(
+			$sendIcon,0.15,{
+				x:30,
+				y:-30,
+				force3D:true,
+				ease:Quad.easeOut,
+				onComplete:function(){
+					TweenMax.fromTo(
+						$sendIcon,0.15,{
+							x:-30,
+							y:30
+						},
+						{
+							x:0,
+							y:0,
+							force3D:true,
+							ease:Quad.easeOut
+						}
+					);
+				}
+			}
+		);
+
+		gooOn();
+
+		
+		TweenMax.from(
+			$messageBubble,0.8,{
+				y:-pos.y,
+				ease:Sine.easeInOut,
+				force3D:true
+			}
+		);
+
+		var startingScroll=$messagesContainer.scrollTop();
+		var curScrollDiff=0;
+		var effectYTransition;
+		var setEffectYTransition=function(dest,dur,ease){
+			return TweenMax.to(
+				$messageEffect,dur,{
+					y:dest,
+					ease:ease,
+					force3D:true,
+					onUpdate:function(){
+						var curScroll=$messagesContainer.scrollTop();
+						var scrollDiff=curScroll-startingScroll;
+						if(scrollDiff>0){
+							curScrollDiff+=scrollDiff;
+							startingScroll=curScroll;
+
+							var time=effectYTransition.time();
+							effectYTransition.kill();
+							effectYTransition=setEffectYTransition(pos.y-curScrollDiff,0.8-time,Sine.easeOut);
+						}
+					}
+				}
+			);
+		}
+
+		effectYTransition=setEffectYTransition(pos.y,0.8,Sine.easeInOut);
+		
+		// effectYTransition.updateTo({y:800});
+
+		TweenMax.from(
+			$messageBubble,0.6,{
+				delay:0.2,
+				x:-pos.x,
+				ease:Quad.easeInOut,
+				force3D:true
+			}
+		);
+		TweenMax.to(
+			$messageEffect,0.6,{
+				delay:0.2,
+				x:pos.x,
+				ease:Quad.easeInOut,
+				force3D:true
+			}
+		);
+
+		TweenMax.from(
+			$messageBubble,0.2,{
+				delay:0.65,
+				opacity:0,
+				ease:Quad.easeInOut,
+				onComplete:function(){
+					TweenMax.killTweensOf($messageEffect);
+					$messageEffect.remove();
+					if(!isFriendTyping)
+						gooOff();
+				}
+			}
+		);
+
+		messages++;
+
+		if(Math.random()<0.65 || lastMessage.indexOf("?")>-1 || messages==1) getReply();
+	}
+	function getReply(){
+		if(incomingMessages>2) return;
+		incomingMessages++;
+		var typeStartDelay=1000+(lastMessage.length*40)+(Math.random()*1000);
+		setTimeout(friendIsTyping,typeStartDelay);
+
+		var source=lipsum.toLowerCase();
+		source=source.split(" ");
+		var start=Math.round(Math.random()*(source.length-1));
+		var length=Math.round(Math.random()*13)+1;
+		var end=start+length;
+		if(end>=source.length){
+			end=source.length-1;
+			length=end-start;
+		}
+		var message="";
+		for (var i = 0; i < length; i++) {
+			message+=source[start+i]+(i<length-1?" ":"");
+		}
+		message+=Math.random()<0.4?"?":"";
+		message+=Math.random()<0.2?" :)":(Math.random()<0.2?" :(":"");
+
+		var typeDelay=300+(message.length*50)+(Math.random()*1000);
+
+		setTimeout(function(){
+			receiveMessage(message);
+		},typeDelay+typeStartDelay);
+
+		setTimeout(function(){
+			incomingMessages--;
+			if(Math.random()<0.1){
+				getReply();
+			}
+			if(incomingMessages<=0){
+				friendStoppedTyping();
+			}
+		},typeDelay+typeStartDelay);
+	}
+	function friendIsTyping(){
+		if(isFriendTyping) return;
+
+		isFriendTyping=true;
+
+		var $dots=$("<div/>")
+			.addClass('chat-effect-dots')
+			.css({
+				top:-30+bleeding,
+				left:10
+			})
+			.appendTo($effectContainer)
+		;
+		for (var i = 0; i < 3; i++) {
+			var $dot=$("<div/>")
+				.addClass("chat-effect-dot")
+				.css({
+					left:i*20
+				})
+				.appendTo($dots)
+			;
+			TweenMax.to($dot,0.3,{
+				delay:-i*0.1,
+				y:30,
+				yoyo:true,
+				repeat:-1,
+				ease:Quad.easeInOut
+			})
+		}
+		var $info=$("<div/>")
+			.addClass("chat-info-typing")
+			.text("Your friend is typing...")
+			.css({
+				transform:"translate3d(0,30px,0)"
+			})
+			.appendTo($infoContainer)
+
+		TweenMax.to($info, 0.3,{
+			y:0,
+			force3D:true
+		});
+
+		gooOn();
+	}
+
+	function friendStoppedTyping(){
+		if(!isFriendTyping) return
+
+		isFriendTyping=false;
+
+		var $dots=$effectContainer.find(".chat-effect-dots");
+		TweenMax.to($dots,0.3,{
+			y:40,
+			force3D:true,
+			ease:Quad.easeIn,
+		});
+
+		var $info=$infoContainer.find(".chat-info-typing");
+		TweenMax.to($info,0.3,{
+			y:30,
+			force3D:true,
+			ease:Quad.easeIn,
+			onComplete:function(){
+				$dots.remove();
+				$info.remove();
+
+				gooOff();
+			}
+		});
+	}
+	function receiveMessage(message){
+		var messageElements=addMessage(message,false)
+			,$messageContainer=messageElements.$container
+			,$messageBubble=messageElements.$bubble
+		;
+
+		TweenMax.set($messageBubble,{
+			transformOrigin:"60px 50%"
+		})
+		TweenMax.from($messageBubble,0.4,{
+			scale:0,
+			force3D:true,
+			ease:Back.easeOut
+		})
+		TweenMax.from($messageBubble,0.4,{
+			x:-100,
+			force3D:true,
+			ease:Quint.easeOut
+		})
+	}
+
+	function updateChatHeight(){
+		$messagesContainer.css({
+			height:460-$(".chat-input-bar").height()
+		});
+	}
+
+	$input.keydown(function(event) {
+		if(event.keyCode==KEY_ENTER){
+			event.preventDefault();
+			sendMessage();
+		}
+	});
+	$sendButton.click(function(event){
+		event.preventDefault();
+		sendMessage();
+		// $input.focus();
+	});
+	$sendButton.on("touchstart",function(event){
+		event.preventDefault();
+		sendMessage();
+		// $input.focus();
+	});
+
+	$input.on("input",function(){
+		updateChatHeight();
+	});
+
+	gooOff();
+	updateChatHeight();
+})
+//# sourceURL=pen.js
+</script>
+</body></html>

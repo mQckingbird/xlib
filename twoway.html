@@ -1,0 +1,116 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/r1xchen/pen/ZyQRLL?depth=everything&order=popularity&page=2&q=two+way+binding&show_forks=false" />
+
+
+<style class="cp-pen-styles"></style></head><body>
+<div id="demo">
+  <h1>Native JavaScript two-way-binding Test</h1>
+  <input id="inputDOM">
+  <p class="display">{{input}}</p>
+  <a class="">{{chapter}}</a>
+</div>
+
+<script >var _sampleVue = function (o) {
+    var self = o;
+
+    /**
+     * Initialize
+     */
+    var init = function(o){
+        console.log('_sampleVue instance init');
+
+        self.rootDOM = document.querySelector(o.rootDOM);
+        self.inputDOM = document.querySelector(o.inputDOM);
+
+        self.storage = {
+            elements: [],
+            input: "Default paragraph data",
+            chapter: "hola que tal"
+        };
+        self.inputData = "";
+
+        let children = self.rootDOM.children;
+        for(let i=0; i < children.length; i++){
+            let child = children[i];
+            let mustacheExec = /\{\{((?:.|\n)+?)\}\}/g.exec(child.textContent);
+            
+            if(mustacheExec)
+                checkMustache(child, mustacheExec[1]);
+        }
+
+
+
+        storageBundle(self.storage);
+
+        /**
+         * event bundle
+         */
+        self.inputDOM.onkeyup=function(e){
+            
+            // trigger object.set()
+            self.storage.input = e.target.value;
+            refresh();
+        }
+
+        return self;
+    }
+
+    /**
+     * interpolation mustache: {{ ... }}
+     * 
+     * @param  dom     el   element
+     * @param  string  name property name
+     */
+    var checkMustache = function(el, name){
+        //if(!name in self.storage){
+            //throw("data not found");
+        //}
+
+        el.textContent = self.storage[name];
+        //console.log(el.textContent);
+        self.storage.elements.push(el);
+    }
+
+    /**
+     * bundle storage attribute 
+     * 
+     * @param object obj bundle target
+     */
+    var storageBundle = function(obj){
+        // define trigger
+        Object.defineProperty(obj,'input',{
+            set:function(val){
+                console.log('_set');
+                self.inputData = val;
+            },
+            get:function(){
+                console.log('_get');
+                return self.inputData;
+            }
+        });
+    }
+
+    /**
+     * Refresh data
+     */
+    var refresh = function(){
+        console.log("Re Render...");
+        for(let i=0; i < self.storage.elements.length; i++){
+            self.storage.elements[i].textContent = self.storage.input;
+        }
+
+
+    }
+
+    return init(o);
+}
+
+var sampleVue = new _sampleVue({
+    rootDOM: '#demo', 
+    inputDOM: '#inputDOM'
+});
+
+//# sourceURL=pen.js
+</script>
+</body></html>

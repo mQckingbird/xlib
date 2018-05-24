@@ -1,0 +1,269 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/luigimannoni/pen/bdPVVz?depth=everything&order=popularity&page=17&q=three.js&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  margin: 0;
+  background: #000;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /*cursor: -webkit-grab; 
+  cursor:-moz-grab; 
+  &:active { 
+    cursor: -webkit-grabbing; 
+    cursor:-moz-grabbing;
+  }*/
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.collection {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+.collection a {
+  display: block;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-decoration: none;
+  font: 700 12px Consolas, system, monospace;
+  -webkit-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+.collection a:hover {
+  background: #fff;
+  color: #000;
+}
+.collection .prev {
+  text-align: left;
+  float: left;
+}
+.collection .next {
+  text-align: right;
+  float: right;
+}
+</style></head><body>
+<div class="collection">
+  <a href="https://codepen.io/luigimannoni/pen/doazmv" target="_parent" class="prev">&larr; Inside the Clock Tower</a>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js'></script>
+<script >/*!
+ * WebGL Tunnel - Luigi Mannoni
+ * luigimannoni.com / codepen.io/luigimannoni
+ * CC BY-NC 4.0 http://creativecommons.org/licenses/by-nc/4.0/ 
+ */
+
+// Obligatory helper function
+function deg2rad(_degrees) {
+  return (_degrees * Math.PI / 180);
+}
+
+var mouseX = 0, mouseY = 0;
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+var innerColor = 0x2222ff; 
+var cubecam = new THREE.CubeCamera(0.1, 120, 256);
+cubecam.renderTarget.minFilter = THREE.LinearMipMapLinearFilter; // mipmap filter
+
+scene.add(cubecam);
+
+var renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setClearColor( 0x000000, 0 ); // background
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+camera.position.z = -110;
+camera.lookAt(scene.position);
+//scene.fog = new THREE.Fog(0x000000, 100, 700);
+
+// Mesh
+var group = new THREE.Group();
+scene.add(group);
+
+// Lights
+var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+scene.add( light );
+
+var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+directionalLight.position.set( 0, 128, 128 );
+scene.add( directionalLight );
+
+// Load texture first
+THREE.ImageUtils.crossOrigin = '';
+var tunnelTexture = THREE.ImageUtils.loadTexture('https://luigimannoni.github.io/assets/001_electric.jpg');
+tunnelTexture.wrapT = tunnelTexture.wrapS = THREE.RepeatWrapping;
+tunnelTexture.repeat.set( 1, 2 );
+
+// Tunnel Mesh
+var tunnelMesh = new THREE.Mesh(
+  new THREE.CylinderGeometry( 50, 50, 1024, 16, 32, true ),
+  new THREE.MeshBasicMaterial({ 
+    color: innerColor,
+    ambient: innerColor,
+    transparent: true,
+    alphaMap: tunnelTexture,
+    shininess: 0,
+    side: THREE.BackSide,
+  })
+);
+tunnelMesh.rotation.x = deg2rad(90);
+tunnelMesh.position.z = 128;
+scene.add(tunnelMesh);
+
+// Cube Mesh
+var cubeMesh = new THREE.Mesh(
+  new THREE.BoxGeometry( 32, 32, 32 ),
+  new THREE.MeshPhongMaterial({ 
+    color: 0xffffff,
+    ambient: 0xffffff,
+    transparent: false,
+    envMap: cubecam.renderTarget,
+    shininess: 100
+  })
+);
+cubecam.position.z = cubeMesh.position.z = 5;
+scene.add(cubeMesh);
+
+// Starfield
+var geometry = new THREE.Geometry();
+for (i = 0; i < 5000; i++) {if (window.CP.shouldStopExecution(1)){break;}
+  var vertex = new THREE.Vector3();
+  vertex.x = Math.random()*3000-1500;
+  vertex.y = Math.random()*3000-1500;
+  vertex.z = Math.random()*200-100;
+  geometry.vertices.push(vertex);
+}
+window.CP.exitedLoop(1);
+
+var starField = new THREE.PointCloud(geometry, new THREE.PointCloudMaterial({
+  size: 0.5,
+  color: 0xffff99
+  })
+);
+scene.add(starField);
+starField.position.z = 400;
+
+var time = new THREE.Clock();
+
+var render = function () {  
+  camera.position.x = mouseX * 0.05;
+  camera.position.y = -mouseY * 0.05;
+  camera.lookAt(scene.position);
+  
+  cubeMesh.rotation.x += 0.01;
+  cubeMesh.rotation.y += 0.01;
+  cubeMesh.rotation.z += 0.01;
+  
+  starField.rotation.z += 0.005;
+
+  var innerShift = Math.abs(Math.cos(( (time.getElapsedTime()+2.5) / 20)));
+  var outerShift = Math.abs(Math.cos(( (time.getElapsedTime()+5) / 10)));
+
+  starField.material.color.setHSL(Math.abs(Math.cos((time.getElapsedTime() / 10))), 1, 0.8);
+tunnelMesh.material.color.setHSL(Math.abs(Math.cos((time.getElapsedTime() / 10))), 1, 0.5);
+  //cubeMesh.material.ambient.setHSL(Math.abs(Math.cos((time.getElapsedTime() / 10))), 1, 0.5);
+  
+  tunnelTexture.offset.y = time.getElapsedTime() / 2;
+  tunnelTexture.offset.x = time.getElapsedTime() / 6;
+  //controls.update();
+  cubeMesh.visible = false;
+  cubecam.updateCubeMap( renderer, scene );
+  cubeMesh.visible = true;
+  
+  renderer.render(scene, camera);
+  requestAnimationFrame(render);  
+};
+
+render();
+
+
+// Mouse and resize events
+document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+window.addEventListener('resize', onWindowResize, false);
+
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function onDocumentMouseMove( event ) {
+  mouseX = event.clientX - window.innerWidth/2;
+  mouseY = event.clientY - window.innerHeight/2;
+}
+//# sourceURL=pen.js
+</script>
+</body></html>

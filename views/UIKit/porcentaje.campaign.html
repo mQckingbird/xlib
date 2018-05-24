@@ -1,0 +1,225 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/daiky00/pen/YpNqjM?limit=all&page=11&q=campaign" />
+
+
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.green {
+  color: #47cf73;
+}
+
+.red {
+  color: #c42940;
+}
+
+.donation--container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+}
+
+.donation--user {
+  margin-bottom: 50px;
+}
+
+.donation--title {
+  color: #525961;
+  font-weight: 600;
+  position: absolute;
+  left: -80px;
+}
+
+.donation--goal {
+  width: 80px;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 101px;
+  right: -24%;
+  padding: 10px;
+  background-color: #525961;
+}
+
+.donation--rounded {
+  height: 100%;
+  border-radius: 100px 0 0 100px;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.donation--bar {
+  position: relative;
+  width: 100%;
+  height: 25px;
+  background-color: #e7edf4;
+  border-radius: 100px 0 0 100px;
+}
+
+.donation--progress {
+  position: relative;
+  max-width: 100%;
+  height: 100%;
+  background-color: #47cf73;
+  transition: width 2s linear;
+}
+
+.donation--number {
+  transition: left 2s linear;
+  position: absolute;
+  top: -18px;
+  transform: translate(-50%, -100%);
+  padding: 4px 10px;
+  color: #47cf73;
+  font-size: 13px;
+  font-weight: 300;
+  background-color: #525961;
+  border-radius: 3px;
+}
+.donation--number:after {
+  content: "";
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 5px solid #525961;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.donation--status {
+  margin-top: 20px;
+  text-align: center;
+  display: block;
+}
+
+.form--container {
+  display: block;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.button {
+  background-color: #fff;
+  color: #47cf73;
+  font-weight: 400;
+  text-decoration: none;
+  border: 2px solid #47cf73;
+  padding: 10px 25px;
+  transition: all .15s ease-in-out;
+}
+.button:hover {
+  background-color: #47cf73;
+  color: #fff;
+}
+
+.input {
+  border: 2px solid #525961;
+  padding: 10px;
+  margin: 30px 0;
+}
+</style></head><body>
+<html>
+
+<head>
+  <title>CopyLEE Porcentaje</title>
+</head>
+
+<body>
+  <main role="main">
+    <!-- progress bar -->
+    <div class="donation--container">
+      <h1 id="donation--user" class="donation--user">Progreso</h1>
+      <span class="donation--title">Alcanzado:</span>
+      <span id="donation--goal" class="donation--goal"></span>
+      <div class="donation--bar">
+        <div class="donation--rounded">
+          <div id="donation--progress" class="donation--progress" style="width: 0;"></div>
+        </div>
+        <div id="donation--number" class="donation--number" style="left: 0;"></div>
+        <span id="donation--status" class="donation--status"></span>
+      </div>
+      <form class="form--container">
+        <input id="donation--amount" class="input" type="number" min="1" placeholder="Libros que quieres comprar $">
+        <input id="donate" class="button" type="submit" value="Comprar">
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>
+
+<script >"use strict";
+
+// Function to find percentage
+function percentage(a, b) {
+  return a / b * 100 > 100 ? 100 : a / b * 100;
+}
+
+//On Window Load
+window.onload = function() {
+
+  //User Object
+  var User = {
+    name: "Libro #1",
+    donationCollect: 56,
+    donationGoal: 125
+  };
+
+  // IDs
+  var donationUser = document.getElementById("donation--user"),
+    donationProgress = document.getElementById("donation--progress"),
+    donationNumber = document.getElementById("donation--number"),
+    donationGoal = document.getElementById("donation--goal"),
+    donationStatus = document.getElementById("donation--status"),
+    donationAmount = document.getElementById("donation--amount"),
+    donate = document.getElementById("donate");
+
+  // How much percent to reach Goal
+  var percent = percentage(User.donationCollect, User.donationGoal);
+  // What we have so far to reach Goal
+  donationProgress.setAttribute("aria-valuenow", User.donationCollect);
+  // Goal
+  donationProgress.setAttribute("aria-valuemax", User.donationGoal);
+
+  // Default Data
+  donationUser.innerHTML = "Progreso <span class='green'>" + User.name + "<span>";
+  donationProgress.setAttribute("style", "width:" + percent + "%");
+  donationNumber.setAttribute("style", "left:" + percent + "%");
+  donationNumber.innerHTML = "$" + User.donationCollect;
+  donationGoal.innerHTML = "Meta<br>$" + User.donationGoal;
+  donationStatus.innerHTML = "<i class='fa fa-window-close red'></i> Necesitas <span class='red'>$" + (User.donationGoal - User.donationCollect) + "</span> para alcanzar tu meta";
+
+  //Events
+
+  //Only Positive Numbers allow in the Donation input
+  donationAmount.onkeydown = function(e) {
+    if (!((e.keyCode > 95 && e.keyCode < 106) || (e.keyCode > 47 && e.keyCode < 58) || e.keyCode === 8)) {
+      return false;
+    }
+  };
+
+  // Onclick event for the donate button
+  donate.onclick = function(e) {
+    e.preventDefault();
+    var newDonationCollect = (+User.donationCollect) + (+donationAmount.value);
+    var newPercent = percentage(newDonationCollect, User.donationGoal);
+    var newDonationNumber = User.donationCollect != User.donationGoal ? (+User.donationCollect) + (+donationAmount.value) : User.donationGoal;
+    User.donationCollect = newDonationNumber;
+    donationNumber.innerHTML = "$" + newDonationNumber;
+    donationProgress.setAttribute("style", "width:" + newPercent + "%");
+    donationNumber.setAttribute("style", "left:" + newPercent + "%");
+    donationStatus.innerHTML = User.donationGoal - newDonationNumber > 0 ? "<i class='fa fa-window-close red'></i> Necesitas <span class='red'>$" + (User.donationGoal - newDonationNumber) + "</span> para alcanzar tu meta" : "<i class='fa fa-exclamation-circle green'></i> Tu campaña ha sido financiada (:";
+
+  };
+
+};
+</script>
+</body></html>

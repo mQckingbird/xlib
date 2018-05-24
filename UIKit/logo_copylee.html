@@ -1,0 +1,162 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/mikegolus/pen/ZaqdgP" />
+
+<link rel='stylesheet prefetch' href='https://use.typekit.net/btw2lvy.css'>
+<style class="cp-pen-styles">html {
+  height: 100%;
+  font-family: 'source-sans-pro', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .005em;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  height: 100%;
+  font-size: 60vmin;
+  margin: 0;
+}
+
+.view {
+  height: 100%;
+  background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+  animation: color 15s ease infinite;
+}
+
+@keyframes color {
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  mix-blend-mode: screen;
+}
+
+.logo-wrapper::before {
+  position: absolute;
+  top: 6%;
+  font-size: 13px;
+  font-weight: 600;
+  
+}
+
+.logo {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  color: #000;
+  font-weight: 900;
+}
+
+.logo::before,
+.logo::after {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  transform: rotate(45deg);
+  transition: .4s;
+  pointer-events: none;
+}
+
+.logo::before {
+  left: .115em;
+  bottom: 0;
+  width: .84em;
+  height: .84em;
+  border: .08em solid;
+  transform-origin: .5em .34em;
+}
+
+.logo::after {
+  right: 0.4em;
+  border: .28em solid;
+  background: #000;
+  transform: rotate(45deg) scale(1.3);
+  transform-origin: .06em .5em;
+}
+
+.logo span {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  font-size: .18em;
+  line-height: 1em;
+  margin-top: -.5em;
+  opacity: 0;
+  transition: .4s;
+  pointer-events: none;
+}
+
+.logo span:first-child {
+  left: .25em;
+}
+
+.logo span:last-child {
+  color: #fff;
+  left: 1.8em;
+}
+
+@media (hover: hover) {
+  
+  .logo-wrapper::before {
+    content: 'hover over the diamond';
+  }
+  
+  .logo:hover::before {
+    left: 0;
+  }
+
+  .logo:hover::after {
+    right: 0;
+    transform: rotate(45deg) scale(1);
+  }
+
+  .logo:hover span:first-child {
+    left: -.08em;
+    opacity: 1;
+  }
+
+  .logo:hover span:last-child {
+    left: 2.95em;
+    opacity: 1;
+  }
+
+}
+
+@media (hover: none) {
+  
+  .logo::before {
+    left: 0;
+  }
+
+  .logo::after {
+    right: 0;
+    transform: rotate(45deg) scale(1);
+  }
+
+  .logo span:first-child {
+    left: -.08em;
+    opacity: 1;
+  }
+
+  .logo span:last-child {
+    left: 3em;
+    opacity: 1;
+  }
+
+}</style></head><body>
+
+<div class="view">
+  <div class="logo-wrapper"><a class="logo" href="http://takeshape.rocks" target="_blank"><span>Copy</span><span>LEE</span></a></div>
+</div>
+
+</body></html>

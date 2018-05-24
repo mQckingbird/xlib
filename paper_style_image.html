@@ -1,0 +1,584 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/girliemac/pen/yOqEdB?depth=everything&order=popularity&page=2&q=user+data&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Give+You+Glory'>
+<style class="cp-pen-styles">* {
+  box-sizing: border-box;
+}
+html, input {
+    font-family: "Segoe UI Web Light", "Segoe UI Light", "Segoe UI Web Regular", "Segoe UI", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+}
+html {
+    -ms-text-size-adjust: none;
+}
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+body {
+  background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/asanoha-400px.png) repeat 0 0;
+  /* the pattern is created by Olga Libby (subtlepatterns.com). CC BY-SA 3.0 
+  */
+}
+a {
+  color: #f18;
+}
+header {
+  margin-bottom: 1em;
+  padding: .5em 1em;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+h1, h2, h3 {
+  margin: 0;
+  font-weight: normal;
+}
+h1 {
+  font-size: 2rem;
+  text-transform: lowercase;
+}
+h2 {
+  font-size: 1rem;
+  font: #333;
+  text-transform: uppercase;
+}
+footer {
+  border-top: gray 1px solid;
+  background-color: #ebebeb;
+  color: gray;
+  font-size: .75em;
+  padding: .5em;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.main {
+  min-height: 100%;
+  position: relative;
+}
+.demo {
+  padding-bottom: 2em;
+}
+.stickie-note {
+  background: #FDFDAA; 
+  position: relative;
+  display: block;  
+  height: 200px;  
+  width: 200px;  
+  padding: 8px;
+  margin: 0 auto 2em;
+  box-shadow: 2px 3px 6px rgba(0,0,0,.3), inset 0 0 24px rgba(0, 0, 0, .2);
+}
+.stickie-note.writable {
+  box-shadow:
+    1px 1px 0 rgba(0, 0, 0, 0.15), 
+    2px 2px 0 rgba(255, 255, 255, 0.4), 
+    3px 3px 0 rgba(0, 0, 0, 0.2), 
+    4px 4px 0 rgba(255, 255, 255, 0.4),  
+    5px 5px 0 rgba(0, 0, 0, 0.225), 
+    6px 6px 0 rgba(255, 255, 255, 0.4),  
+    7px 7px 0 rgba(0, 0, 0, 0.25),
+    9px 15px 15px rgba(0,0,0,.4), inset 0 0 24px rgba(0, 0, 0, .2);
+}
+.stickie-note:not(.writable):before, .stickie-note:not(.writable):after {
+  position: absolute;
+  width: 40%;
+  height: 10px;
+  content: ' ';
+  left: 6px;
+  bottom: 6px;
+  background: transparent;
+  -webkit-transform: skew(-10deg) rotate(-10deg);
+  -moz-transform: skew(-10deg) rotate(-10deg);
+  transform: skew(-10deg) rotate(-10deg);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  z-index: -1;
+} 
+.stickie-note:not(.writable):after {
+  left: auto;
+  right: 6px;
+  -webkit-transform: skew(10deg) rotate(10deg);
+  -moz-transform: skew(10deg) rotate(10deg);
+  transform: skew(10deg) rotate(10deg);
+} 
+textarea {
+  font-size: 1.2em;
+  border-width: 0;
+  width: 190px;
+  height: 150px;
+  padding: 6px;
+  background-color: transparent;
+}
+.stickie-note p {
+  padding: 0;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.stickie-note p.note {
+  font-family: "Give You Glory", sans-serif; 
+  font-size: 1.4em;
+  line-height: 1.5em;
+  height: 120px;
+}
+.stickie-note p.username {
+  font-size: 0.8em;
+  text-align: right;
+}
+.stickie-note.writable:hover, .stickie-note.writable:active,
+.stickie-note.writable textarea:hover, .stickie-note.writable textarea:active {
+  cursor: url('data:image/x-icon;base64,AAACAAEAICAAAAEAAQCoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGgYDGhoGA70aBgO9GgYDNwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoGAxoaBgO9fnl5/4yHh/8aBgO9GgYDNwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaBgMaGgYDvX55ef9XTEr/v7+//62oqP8aBgO9GgYDNwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGgYDGhoGA71+eXn/V0xK/7+/v/9pXlz/6enp/8jEw/8aBgO9GgYDNwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoGAxoaBgO9fnl5/6urq/+/v7//aV5c/+np6f+rpKL//////87Jyf8aBgO9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaBgMaGgYDvX55ef+rq6v/v7+//9XV1f/p6en/q6Si//////+vqKf/6Obl/xoGA70AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGgYDGhoGA71+eXn/q6ur/7+/v//V1dX/6enp//j4+P//////r6in/+jm5f97b27/GgYDvQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoGAxoaBgO9fnl5/6urq/+/v7//1dXV/+np6f/4+Pj////////////o5uX/e29u/87Jyf8aBgO9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaBgMaGgYDvX55ef+rq6v/v7+//9XV1f/p6en/+Pj4/////////////////3tvbv/Oycn/6Obl/xoGA70AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGgYDGhoGA71+eXn/q6ur/7+/v//V1dX/6enp//j4+P////////////////97b27/zsnJ///////o5uX/GgYDvQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoGAxoaBgO9fnl5/6urq/+/v7//1dXV/+np6f/4+Pj/////////////////e29u/87Jyf//////6Obl/xoGA70aBgM3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaBgMaGgYDvX55ef+rq6v/v7+//9XV1f/p6en/+Pj4/////////////////3tvbv/Oycn//////+jm5f8aBgO9GgYDNwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGgYDGhoGA71+eXn/q6ur/7+/v//V1dX/6enp//j4+P////////////////97b27/zsnJ///////o5uX/GgYDvRoGAzcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoGAxoaBgO9fnl5/1dMSv+/v7//1dXV/+np6f/4+Pj/////////////////e29u/87Jyf//////6Obl/xoGA70aBgM3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaBgMaGgYDvX55ef+rq6v/v7+//2leXP/p6en/+Pj4/////////////////3tvbv/Oycn//////+jm5f8aBgO9GgYDNwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGgYDGhoGA71+eXn/q6ur/7+/v//V1dX/6enp/6ukov////////////////97b27/zsnJ///////o5uX/GgYDvRoGAzcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoGAxoaBgO9fnl5/6urq/+/v7//1dXV/+np6f/4+Pj//////6+op//o5uX/VUZE/87Jyf//////6Obl/xoGA70aBgM3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaBgMaGgYDvX55ef+rq6v/v7+//9XV1f/p6en/+Pj4////////////6Obl/1VGRP9VRkT/zsnJ/+jm5f8aBgO9GgYDNwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGgYDGhoGA71+eXn/q6ur/7+/v//V1dX/6enp//j4+P////////////////9VRkT/GgYDNxoGAzcaBgM3GgYDvRoGAzcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoGAxoaBgO9fnl5/6urq/+/v7//1dXV/+np6f/4+Pj/////////////////VUZE/xoGAzcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaBgMaGgYDvX55ef+rq6v/v7+//9XV1f/p6en/+Pj4/////////////////1VGRP8aBgM3AAAAAAAA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'), 
+  pointer;
+}
+.userlist-container {
+  width: 300px;
+  height: 70px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 1em;
+}
+#userList::-webkit-scrollbar { 
+  display: none; 
+}
+#userList {
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  overflow-x: scroll;
+  padding-right: 17px;
+  text-align: right;
+}
+#userList li {
+  list-style: none; 
+  margin: 6px;  
+  display: inline-block; 
+  overflow: hidden;
+  width: 36px;
+  height: 36px;
+  border: 1px #dedede solid;
+  background-color: #FDFDAA;
+  cursor: pointer;
+}
+#userList li p {
+  visibility: hidden;
+  margin: 1px 8px;
+  text-transform: uppercase;
+  line-height: 32px;
+}
+#userList li p:first-letter {
+  visibility: visible;
+  font-size: 24px;
+}
+
+.stickie-note.yellow, #userList li.yellow {
+  background: #FDFDAA; 
+}
+.stickie-note.pink, #userList li.pink {
+  background: #ECBCC8; 
+}
+.stickie-note.green, #userList li.green {
+  background: #BAF7BD; 
+}
+.stickie-note.blue, #userList li.blue {
+  background: #B3E5FB; 
+}
+.stickie-note.purple, #userList li.purple {
+  background: #D6BEDC; 
+}
+
+#stickiesList {
+  overflow: hidden;  
+}
+#stickiesList li {
+  list-style: none; 
+  margin: 1em;  
+  display: inline-block; 
+}
+/* making them more whimsical */
+#stickiesList li:nth-child(odd) .stickieWrapper {    
+  -webkit-transform: rotate(3deg);  
+  -moz-transform: rotate(3deg); 
+  transform: rotate(3deg);   
+} 
+#stickiesList li:nth-child(even) .stickieWrapper {   
+  -webkit-transform: rotate(-2deg) translateY(10px);;  
+  -moz-transform: rotate(-2deg) translateY(10px);; 
+  transform: rotate(-2deg) translateY(10px);   
+} 
+#stickiesList li:nth-child(3n) .stickieWrapper {    
+  -webkit-transform: rotate(6deg);  
+  -moz-transform: rotate(6deg); 
+  transform: rotate(6deg);
+} 
+#stickiesList li:nth-child(7n) .stickieWrapper {    
+  -webkit-transform: rotate(-8deg) translateY(5px);  
+  -moz-transform: rotate(-8deg) translateY(5px); 
+  transform: rotate(-8deg) translateY(5px);  
+} 
+/* These classes are added by React ReactCSSTransitionGroup */
+.animation-enter {
+  opacity: 0.1;
+  transform: scale(1.3);
+  transition: all 1s ease-out;
+ }
+.animation-enter.animation-enter-active {
+  opacity: 1;
+  transform: scale(1);
+ }
+
+@media only screen and (min-width: 856px) {
+  .stickie-note {
+    background: #ffa;  
+    position: relative;
+    display: block;  
+    height: 220px;  
+    width: 220px;  
+    padding: 10px;
+    box-shadow: 2px 4px 8px rgba(0,0,0,.3), inset 0 0 24px rgba(0, 0, 0, .2);
+  }
+  .stickie-note p.note {
+    font-size: 1.5em;
+    line-height: 1.6em;
+    height: 140px;
+  }
+  textarea {
+    width: 200px;
+    height: 170px;
+  }
+  .userlist-container {
+    width: 400px;
+  }
+}
+
+</style></head><body>
+<header>
+  <h2>PubNub &amp; React.js Demo</h2>
+  <h1>Collaborative Stickies</h1>
+</header>
+
+<section id="container" >
+</section>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://fb.me/react-with-addons-15.0.1.min.js'></script><script src='https://fb.me/react-dom-15.0.1.min.js'></script><script src='//cdn.pubnub.com/pubnub-3.14.5.js'></script>
+<script >'use strict';
+
+var username = localStorage.getItem('username') ? localStorage.getItem('username') : window.prompt('Your name');
+username = !username ? 'anonymous-' + ~~(Math.random() * 10000) : username;
+localStorage.setItem('username', username);
+
+var colors = ['yellow', 'pink', 'green', 'blue', 'purple'];
+var color = localStorage.getItem('color') ? localStorage.getItem('color') : colors[~~(Math.random() * colors.length)];
+localStorage.setItem('color', color);
+
+// Please use your own keys
+// Sign up and get keys at https://pubnub.com
+var publish_key = 'pub-c-1d17120d-f60e-437a-b7c4-b89f773629cb';
+var subscribe_key = 'sub-c-85bdcc70-067d-11e6-996b-0619f8945a4f';
+
+var pubnub = PUBNUB.init({
+  publish_key: publish_key,
+  subscribe_key: subscribe_key,
+  ssl: true,
+  uuid: username
+});
+
+var channel = 'stickie-notes';
+
+// React Add-ons
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
+// Parent class - Connect PubNub to get realtime data
+
+var CollabStickies = React.createClass({
+  displayName: 'CollabStickies',
+
+
+  getInitialState: function getInitialState() {
+    return {
+      stickieList: [],
+      userList: []
+    };
+  },
+
+  componentWillMount: function componentWillMount() {
+    pubnub.subscribe({
+      channel: channel,
+      restore: true,
+      connect: this.connect,
+      message: this.success,
+      presence: this.presenceChanged
+    });
+  },
+  componentDidMount: function componentDidMount() {
+    // set state with the user data and send it to PubNub
+    var userdata = { username: this.props.username, color: this.props.color, timestamp: Date.now() };
+    pubnub.state({
+      channel: channel,
+      uuid: this.props.username,
+      callback: this.handleStateChange,
+      state: userdata
+    });
+  },
+
+
+  connect: function connect() {
+    var _this = this;
+
+    // grab data from PubNub History API when PubNub is connected for the first time
+    pubnub.history({
+      channel: channel,
+      count: 50,
+      callback: function callback(m) {
+        m[0].reverse();
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = m[0][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;}
+            var v = _step.value;
+
+            var newList = _this.state.stickieList.concat(v);
+            _this.setState({ stickieList: newList });
+          }
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+      }
+    });
+  },
+
+  success: function success(m) {
+    // Update the stickie note list
+    var newList = [m].concat(this.state.stickieList);
+    this.setState({ stickieList: newList });
+  },
+
+  presenceChanged: function presenceChanged(m) {
+    if (m.data) {
+      // metadata is attached when m.action == 'state-change' or 'timeout'. Also 'join' at the first time after a user enter a name
+      console.log(m);
+      pubnub.here_now({
+        channel: channel,
+        callback: this.getUserList
+      });
+    }
+  },
+  handleStateChange: function handleStateChange() {
+    console.log('The user state with stickie color is set');
+  },
+
+
+  getUserList: function getUserList(m) {
+    var _this2 = this;
+
+    console.log('here_now callback');
+
+    this.state.userList.length = 0;
+
+    var i = 0;
+    var _iteratorNormalCompletion2 = true;
+    var _didIteratorError2 = false;
+    var _iteratorError2 = undefined;
+
+    try {
+      for (var _iterator2 = m.uuids[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {if (window.CP.shouldStopExecution(2)){break;}if (window.CP.shouldStopExecution(2)){break;}
+        var u = _step2.value;
+        // ES6 for-of loop
+
+        pubnub.state({ //get state
+          channel: channel,
+          uuid: u,
+          callback: function callback(s) {
+            if (!s.username) return; // ignore debug console
+
+            var newList = _this2.state.userList.concat({ username: s.username, color: s.color, timestamp: s.timestamp });
+
+            if (i == m.uuids.length) _this2.setState({ userList: newList });
+          }
+        });
+        i++;
+      }
+window.CP.exitedLoop(2);
+
+window.CP.exitedLoop(2);
+
+    } catch (err) {
+      _didIteratorError2 = true;
+      _iteratorError2 = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+          _iterator2.return();
+        }
+      } finally {
+        if (_didIteratorError2) {
+          throw _iteratorError2;
+        }
+      }
+    }
+  },
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(UserList, { userList: this.state.userList }),
+      React.createElement(StickieWritable, { username: this.props.username, color: this.props.color }),
+      React.createElement(StickieList, { stickieList: this.state.stickieList })
+    );
+  }
+});
+
+var StickieWritable = React.createClass({
+  displayName: 'StickieWritable',
+
+
+  handleTextChange: function handleTextChange(e) {
+    if (e.keyCode != 13) return;
+    if (e.target.value == '') return;
+    if (e.target.value == '\n') {
+      e.target.value = '';
+      return;
+    }
+
+    var data = {
+      username: this.props.username,
+      color: this.props.color,
+      text: e.target.value,
+      timestamp: Date.now()
+    };
+
+    pubnub.publish({
+      channel: channel,
+      message: data,
+      callback: e.target.value = ''
+    });
+  },
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      { className: 'stickie-note writable ' + this.props.color },
+      React.createElement('textarea', { type: 'text', placeholder: 'Your new note...', onKeyUp: this.handleTextChange }),
+      React.createElement(
+        'p',
+        { className: 'username' },
+        this.props.username
+      )
+    );
+  }
+
+});
+
+// -- Stickie -- //
+
+var Stickie = React.createClass({
+  displayName: 'Stickie',
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      { className: 'stickie-note ' + this.props.color },
+      React.createElement(
+        'p',
+        { className: 'note' },
+        this.props.text
+      ),
+      React.createElement(
+        'p',
+        { className: 'username' },
+        this.props.username
+      )
+    );
+  }
+});
+
+// -- List -- //
+
+var StickieList = React.createClass({
+  displayName: 'StickieList',
+
+  render: function render() {
+    var items = (this.props.stickieList || []).map(function (item) {
+      return React.createElement(
+        'li',
+        { key: item.timestamp },
+        React.createElement(
+          'div',
+          { className: 'stickieWrapper' },
+          React.createElement(Stickie, { text: item.text, color: item.color, username: item.username })
+        )
+      );
+    });
+
+    return React.createElement(
+      ReactCSSTransitionGroup,
+      { transitionName: 'animation', component: 'ul', id: 'stickiesList' },
+      items
+    );
+  }
+});
+
+var UserList = React.createClass({
+  displayName: 'UserList',
+
+  render: function render() {
+    return React.createElement(
+      'section',
+      { className: 'userlist-container' },
+      React.createElement(
+        'ul',
+        { id: 'userList' },
+        this.props.userList.map(function (item, index) {
+          return React.createElement(
+            'li',
+            { key: index, className: item.color, title: item.username },
+            React.createElement(
+              'p',
+              null,
+              item.username
+            )
+          );
+        })
+      )
+    );
+  }
+});
+
+// -- DOM -- //
+
+ReactDOM.render(React.createElement(CollabStickies, { username: username, color: color }), document.getElementById('container'));
+//# sourceURL=pen.js
+</script>
+</body></html>

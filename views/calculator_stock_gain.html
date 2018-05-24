@@ -1,0 +1,241 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/teophilus/pen/dWbmMG?q=buy+price&limit=all&type=type-pens" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet prefetch' href='https://npmcdn.com/antd/dist/antd.css'>
+<style class="cp-pen-styles">body {
+  background-color: #fafafa;
+}
+
+#content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+input, span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+button span {
+  margin-bottom: 0;
+}
+
+.danger {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+</style></head><body>
+<div id="content"></div>
+
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.2.0/react.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.2.0/react-dom.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/antd/2.8.2/antd.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/humanize-plus/1.8.2/humanize.min.js'></script>
+<script >var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) {if (window.CP.shouldStopExecution(1)){break;}if (window.CP.shouldStopExecution(1)){break;} var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); }
+window.CP.exitedLoop(1);
+
+window.CP.exitedLoop(1);
+ } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _antd = antd,
+    Input = _antd.Input,
+    Card = _antd.Card;
+
+var Calculator = function (_React$Component) {
+  _inherits(Calculator, _React$Component);
+
+  function Calculator(props) {
+    _classCallCheck(this, Calculator);
+
+    var _this = _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this, props));
+
+    _this.handleBudget = function (e) {
+      _this.setState({
+        budget: e.target.value
+      }, _this.calculate);
+      console.log("budget: ", e.target.value);
+    };
+
+    _this.handleBuyPrice = function (e) {
+      _this.setState({
+        buyPrice: e.target.value
+      }, _this.calculate);
+      console.log("buy price: ", e.target.value);
+    };
+
+    _this.handleSellPrice = function (e) {
+      _this.setState({
+        sellPrice: e.target.value
+      }, _this.calculate);
+      console.log("sell price:", e.target.value);
+    };
+
+    _this.handleBrokerFee = function (e) {
+      _this.setState({
+        brokerFee: e.target.value
+      }, _this.calculate);
+      console.log("broker fee:", e.target.value);
+    };
+
+    _this.calculate = function (e) {
+
+      var a = Math.floor(_this.state.budget / _this.state.buyPrice);
+      var b = Humanize.formatNumber(parseFloat((_this.state.sellPrice - _this.state.buyPrice) / _this.state.buyPrice * 100).toFixed(2), 2);
+      var c = Humanize.formatNumber(parseFloat(_this.state.sellPrice - _this.state.buyPrice).toFixed(2), 2);
+      var d = Humanize.formatNumber(parseFloat(_this.state.budget / _this.state.buyPrice * (_this.state.sellPrice - _this.state.buyPrice) - _this.state.brokerFee * 2).toFixed(2), 2);
+
+      _this.setState(function (prevState, newState) {
+        return {
+          numberOfShares: a,
+          percentageChange: b,
+          dollarChange: c,
+          gain: d
+        };
+      });
+    };
+
+    _this.state = {
+      budget: "",
+      buyPrice: "",
+      sellPrice: "",
+      brokerFee: "0",
+      numberOfShares: "0",
+      percentageChange: "0",
+      dollarChange: "0",
+      gain: "0"
+    };
+
+    _this.handleBudget = _this.handleBudget.bind(_this);
+    _this.handleBuyPrice = _this.handleBuyPrice.bind(_this);
+    _this.handleSellPrice = _this.handleSellPrice.bind(_this);
+    _this.handleBrokerFee = _this.handleBrokerFee.bind(_this);
+    _this.calculate = _this.calculate.bind(_this);
+    return _this;
+  }
+
+  _createClass(Calculator, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      // this.calculate();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+
+      var dollar = null;
+      if (this.state.percentageChange < "0") {
+        dollar = React.createElement(
+          "span",
+          { className: "danger" },
+          "Change: ",
+          this.state.percentageChange,
+          "% / $",
+          this.state.dollarChange
+        );
+      } else {
+        dollar = React.createElement(
+          "span",
+          { className: "success" },
+          "Change: ",
+          this.state.percentageChange,
+          "% / $",
+          this.state.dollarChange
+        );
+      }
+
+      var gain = null;
+      if (this.state.gain < "0") {
+        gain = React.createElement(
+          "span",
+          { className: "danger" },
+          "Gain: $",
+          this.state.gain
+        );
+      } else {
+        gain = React.createElement(
+          "span",
+          { className: "success" },
+          "Gain: $",
+          this.state.gain
+        );
+      }
+
+      return React.createElement(
+        Card,
+        { title: "Stock Price Estimator", style: { width: 300 } },
+        React.createElement(
+          "label",
+          null,
+          "Budget:"
+        ),
+        React.createElement(Input, {
+          addonBefore: "$",
+          type: "number",
+          placeholder: "Budget",
+          value: this.state.budget,
+          onChange: this.handleBudget
+        }),
+        React.createElement(
+          "label",
+          null,
+          "Purchase Price:"
+        ),
+        React.createElement(Input, {
+          addonBefore: "$",
+          type: "number",
+          placeholder: "Buy Price",
+          value: this.state.buyPrice,
+          onChange: this.handleBuyPrice
+        }),
+        React.createElement(
+          "label",
+          null,
+          "Sell Price:"
+        ),
+        React.createElement(Input, {
+          addonBefore: "$",
+          type: "number",
+          placeholder: "Sell Price",
+          value: this.state.sellPrice,
+          onChange: this.handleSellPrice
+        }),
+        React.createElement(
+          "label",
+          null,
+          "Broker Fee:"
+        ),
+        React.createElement(Input, {
+          addonBefore: "$",
+          type: "number",
+          placeholder: "Broker Fee",
+          value: this.state.brokerFee,
+          onChange: this.handleBrokerFee
+        }),
+        React.createElement(
+          "span",
+          null,
+          "# of shares: ",
+          this.state.numberOfShares
+        ),
+        dollar,
+        gain
+      );
+    }
+  }]);
+
+  return Calculator;
+}(React.Component);
+
+ReactDOM.render(React.createElement(Calculator, null), document.getElementById('content'));
+//# sourceURL=pen.js
+</script>
+</body></html>

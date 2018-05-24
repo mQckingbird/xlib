@@ -1,0 +1,325 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/emilygoldfein/pen/rmvemz?depth=everything&order=popularity&page=6&q=back+button&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">body{
+background: #4CA1AF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.time{
+  display: inline;
+    font-size: 10px;
+    float: none;
+    top: -4px;
+    left: 60px;
+    position: relative;
+  font-size:10px;
+  color:white;
+  font-family:'Helvetica';
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+.iphone {
+  -webkit-box-shadow: 0px 0px 38px -10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 38px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 38px -10px rgba(0, 0, 0, 0.5);
+}
+
+.iphone_screen {
+  height: 450px;
+  width: 254px;
+  background-color: white;
+}
+
+.nav_bar {
+  height: 15px;
+  width: 254px;
+  background-color: #46494C;
+}
+
+.nav_bar_below{
+  position:relative;
+  height:30px;
+  width:254px;
+  margin-top:0px;
+  background-color:#46494C;
+  margin-top: -3px;
+}
+
+.back{
+  position:relative;
+  top:0px;
+  left:6px;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.container {
+  padding-top: 2px;
+}
+
+.fa{
+  color:white;
+}
+
+.circle_bars {
+  position: relative;
+  left: 5px;
+  top: 3px;
+}
+
+.circle {
+  height: 4px;
+  width: 4px;
+  position: relative;
+  border-radius: 50%;
+  background-color: white;
+  float: left;
+  margin: 0.5px;
+}
+
+.fa-battery-three-quarters {
+  float: right;
+  margin-right: 5px;
+  font-size: 11px;
+}
+
+.fa-wifi {
+  position: relative;
+  font-size: 10px;
+  margin-left: 8px;
+  top: -4px;
+}
+
+.main_screen{
+  position:relative;
+  overflow:hidden;
+  height:371px;
+  background-color:#DCDCDD;
+}
+
+.text{
+  display:none;
+  opacity:0;
+  padding:30px;
+  top:130px;
+  text-align:center;
+  font-family:Raleway, sans-serif;
+  color:white;
+  position:absolute;
+  z-index:10;
+}
+
+.icon {
+  height: 50px;
+  width: 50px;
+  border: 3px solid white;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  display:block;
+  vertical-align: middle;
+  line-height: 60px;
+  cursor:pointer;
+  margin-top:30px;
+  margin-left:102px;
+}
+
+.icon.instagram {
+  line-height:65px !important;
+}
+
+.user .background_circle {
+  display: none;
+  width: 52px;
+  height: 54px;
+  position: absolute;
+  border-radius: 50%;
+  top: 30px;
+  left: 1;
+  z-index:1;
+  background-color: #525174;
+}
+
+.mail .background_circle {
+  display: none;
+  width: 52px;
+  height: 54px;
+  position: absolute;
+  border-radius: 50%;
+  top: 115px;
+  left: 1;
+  z-index:1;
+  background-color: #FFC949;
+}
+
+.photos .background_circle {
+  display: none;
+  width: 52px;
+  height: 54px;
+  position: absolute;
+  border-radius: 50%;
+  top: 200px;
+  left: 1;
+  z-index:1;
+  background-color: #348AA7;
+}
+
+.settings .background_circle {
+  display: none;
+  width: 52px;
+  height: 54px;
+  position: absolute;
+  border-radius: 50%;
+  top: 285px;
+  left: 1;
+  z-index:1;
+  background-color: #FFA649;
+}
+
+.user:hover,
+.user:active {
+  background-color: #525174;
+}
+
+.mail:hover,
+.mail:active {
+  background-color: #FFC949;
+}
+
+.photos:hover,
+.photos:active {
+  background-color: #348AA7;
+}
+
+.settings:hover,
+.settings:active {
+  background-color: #FFA649;
+}
+
+.nav_bar_bottom {
+  height: 37px;
+  width: 254px;
+  background-color:#46494C;
+  position: relative;
+}
+
+</style></head><body>
+<body>
+<div class="content">
+  <div class="iphone">
+    <div class="iphone_screen">
+      <div class="nav_bar">
+        <div class="container">
+          <div class="circle_bars">
+            <div class="circle x1"></div>
+            <div class="circle x2"></div>
+            <div class="circle x3"></div>
+            <div class="circle x4"></div>
+            <div class="circle x5"></div>
+          </div>
+          <i class="fa fa-wifi" aria-hidden="true"></i>
+          <p class="time">1:56 PM</p>
+          <i class="fa fa-battery-three-quarters" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="nav_bar_below">
+
+        <div class="back">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="main_screen">
+        <div class="icon_group">
+          <a class="icon user"><i class="fa fa-user-o fa-2x" aria-hidden="true"></i><div class="background_circle"></div></a>
+          <a class="icon mail"><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i><div class="background_circle"></div></a>
+          <a class="icon photos"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i><div class="background_circle"></div></a>
+          <a class="icon settings"><i class="fa fa-sliders fa-2x" aria-hidden="true"></i><div class="background_circle"></div></a></div>
+        <div class="text">Click the back button to make a different selection.</div>
+      </div>
+      <div class="nav_bar_bottom"></div>
+    </div>
+  </div>
+</div>
+</body>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
+<script >var selected = null;
+var tempSelected = null;
+$(".icon").click(function() {
+  
+  if (selected != null) {
+    tempSelected = selected;
+  }
+  selected = $(this);
+  $(this).find(".background_circle").css({ display: "block", opacity: "1" });
+
+  var color = $(this).find(".background_circle").css("backgroundColor");
+  console.log(color);
+  var tl = new TimelineMax();
+  tl.to($(this).find(".background_circle"), 0.5, {
+      scale: 15,
+      transformOrigin: "50% 50%",
+      ease: Linear.easeIn
+    }).to($(".text"), 0.25, {
+     display:"block",
+      opacity:1,
+     ease: Linear.easeIn
+  });
+
+  if (
+    tempSelected !== null &&
+    $(this).attr("class") !== tempSelected.attr("class")
+  ) {
+    TweenMax.to(
+      tempSelected.find(".background_circle"),
+      0,
+      {
+        opacity: 0,
+        scale: 0,
+        transformOrigin: "50% 50%",
+        ease: Linear.easeIn
+      },
+      "-=1"
+    );
+  }
+});
+
+$(".back").click(function() {
+  console.log("in click function");
+  console.log(selected);
+   if (
+    selected !== null &&
+    $(this).attr("class") !== selected.attr("class")
+  ) {
+    TweenMax.to(
+      selected.find(".background_circle"),
+      0.5,
+      {
+        scale: 0,
+        transformOrigin: "50% 50%",
+        ease: Linear.easeIn
+      }
+    );
+     
+     TweenMax.to($(".text"), 0.25, {
+       display:"none",
+      opacity:0,
+     ease: Linear.easeOut
+  }, "-=0.5");
+  }
+});
+
+//# sourceURL=pen.js
+</script>
+</body></html>

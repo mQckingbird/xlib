@@ -1,0 +1,1668 @@
+ <style>
+ a:hover, a:focus {
+  text-decoration: none;
+  color: #fff;
+}
+
+   
+
+:root {
+    --bc-main:      #222226;
+    --bc-bright:    #18181b;
+    --bc-neutral: #131315;
+    --bc-dark:      #0c0c0e;
+
+    --fc-bright:    #fff;
+    --fc-neutral:   #d1d1d1;
+    --fc-dark:      #bababa;
+
+  --standard-curve:     cubic-bezier(0.4, 0.0, 0.2, 1);
+  --deceleration-curve: cubic-bezier(0.0, 0.0, 0.2, 1);
+  --acceleration-curve: cubic-bezier(0.4, 0.0, 1, 1);
+  --sharp-curve:        cubic-bezier(0.4, 0.0, 0.6, 1);
+}
+
+.btn {
+  display: block;
+  background: #bded7d;
+  color: white;
+  text-decoration: none;
+  margin: 20px 0;
+  padding: 15px 15px;
+  border-radius: 5px;
+  position: relative;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  box-shadow: inset 0 3px 0 transparent, 0 3px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.btn:hover::after {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*--------------------
+Form
+--------------------*/
+.form fieldset {
+  border: none;
+  padding: 0;
+  padding: 10px 0;
+  position: relative;
+  clear: both;
+}
+.form fieldset.fieldset-expiration {
+  float: left;
+  width: 60%;
+}
+.form fieldset.fieldset-expiration .select {
+  width: 84px;
+  margin-right: 12px;
+  float: left;
+}
+.form fieldset.fieldset-ccv {
+  clear: none;
+  float: right;
+  width: 86px;
+}
+.form fieldset label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-family: Inconsolata;
+}
+.form fieldset input,
+.form fieldset .select {
+  width: 100%;
+  height: 38px;
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  outline: none !important;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.form fieldset input.input-cart-number,
+.form fieldset .select.input-cart-number {
+  width: 82px;
+  display: inline-block;
+  margin-right: 8px;
+}
+.form fieldset input.input-cart-number:last-child,
+.form fieldset .select.input-cart-number:last-child {
+  margin-right: 0;
+}
+.form fieldset .select {
+  position: relative;
+}
+.form fieldset .select::after {
+  content: '';
+  border-top: 8px solid #222;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  right: 10px;
+  pointer-events: none;
+}
+.form fieldset .select select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: absolute;
+  padding: 0;
+  border: none;
+  width: 100%;
+  outline: none !important;
+  top: 0px;
+  left: 6px;
+  background: none;
+}
+.form fieldset .select select :-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+.form button {
+  width: 100%;
+  outline: none !important;
+  background: -webkit-linear-gradient(top, #49a09b, #3d8291);
+  background: linear-gradient(180deg, #49a09b, #3d8291);
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  box-shadow: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin-top: 90px;
+}
+.form button .fa {
+  margin-right: 6px;
+}
+
+/*--------------------
+Checkout
+--------------------*/
+.checkout {
+  margin: 150px auto 30px;
+  position: relative;
+  width: 460px;
+  border-radius: 15px;
+  padding: 160px 45px 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/*--------------------
+Credit Card
+--------------------*/
+.credit-card-box {
+  -webkit-perspective: 1000;
+          perspective: 1000;
+  width: 400px;
+  height: 280px;
+  position: absolute;
+  top: -112px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.credit-card-box:hover .flip, .credit-card-box.hover .flip {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.credit-card-box .front,
+.credit-card-box .back {
+  width: 400px;
+  height: 250px;
+  border-radius: 15px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background: -webkit-linear-gradient(315deg, #bd6772, #53223f);
+  background: linear-gradient(135deg, #bd6772, #53223f);
+  position: absolute;
+  color: #fff;
+  font-family: Inconsolata;
+  top: 0;
+  left: 0;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+.credit-card-box .front::before,
+.credit-card-box .back::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url("https://cdn.flaticon.com/svg/44/44386.svg") no-repeat center;
+  background-size: cover;
+  opacity: .05;
+}
+.credit-card-box .flip {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: relative;
+}
+.credit-card-box .logo {
+  position: absolute;
+  top: 9px;
+  right: 20px;
+  width: 60px;
+}
+.credit-card-box .logo svg {
+  width: 100%;
+  height: auto;
+  fill: #fff;
+}
+.credit-card-box .front {
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+.credit-card-box .back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.credit-card-box .back .logo {
+  top: 185px;
+}
+.credit-card-box .chip {
+  position: absolute;
+  width: 60px;
+  height: 45px;
+  top: 20px;
+  left: 20px;
+  background: -webkit-linear-gradient(315deg, #ddccf0 0%, #d1e9f5 44%, #f8ece7 100%);
+  background: linear-gradient(135deg, #ddccf0 0%, #d1e9f5 44%, #f8ece7 100%);
+  border-radius: 8px;
+}
+.credit-card-box .chip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 4px solid rgba(128, 128, 128, 0.1);
+  width: 80%;
+  height: 70%;
+  border-radius: 5px;
+}
+.credit-card-box .strip {
+  background: -webkit-linear-gradient(315deg, #404040, #1a1a1a);
+  background: linear-gradient(135deg, #404040, #1a1a1a);
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  top: 30px;
+  left: 0;
+}
+.credit-card-box .number {
+  position: absolute;
+  margin: 0 auto;
+  top: 103px;
+  left: 19px;
+  font-size: 38px;
+}
+.credit-card-box label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-shadow: none;
+  text-transform: uppercase;
+  font-weight: normal;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 3px;
+}
+.credit-card-box .card-holder,
+.credit-card-box .card-expiration-date {
+  position: absolute;
+  margin: 0 auto;
+  top: 180px;
+  left: 19px;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+.credit-card-box .card-expiration-date {
+  text-align: right;
+  left: auto;
+  right: 20px;
+}
+.credit-card-box .ccv {
+  height: 36px;
+  background: #fff;
+  width: 91%;
+  border-radius: 5px;
+  top: 110px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin: 0 auto;
+  color: #000;
+  text-align: right;
+  padding: 10px;
+}
+.credit-card-box .ccv label {
+  margin: -25px 0 3px;
+  color: #fff;
+}
+
+.wizard {
+  width: 100%;
+  
+}
+.wizard {
+    
+  padding: 0;
+  margin: 0 auto;
+  max-width: 100%;
+}
+.wizard h1 {
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  font-family: 'Ubuntu';
+  font-weight: 100;
+  text-align: center;
+  color: #92cae9;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.48);
+  margin-left:unset;
+  margin-top: unset;
+  text-transform: unset;
+}
+.wizard-header {
+  width: 100%;
+  padding: 14px 0 54px 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+.wizard-header li {
+  position: relative;
+  height: 48px;
+  flex: 1 0 auto;
+}
+.wizard-header li:not(:last-of-type)::before,
+.wizard-header li:not(:last-of-type)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 5px;
+  z-index: 5;
+  transform: translateY(-50%);
+  background: var(--bc-dark);
+}
+.wizard-header li::after {
+  width: 0 !important;
+  z-index: 10 !important;
+  background: var(--bc-bright) !important;
+  transition: width .4s var(--standard-curve);
+}
+.wizard-header li.complete::after {
+  width: 100% !important;
+}
+.wizard-header .wizard-step {
+  position: absolute;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  z-index: 15;
+  transform: translateX(-50%);
+  line-height: 48px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--bc-dark);
+  transition: background .15s var(--standard-curve) .25s;
+}
+.wizard-header li.complete .wizard-step {
+  background: var(--bc-bright);
+  transition-delay: 0s;
+}
+.wizard-header li .wizard-title {
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, 12px);
+  color: var(--fc-bright);
+  padding-top: 8px;
+  transition: all .2s var(--acceleration-curve);
+  visibility: hidden;
+  opacity: 0;
+}
+.wizard-header li.active .wizard-title {
+  transition-timing-function: var(--deceleration-curve);
+  top: 100%;
+  transition-delay: .2s;
+  visibility: visible;
+  opacity: 1;
+}
+.wizard-header li .wizard-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-left: 3px solid var(--fc-bright);
+  border-bottom: 3px solid var(--fc-bright);
+  transform: translateX(-50%) rotate(135deg);
+}
+
+.wizard-main {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+.wizard-main li {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  flex: 0 0 100%;
+  transition: left .25s var(--sharp-curve);
+}
+.wizard-main li:not(:first-of-type) {
+  left: 100%;
+}
+
+.wizard-footer {
+
+    text-align:center;
+}
+
+h2 {
+  font-size: 28px;
+  letter-spacing: -2px;
+    color: #f9f9f9;
+    text-align: center;
+  line-height: 2.8;
+}
+
+h3 {
+  font-size: 16px;
+    color: #f9f9f9;
+  letter-spacing: 1px;
+    text-align: left;
+}
+
+h4 {
+  font-size: 16px;
+    color: #f9f9f9;
+  letter-spacing: 1px;
+    text-align: left;
+  line-height: 2;
+}
+
+h5 {
+  font-size: 11px;
+  font-weight: 700;
+    color: #f9f9f9;
+  letter-spacing: 1px;
+    text-align: left;
+  text-transform: uppercase;
+}
+
+h5 > span {
+  margin-left: 87px;
+}
+
+h5.total {
+  margin-top: 20px;
+}
+
+h6 {
+  font-family: 'Ubuntu';
+  font-size: 18px;
+  font-weight: 400;
+    color: #f4f5f9;
+  letter-spacing: 0px;
+    text-align: left;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+h6 > span {
+  margin-left: 64px;
+}
+
+/*--------------------
+Checkout
+---------------------*/
+
+
+
+.order {
+  width: 100%;
+  height: auto;
+  padding: 0 30px;
+  z-index: 1;
+  
+  -webkit-box-shadow: 0 15px 24px rgba(37,44,65,0.16);
+     -moz-box-shadow: 0 15px 24px rgba(37,44,65,0.16);
+          box-shadow: 0 15px 24px rgba(37,44,65,0.16);
+}
+
+ul.order-list {
+  width: 100%;
+  list-style: none;
+  padding-right: 12px;
+}
+
+ul.order-list li {
+  height: 120px;
+  padding:10px;
+  margin-left: -40px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(122, 174, 188, 0.49019607843137253);
+
+    position: unset !important;
+    flex: unset !important;
+    transition: unset !important;
+    width: unset !important;
+    top: unset !important;
+
+}
+
+ul.order-list li > img {
+  width: 80px;
+  height: 100px;
+  float: left;
+  border-radius:4px;
+}
+
+ul.order-list li > h4 {
+  margin-top: 16px;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-align: right;
+  
+  -webkit-transition: all 0.3s;
+     -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+       -o-transition: all 0.3s;
+          transition: all 0.3s;
+}
+
+ul.order-list li:hover > h4 {
+  margin-top: 8px;
+}
+
+ul.order-list li > h5 {
+  margin-top: 0px;
+  text-align: right;
+  display: none;
+  
+  -webkit-transition: all 0.3s;
+     -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+       -o-transition: all 0.3s;
+          transition: all 0.3s;
+}
+
+ul.order-list li:hover > h5 {
+  margin-top: 3px;
+  display: block; 
+}
+section#counter-stats {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.stats {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.stats .fa {
+  color: #008080;
+  font-size: 60px;
+}
+.wizard-main form {
+  font-family: 'Ubuntu', sans-serif;
+}
+.wizard-main form .group {
+  display: block;
+  width: 100%;
+  float: left;
+  position: relative;
+  margin-bottom: 25px;
+}
+.wizard-main form .group label {
+  font-size: 12px;
+  float: left;
+  width: 100%;
+  display: block;
+  margin-bottom: 5px;
+}
+.wizard-main form .group input {
+  float: left;
+  width: 100%;
+  height: 30px;
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  border: 0;
+  color: #fff;
+  border-bottom: 1px solid #d9d9d9;
+  background-color: transparent;
+  border-radius:0 !important;
+  box-shadow:unset;
+}
+.wizard-main form .group input::-webkit-input-placeholder {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  color: #d9d9d9;
+  text-align: left;
+}
+.wizard-main form .group input:-moz-placeholder {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  color: #d9d9d9;
+  text-align: left;
+}
+.wizard-main form .group input::-moz-placeholder {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  color: #d9d9d9;
+  text-align: left;
+}
+.wizard-main form .group input:-ms-input-placeholder {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  color: #d9d9d9;
+  text-align: left;
+}
+.wizard-main form .group input:focus {
+  outline: none;
+  border-bottom-color: #00b0ff;
+}
+.wizard-main form .group input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.wizard-main form .group input:focus:-moz-placeholder {
+  color: transparent;
+}
+.wizard-main form .group input:focus::-moz-placeholder {
+  color: transparent;
+}
+.wizard-main form .group input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.flexbox-masonry article, .flexbox-masonry article .box{
+    background: transparent !important;
+    padding:0 !important;
+}
+#methodpay {
+    text-transform: capitalize;
+}
+</style>
+<div class="wizard">
+  <ul class="wizard-header">
+    <li class="active">
+      <div class="wizard-step">
+        <i class="fa fa-user"></i>
+      </div>
+      <div class="wizard-title">Chequeo</div>
+    </li>
+    <li>
+      <div class="wizard-step">
+        <i class="fa fa-location-arrow"></i>
+      </div>
+      <div class="wizard-title">Contacto</div>
+    </li>
+    <li>
+      <div class="wizard-step">
+        <i class="fa fa-briefcase"></i>
+      </div>
+      <div class="wizard-title">Pago</div>
+    </li>
+    <li>
+      <div class="wizard-step">
+        <i class="fa fa-money"></i>
+      </div>
+      <div class="wizard-title">Listo</div>
+    </li>
+  </ul>
+  <ul class="wizard-main">
+    <li><h1>Productos</h1> 
+          <div class='order'>
+    <h5>Orden #0101</h5>
+    <ul class='order-list'>
+
+    </ul>
+    
+    <section id="counter-stats" class="wow fadeInRight" data-wow-duration="1.4s">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-3 stats">
+                <i class="fa fa-dollar" aria-hidden="true"></i><br>
+                <div class="counting pesos headlinlee" >0</div>
+                <h5 style="text-align:center;">monto total</h5>
+            </div>
+
+         <!--   <div class="col-lg-3 stats">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <div class="counting" data-count="280">0</div>
+                <h5>Projects done</h5>
+            </div> -->
+
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+
+</section>
+  </div>
+
+    </li>
+    <li>
+
+
+    <h1>Contacto y envío</h1>
+   <div class="flexbox-masonry" data-cols="1" data-breakpoints="700:2,800:3,1280:4">
+  <article>
+    <div class="box">                           
+                <div class="icon">
+                    <div class="image"><i class="fa fa-address-card"></i></div>
+                    <div class="info papercard">
+                        <h3 class="title">Contacto</h3>
+                        <p>Tu e-mail es necesario; pero para tener mejor contacto, sería genial que nos brindes tu número de teléfono fijo y celular. Déjalo en blanco si sólo quieres operar con e-mail.
+                             <form action="#" if="cc-form" autocomplete="off" class="requiredfields">
+
+                <div class="group card-name">
+                  <div class="exp">
+                    <input type="email" class="exp__input fieldstep2" id="email" placeholder="tu_correo@gmail.com" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" style="color:#232323;">
+                    <label class="exp__label" for="example" data-icon="&#xf0e0;" data-icon-ok="&#xf00c;">Correo electrónico</label>
+                  </div>
+                  <div class="exp">
+                    <input type="tel" class="exp__input fieldstep2" id="telfijo" placeholder="+54 11 ..." pattern="[0-9]{20}" style="color:#232323;" required>
+                    <label class="exp__label" for="example" data-icon="&#xf095;" data-icon-ok="&#xf00c;">Teléfono</label>
+                  </div>
+                  <div class="exp">
+                    <input type="tel" class="exp__input fieldstep2" id="telmovil" placeholder="+54 9 11 ..." pattern="[0-9]{20}" style="color:#232323;" required>
+                    <label class="exp__label" for="example" data-icon="&#xf10b;" data-icon-ok="&#xf00c;">Celular</label>
+                  </div>
+                </div>
+
+           
+            </form>
+                        
+                     <!--   <div class="more">
+                            <a href="#" title="Title Link">
+                                Read More <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div> 
+  </article>
+  <article>
+    <div class="box">                           
+                <div class="icon">
+                    <div class="image"><i class="fa fa-map-signs"></i></div>
+                    <div class="info papercard papercard-primary">
+                        <h3 class="title">Envío</h3>
+                        <p>Necesitamos una precisa localidad para que el libro llegue a la puerta de tu casa. Sin costo de envío.</p>
+                        <form action="#" if="cc-form" autocomplete="off" class="requiredfields">
+                           <div class="group card-name">
+                    <label for="name">País</label>
+                    <select name="sources" id="sources" class="custom-select sources" placeholder="Argentina">
+                              <option value="argentina" selected>Argentina</option>
+                           <!--   <option value="chile">Chile</option>
+                              <option value="uruguay">Uruguay</option> -->
+                            </select>
+                    <label for="name" style="margin-top:10px">Provincia</label>
+                    <input type="text" id="provincia" class="fieldstep2" type="text" maxlength="20" placeholder="ej: Santa Fe">
+                    <label for="name">Ciudad</label>
+                    <input type="text" id="ciudad" class="fieldstep2" type="text" maxlength="20" placeholder="ej: Santa Fe Capital">
+                    <label for="name">Código Postal</label>
+                    <input type="text" id="zipcp" class="fieldstep2" type="text" maxlength="10" placeholder="3000"  pattern= "[0-9]">
+              
+                    <label for="name">Dirección</label>
+                    <input type="text" id="direccion" class="fieldstep2" type="text" maxlength="20" placeholder="¿Dónde vives precisamente?" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+">
+                       </div>
+                </form>
+                        
+                      <!--  <div class="more">
+                            <a href="#" title="Title Link">
+                                Read More <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div> 
+  </article>
+  <article>
+    <div class="box" >                           
+                <div class="icon">
+                    <div class="image"><i class="fa fa-usd"></i></div>
+                    <div class="info papercard papercard-secondary" style="overflow:unset;">
+                        <h3 class="title">Métodos de pago</h3>
+                       
+                       <div class="containerswitches">
+  <div class="radio-tile-group">
+
+    <div class="input-container">
+      <input id="walk" class="radio-button" type="radio" name="radio" value="credit_card" checked/>
+      <div class="radio-tile">
+        <div class="icon walk-icon">
+          <i class="fa fa-credit-card"></i>
+        </div>
+        <label for="walk" class="radio-tile-label">Crédito</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input id="bike" class="radio-button" type="radio" name="radio" value="debit_card"/>
+      <div class="radio-tile">
+        <div class="icon bike-icon">
+          <i class="fa fa-credit-card-alt"></i>
+        </div>
+        <label for="bike" class="radio-tile-label">Débito</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input id="drive" class="radio-button" type="radio" name="radio" value="rapipago"/>
+      <div class="radio-tile">
+        <div class="icon car-icon">
+          <i class="fa fa-send"></i>
+        </div>
+        <label for="drive" class="radio-tile-label">RapiPago</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input id="fly" class="radio-button" type="radio" name="radio" value="pagofacil" />
+      <div class="radio-tile">
+        <div class="icon fly-icon">
+          <i class="fa fa-exchange"></i>
+        </div>
+        <label for="fly" class="radio-tile-label">PagoFacil</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input id="fly" class="radio-button" type="radio" name="radio" value="redlink"/>
+      <div class="radio-tile">
+        <div class="icon fly-icon">
+          <i class="fa fa-bank"></i>
+        </div>
+        <label for="fly" class="radio-tile-label">RedLink</label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+                        
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div> 
+  </article>
+
+      <article>
+    <div class="box">                           
+                <div class="icon">
+                    <div class="image"><i class="fa fa-lock"></i></div>
+                    <div class="info papercard papercard-safe">
+                        <h3 class="title" style="overflow:unset;">Seguro</h3>
+                        <p style="text-align:left;">
+                         Tus datos sensibles (como tarjetas), nunca llegarán a nuestros servidores. Operarán con el banco directamente; otorgándote un código único de uso para ésta compra.<br>
+      <i class="fa fa-lock"></i> Pago seguro<br>
+      <i class="fa fa-terminal"></i> Cifrado extremo a extremo<br>
+      <i class="fa fa-expeditedssl"></i> Certificado SSL/TLS<br>
+    <br>
+                        </p>
+                     <!--   <div class="more">
+                            <a href="#" title="Title Link">
+                                Más información <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div> 
+  </article>
+
+    <article>
+    <div class="box">                           
+                <div class="icon">
+                    <div class="image"><i class="fa fa-info-circle"></i></div>
+                    <div class="info papercard papercard-dark">
+                        <h3 class="title" style="overflow:unset;">Información</h3>
+                        <p>
+                            Sin importar la cantidad de páginas que tenga el libro, su precio original configurado por su autor no será alterado bajo ninguna circunstancia.<br>
+                        </p>
+                        <div class="more">
+                            <a href="#" title="Title Link">
+                                Más información <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div> 
+  </article>
+  <!-- <article>
+    <img src="https://sverige.science/content/images/2015/04/bra-fett-daligt-fett.jpg" alt="Fat man" />
+    <h2>Ny typ av fettceller omvandlar de dåliga till bra</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam deleniti deserunt inventore reiciendis repellat architecto incidunt consequatur, quas at minima tempora odit, velit dolorem tempore culpa explicabo aliquid doloremque voluptas?</p> -->
+
+   
+
+ 
+
+
+    </li>
+    <li>
+    <h1>Pago con débito o crédito</h1>
+    <div class="checkout">
+  <div class="credit-card-box">
+    <div class="flip">
+      <div class="front">
+        <div class="chip"></div>
+        <div class="logo">
+          <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+            <g>
+              <g>
+                <path d="M44.688,16.814h-3.004c-0.933,0-1.627,0.254-2.037,1.184l-5.773,13.074h4.083c0,0,0.666-1.758,0.817-2.143
+                         c0.447,0,4.414,0.006,4.979,0.006c0.116,0.498,0.474,2.137,0.474,2.137h3.607L44.688,16.814z M39.893,26.01
+                         c0.32-0.819,1.549-3.987,1.549-3.987c-0.021,0.039,0.317-0.825,0.518-1.362l0.262,1.23c0,0,0.745,3.406,0.901,4.119H39.893z
+                         M34.146,26.404c-0.028,2.963-2.684,4.875-6.771,4.875c-1.743-0.018-3.422-0.361-4.332-0.76l0.547-3.193l0.501,0.228
+                         c1.277,0.532,2.104,0.747,3.661,0.747c1.117,0,2.313-0.438,2.325-1.393c0.007-0.625-0.501-1.07-2.016-1.77
+                         c-1.476-0.683-3.43-1.827-3.405-3.876c0.021-2.773,2.729-4.708,6.571-4.708c1.506,0,2.713,0.31,3.483,0.599l-0.526,3.092
+                         l-0.351-0.165c-0.716-0.288-1.638-0.566-2.91-0.546c-1.522,0-2.228,0.634-2.228,1.227c-0.008,0.668,0.824,1.108,2.184,1.77
+                         C33.126,23.546,34.163,24.783,34.146,26.404z M0,16.962l0.05-0.286h6.028c0.813,0.031,1.468,0.29,1.694,1.159l1.311,6.304
+                         C7.795,20.842,4.691,18.099,0,16.962z M17.581,16.812l-6.123,14.239l-4.114,0.007L3.862,19.161
+                         c2.503,1.602,4.635,4.144,5.386,5.914l0.406,1.469l3.808-9.729L17.581,16.812L17.581,16.812z M19.153,16.8h3.89L20.61,31.066
+                         h-3.888L19.153,16.8z"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="number"></div>
+        <div class="card-holder">
+          <label>Nombre</label>
+          <div></div>
+        </div>
+        <div class="card-expiration-date">
+          <label>Expira</label>
+          <div></div>
+        </div>
+      </div>
+      <div class="back">
+        <div class="strip"></div>
+        <div class="logo">
+          <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+            <g>
+              <g>
+                <path d="M44.688,16.814h-3.004c-0.933,0-1.627,0.254-2.037,1.184l-5.773,13.074h4.083c0,0,0.666-1.758,0.817-2.143
+                         c0.447,0,4.414,0.006,4.979,0.006c0.116,0.498,0.474,2.137,0.474,2.137h3.607L44.688,16.814z M39.893,26.01
+                         c0.32-0.819,1.549-3.987,1.549-3.987c-0.021,0.039,0.317-0.825,0.518-1.362l0.262,1.23c0,0,0.745,3.406,0.901,4.119H39.893z
+                         M34.146,26.404c-0.028,2.963-2.684,4.875-6.771,4.875c-1.743-0.018-3.422-0.361-4.332-0.76l0.547-3.193l0.501,0.228
+                         c1.277,0.532,2.104,0.747,3.661,0.747c1.117,0,2.313-0.438,2.325-1.393c0.007-0.625-0.501-1.07-2.016-1.77
+                         c-1.476-0.683-3.43-1.827-3.405-3.876c0.021-2.773,2.729-4.708,6.571-4.708c1.506,0,2.713,0.31,3.483,0.599l-0.526,3.092
+                         l-0.351-0.165c-0.716-0.288-1.638-0.566-2.91-0.546c-1.522,0-2.228,0.634-2.228,1.227c-0.008,0.668,0.824,1.108,2.184,1.77
+                         C33.126,23.546,34.163,24.783,34.146,26.404z M0,16.962l0.05-0.286h6.028c0.813,0.031,1.468,0.29,1.694,1.159l1.311,6.304
+                         C7.795,20.842,4.691,18.099,0,16.962z M17.581,16.812l-6.123,14.239l-4.114,0.007L3.862,19.161
+                         c2.503,1.602,4.635,4.144,5.386,5.914l0.406,1.469l3.808-9.729L17.581,16.812L17.581,16.812z M19.153,16.8h3.89L20.61,31.066
+                         h-3.888L19.153,16.8z"/>
+              </g>
+            </g>
+          </svg>
+
+        </div>
+        <div class="ccv">
+          <label>Código</label>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form id="pay" name="pay" action="#" class="form" autocomplete="off">
+  <div class="group">
+    <fieldset>
+      <label for="card-number">Número de tarjeta</label>
+      <input type="num" id="card-number" class="input-cart-number fieldstep3" maxlength="4" style="width: 23%;" />
+      <input type="num" id="card-number-1" class="input-cart-number fieldstep3" maxlength="4" style="width: 23%;"/>
+      <input type="num" id="card-number-2" class="input-cart-number fieldstep3" maxlength="4" style="width: 23%;"/>
+      <input type="num" id="card-number-3" class="input-cart-number fieldstep3" maxlength="4" style="width: 22%;"/>
+      <input type="text" id="cardNumber" value="" data-checkout="cardNumber" style="display:none;"/>
+    </fieldset>
+    <h5 style="text-align:center;" id="methodpay"></h5>
+    <fieldset>
+      <label for="card-holder">Nombre y apellido</label>
+      <input type="text" id="cardholderName" data-checkout="cardholderName" value="APRO" class="fieldstep3"/>
+    </fieldset>
+    <fieldset class="fieldset-expiration">
+      <label for="card-expiration-month">Fecha de expiración</label>
+      <div class="select">
+        <select id="cardExpirationMonth card-expiration-month" data-checkout="cardExpirationMonth" class="fieldstep3">
+          <option></option>
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+        </select>
+      </div>
+      <div class="select">
+        <select id="cardExpirationYear card-expiration-year" data-checkout="cardExpirationYear" class="fieldstep3">
+          <option></option>
+          <option>2016</option>
+          <option>2017</option>
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+          <option>2021</option>
+          <option>2022</option>
+          <option>2023</option>
+          <option>2024</option>
+          <option>2025</option>
+        </select>
+      </div>
+    </fieldset>
+    <fieldset class="fieldset-ccv">
+      <label for="card-ccv">Código</label>
+      <input type="text" id="securityCode" data-checkout="securityCode" placeholder="123" maxlength="3" class="fieldstep3"/>
+    </fieldset>
+
+        <fieldset>
+      <label for="card-holder">Tipo de documento</label>
+      <select id="docType" data-checkout="docType"></select>
+    </fieldset>
+
+    <fieldset>
+      <label for="card-holder">Número de documento</label>
+      <input type="text" id="docNumber" data-checkout="docNumber" placeholder="11 111 111" class="fieldstep3"/>
+    </fieldset>
+</div>
+
+</div>
+
+    </li>
+    <li id="listopay">
+
+
+        <div class="pay_loading acenter flex">
+  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+
+
+
+    </li>
+  </ul>
+  <div class="wizard-footer">
+    <button class="leewizard nextmoz prevmoz pull-left" style="position:fixed; bottom:8px; left: 8px;">Volver</button>
+    <button class="leewizard nextmoz pull-right next-button" style="position:fixed; bottom:8px; right: 8px;">Continuar</button>
+    
+  </div>
+</div>
+
+<script >
+initselect();
+var shopcart = getCart();
+var total = 0
+for (var i = 0; i < shopcart.items.length; i++) {
+$('.order-list').append('<li><img src="'+shopcart.items[i].img+'"><h4>'+shopcart.items[i].title+' x '+shopcart.items[i].qty+'</h4><h5>$'+shopcart.items[i].price+'</h5></li>');
+total += (cart.items[i].qty * parseFloat(cart.items[i].price));
+
+}
+$('.pesos').html(total);
+console.log("PRECIO: ", total);
+
+
+function validation(value){
+    return (value.length) ? true : false;
+    // same as if (value.length) {return true;} else {return false;}
+}
+
+// Detecting the event for any field of class field
+
+
+
+var MP_key = 'APP_USR-bdd1b3e5-3244-4dd3-b9c7-719f20716134'; ///sandbox
+
+function addEvent(el, eventName, handler) {
+    if (el.addEventListener) {
+        el.addEventListener(eventName, handler);
+    } else {
+        el.attachEvent('on' + eventName, function () {
+            handler.call(el);
+        });
+    }
+};
+
+
+
+function MPinit() {
+
+    Mercadopago.setPublishableKey(MP_key);
+    var idTypes = Mercadopago.getIdentificationTypes();
+
+}
+
+MPinit();
+
+function getBin() {
+    var ccNumber = document.querySelector('input[data-checkout="cardNumber"]');
+    return ccNumber.value.replace(/[ .-]/g, '').slice(0, 6);
+};
+
+
+function guessingPaymentMethod(event) {
+    var bin = getBin();
+
+    if (event.type == "keyup") {
+        if (bin.length >= 6) {
+            Mercadopago.getPaymentMethod({
+                "bin": bin
+            }, setPaymentMethodInfo);
+        }
+    } else {
+        setTimeout(function () {
+            if (bin.length >= 6) {
+                Mercadopago.getPaymentMethod({
+                    "bin": bin
+                }, setPaymentMethodInfo);
+            }
+        }, 100);
+    }
+};
+
+
+
+
+
+function setPaymentMethodInfo(status, response) {
+    if (status == 200) {
+
+
+        // do somethings ex: show logo of the payment method
+        var form = document.querySelector('#pay');
+
+        if (document.querySelector("input[name=paymentMethodId]") == null) {
+            var paymentMethod = document.createElement('input');
+            paymentMethod.setAttribute('name', "paymentMethodId");
+            paymentMethod.setAttribute('type', "hidden");
+            paymentMethod.setAttribute('value', response[0].id);
+
+            form.appendChild(paymentMethod);
+
+            console.log(paymentMethod)
+
+        } else {
+            document.querySelector("input[name=paymentMethodId]").value = response[0].id;
+        }
+    }
+};
+
+
+
+
+/**
+ * Gets the first name, technically gets all words leading up to the last
+ * Example: "Blake Robertson" --> "Blake"
+ * Example: "Blake Andrew Robertson" --> "Blake Andrew"
+ * Example: "Blake" --> "Blake"
+ * @param str
+ * @returns {*}
+ */
+exports.getFirstName = function(str) {
+    var arr = str.split(' ');
+    if( arr.length === 1 ) {
+        return arr[0];
+    }
+    return arr.slice(0, -1).join(' '); // returns "Paul Steve"
+}
+
+/**
+ * Gets the last name (e.g. the last word in the supplied string)
+ * Example: "Blake Robertson" --> "Robertson"
+ * Example: "Blake Andrew Robertson" --> "Robertson"
+ * Example: "Blake" --> "<None>"
+ * @param str
+ * @param {string} [ifNone] optional default value if there is not last name, defaults to "<None>"
+ * @returns {string}
+ */
+exports.getLastName = function(str, ifNone) {
+    var arr = str.split(' ');
+    if(arr.length === 1) {
+        return ifNone || "<None>";
+    }
+    return arr.slice(-1).join(' ');
+}
+
+/*name: 1 or 2 main names
+lastName: the main lastname
+secondLastName: The second lastname
+The code is:
+
+function parseName(input) {
+        var fullName = input || "";
+        var result = {};
+
+        if (fullName.length > 0) {
+            var nameTokens = fullName.match(/[A-ZÁ-ÚÑÜ][a-zá-úñü]+|([aeodlsz]+\s+)+[A-ZÁ-ÚÑÜ][a-zá-úñü]+/g) || [];
+
+            if (nameTokens.length > 3) {
+                result.name = nameTokens.slice(0, 2).join(' ');
+            } else {
+                result.name = nameTokens.slice(0, 1).join(' ');
+            }
+
+            if (nameTokens.length > 2) {
+                result.lastName = nameTokens.slice(-2, -1).join(' ');
+                result.secondLastName = nameTokens.slice(-1).join(' ');
+            } else {
+                result.lastName = nameTokens.slice(-1).join(' ');
+                result.secondLastName = "";
+            }
+        }
+
+        return result;
+}
+*/
+     console.log($("input:radio.radio-button:checked").val());
+
+
+[].slice.call(document.querySelectorAll('.wizard')).forEach(wizard => {
+  let buttons = wizard.querySelectorAll('.leewizard'),
+      header = wizard.querySelectorAll('.wizard-header > li'),
+      main = wizard.querySelectorAll('.wizard-main > li'),
+      selected = 0;
+  
+  function update(step) {
+    selected = Math.max(0, Math.min(main.length - 1, selected + step));
+    for(let i = 0; i < main.length; i++) {
+      header[i].className = i == selected ? 'active' : i < selected ? 'complete' : '';
+      main[i].style.left = ((i - selected) * wizard.offsetWidth) + 'px';
+    }
+
+    buttons[0].innerText = selected == main.length - 4 ? 'Volver' : 'Previo';
+    buttons[0] = selected == main.length - 4 ? cerrarmodal() : '';
+    buttons[1].innerText = selected == main.length - 2 ? 'Comprar' : 'Continuar';
+    buttons[1] = selected == main.length - 2 ? validaritems() : $(buttons[1]).attr("disabled", true);
+    buttons[1] = selected == main.length - 3 ? validaritemsshop() : $(buttons[1]).attr("disabled", true);
+    if($("input:radio.radio-button:checked").val() == "credit_card" || $("input:radio.radio-button:checked").val() == "debit_card"){
+    buttons[1].id = selected == main.length - 3 ? 'paynow' : '';
+
+    buttons[1].id = selected == main.length - 3 ? addEvent(document.querySelector('#paynow'),'click',doPay) : '';
+    buttons[1].innerText = selected == main.length - 2 ? 'Comprar' : 'Continuar';
+    $("input[name='radio']").change(function(){
+  console.log($("input:radio.radio-button:checked").val());
+      if($("input:radio.radio-button:checked").val() == "rapipago" || $("input:radio.radio-button:checked").val() == "pagofacil" || $("input:radio.radio-button:checked").val() == "redlink") {
+        buttons[1].id = selected == main.length - 3 ? 'paynow' : '';
+    buttons[1].id = selected == main.length - 3 ? addEvent(document.querySelector('#paynow'),'click',doPay) : '';
+    buttons[1].innerText = selected == main.length - 3 ? 'Comprar' : 'Continuar';
+  }
+});
+  }
+
+  };
+
+
+$(".fieldstep2").keyup(function() {
+    
+    // checking each item
+    $(".fieldstep2").each(function(index, item){
+
+        if(!validation($(item).val())){
+            $(buttons[1]).prop("disabled", true);
+            return false; // break the loop. there is a validation error
+        }
+        
+        // if is the last item and there aren't validation errors
+        if ($(item).attr('id') == $(".fieldstep2").last().attr('id'))
+            $(buttons[1]).prop("disabled", false);
+    });
+})
+
+function validaritems(){
+    $(".fieldstep2").each(function(index, item){
+
+        if(!validation($(item).val())){
+            $(buttons[1]).prop("disabled", true);
+            return false; // break the loop. there is a validation error
+        }
+        
+        // if is the last item and there aren't validation errors
+        if ($(item).attr('id') == $(".fieldstep2").last().attr('id'))
+            $(buttons[1]).prop("disabled", false);
+    });
+}
+
+$(".fieldstep3").keyup(function() {
+    
+    // checking each item
+    $(".fieldstep3").each(function(index, item){
+
+        if(!validation($(item).val())){
+            $(buttons[1]).prop("disabled", true);
+            return false; // break the loop. there is a validation error
+        }
+        
+        // if is the last item and there aren't validation errors
+        if ($(item).attr('id') == $(".fieldstep3").last().attr('id'))
+            $(buttons[1]).prop("disabled", false);
+    });
+})
+
+function validaritemsshop(){
+    $(".fieldstep3").each(function(index, item){
+
+        if(!validation($(item).val())){
+            $(buttons[1]).prop("disabled", true);
+            return false; // break the loop. there is a validation error
+        }
+        
+        // if is the last item and there aren't validation errors
+        if ($(item).attr('id') == $(".fieldstep3").last().attr('id'))
+            $(buttons[1]).prop("disabled", false);
+    });
+}
+  buttons[0].addEventListener('click', event => update(-1));
+  buttons[1].addEventListener('click', event => update(1));
+  function doPay(event) {
+    event.preventDefault();
+    console.log("DO PAY FIRED");
+    if (!doSubmit) {
+        
+
+        Mercadopago.clearSession(); ///mega important!!!
+
+        Mercadopago.setPublishableKey(MP_key);
+
+        var $form = document.querySelector('#pay');
+        var data = {};
+        if($("input:radio.radio-button:checked").val() == "credit_card" || $("input:radio.radio-button:checked").val() == "debit_card"){
+                Mercadopago.createToken($form, sdkResponseHandler); // The function "sdkResponseHandler" is defined below
+              } else {
+                toast("Procesando pago...");
+                 $('#listopay').html('<div class="pay_loading acenter flex"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>');
+                 update(4);
+                data.items = cart.items;
+
+                    data.payer = comprador;
+                        data.email = $('#email').val();
+                        data.telfijo = $('#telfijo').val();
+                        data.telmovil = $('#telmovil').val();
+                        data.provincia = $('#provincia').val();
+                        data.ciudad = $('#ciudad').val();
+                        data.zipcp = $('#zipcp').val();
+                        data.direccion = $('#direccion').val();
+                        data.transaction_amount = total;
+                        data.payment_method_id = $("input:radio.radio-button:checked").val();
+                        data.description = "Shop² "+data.payment_method_id+": ";
+                for (var i = 0; i < data.items.length; i++) {
+                  data.description += "["+data.items[i]._id+"] "+data.items[i].title+"";
+           }
+           data.description += " a "+data.payer+" - "+data.telfijo+" - "+data.telmovil+" - "+data.email+""; 
+           console.log(data.description); 
+                    $.ajax({
+                        type: 'POST',
+                        data: JSON.stringify(data),
+                        contentType: 'application/json',
+                        url: 'https://quay.stream:3342/endpoint',                       
+                        success: function(data) {
+                            toast("Pago procesado.");
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+                            
+                            $('#listopay').html('<div class="Message Message--orange"><div class="Message-icon"><i class="fa fa-check"></i></div><div class="Message-body"><p>Transferencia procesada. </p><p>Buen trabajo. Para proceder con la compra, vé con el ticket y abona en efectivo.</p></div><button class="Message-close js-messageClose"><i class="fa fa-times"></i></button></div><div class="info papercard"><iframe src="'+data.transaction_details.external_resource_url+'" style="width:90%; height: 80%; margin: 0 auto;">Tu navegador no soporta frames.</iframe></div>'); 
+                        }
+                    });
+              }
+
+        return false;
+    }
+};
+
+
+
+
+function sdkResponseHandler(status, response) {
+
+   var result = {}
+   console.log("SDK MP:", status);
+   console.log("SDK RES:", response);
+    if (status != 200 && status != 201) {
+        var error_data = response;
+        last = error_data.cause.length-1;
+        var message = errorHandler(error_data.cause[last].code)
+        toast(message);
+
+        result.success = false;
+        result.error = message;
+
+    } else {
+        toast("Enviando datos...");
+        result.success = true;
+        result.token = response.id;
+        
+                    data.items = cart.items;
+                    data.payer = comprador;
+                    data.token = response.token;
+                    data.transaction_amount = total;
+                        data.email = $('#email').val();
+                        data.email = total;
+                        data.telfijo = $('#telfijo').val();
+                        data.telmovil = $('#telmovil').val();
+                        data.provincia = $('#provincia').val();
+                        data.ciudad = $('#ciudad').val();
+                        data.zipcp = $('#zipcp').val();
+                        data.direccion = $('#direccion').val();
+                        data.payment_method_id = $("input:radio.radio-button:checked").val();
+                    $.ajax({
+                        type: 'POST',
+                        data: JSON.stringify(data),
+                        contentType: 'application/json',
+                        url: 'https://quay.stream:3342/endpoint',                       
+                        success: function(data) {
+                            toast("Procesando pago...");
+                            console.log('success');
+
+                            console.log(JSON.stringify(data));
+                            $('#listopay').html('<div class="Message Message--green"><div class="Message-icon"><i class="fa fa-check"></i></div><div class="Message-body"><p>Transferencia procesada. </p><p>Buen trabajo. Tu pago ha sido aprobado.</p></div><button class="Message-close js-messageClose"><i class="fa fa-times"></i></button></div>'); 
+                        }
+                    });
+
+     //   doSubmit = true;
+
+
+        //  form.submit();
+    }
+
+    console.log(result);
+};
+
+});
+
+
+
+
+
+function errorHandler(code) {
+
+    var message = '';
+    switch (code) {
+        case "205":
+            message = "Error, el número de la TDC no puede estar vácio"
+            break;
+
+        case "208":
+            message = "Error, mes de expiración no puede estar vácio"
+            break;
+
+
+        case "209":
+            message = "Error, año de expiración no puede estar vácio"
+            break;
+
+        case "214":
+            message = "Error, documento de identidad inválido"
+            break;
+
+
+        case "221":
+            message = "Error, el nombre del tarjetahabiente no puede ser vácio"
+            break;
+
+
+        case "325":
+            message = "Error, mes de expiración inválido"
+            break;
+
+        case "326":
+            message = "Error, año de expiración inválido"
+            break;
+
+
+        case "E301":
+            message = "Error, año de expiración inválido"
+            break;
+
+        case "E302":
+            message = "Error, código de seguridad inválido"
+            break;
+
+        default:
+            message = "Error en datos de la TDC"
+            break;
+
+    }
+
+    return message;
+
+}
+
+
+$('.input-cart-number').on('keyup change', function(){
+  $t = $(this);
+  
+  if ($t.val().length > 3) {
+    $t.next().focus();
+  }
+  
+  var card_number = '';
+  $('.input-cart-number').each(function(){
+    card_number += $(this).val() + ' ';
+    if ($(this).val().length == 4) {
+      $(this).next().focus();
+    }
+  })
+  
+  $('.credit-card-box .number').html(card_number);
+  $('#cardNumber').val(card_number);
+});
+
+$('#cardholderName').on('keyup change', function(){
+  $t = $(this);
+  $('.credit-card-box .card-holder div').html($t.val());
+});
+
+
+$('#cardExpirationMonth, #cardExpirationYear').on('keyup change', function(){
+  m = $('#card-expiration-month option').index($('#card-expiration-month option:selected'));
+  m = (m < 10) ? '0' + m : m;
+  y = $('#card-expiration-year').val().substr(2,2);
+  $('.card-expiration-date div').html(m + '/' + y);
+})
+
+$('#securityCode').on('focus', function(){
+  $('.credit-card-box').addClass('hover');
+}).on('blur', function(){
+  $('.credit-card-box').removeClass('hover');
+}).on('keyup change', function(){
+  $('.ccv div').html($(this).val());
+});
+
+
+setTimeout(function(){
+  $('#card-ccv').focus().delay(1000).queue(function(){
+    $(this).blur().dequeue();
+  });
+}, 500); 
+
+function getCreditCardType(accountNumber) {
+  if (/^5[1-5]/.test(accountNumber)) {
+    result = 'mastercard';
+  } else if (/^4/.test(accountNumber)) {
+    result = 'visa';
+  } else if ( /^(5018|5020|5038|6304|6759|676[1-3])/.test(accountNumber)) {
+    result = 'maestro';
+  } else {
+    result = 'unknown'
+  }
+  return result;
+}
+
+$('#card-number').change(function(){
+  console.log(getCreditCardType($(this).val()));
+  if(getCreditCardType($(this).val()) != "unknown") {
+            $('#methodpay').html(getCreditCardType($(this).val())); }
+});
+
+$('.counting').data('counting', total);
+
+FlexboxMasonry.run();
+doSubmit = false;
+addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'keyup', guessingPaymentMethod);
+addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'change', guessingPaymentMethod);
+
+/********************** MÉTODOS DE PAGO ****************************/
+
+
+/*
+$('.counting').each(function() {
+  var $this = $(this),
+      countTo = $this.attr('data-count');
+  
+  $({ countNum: $this.text()}).animate({
+    countNum: countTo
+  },
+
+  {
+
+    duration: 3000,
+    easing:'linear',
+    step: function() {
+      $this.text(Math.floor(this.countNum));
+    },
+    complete: function() {
+      $this.text(this.countNum);
+      //alert('finished');
+    }
+
+  });  
+  
+
+});
+*/
+
+
+/*function getCreditCardType(accountNumber) {
+  if (/^5[1-5]/.test(accountNumber)) {
+    result = 'mastercard';
+  } else if (/^4/.test(accountNumber)) {
+    result = 'visa';
+  } else if ( /^(5018|5020|5038|6304|6759|676[1-3])/.test(accountNumber)) {
+    result = 'maestro';
+  } else {
+    result = 'unknown'
+  }
+  return result;
+}
+
+$('#card-number').change(function(){
+  console.log(getCreditCardType($(this).val()));
+})
+*/
+//# sourceURL=comprar.js
+</script>

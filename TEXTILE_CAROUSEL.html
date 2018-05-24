@@ -1,0 +1,415 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/Skupienski/pen/oBBBGw?limit=all&page=8&q=ecommerce" />
+
+<link rel='stylesheet prefetch' href='https://npmcdn.com/flickity@2/dist/flickity.css'>
+<style class="cp-pen-styles">* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: sans-serif;
+  background: #161616;
+}
+
+
+/* Works slider */
+
+.slider_cont {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60vh;
+  margin: auto;
+}
+
+.parallax_slider {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.parallax__layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.parallax__layer--bg {
+  pointer-events: none;
+  width: 125%;
+  max-width: 1200px;
+  height: 100%;
+  margin-left: -40%;
+  display: table;
+}
+
+.parallax__layer--bg span {
+  color: #000;
+  font-size: 18vw;
+  font-weight: bold;
+  line-height: 2.3;
+  white-space: nowrap;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.parallax__layer__cell {
+  position: absolute;
+  width: 100%;
+  margin: 0 5%;
+  height: 100%;
+}
+
+.parallax__layer__cell:nth-child(1) {
+  left: 0%;
+}
+
+.parallax__layer__cell:nth-child(2) {
+  left: 60%;
+}
+
+.parallax__layer__cell:nth-child(3) {
+  left: 120%;
+}
+
+.parallax__layer__cell:nth-child(4) {
+  left: 180%;
+}
+
+.parallax__layer__cell:nth-child(5) {
+  left: 240%;
+}
+
+
+/* carousel */
+.carousel-cell {
+  height: auto;
+  width: 55%;
+  max-width: 900px;
+  margin: 40px 6%;
+  /* total width = 50% + 5% + 5% = 60% */
+  opacity: 1;
+}
+
+.carousel-cell.is-next {
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.carousel-cell.is-previous {
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.carousel-cell.is-selected {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #000;
+  opacity: 0.64;
+  transition: opacity 0.6s;
+}
+
+.carousel-cell.is-selected .overlay {
+  opacity: .1;
+}
+
+.carousel-cell img {
+  width: 100%;
+}
+
+
+/* Aditional styling */
+
+.flickity-prev-next-button.next:after {
+  position: relative;
+  content: 'next';
+}
+
+.flickity-prev-next-button.previous:after {
+  position: relative;
+  content: 'prev';
+}
+
+.flickity-prev-next-button .arrow {
+  display: none;
+}
+
+
+.flickity-prev-next-button:hover {
+  background: transparent;
+}
+
+
+/* hide disabled button and dots */
+
+.flickity-prev-next-button:disabled {
+  display: none;
+}
+
+.flickity-page-dots {
+  display: none;
+}
+
+.flickity-prev-next-button {
+  font-size: 0.95em;
+  background: transparent!important;
+  color: #ccc;
+}
+
+
+/* Slider status */
+
+.slider_status {
+  display: inline-block;
+  position: relative;
+  top: 100%;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  height: 10%;
+  bottom: 10%;
+  font-size: 0.75em;
+  text-align: center;
+  color: #333;
+  letter-spacing: 20px;
+}
+
+.slider_status .cell_number {
+  color: #bbb;
+}
+
+.slider_status .dash_line {
+  letter-spacing: 2em;
+}
+
+.title_cont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  display: block;
+  max-width: 100%;
+  cursor: pointer;
+  z-index: 10;
+  overflow: hidden;
+  text-align: center;
+}
+
+.case_title {
+  display: block;
+  font-size: 3.3em;
+  font-weight: bold;
+  font-family: Lato, sans-serif;
+  color: white;
+  text-transform: uppercase;
+}
+
+.subtitle_cont {
+  display:block;
+  overflow:hidden;
+  height:18px;
+}
+
+.subtitle {
+  display: block;
+  height:100%;
+  color:#fff;
+}
+
+
+.touch .carousel-cell {
+    width: 80%;
+    margin: 40px 10%;
+    overflow: hidden;
+    height: 60vh;
+  }
+.touch .carousel-cell img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 60vh;
+    width: auto;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+.touch  .parallax__layer__cell--bg span {
+    font-size: 30vh;
+  }
+.touch  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+ }
+
+
+@media (min-width:1549px) {
+  .parallax__layer__cell--bg span {
+    font-size: 17.5em;
+  }
+}</style></head><body>
+<div class="slider_cont">
+   <div class="parallax_slider">
+      <!-- Parallax layer -->
+      <div class="parallax__layer parallax__layer--bg">
+        <div class="parallax__layer__cell parallax__layer__cell--bg">
+          <span>Latest works Desgin and Development Latest works</span></div>
+      </div>
+
+      <!-- Main layer -->
+      <div class="carousel" data-flickity>
+        <div class="carousel-cell">
+          <div class="overlay"></div>
+          <img class="" src="http://artskidesign.com/archive/wp-content/uploads/2016/12/va_store_ft1.jpg" alt="VA Store - ecommerce" />
+          <div class="title_cont">
+            <span class="case_title">VA</span>
+            <div class="subtitle_cont">
+              <span class="subtitle">e-commerce wordpress</span>
+              <span class="subtitle">See project</span>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <div class="overlay"></div>
+          <img class="" src="http://artskidesign.com/archive/wp-content/uploads/2016/12/qr_explore2_ft.jpg" alt="QR Explore - travel blog" />
+          <div class="title_cont">
+            <span class="case_title">VA</span>
+            <div class="subtitle_cont">
+              <span class="subtitle">e-commerce wordpress</span>
+              <span class="subtitle">See project</span>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <div class="overlay"></div>
+          <img class="" src="http://artskidesign.com/archive/wp-content/uploads/2016/12/vinnie_store_ft.jpg" alt="Vinnie Store - ecommerce" />
+          <div class="title_cont">
+            <span class="case_title">VA</span>
+            <div class="subtitle_cont">
+              <span class="subtitle">e-commerce wordpress</span>
+              <span class="subtitle">See project</span>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <div class="overlay"></div>
+          <img class="" src="http://artskidesign.com/archive/wp-content/uploads/2016/12/rolex_ft.jpg" />
+          <div class="title_cont">
+            <span class="case_title">VA</span>
+            <div class="subtitle_cont">
+              <span class="subtitle">e-commerce wordpress</span>
+              <span class="subtitle">See project</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="slider_status"></div>
+    </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js'></script><script src="https://artskidesign.com/wp-content/themes/artskidesign/js/greensock/easing/CustomEase.min.js"></script><script src='https://npmcdn.com/flickity@2/dist/flickity.pkgd.js'></script>
+<script >Flickity.createMethods.push('_createPrevNextCells');
+
+Flickity.prototype._createPrevNextCells = function() {
+  this.on('select', this.setPrevNextCells);
+};
+
+Flickity.prototype.setPrevNextCells = function() {
+  // remove classes
+  changeSlideClasses(this.previousSlide, 'remove', 'is-previous');
+  changeSlideClasses(this.nextSlide, 'remove', 'is-next');
+  // set slides
+  this.previousSlide = this.slides[this.selectedIndex - 1];
+  this.nextSlide = this.slides[this.selectedIndex + 1];
+  // add classes
+  changeSlideClasses(this.previousSlide, 'add', 'is-previous');
+  changeSlideClasses(this.nextSlide, 'add', 'is-next');
+};
+
+function changeSlideClasses(slide, method, className) {
+  if (!slide) {
+    return;
+  }
+  slide.getCellElements().forEach(function(cellElem) {
+    cellElem.classList[method](className);
+  });
+}
+
+// external js: flickity.pkgd.js
+
+var $carousel = $('.carousel').flickity({
+  arrowShape: {
+    x0: 15,
+    x1: 45,
+    y1: 30,
+    x2: 50,
+    y2: 25,
+    x3: 25
+  },
+  imagesLoaded: true,
+  selectedAttraction: 0.09,
+  friction: 0.8
+});
+var $parallaxLayer = $('.parallax__layer--bg');
+
+var cellRatio = 0.6; // outerWidth of cell / width of carousel
+var bgRatio = 0.8; // width of background layer / width of carousel
+var fgRatio = 0.75; // width of foreground layer / width of carousel
+
+var flkty = $carousel.data('flickity');
+var count = flkty.slides.length - 1;
+
+$carousel.on('scroll.flickity', function(event, progress) {
+  moveParallaxLayer($parallaxLayer, fgRatio, progress);
+});
+// trigger initial scroll
+$carousel.flickity('reposition');
+
+function moveParallaxLayer($layer, layerRatio, progress) {
+  var ratio = cellRatio * layerRatio;
+  $layer.css({
+    left: (0.5 - (0.5 + progress * count) * ratio) * 100 + '%'
+  });
+}
+
+var $carouselStatus = $('.slider_status');
+var flkty = $carousel.data('flickity');
+
+function updateStatus() {
+  var cellNumber = flkty.selectedIndex + 1;
+  $carouselStatus.html('<span class="cell_number">' + '0' + cellNumber + '</span>' + '<span class="status_line"></span>' + '<span class="dash_line">-----</span>' + '0' + flkty.slides.length);
+}
+updateStatus();
+$carousel.on('select.flickity', updateStatus);
+
+
+
+//  Title  details
+$(".title_cont").hover(
+  function() {
+    TweenLite.to($(this).find(".subtitle"), 0.4, { y:-20, ease:Power2.easeOut});
+  },
+  function() {
+    TweenLite.to($(this).find(".subtitle"), 0.3, { y:0,ease:Power3.easeOut});  
+  }
+);
+
+
+
+
+//# sourceURL=pen.js
+</script>
+</body></html>

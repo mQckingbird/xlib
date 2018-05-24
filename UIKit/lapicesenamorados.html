@@ -1,0 +1,309 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/judag/pen/EbOMwd" />
+
+
+<style class="cp-pen-styles">body{
+  background:black;
+}
+.container{
+  position:relative;
+  width:400px;
+  height:300px;
+  background:#eaeaea;
+  margin:121px auto;
+  overflow:hidden;
+  }
+.pen1, .pen2{
+  position:absolute;
+  width:40px;
+  height:90px;
+  border-radius:30px 30px 0 0;
+  border:5px solid black;
+  }
+.pen1{
+  margin:90px -90px;
+  -webkit-transform:rotate(12deg);
+          transform:rotate(12deg);
+  -webkit-animation:go 7s linear infinite;
+          animation:go 7s linear infinite;
+}
+.pen2{
+  margin:90px 430px;
+  -webkit-transform:rotate(-12deg);
+          transform:rotate(-12deg);
+  -webkit-animation:go3 7s linear infinite;
+          animation:go3 7s linear infinite;
+}
+.pen1::before, .pen2::before{
+  content:"";
+  position:absolute;
+  width:30px;
+  height:90px;
+  border-radius:30px 30px 0 0;
+  margin:0px 2px
+}
+.pen1::before{
+  background:#ea4da3;
+  border-right:9px solid #d0378c;
+}
+.pen2::before{
+  background:#39aee5;
+  border-right:9px solid #1ba0e2;
+}
+.pen1::after,.pen2::after{
+  content:"";
+  position:absolute;
+  width:30px;
+  height:21px;
+  border-radius:25px 25px 0 0;
+  margin:0px 2px
+}
+.pen1::after{
+  background:#dd4998;
+  border-right:9px solid #d0378c;
+}
+.pen2::after{
+  background:#3a98e0;
+  border-right:9px solid #1ba0e2;
+}
+.l1,.l2{
+  position:absolute;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 35px solid black;
+  margin:96px -4px
+}
+.l1::before,.l2::before{
+  content:"";
+  position:absolute;
+  width: 0;
+  height: 0;
+  border-left: 21px solid transparent;
+  border-right: 21px solid transparent;
+  border-top: 30px solid #f9d5ae;
+  margin:-36px -21px
+}
+.l1::after,.l2::after{
+  content:"";
+  position:absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  margin:-16px -8px
+}
+.l1::after{
+  border-top: 12px solid #ea4da3;
+}
+.l2::after{
+  border-top: 12px solid #39aee5;
+}
+.ojos,.ojos3{
+  position:absolute;
+  width:12px;
+  height:12px;
+  border-radius:100%;
+  background:black;
+  -webkit-animation:cerrar .9s alternate infinite;
+          animation:cerrar .9s alternate infinite;
+}
+.ojos{margin:50px 5px}
+.ojos3{margin:50px 25px}
+.ojos::before,.ojos3::before{
+  content:"";
+  position:absolute;
+  width:3px;
+  height:3px;
+  border-radius:100%;
+  background:white;
+  margin:3px 3px;
+}
+.boca{
+  position:absolute;
+  width:5px;
+  height:2px;
+  border-radius:0 0 12px 12px;
+  border:3px solid black;
+  margin:65px 16px
+}
+.arc,.arc3{
+  position:absolute;
+  width:12px;
+  height:17px;
+  border-radius:100%;
+  z-index:333;
+}
+.arc{border-left:3px solid white;
+  margin:5px 8px;
+  -webkit-transform:rotate(33deg);
+          transform:rotate(33deg);}
+.arc3{border-right:3px solid white;
+  margin:5px 21px;
+  -webkit-transform:rotate(-33deg);
+          transform:rotate(-33deg);}
+.c1,.c2{
+  position:absolute;
+  width:21px;
+  height:30px;
+  border-radius:100%;
+  background:#960142;
+  -webkit-transform:rotate(-30deg);
+          transform:rotate(-30deg);
+  opacity:0;
+  -webkit-animation:late 7s linear infinite;
+          animation:late 7s linear infinite; 
+}
+.c1{
+  margin:60px 165px;
+  -webkit-transform:rotate(-70deg) scale(.8);
+          transform:rotate(-70deg) scale(.8);
+  background:#960142;
+}
+.c2{
+  margin:50px 195px;
+  -webkit-transform:rotate(12deg);
+          transform:rotate(12deg);
+  background:#12609b;
+}
+.c1::before,.c2::before{
+  content:"";
+  position:absolute;
+  width:21px;
+  height:30px;
+  border-radius:100%;
+  -webkit-transform:rotate(60deg);
+          transform:rotate(60deg);
+  margin:5px 7px;
+}
+.c1:before{background:#960142;}
+.c2::before{background:#12609b;}
+
+.lin1,.lin2{
+  position:absolute;
+  width:155px;
+  height:5px;
+  border-radius:3px;
+  }
+.lin1{
+  background:#ea4da3;
+  margin:221px -152px;
+  -webkit-animation:go7 7s linear infinite;
+          animation:go7 7s linear infinite;
+}
+.lin2{
+  background:#39aee5;
+  margin:221px 400px;
+  -webkit-animation:go9 7s linear infinite;
+          animation:go9 7s linear infinite;
+}
+@-webkit-keyframes go{
+  0%,30%{margin:90px -90px;}
+  40%,50%{margin:90px 142px;}
+  60%,70%{margin:90px 142px;}
+  80%,90%{margin:90px 142px;}
+  100%{margin:90px -90px;}
+}
+@keyframes go{
+  0%,30%{margin:90px -90px;}
+  40%,50%{margin:90px 142px;}
+  60%,70%{margin:90px 142px;}
+  80%,90%{margin:90px 142px;}
+  100%{margin:90px -90px;}
+}
+
+@-webkit-keyframes  go3 {
+  0%,30%{margin:90px 430px;}
+  40%,50%{margin:90px 201px;}
+  60%,70%{margin:90px 201px;}
+  80%, 90%{margin:90px 201px;}
+  100%{margin:90px 430px;}
+}
+
+@keyframes  go3 {
+  0%,30%{margin:90px 430px;}
+  40%,50%{margin:90px 201px;}
+  60%,70%{margin:90px 201px;}
+  80%, 90%{margin:90px 201px;}
+  100%{margin:90px 430px;}
+}
+
+@-webkit-keyframes late{
+  0%,30%{opacity:0;}
+  40%,50%{opacity:1;}
+  60%,70%{opacity:0;}
+  80%,90%{opacity:1;}
+  100%{opacity:0;}
+}
+
+@keyframes late{
+  0%,30%{opacity:0;}
+  40%,50%{opacity:1;}
+  60%,70%{opacity:0;}
+  80%,90%{opacity:1;}
+  100%{opacity:0;}
+}
+
+@-webkit-keyframes cerrar {
+  0%,25%{opacity:1}
+  35%{opacity: 0}
+  50%{opacity:1;}
+  100%{opacity:1}
+}
+
+@keyframes cerrar {
+  0%,25%{opacity:1}
+  35%{opacity: 0}
+  50%{opacity:1;}
+  100%{opacity:1}
+}
+
+@-webkit-keyframes go7{
+  0%,30%{-webkit-transform:translateX(-2px);transform:translateX(-2px)}
+  40%,50%{-webkit-transform:translateX(150px);transform:translateX(150px)}
+  60%,70%{-webkit-transform:translateX(150px);transform:translateX(150px)}
+  80%,90%{-webkit-transform:translateX(150px);transform:translateX(150px)}
+  100%{-webkit-transform:translateX(0px);transform:translateX(0px)}
+}
+
+@keyframes go7{
+  0%,30%{-webkit-transform:translateX(-2px);transform:translateX(-2px)}
+  40%,50%{-webkit-transform:translateX(150px);transform:translateX(150px)}
+  60%,70%{-webkit-transform:translateX(150px);transform:translateX(150px)}
+  80%,90%{-webkit-transform:translateX(150px);transform:translateX(150px)}
+  100%{-webkit-transform:translateX(0px);transform:translateX(0px)}
+}
+
+@-webkit-keyframes go9{
+  0%,30%{-webkit-transform:translateX(0px);transform:translateX(0px)}
+  40%,50%{-webkit-transform:translateX(-155px);transform:translateX(-155px)}
+  60%,70%{-webkit-transform:translateX(-155px);transform:translateX(-155px)}
+  80%,90%{-webkit-transform:translateX(-155px);transform:translateX(-155px)}
+  100%{-webkit-transform:translateX(0px);transform:translateX(0px)}
+}
+
+@keyframes go9{
+  0%,30%{-webkit-transform:translateX(0px);transform:translateX(0px)}
+  40%,50%{-webkit-transform:translateX(-155px);transform:translateX(-155px)}
+  60%,70%{-webkit-transform:translateX(-155px);transform:translateX(-155px)}
+  80%,90%{-webkit-transform:translateX(-155px);transform:translateX(-155px)}
+  100%{-webkit-transform:translateX(0px);transform:translateX(0px)}
+}</style></head><body>
+<div class="container">
+  <div class="pens">
+    <div class="pen1"><div class="l1"></div><div class="ojos"></div><div class="ojos3"></div><div class="boca"></div><div class="arc"></div></div>
+     <div class="pen2"><div class="l2"></div><div class="ojos"></div><div class="ojos3"></div><div class="boca"></div><div class="arc3"></div></div>
+  </div>
+  <div class="cora">
+    <div class="c1"></div>
+    <div class="c2"></div>
+  </div>
+  <div class="lines">
+    <div class="lin1"></div>
+    <div class="lin2"></div>
+  </div>
+</div>
+
+</body></html>

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/sarakuhlman/pen/xEvWOK?depth=everything&order=popularity&page=25&q=promotion&show_forks=false" />
+
+
+<style class="cp-pen-styles">html, body {
+  background: #000;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.link-wrapper {
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+}
+a
+{
+ color:#fff;
+  font-size:20px;
+  text-transform:uppercase;
+}
+
+}
+rect {
+  fill: url(#grad1);
+}
+
+#stop1 {
+  animation: change-color1 2s ease-in-out infinite alternate;
+}
+#stop2 {
+  animation: change-color2 2s ease-in-out infinite alternate;
+}
+@keyframes change-color1 {
+  0% {stop-color: #066e86;}
+  100% {stop-color: #00495a;}
+}
+@keyframes change-color2 {
+  0% {stop-color: #4db8d1;}
+  100% {stop-color: #066e86;}
+}
+</style></head><body>
+<div class="link-wrapper">
+  <svg height="80" width="300">
+  <defs>
+    <linearGradient id="grad1" gradientUnits="userSpaceOnUse">
+      <stop id="stop1" offset="0%"/>
+      <stop id="stop2" offset="100%"/>
+    </linearGradient>
+  </defs>
+    <a xlink:href="https://www.nytimes.com" target="_blank"><text x="0" y="15" fill="white">View Promotion</text></a>
+<rect width="200" height="8" y="25" style="fill:url(#grad1);">
+  Sorry, your browser does not support inline SVG.
+  </svg></div>
+
+</body></html>

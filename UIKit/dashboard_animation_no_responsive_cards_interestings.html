@@ -1,0 +1,569 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/ShaeSco/pen/MJrQyL?depth=everything&order=popularity&page=6&q=settings&show_forks=false" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<style class="cp-pen-styles">* {
+  box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #383544;
+  font-family: 'Montserrat', 'Helvetica', Arial, sans-serif;
+}
+
+.settings-form {
+  position: relative;
+  z-index: 1;
+  width: 60%;
+  margin: 20vh auto 0;
+  -webkit-transform: translateY(40px);
+          transform: translateY(40px);
+  opacity: 0;
+  -webkit-transition: opacity .1s ease-out 0s, -webkit-transform .3s ease-out 0s;
+  transition: opacity .1s ease-out 0s, -webkit-transform .3s ease-out 0s;
+  transition: opacity .1s ease-out 0s, transform .3s ease-out 0s;
+  transition: opacity .1s ease-out 0s, transform .3s ease-out 0s, -webkit-transform .3s ease-out 0s;
+}
+.settings-form .form-group {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.settings-form .form-group input {
+  padding: 20px;
+  border-radius: 60px;
+  border: 0;
+  width: 70%;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #383544;
+}
+.settings-form .form-group input:focus {
+  outline: none;
+  box-shadow: 0 0 4px 2px rgba(56, 53, 68, 0.6);
+}
+.settings-form .form-group label {
+  font-weight: bold;
+  color: white;
+  font-size: 1.3em;
+}
+.settings-form .form-group button {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 60px;
+  border: 0;
+  width: 47%;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  background: -webkit-linear-gradient(top left, #FFB046, #FF8A49);
+  background: linear-gradient(to bottom right, #FFB046, #FF8A49);
+  cursor: pointer;
+}
+.settings-form .form-group button:hover {
+  background: -webkit-linear-gradient(bottom right, #FFB046, #FF8A49);
+  background: linear-gradient(to top left, #FFB046, #FF8A49);
+}
+.settings-form .form-group button.cancel {
+  background: #3E3C51;
+  color: #9E9EA8;
+}
+.settings-form .form-group button.cancel:hover {
+  background: #333142;
+}
+
+.settings-pop {
+  padding: 4rem calc(50% - 500px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #383544;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity .6s ease-out, visibility 0s linear 0.6s;
+  transition: opacity .6s ease-out, visibility 0s linear 0.6s;
+}
+.settings-pop h3 {
+  color: white;
+  margin: 0;
+  margin-left: 51px;
+  text-align: center;
+  font-size: 3em;
+  opacity: 0;
+  -webkit-transform: translateY(-40px);
+          transform: translateY(-40px);
+  -webkit-transition: opacity .5s ease-out 0s, -webkit-transform .5s ease-out 0s;
+  transition: opacity .5s ease-out 0s, -webkit-transform .5s ease-out 0s;
+  transition: opacity .5s ease-out 0s, transform .5s ease-out 0s;
+  transition: opacity .5s ease-out 0s, transform .5s ease-out 0s, -webkit-transform .5s ease-out 0s;
+}
+.settings-pop .cog {
+  position: fixed;
+  top: 4rem;
+  left: 50%;
+  min-width: 1800px;
+  width: 120%;
+  -webkit-transform: translateY(100%) translateX(-50%) rotate(0);
+          transform: translateY(100%) translateX(-50%) rotate(0);
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  z-index: 0;
+}
+.settings-pop .fa-times {
+  float: right;
+  font-size: 40px;
+  position: relative;
+  color: #74717C;
+  cursor: pointer;
+  z-index: 2;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  margin-right: 20px;
+}
+.settings-pop .fa-times:hover {
+  color: white;
+}
+.settings-pop.active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.6s ease-out, visibility 0s linear;
+  transition: opacity 0.6s ease-out, visibility 0s linear;
+}
+.settings-pop.active h3 {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: opacity .3s ease-out 0.5s, -webkit-transform .3s ease-out 0.5s;
+  transition: opacity .3s ease-out 0.5s, -webkit-transform .3s ease-out 0.5s;
+  transition: opacity .3s ease-out 0.5s, transform .3s ease-out 0.5s;
+  transition: opacity .3s ease-out 0.5s, transform .3s ease-out 0.5s, -webkit-transform .3s ease-out 0.5s;
+}
+.settings-pop.active .cog {
+  -webkit-transform: translateY(0) translateX(-50%) rotate(360deg);
+          transform: translateY(0) translateX(-50%) rotate(360deg);
+  -webkit-transition: -webkit-transform .6s;
+  transition: -webkit-transform .6s;
+  transition: transform .6s;
+  transition: transform .6s, -webkit-transform .6s;
+}
+.settings-pop.active .settings-form {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: opacity .3s ease-out 0.5s, -webkit-transform .3s ease-out 0.5s;
+  transition: opacity .3s ease-out 0.5s, -webkit-transform .3s ease-out 0.5s;
+  transition: opacity .3s ease-out 0.5s, transform .3s ease-out 0.5s;
+  transition: opacity .3s ease-out 0.5s, transform .3s ease-out 0.5s, -webkit-transform .3s ease-out 0.5s;
+}
+
+.flex-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+p {
+  margin: 0;
+}
+
+.author {
+  color: white;
+  text-align: center;
+}
+.author a {
+  color: #383544;
+  display: block;
+  text-decoration: none;
+}
+.author a:hover {
+  color: white;
+}
+
+aside {
+  background: -webkit-linear-gradient(top, rgba(127, 198, 255, 0.9), rgba(107, 91, 158, 0.7));
+  background: linear-gradient(to bottom, rgba(127, 198, 255, 0.9), rgba(107, 91, 158, 0.7));
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+aside .fa {
+  text-align: center;
+  display: block;
+  padding: 25px;
+  margin: 50px;
+  font-size: 28px;
+  border-radius: 50%;
+  -webkit-transition: color 0.3s, background 0.3s;
+  transition: color 0.3s, background 0.3s;
+}
+aside .fa.active {
+  background: #383544;
+  color: white;
+}
+aside .fa:hover {
+  background: #383544;
+  color: white;
+  cursor: pointer;
+}
+aside.active {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+main {
+  width: 100%;
+  padding: 1rem calc(50% - 500px);
+}
+main header {
+  width: calc(100% - 2rem);
+  margin: 3rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2rem;
+}
+main header h2 {
+  margin: 0;
+}
+main header h2 span {
+  color: #74717C;
+  font-weight: normal;
+}
+main header .cog {
+  width: 40px;
+  cursor: pointer;
+}
+main header .cog:hover #Artboard {
+  fill: white;
+}
+main header .cog #Artboard {
+  -webkit-transition: fill 0.2s;
+  transition: fill 0.2s;
+}
+main section {
+  background: white;
+  margin: 2rem 1rem;
+  border-radius: 5px;
+}
+main section.full-width {
+  width: calc(100% - 2rem);
+  height: 350px;
+  position: relative;
+  color: white;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+main section.full-width:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+main section.full-width .month {
+  position: absolute;
+  background: white;
+  width: 2px;
+  height: 8px;
+  bottom: 0;
+}
+main section.full-width .month span {
+  position: relative;
+  top: -30px;
+  left: -12px;
+  font-size: 12px;
+}
+main section.full-width .month.m-1 {
+  left: calc((100% / 13) * 1);
+}
+main section.full-width .month.m-2 {
+  left: calc((100% / 13) * 2);
+}
+main section.full-width .month.m-3 {
+  left: calc((100% / 13) * 3);
+}
+main section.full-width .month.m-4 {
+  left: calc((100% / 13) * 4);
+}
+main section.full-width .month.m-5 {
+  left: calc((100% / 13) * 5);
+}
+main section.full-width .month.m-6 {
+  left: calc((100% / 13) * 6);
+}
+main section.full-width .month.m-7 {
+  left: calc((100% / 13) * 7);
+}
+main section.full-width .month.m-8 {
+  left: calc((100% / 13) * 8);
+}
+main section.full-width .month.m-9 {
+  left: calc((100% / 13) * 9);
+}
+main section.full-width .month.m-10 {
+  left: calc((100% / 13) * 10);
+}
+main section.full-width .month.m-11 {
+  left: calc((100% / 13) * 11);
+}
+main section.full-width .month.m-12 {
+  left: calc((100% / 13) * 12);
+}
+main section.half-width {
+  width: calc(50% - 2rem);
+  text-align: center;
+}
+main section.data-card {
+  position: relative;
+  padding: 2em;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+main section.data-card h4 {
+  font-weight: normal;
+  color: #FFAE45;
+  font-size: 1.7em;
+  margin: 0;
+}
+main section.data-card .h1 {
+  font-size: 4.5em;
+  margin: 0 0 0.5em;
+  color: #383544;
+}
+main section.data-card ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+main section.data-card ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0.5em 0;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+main section.data-card ul li .list-property,
+main section.data-card ul li .list-seperator {
+  color: #BBB8C4;
+}
+main section.data-card ul li .list-value {
+  color: #383544;
+  font-size: 1.1em;
+}
+main section.data-card:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+main section.data-card:hover:after {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+main section.data-card:after {
+  content: "";
+  border-radius: 5px;
+  position: absolute;
+  top: 30px;
+  left: -8px;
+  right: -8px;
+  bottom: 10px;
+  z-index: -1;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+}
+
+body {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom -10px, center center, center center;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1920 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\a  <defs> <linearGradient x1="15.1109718%" y1="54.6823025%" x2="95.9875796%" y2="54.6823025%" id="linearGradient-1"> <stop stop-color="rgb(127, 198, 255)" stop-opacity="0.3" offset="0%"></stop> <stop stop-color="rgb(107, 91, 158)" stop-opacity="0.2" offset="100%"></stop> </linearGradient> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Artboard" transform="translate(0.000000, -683.000000)" fill="url(#linearGradient-1)"> <path d="M-2.7000624e-13,886.08326 C-274.203125,396.609375 452.664062,943.179688 697.0625,948.3125 C941.460938,953.445313 1214.69531,783.867188 1434.28125,783.867188 C1653.86719,783.867188 1815.01563,825.710937 1920,922.226562 C1920,1041.14844 1920,1080 1920,1080 L-2.7000624e-13,1080 C-2.7000624e-13,1080 -2.7000624e-13,1080 -2.7000624e-13,886.08326 Z" id="Path"></path> </g> </g> </svg>'), url('data: image/svg+xml;\a   utf8,\a   <svg viewBox="0 0 1920 277" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-opacity="0.1"> <g id="Artboard" transform="translate(0.000000, -414.000000)" stroke="rgb(255, 255, 255)" stroke-width="6"> <path d="M-83.296875,489.3125 C-83.296875,489.3125 130.078125,351.65625 373.625,457.4375 C617.171875,563.21875 1011.90625,762.55961 1374.76562,657.4375 C1737.625,552.31539 1864.03125,517.640625 2072.46875,517.640625 C2280.90625,517.640625 2354.1875,548.125 2354.1875,548.125" id="Path-2"></path> </g> </g> </svg>'), url('data: image/svg+xml;\a   utf8,\a   <svg viewBox="0 0 1920 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-opacity="0.1"> <g id="Artboard" transform="translate(0.000000, -428.000000)" stroke="rgb(255, 255, 255)" stroke-width="6"> <path d="M-59.828125,634.953125 C-59.828125,634.953125 556.296875,340.230435 960,460.25 C1363.70312,580.269565 1753.67188,791.703125 2073.26562,592.34375" id="Path-3"></path> </g> </g> </svg>');
+}
+
+.data-graph {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1600 749" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\a  <defs> <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1"> <stop stop-color="rgb(169, 169, 169)" stop-opacity="0.1" offset="0%"></stop> <stop stop-color="rgb(169, 169, 169)" stop-opacity="0.05" offset="100%"></stop> </linearGradient> <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2"> <stop stop-color="rgb(127, 198, 255)" stop-opacity="0.9" offset="0%"></stop> <stop stop-color="rgb(107, 91, 158)" stop-opacity="0.7" offset="100%"></stop> </linearGradient> <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3"> <stop stop-color="rgb(241, 202, 105)" stop-opacity="0.9" offset="0%"></stop> <stop stop-color="rgb(244, 237, 178)" stop-opacity="0.2" offset="100%"></stop> </linearGradient> <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4"> <stop stop-color="rgb(240, 157, 117)" stop-opacity="0.8" offset="0%"></stop> <stop stop-color="rgb(229, 94, 157)" stop-opacity="0.6" offset="100%"></stop> </linearGradient> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Artboard" transform="translate(0.000000, -11.000000)"> <g id="graphback" transform="translate(-156.000000, -43.000000)"> <path d="M141.400299,482.202915 C141.400299,482.202915 294.477578,54.46875 561.3125,54.46875 C828.147422,54.46875 881.065727,450.721429 1181.13437,450.721429 C1481.20301,450.721429 1818.84274,0.734375 1818.84274,0.734375 L1818.84274,958.029082 L141.400299,986.732106 L141.400299,482.202915 Z" id="grey" fill="url(#linearGradient-1)"></path> <path d="M41.9317004,168.75984 C189.460121,56.6215743 361.431257,720.278754 641.673625,704.933273 C921.915994,689.587792 1048.81578,257.635751 1322.06954,257.635751 C1595.32329,257.635751 1819.08694,648.340999 1819.08694,648.340999 L1653.0695,1090.60474 L189.460121,983.732762 C189.460121,983.732762 -105.59672,280.898105 41.9317004,168.75984 Z" id="blue" fill="url(#linearGradient-2)"></path> <path d="M79.7120927,455.499453 C79.7120927,455.499453 392.65328,348.499599 684.349538,413.194752 C976.045796,477.889905 1339.48875,827.011224 1666.01181,534.819315 C1992.53487,242.627405 1992.49998,617.163631 1992.49998,617.163631 L1627.02207,888.174127 L53.5832711,864.470009 L79.7120927,455.499453 Z" id="yellow" fill="url(#linearGradient-3)"></path> <path d="M27.7578125,676.132812 C27.7578125,676.132812 425.817232,475.867092 648.080826,529.122886 C870.344421,582.378681 1263.81168,848.508383 1607.98652,744.39162 C1952.16136,640.274856 1992.49998,750.343806 1992.49998,750.343806 L1627.02207,1021.3543 L53.5832711,997.650184 L27.7578125,676.132812 Z" id="orange" fill="url(#linearGradient-4)"></path> </g> </g> </g> </svg>');
+}
+</style></head><body>
+<aside>
+  <i class="fa fa-area-chart active" aria-hidden="true"></i>
+  <i class="fa fa-camera" aria-hidden="true"></i>
+  <i class="fa fa-television" aria-hidden="true"></i>
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+  <div class="author">
+  <p>Inspired by <a target="_blank" href="https://dribbble.com/shots/3244721-Settings-DUI7">David Kovalev</a></p>
+</div>
+</aside>
+<main>
+  <header>
+    <h2>Dashboard <span>/ 23,092</span></h2>
+    <div class="cog" id="settings-open">
+      <svg viewBox="0 0 495 479" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Artboard" transform="translate(-3.000000, -11.000000)" fill="#74717C">
+                <path d="M10.7641308,188.75414 C5.69544572,208.491734 3,229.18109 3,250.5 C3,271.81891 5.69544572,292.508266 10.7641308,312.24586 C36.9662301,312.640281 62.3069247,326.406057 76.3619065,350.75 C90.4305948,375.117683 89.6665782,403.978747 76.871224,426.878348 C106.252659,455.804591 142.827837,477.445041 183.668708,488.871652 C197.069472,466.203254 221.759281,451 250,451 C278.33976,451 303.10366,466.310078 316.471884,489.110418 C357.361053,477.830267 394.007418,456.321427 423.485356,427.509512 C410.348752,404.510723 409.439839,375.342098 423.638093,350.75 C437.872201,326.095802 463.68152,312.291119 490.238067,312.237301 C495.305333,292.502285 498,271.815829 498,250.5 C498,229.184171 495.305333,208.497715 490.238067,188.762699 C463.68152,188.708881 437.872201,174.904198 423.638093,150.25 C409.439838,125.6579 410.348752,96.4892737 423.485356,73.4904882 C394.007421,44.6785762 357.36106,23.1697367 316.471884,11.8895817 C303.10366,34.6899219 278.33976,50 250,50 C221.759281,50 197.069472,34.7967455 183.66869,12.1283534 C142.827837,23.5549586 106.252659,45.1954095 76.871224,74.1216518 C89.6665782,97.0212527 90.4305948,125.882317 76.3619065,150.25 C62.3069247,174.593943 36.9662301,188.359719 10.7641409,188.75414 L10.7641308,188.75414 Z M251,351 C306.228475,351 351,306.228475 351,251 C351,195.771525 306.228475,151 251,151 C195.771525,151 151,195.771525 151,251 C151,306.228475 195.771525,351 251,351 L251,351 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </svg>
+    </div>
+  </header>
+  <div class="flex-row">
+    <section class="full-width data-graph">
+      <div class="month m-1"><span>Jan</span></div>
+      <div class="month m-2"><span>Feb</span></div>
+      <div class="month m-3"><span>Mar</span></div>
+      <div class="month m-4"><span>Apr</span></div>
+      <div class="month m-5"><span>May</span></div>   
+      <div class="month m-6"><span>Jun</span></div>
+      <div class="month m-7"><span>Jul</span></div>
+      <div class="month m-8"><span>Aug</span></div>
+      <div class="month m-9"><span>Sep</span></div>
+      <div class="month m-10"><span>Oct</span></div>
+      <div class="month m-11"><span>Nov</span></div>
+      <div class="month m-12"><span>Dec</span></div>
+    </section>
+  </div>
+  <div class="flex-row">
+    <section class="half-width data-card">
+      <h4>Visitors</h4>
+      <h3 class="h1">98k</h3>
+      <ul>
+        <li>
+          <span class="list-property">Male</span>
+          <span class="list-seperator">......</span>
+          <span class="list-value">3,092</span>
+        </li>
+        <li>
+          <span class="list-property">Female</span>
+          <span class="list-seperator">......</span>
+          <span class="list-value">12,432</span>
+        </li>
+        <li>
+          <span class="list-property">USA</span>
+          <span class="list-seperator">......</span>
+          <span class="list-value">83%</span>
+        </li>
+        <li>
+          <span class="list-property">Canada</span>
+          <span class="list-seperator">......</span>
+          <span class="list-value">9%</span>
+        </li>
+      </ul>
+    </section>
+    <section class="half-width data-card">
+      <h4>Stats</h4>
+      <h3 class="h1">Device</h3>
+      <ul>
+        <li>
+          <span class="list-property">Mobile</span>
+          <span class="list-seperator">......</span>
+          <span class="list-value">59%</span>
+        </li>
+        <li>
+          <span class="list-property">Desktop</span>
+          <span class="list-seperator">......</span>
+          <span class="list-value">32%</span>
+        </li>
+        <li>
+          <span class="list-property">Other</span>
+          <span class="list-seperator">......</span>
+          <span class="list-value">2%</span>
+        </li>
+      </ul>
+    </section>
+  </div>
+</main>
+<div class="settings-pop">
+  <i id="close-settings" class="fa fa-times"></i>
+  <h3>Settings</h3>
+  
+  <div class="settings-form">
+    <div class="form-group">
+      <label>Name</label>
+      <input value="Shae Scotten" type="text" />
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input value="shae@email.com" type="email" />
+    </div>
+    <div class="form-group">
+      <label>Locations</label>
+      <input value="Vancouver" type="text" />
+    </div>
+    <div class="form-group">
+      <button class="cancel">Cancel</button>
+      <button>Submit</button>
+    </div>
+  </div>
+  
+  <div class="cog">
+      <svg viewBox="0 0 495 479" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-blue">
+            <stop stop-color="rgb(127, 198, 255)" offset="0%"></stop>
+            <stop stop-color="rgb(107, 91, 158)" offset="50%"></stop>
+          </linearGradient>
+        </defs>
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Artboard" transform="translate(-3.000000, -11.000000)"  fill="url(#linearGradient-blue)">
+                <path d="M10.7641308,188.75414 C5.69544572,208.491734 3,229.18109 3,250.5 C3,271.81891 5.69544572,292.508266 10.7641308,312.24586 C36.9662301,312.640281 62.3069247,326.406057 76.3619065,350.75 C90.4305948,375.117683 89.6665782,403.978747 76.871224,426.878348 C106.252659,455.804591 142.827837,477.445041 183.668708,488.871652 C197.069472,466.203254 221.759281,451 250,451 C278.33976,451 303.10366,466.310078 316.471884,489.110418 C357.361053,477.830267 394.007418,456.321427 423.485356,427.509512 C410.348752,404.510723 409.439839,375.342098 423.638093,350.75 C437.872201,326.095802 463.68152,312.291119 490.238067,312.237301 C495.305333,292.502285 498,271.815829 498,250.5 C498,229.184171 495.305333,208.497715 490.238067,188.762699 C463.68152,188.708881 437.872201,174.904198 423.638093,150.25 C409.439838,125.6579 410.348752,96.4892737 423.485356,73.4904882 C394.007421,44.6785762 357.36106,23.1697367 316.471884,11.8895817 C303.10366,34.6899219 278.33976,50 250,50 C221.759281,50 197.069472,34.7967455 183.66869,12.1283534 C142.827837,23.5549586 106.252659,45.1954095 76.871224,74.1216518 C89.6665782,97.0212527 90.4305948,125.882317 76.3619065,150.25 C62.3069247,174.593943 36.9662301,188.359719 10.7641409,188.75414 L10.7641308,188.75414 Z M251,351 C306.228475,351 351,,195.771525 306.228475,151 251,151 C195.771525,151 151,195.771525 151,251 C151,306.228475 195.771525,351 251,351 L251,351 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </svg>
+    </div>
+</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script >$(document).ready(function() {
+  
+  $('#settings-open').click(function() {
+    $('.settings-pop').addClass('active');
+    $('aside').addClass('active');
+  });
+  
+  $('#close-settings').click(function() {
+    $('.settings-pop').removeClass('active');
+    $('aside').removeClass('active');
+  });
+  
+  $('.form-group button').click(function() {
+    $('.settings-pop').removeClass('active');
+    $('aside').removeClass('active');
+  });
+  
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

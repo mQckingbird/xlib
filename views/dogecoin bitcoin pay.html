@@ -1,0 +1,151 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/yadomi/pen/EGiKD?depth=everything&order=popularity&page=9&q=pay&show_forks=false" />
+
+
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Montserrat);
+.btn-dogecoin {
+  font-size: 14px;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: 'Montserrat';
+  width: 160px;
+  height: 45px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #f8e9c0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4ca5d), to(#f4b840));
+  background-image: linear-gradient(#f4ca5d, #f4b840);
+  color: #333;
+  text-transform: uppercase;
+  -webkit-transition: width .35s ease;
+  transition: width .35s ease;
+}
+.btn-dogecoin span {
+  display: block;
+}
+.btn-dogecoin .currency {
+  font-size: 1.1em;
+}
+.btn-dogecoin .currency:before {
+  content: 'Pay with';
+  font-size: .65em;
+  display: block;
+}
+.btn-dogecoin .symbol {
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  font-size: 2.3em;
+  border: 2px solid #333;
+  border-radius: 360px;
+  padding: 4px;
+  width: 33px;
+  height: 33px;
+  text-align: center;
+  line-height: 1em;
+  margin-right: 5px;
+}
+.btn-dogecoin p {
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  padding: 0;
+  margin: 0;
+}
+.btn-dogecoin .symbol,
+.btn-dogecoin p {
+  display: inline-block;
+  white-space: nowrap;
+}
+.btn-dogecoin:hover p {
+  -webkit-transform: translateX(120px);
+          transform: translateX(120px);
+}
+.btn-dogecoin:hover .symbol {
+  -webkit-transform: translateX(60px);
+          transform: translateX(60px);
+}
+.btn-dogecoin.opened {
+  width: 390px;
+}
+.btn-dogecoin.opened:hover p {
+  -webkit-transform: inherit;
+          transform: inherit;
+  cursor: text;
+}
+.btn-dogecoin.opened:hover .symbol {
+  -webkit-transform: inherit;
+          transform: inherit;
+}
+.btn-dogecoin.opened .currency {
+  text-transform: initial;
+}
+.btn-dogecoin.opened .currency:before {
+  content: 'Thank you !';
+  text-transform: uppercase;
+}
+.btn-dogecoin.donate .currency:before {
+  content: 'Make a donation';
+  font-size: .65em;
+  display: block;
+}
+.btn-dogecoin.donate.opened .currency:before {
+  content: 'wow such generous !';
+}
+.btn-dogecoin.black {
+  color: #fbbc3a;
+  border-color: #323520;
+  background-image: none;
+  background-color: #272515;
+}
+.btn-dogecoin.black .symbol {
+  border-color: #fbbc3a;
+}
+.btn-dogecoin.black.opened:after {
+  background-color: #272515;
+  border-color: #323520;
+}
+p.wow {
+  text-align: center;
+  font-family: 'Comic Sans MS';
+}
+h1 {
+  font-family: 'Comic Sans MS';
+  font-weight: normal;
+  text-align: center;
+  color: #f43780;
+}
+h1:nth-child(1) {
+  color: #00aee6;
+}
+.btn-dogecoin {
+  margin: 80px auto;
+}
+</style></head><body>
+
+<h1>Dogecoin Button ! wow</h1>
+<div class="btn-dogecoin" data-address="DKVtwbh8YWrXtn5qz8DTB9ZamoYXneKn9F"></div>
+<div class="btn-dogecoin black donate" data-address="DKVtwbh8YWrXtn5qz8DTB9ZamoYXneKn9F"></div>
+<h1>much useful, such easy</h1>
+<p class="wow">This is my actual dogecoin address so you can donate if you want.</p>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script >$(function(){
+  var btn = '<div class="symbol">Ð </div><p><span class="currency">Dogecoin</span></p>';
+  $('.btn-dogecoin').each(function(){
+    $(this).append(btn);
+  });
+	$('.btn-dogecoin').click(function(event) {
+    	var that = this;
+    	$(this).addClass('opened');  
+    	$(this).children('p').children('.currency').text($(this).data('address'));	
+		$('html').one('click',function() {
+			$(that).removeClass('opened');
+			$(that).children('p').children('.currency').text('Dogecoin');	
+		});
+		event.stopPropagation();
+	});
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

@@ -1,0 +1,117 @@
+
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/evoactivity/pen/lktvh?depth=everything&order=popularity&page=12&q=icon&show_forks=false" />
+
+
+<style class="cp-pen-styles">.container {
+	padding:20px;
+  width:300px;
+  margin:0 auto;
+}
+
+html, body {
+	background:#39acff;
+}
+</style></head><body>
+<div class="container">
+
+		<svg id="paper" width="260" height="260">
+
+			<g id="icon" transform="matrix(0,0,0,0,0,0)">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="15%" y="15%" width="70%" height="70%" viewBox="0 0 187 190">
+					<g opacity="0.13">
+						<path id="shadow" d="M178 2.835H9c-4.971 0-9 4.029-9 9v169c0 5 4 9 9 9h169c4.971 0 9-4.029 9-9v-169C187 6.9 183 2.8 178 2.835z M17.5 146.835c-3.038 0-5.5-2.462-5.5-5.5s2.462-5.5 5.5-5.5s5.5 2.5 5.5 5.5S20.538 146.8 17.5 146.835z M17.5 63.835c-3.038 0-5.5-2.462-5.5-5.5s2.462-5.5 5.5-5.5s5.5 2.5 5.5 5.5S20.538 63.8 17.5 63.835z "/>
+					</g>
+
+					<g>
+						<path id="paper" fill="#FFFFFF" d="M178 0H9C4.029 0 0 4 0 9v169c0 5 4 9 9 9h169c4.971 0 9-4.029 9-9V9C187 4 183 0 178 0z M17.5 144c-3.038 0-5.5-2.462-5.5-5.5s2.462-5.5 5.5-5.5s5.5 2.5 5.5 5.5S20.538 144 17.5 144z M17.5 61c-3.038 0-5.5-2.462-5.5-5.5s2.462-5.5 5.5-5.5s5.5 2.5 5.5 5.5S20.538 61 17.5 61z "/>			
+					</g>
+
+					<g>
+						<path class="text" id="text-one" fill="#E4E4E3" d="M9 32H50v9h49V32z"/>
+						<path class="text" id="text-two" fill="#E4E4E3" d="M50 51v9h114v-9H50z"/>
+						<path class="text" id="text-three" fill="#E4E4E3" d="M140 70H50v9h90V70z"/>
+						<path class="text" id="text-four" fill="#E4E4E3" d="M143 108H50v9h93V108z"/>
+						<path class="text" id="text-five" fill="#E4E4E3" d="M50 136h103v-9H50V136z"/>
+						<path class="text" id="text-six" fill="#E4E4E3" d="M50 155h67v-9H50V155z"/>
+					</g>
+
+					<path id="red-line" fill="#EB9797" d="M35 0h2v187h-2V0z"/>
+				</svg>
+			</g>
+
+		</svg>
+
+	
+	</div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/snap.svg/0.2.0/snap.svg-min.js'></script>
+<script >var stage = Snap("#paper");
+var g = stage.select("#icon");
+
+g.attr({
+  transform: "scale(0,0,130,130)"
+});
+
+g.select("#red-line").attr({
+  transform: "scale(1,0)"
+});
+
+
+g.selectAll(".text").attr({
+  transform: "scale(0,1,50,0)"
+});
+
+
+g.animate({
+  transform: "scale(1,1)"
+}, 3000, mina.elastic);
+
+setTimeout(function(){
+
+  g.select("#red-line").animate({
+    transform: "scale(1,1)"
+  }, 2000, mina.bounce);
+
+
+  setTimeout(function(){
+    g.select("#text-one").animate({
+      transform: "scale(1,1,0,0)"
+    }, 3000, mina.elastic);
+  },200);
+
+
+  setTimeout(function(){
+    g.select("#text-two").animate({
+      transform: "scale(1,1,0,0)"
+    }, 3000, mina.elastic);
+  },500);
+
+
+  setTimeout(function(){
+    g.select("#text-three").animate({
+      transform: "scale(1,1,0,0)"
+    }, 3000, mina.elastic);
+  },800);
+
+  setTimeout(function(){
+    g.select("#text-four").animate({
+      transform: "scale(1,1,0,0)"
+    }, 3000, mina.elastic);
+  },1100);
+
+  setTimeout(function(){
+    g.select("#text-five").animate({
+      transform: "scale(1,1,0,0)"
+    }, 3000, mina.elastic);
+  },1400);
+
+  setTimeout(function(){
+    g.select("#text-six").animate({
+      transform: "scale(1,1,0,0)"
+    }, 3000, mina.elastic);
+  },1700);
+
+},200);
+//# sourceURL=pen.js
+</script>
+</body></html>
