@@ -414,9 +414,9 @@ $(document).ready(function(){
 //# sourceURL=svgmain.js
 </script>
 
-<section style="width: 100%; padding:0; padding-top: 65px;" class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+<section id="bigbooktop" style="width: 100%; padding:0; padding-top: 65px; display:none;" class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
 <div class="cfbook cfbook-main" style="margin-bottom: 5px;">
-  <div class="cfbook-cell"></div>
+  <div class="cfbook-cell"></div> 
   <div class="cfbook-cell"></div>
   <div class="cfbook-cell"></div>
   <div class="cfbook-cell"></div>
@@ -428,7 +428,7 @@ $(document).ready(function(){
   <div class="cfbook-cell"></div>
 </div>
 </section>
-<section style="width: 100%; padding:0;" class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+<section id="thumbbooktop" style="width: 100%; padding:0; display:none;" class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
 <div class="cfbook cfbook-nav">
   <div class="cfbook-cell"></div>
   <div class="cfbook-cell"></div>
@@ -1763,7 +1763,8 @@ console: [
   pageDots: false,
   contain: true
 }); 
-
+$('#thumbbooktop').fadeIn('slow');
+$('#bigbooktop').fadeIn('slow');
   }).catch(function(errs){
     console.log("aca");
     xlog(errs, 'error');
