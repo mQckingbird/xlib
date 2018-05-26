@@ -130,11 +130,11 @@ launch
 
 }
 
-var quantum = new PouchDB('https://mqserv/db/_users', {skip_setup: true});
-var dblee = new PouchDB('https://mqserv/db/libros', {skip_setup: true});
+var quantum = new PouchDB('https://mqserv.com/db/_users', {skip_setup: true});
+var dblee = new PouchDB('https://mqserv.com/db/libros', {skip_setup: true});
 
-var upublic = new PouchDB('https://mqserv/db/upublic', {skip_setup: true});
-var compraslee_remote = new PouchDB('https://mqserv/db/compras', {skip_setup: true});
+var upublic = new PouchDB('https://mqserv.com/db/upublic', {skip_setup: true});
+var compraslee_remote = new PouchDB('https://mqserv.com/db/compras', {skip_setup: true});
 var dbleelocal = new PouchDB('dblee');
 var compras = new PouchDB('compras');
 var opts = { live: true, retry: true, selector: {publish: {$eq: true}} };
@@ -145,7 +145,7 @@ function notifon(){
     .on('change', onSyncChange)
     .on('paused', onSyncPaused)
     .on('error', onSyncError);
-var notifications = new PouchDB('https://mqserv/db/notificaciones', {skip_setup: true, auto_compaction: true});
+var notifications = new PouchDB('https://mqserv.com/db/notificaciones', {skip_setup: true, auto_compaction: true});
 var notificaciones = new PouchDB('notificaciones', {skip_setup: true, auto_compaction: true});
 notificaciones.replicate.from(notifications).on('complete', function(info) {
 notificaciones.sync(notifications, {
@@ -1834,7 +1834,7 @@ function letsgoin(){
               NProgress.start();
               $.ajax({
                 type: 'GET',
-                url: 'https://mqserv:3471/dni/'+patr_dni,
+                url: 'https://mqserv.com:3471/dni/'+patr_dni,
                 dataType: 'json'
             }).done(function (response) {
              var exists = response;
@@ -2969,7 +2969,7 @@ $(document).ready(function(){
 /*
 
 	
-	socket = io.connect('https://mqserv:2210');
+	socket = io.connect('https://mqserv.com:2210');
 	var dataloop = {};
 	socket.on("displayMessage", function (data) {
 		var num = $(".message_box").children("p").length;
